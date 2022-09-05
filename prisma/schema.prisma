@@ -9,9 +9,32 @@ datasource db {
   referentialIntegrity = "prisma"
 }
 
-// test db
-model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+model Users {
+  id           Int     @id @default(autoincrement())
+  userId       String  @unique
+  imgaeUrl     String
+  name         String?
+  accessToken  String
+  refreshToken String
+  aboutMe      String
+  Games        Games[]
+}
+
+model Games {
+  id         Int    @id @default(autoincrement())
+  user       Users  @relation(fields: [userId], references: [userId])
+  userId     String
+  totalPoint Int
+  bestPoint  Int
+}
+
+model Site {
+  id         Int      @id @default(autoincrement())
+  date       DateTime @default(now())
+  totalVisit Int
+  todayVisit Int
+}
+
+model Inventories {
+  id Int @id @default(autoincrement())
 }
