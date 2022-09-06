@@ -1,4 +1,4 @@
-import { Flex } from '../../Flex/Flex';
+import { Flex } from '../../@commons/Flex/Flex';
 
 export const ModalProfile = ({ DUMMY }) => {
   const profileStyle = {
