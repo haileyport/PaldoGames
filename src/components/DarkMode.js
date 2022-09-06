@@ -1,14 +1,11 @@
-import styled from "styled-components";
-import { useTheme } from "next-themes";
+import styled from 'styled-components';
+import { useTheme } from 'next-themes';
 
 export default function DarkModeToggleButton() {
   const { theme, setTheme } = useTheme();
   return (
     <>
-      <DarkModeButton
-        type="button"
-        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      />
+      <DarkModeButton type='button' onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} />
     </>
   );
 }

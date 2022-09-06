@@ -1,7 +1,7 @@
-import Link from "next/link";
-import styled from "styled-components";
-import Image from "next/image";
-import Logo from "../public/logo.png";
+import Link from 'next/link';
+import styled from 'styled-components';
+import Image from 'next/image';
+import Logo from '../../public/logo.png';
 // import DarkModeToggleButton from "./dark-mode";
 
 export default function Header() {
@@ -9,25 +9,25 @@ export default function Header() {
     <>
       <Head>
         <NavLeft>
-          <Link href="/">
+          <Link href='/'>
             <Homelink>
               <LogoBox>
-                <Image src={Logo} alt="로고" width={25} height={22}></Image>
+                <Image src={Logo} alt='로고' width={25} height={22}></Image>
               </LogoBox>
               <Name>팔도게임즈</Name>
             </Homelink>
           </Link>
 
           <Nav>
-            <Link href="/">
+            <Link href='/'>
               <Nav_contents>홈</Nav_contents>
             </Link>
 
-            <Link href="/game">
+            <Link href='/game'>
               <Nav_contents>게임</Nav_contents>
             </Link>
 
-            <Link href="/profile">
+            <Link href='/profile'>
               <Nav_contents>프로필</Nav_contents>
             </Link>
           </Nav>

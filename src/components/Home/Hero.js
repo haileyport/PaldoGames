@@ -1,8 +1,8 @@
-import Animation from "./animation";
-import Link from "next/link";
-import styled from "styled-components";
+import Link from 'next/link';
+import styled from 'styled-components';
+import { Animation } from './Animation';
 
-export default function Hero() {
+export const Hero = () => {
   return (
     <>
       <Container>
@@ -12,7 +12,7 @@ export default function Hero() {
         </Title>
         <Mini_title>포인트를 얻어 랭킹에 들어봅시다!</Mini_title>
         <Go_to_Game>
-          <Link href="/game">
+          <Link href='/game'>
             <Btn>게임하러 가기</Btn>
           </Link>
         </Go_to_Game>
@@ -22,7 +22,7 @@ export default function Hero() {
       </Animation_box>
     </>
   );
-}
+};
 
 const Container = styled.div`
   display: flex;

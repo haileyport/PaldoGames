@@ -1,6 +1,6 @@
-import Header from "./header";
-import Footer from "./footer";
-import styled from "styled-components";
+import Header from './header';
+import Footer from './footer';
+import styled from 'styled-components';
 
 const Layout_box = styled.div`
   background-color: #1e293b;

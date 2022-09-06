@@ -1,7 +1,6 @@
-import Head from "next/head";
-import styled from "styled-components";
-import Hero from "../components/home/hero";
-import Layout from "../components/layout";
+import Head from 'next/head';
+import styled from 'styled-components';
+import { Hero, Layout } from '../src/components';
 
 export default function Home() {
   return (
@@ -9,7 +8,7 @@ export default function Home() {
       <Layout>
         <Head>
           <title>팔도게임즈!</title>
-          <meta name="description" content="오늘도 즐겜" />
+          <meta name='description' content='오늘도 즐겜' />
         </Head>
         <Section_Main>
           <Section_div>
@@ -28,8 +27,7 @@ const Section_Main = styled.section`
   align-items: center;
   justify-content: center;
   color: rgb(75 85 99);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 `;
 
 const Section_div = styled.div`
