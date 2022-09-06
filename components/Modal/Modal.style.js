@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledModal = styled.div`
-  width :100vh;
-  height : 100vh;
+  width :100%;
+  height : 100%;
   display: flex;
   position: fixed;
   top: 0;
@@ -21,14 +21,17 @@ export const StyledModal = styled.div`
     max-width: 300px;
     min-width: 250px;
     /* 모달 위치 조정 */
-    left : 305px;
-    bottom : 275px;
+    left : 79rem;
+    bottom : 13.5rem;
     border-radius: 0.3rem;
     background-color: #fff;
     /* 팝업이 열릴때 스르륵 열리는 효과 */
     animation: modal-show 0.3s;
     overflow: hidden;
 
+    /* 반응형 모달 팝업 구현 필요 */
+
+    
     > header {
       position: relative;
       padding: 16px 64px 16px 16px;

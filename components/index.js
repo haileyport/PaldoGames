@@ -1,3 +1,4 @@
+// @Commons
 import { Flex } from './@commons/Flex/Flex';
 
 // Modal related
@@ -16,8 +17,9 @@ import { Footer } from './Home/Footer/Footer';
 import { Header } from './Home/Header/Header';
 import { Layout } from './Home/Layout/Layout';
 import { Main } from './Home/Main/Main';
+import { Profile } from './Home/Header/NavProfile';
 
 // DarkMode related
 import { DarkModeToggleButton } from './Home/DarkMode/DarkMode';
 
-export { Flex, Modal, ModalFooter, ModalMain, ModalProfile, ModalHeader, Hero, Animation, Footer, Header, Layout, DarkModeToggleButton, Main };
+export { Flex, Modal, ModalFooter, ModalMain, ModalProfile, ModalHeader, Hero, Animation, Footer, Header, Layout, DarkModeToggleButton, Main, Profile };

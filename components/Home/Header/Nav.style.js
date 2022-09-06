@@ -22,4 +22,11 @@ const NavContent = styled.a`
   }
 `;
 
-export { StyledNav, NavContent };
+const NavProfile = styled.input`
+  width: 45px;
+  height: 45px;
+  border-radius: 50px;
+  margin-left: 1.25rem;
+`;
+
+export { StyledNav, NavContent, NavProfile };

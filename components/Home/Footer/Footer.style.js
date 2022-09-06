@@ -1,11 +1,17 @@
 import styled from 'styled-components';
 
 const StyledFooter = styled.footer`
-  margin-top: -70px;
+  margin-top: -85px;
   background-color: #3d4b5e;
+  height: 100%;
+
+  @media screen and (min-width: 640px) {
+    margin-top: -100px;
+  }
 
   @media screen and (max-width: 768px) {
-    margin-top: -100px;
+    margin-top: -123px;
+    height: 100%;
   }
 `;
 

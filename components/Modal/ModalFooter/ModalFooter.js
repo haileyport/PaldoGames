@@ -1,13 +1,10 @@
-export const ModalFooter = (props) => {
-  const footerStyle = {
-    marginRight: 20,
-    cursor: 'pointer',
-  };
+import { StyledModalFooter } from './ModalFooter.style';
 
+export const ModalFooter = (props) => {
   return (
     <>
       <footer>
-        <span style={footerStyle}>로그아웃</span>
+        <StyledModalFooter>로그아웃</StyledModalFooter>
       </footer>
     </>
   );
