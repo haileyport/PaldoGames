@@ -15,6 +15,15 @@ a {
   box-sizing: border-box;
 }
 
+footer {
+  color: rgb(75 85 99);
+  background-color: rgb(100 116 139/ 0.2);
+}
+
+p {
+  color: rgb(100 116 139);
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
