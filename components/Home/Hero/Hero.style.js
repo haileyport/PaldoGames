@@ -1,30 +1,6 @@
-import Animation from "./animation";
-import Link from "next/link";
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export default function Hero() {
-  return (
-    <>
-      <Container>
-        <Title>
-          안녕하세요, <br />
-          팔도게임즈입니다!
-        </Title>
-        <Mini_title>포인트를 얻어 랭킹에 들어봅시다!</Mini_title>
-        <Go_to_Game>
-          <Link href="/game">
-            <Btn>게임하러 가기</Btn>
-          </Link>
-        </Go_to_Game>
-      </Container>
-      <Animation_box>
-        <Animation />
-      </Animation_box>
-    </>
-  );
-}
-
-const Container = styled.div`
+const StyledHeroContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 4rem;
@@ -45,7 +21,7 @@ const Container = styled.div`
   }
 `;
 
-const Title = styled.h1`
+const HeroTitle = styled.h1`
   font-size: 1.875rem;
   line-height: 2.25rem;
   margin-bottom: 1rem;
@@ -58,18 +34,18 @@ const Title = styled.h1`
   }
 `;
 
-const Mini_title = styled.p`
+const HeroMiniTitle = styled.p`
   margin-bottom: 2rem;
   line-height: 1.625;
   font-weight: 600;
 `;
 
-const Go_to_Game = styled.div`
+const GameButton = styled.div`
   display: flex;
   justify-content: center;
 `;
 
-const Btn = styled.a`
+const HeroButton = styled.a`
   display: inline-flex;
   color: rgb(255 255 255);
   background-color: rgb(99 102 241);
@@ -90,7 +66,7 @@ const Btn = styled.a`
   }
 `;
 
-const Animation_box = styled.div`
+const AnimationContainer = styled.div`
   width: 83%;
   @media screen and (min-width: 1024px) {
     max-width: 32rem;
@@ -100,3 +76,5 @@ const Animation_box = styled.div`
     width: 50%;
   }
 `;
+
+export { StyledHeroContainer, HeroTitle, HeroMiniTitle, GameButton, HeroButton, AnimationContainer };
