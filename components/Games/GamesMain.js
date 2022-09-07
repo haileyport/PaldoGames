@@ -4,7 +4,7 @@ import { StyledGamesMain } from './GamesMain.style';
 export const GamesMain = () => {
   return (
     <StyledGamesMain>
-      <MainSection />
+      <MainSection></MainSection>
     </StyledGamesMain>
   );
 };
