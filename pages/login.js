@@ -3,15 +3,16 @@ import styles from '../styles/Home.module.css'
 import Image from "next/image";
 
 export default function Login(){
-	const { data, status } = useSession();
+  
+	const { data: session } = useSession();
   return (
     <div className={styles.main}>
-        {data?.user ? (
+        {session ? (
             <>
-                <img src={data?.user?.image} width="100px" height="100px"/>
-                <div>이름: {data?.user?.name}</div>
-                <div>이메일: {data?.user?.email}</div>
-                <button type="button" onClick={() => signOut()}>
+                <img src={session.user.image} width="100px" height="100px"/>
+                <div>이름: {session.user.name}</div>
+                <div>이메일: {session.user.email}</div>
+                <button type="button" onClick={() => signOut("kakao")}>
                      로그아웃
                 </button>
             </>
