@@ -11,14 +11,24 @@
     "pscale": "pscale connect paldo-games main --port 3309"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.2.0",
+    "@fortawesome/free-brands-svg-icons": "^6.2.0",
+    "@fortawesome/free-regular-svg-icons": "^6.2.0",
+    "@fortawesome/free-solid-svg-icons": "^6.2.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@prisma/client": "^4.3.1",
     "axios": "^0.27.2",
     "next": "12.2.5",
+    "next-themes": "^0.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-lottie-player": "^1.4.3",
+    "recoil": "^0.7.5",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {
+    "@types/uuid": "^8.3.4",
+    "babel-plugin-inline-react-svg": "^2.0.1",
     "babel-plugin-styled-components": "^2.0.7",
     "eslint": "8.23.0",
     "eslint-config-next": "12.2.5"
