@@ -1,4 +1,4 @@
-import { MainSection } from '../Home/Main/Main.style';
+import { MainSection } from '../../Home/Main/Main.style';
 import { StyledGamesMain } from './GamesMain.style';
 
 export const GamesMain = () => {

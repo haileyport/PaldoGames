@@ -1,10 +1,10 @@
 import { MainSection } from '../../Home/Main/Main.style';
-import { StyledGamesMain } from '../../Games/GamesMain.style';
+import { StyledInventoriesMain } from './InventoriesMain.style';
 
 export const InventoriesMain = () => {
   return (
-    <StyledGamesMain>
+    <StyledInventoriesMain>
       <MainSection></MainSection>
-    </StyledGamesMain>
+    </StyledInventoriesMain>
   );
 };

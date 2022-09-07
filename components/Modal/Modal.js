@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { forwardRef, useRef } from 'react';
 
 import { useSetRecoilState } from 'recoil';
 import { modalState } from '../../states';
@@ -17,3 +17,17 @@ export const Modal = ({ children }) => {
     </StyledModal>
   );
 };
+
+// ref={backGroundRef}
+
+//   onClick={onClickBackground}
+
+// const StyledModalComponent = forwardRef((props, ref) => {
+//   const { childrenComponents, handlePopup } = props;
+
+//   return (
+//     <StyledModal onClick={handlePopup} ref={ref}>
+//       {childrenComponents}
+//     </StyledModal>
+//   );
+// });

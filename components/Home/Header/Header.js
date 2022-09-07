@@ -20,8 +20,8 @@ export const Header = () => {
             <NavContent>게임</NavContent>
           </Link>
           {/* 추가되는 NAV 링크들은 이 아래쪽으로 추가해주시면 됩니다. */}
-          <Link href='#'>
-            <NavContent>예시</NavContent>
+          <Link href='/community'>
+            <NavContent>커뮤니티</NavContent>
           </Link>
           <Link href='#'>
             <Profile></Profile>

@@ -23,7 +23,11 @@ import { Profile } from './Home/Header/NavProfile';
 import { InventoriesMain } from './Inventories/InventoriesMain/InventoriesMain';
 
 // Games Main related
-import { GamesMain } from './Games/GamesMain';
+import { GamesMain } from './Games/GamesMain/GamesMain';
+
+// Community Main related
+
+import { CommunityMain } from './Community/CommunityMain/CommunityMain';
 
 // DarkMode related
 import { DarkModeToggleButton } from './Home/DarkMode/DarkMode';
@@ -45,4 +49,5 @@ export {
   Profile,
   InventoriesMain,
   GamesMain,
+  CommunityMain,
 };
