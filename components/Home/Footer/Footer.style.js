@@ -10,7 +10,7 @@ const StyledFooter = styled.footer`
   }
 
   @media screen and (max-width: 768px) {
-    margin-top: -123px;
+    margin-top: -100px;
     height: 100%;
   }
 `;

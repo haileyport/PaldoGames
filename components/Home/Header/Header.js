@@ -13,10 +13,10 @@ export const Header = () => {
           <HomeLink />
         </Link>
         <StyledNav>
-          <Link href='#'>
+          <Link href='/'>
             <NavContent>홈</NavContent>
           </Link>
-          <Link href='#'>
+          <Link href='/games'>
             <NavContent>게임</NavContent>
           </Link>
           {/* 추가되는 NAV 링크들은 이 아래쪽으로 추가해주시면 됩니다. */}

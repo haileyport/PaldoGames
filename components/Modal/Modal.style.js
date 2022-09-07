@@ -16,13 +16,13 @@ export const StyledModal = styled.div`
   animation: modal-bg-show 0.3s;
 
   > section {
-    position : relative;
+    position : fixed;
     width: 40%;
     max-width: 300px;
     min-width: 250px;
     /* 모달 위치 조정 */
-    left : 79rem;
-    bottom : 13.5rem;
+    top : 20%;
+    left : 40%;
     border-radius: 0.3rem;
     background-color: #fff;
     /* 팝업이 열릴때 스르륵 열리는 효과 */
@@ -31,7 +31,12 @@ export const StyledModal = styled.div`
 
     /* 반응형 모달 팝업 구현 필요 */
 
-    
+    @media screen and (max-width:767px) {
+      position : fixed;
+      top : 30%;
+      left : 30%;
+    }
+ 
     > header {
       position: relative;
       padding: 16px 64px 16px 16px;
