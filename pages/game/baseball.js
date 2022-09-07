@@ -1,5 +1,16 @@
 import { useState, useRef } from "react";
 import Balls from "./Balls";
+import styled from "styled-components";
+
+const HistoryDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const RightInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 function BaseBall() {
   // 랜덤으로 정답을 생성하는 함수
@@ -41,13 +52,13 @@ function BaseBall() {
     if (value === answer.join("")) {
       //정답
       setTries((t) => [
+        ...t,
         {
           try: value,
           strike: 4,
           ball: 0,
           result: "홈런⚾!",
         },
-        ...t,
       ]);
       setResult("홈런⚾!");
       setReTry(true);
@@ -56,7 +67,7 @@ function BaseBall() {
       const answerArray = value.split("").map((v) => parseInt(v));
       if (tries.length >= 9) {
         // 시도 초과
-        setResult(`10번 넘게 틀려서 실패😥 답은 ${answer.join(",")}였습니다😎`);
+        setResult(`10번 넘게 틀려서 실패😥 답은 ${answer.join("")}입니다😎`);
         setReTry(true);
       } else {
         // 시도 초과 아닐 때
@@ -71,13 +82,13 @@ function BaseBall() {
           }
         }
         setTries((t) => [
+          ...t,
           {
             try: value,
             strike: strike,
             ball: ball,
             result: `${strike} 스트라이크, ${ball} 볼입니다.`,
           },
-          ...t,
         ]);
         setValue("");
         if (input) {
@@ -89,8 +100,8 @@ function BaseBall() {
 
   const light = (strike, ball) => {
     let words = "green ".repeat(strike);
-    words += "red ".repeat(ball);
-    words += "gray ".repeat(4 - strike - ball);
+    words += "orange ".repeat(ball);
+    words += "red ".repeat(4 - strike - ball);
     const res = words.split(" ");
     return res;
   };
@@ -128,16 +139,16 @@ function BaseBall() {
           <div>시도: {tries.length}/10</div>
           <ul>
             {tries.map((v, i) => (
-              <>
-                <div>
-                  {`${i + 1}차 시도`}
-                  {light(v.strike, v.ball).map((el) => {
-                    return <Balls background={el} />;
-                  })}
-                  {`${v.try}`}
-                </div>
-                <div>{v.result}</div>
-              </>
+              <HistoryDiv>
+                <span>{i + 1}차 시도</span>
+                {light(v.strike, v.ball).map((el) => {
+                  return <Balls background={el} />;
+                })}
+                <RightInfo>
+                  <span>{v.try}</span>
+                  <span>{v.result}</span>
+                </RightInfo>
+              </HistoryDiv>
             ))}
           </ul>
         </div>
