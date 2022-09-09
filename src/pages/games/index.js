@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import { GamesMain, Layout } from '../components';
+import { GamesMain, Layout } from '../../components';
 
 const GamesPage = () => {
   return (

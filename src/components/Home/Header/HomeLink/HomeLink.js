@@ -1,6 +1,6 @@
 import { StyledHomeLink, Name, LogoBox } from './HomeLink.style';
 import Image from 'next/image';
-import Logo from '../../../../public/logo.png';
+import Logo from '../../../../../public/logo.png';
 import Link from 'next/link';
 
 export const HomeLink = () => {

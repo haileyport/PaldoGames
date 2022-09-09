@@ -25,8 +25,10 @@ import { InventoriesMain } from './Inventories/InventoriesMain/InventoriesMain';
 // Games Main related
 import { GamesMain } from './Games/GamesMain/GamesMain';
 
-// Community Main related
+// WordRelay Game related
+import { WordRelayMain } from './Games/WordRelay/WordRelayMain/WordRelay';
 
+// Community Main related
 import { CommunityMain } from './Community/CommunityMain/CommunityMain';
 
 // DarkMode related
@@ -50,4 +52,5 @@ export {
   InventoriesMain,
   GamesMain,
   CommunityMain,
+  WordRelayMain,
 };
