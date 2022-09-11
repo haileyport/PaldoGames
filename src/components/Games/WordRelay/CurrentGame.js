@@ -86,7 +86,7 @@ export const CurrentGame = () => {
     handleGameStates(word, currentWord, lives, count, points);
   };
 
-  useCallback(handleSubmitButton, [state]);
+  useCallback(handleSubmitButton, []);
 
   const onClickSubmitButton = (currentWord, wordsArray) => {
     const errorMessageHandler = handleErrorMessage(wordInput.current.value, currentWord, wordsArray);
@@ -122,8 +122,6 @@ export const CurrentGame = () => {
       <P className={loading ? undefined : CLASSNAME.HIDE} content={'사전 검색중...'}></P>
       <P className={loading ? CLASSNAME.HIDE : undefined} content={definition ? definition : ERROR_MESSAGE.EMPTY_INPUT}></P>
       <P style={{ color: COLOR.RED }} ref={errorMessage} content={undefined} className={undefined}></P>
-      {console.log(gameInfo)}
-      {console.log(wordsArray)}
     </Form>
   );
 };
