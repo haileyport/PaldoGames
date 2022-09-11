@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledHomeLink = styled.a`
+const StyledHomeLink = styled.p`
   display: flex;
   font-weight: 500;
   align-items: center;
@@ -20,7 +20,7 @@ const LogoBox = styled.span`
   margin-top: 1.5px;
 `;
 
-const Name = styled.span`
+const Name = styled.a`
   margin-left: 0.2rem;
   font-size: 1.25rem;
   line-height: 1.75rem;

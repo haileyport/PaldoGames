@@ -1,7 +1,5 @@
 // 추후 분리 예정
 
-// Array of words
-
 // Word Relay Game related
 export const CLASSNAME = Object.freeze({
   HIDE: 'hide',

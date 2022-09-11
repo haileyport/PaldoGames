@@ -14,12 +14,11 @@ const DUMMY = {
 
 export const Profile = () => {
   const [modal, setModal] = useRecoilState(modalState);
-
   const handleModal = () => setModal(!modal);
 
   return (
     <Flex flexDirection='column'>
-      <NavProfile type='image' src={DUMMY.profileImg} onClick={handleModal}></NavProfile>
+      <NavProfile type='image' src={DUMMY.profileImg} onClick={handleModal} />
       <div>
         {modal && (
           <Modal>

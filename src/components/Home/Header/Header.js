@@ -4,14 +4,13 @@ import { HomeLink } from './HomeLink/HomeLink';
 import { Profile } from './NavProfile';
 import StyledHeader from './Header.style';
 import { StyledNav, NavContent } from './Nav.style';
+import { A } from '../../@commons';
 
 export const Header = () => {
   return (
     <>
       <StyledHeader>
-        <Link href='/'>
-          <HomeLink />
-        </Link>
+        <HomeLink />
         <StyledNav>
           <Link href='/'>
             <NavContent>홈</NavContent>
@@ -23,8 +22,10 @@ export const Header = () => {
           <Link href='/community'>
             <NavContent>커뮤니티</NavContent>
           </Link>
-          <Link href='#'>
-            <Profile></Profile>
+          <Link href=''>
+            <a>
+              <Profile></Profile>
+            </a>
           </Link>
         </StyledNav>
       </StyledHeader>

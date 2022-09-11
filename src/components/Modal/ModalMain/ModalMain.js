@@ -17,12 +17,12 @@ export const ModalMain = (props) => {
           <FontAwesomeIcon icon={faBitcoin} size='2x' style={{ marginBottom: 10, cursor: 'pointer' }} />
           <span>1,000 BTC</span>
         </Flex>
-        <Link href='/inventories'>
-          <Flex flexDirection='column' onClick={() => setModal(!modal)}>
+        <Flex flexDirection='column' onClick={() => setModal(!modal)}>
+          <Link href='/inventories'>
             <FontAwesomeIcon icon={faBoxOpen} size='2x' style={{ marginBottom: 10, cursor: 'pointer' }} />
-            <span>인벤토리</span>
-          </Flex>
-        </Link>
+          </Link>
+          <span>인벤토리</span>
+        </Flex>
       </Flex>
     </main>
   );
