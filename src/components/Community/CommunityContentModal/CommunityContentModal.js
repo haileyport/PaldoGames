@@ -11,7 +11,7 @@ const DUMMY = {
 export const CommunityContentModal = ({ user }) => {
   return (
     <Modal>
-      <StyledModalSection width='80%' maxWidth='1000px' minWidth='800px' top='20%' left='20%' style={{ maxHeight: '1000px' }}>
+      <StyledModalSection width='80%' maxWidth='1000px' minWidth='500px' style={{ maxHeight: '500px', overflowY: 'auto' }}>
         <ModalHeader content='쓴 글 보기' />
         <ModalProfile DUMMY={DUMMY} />
         <CommunityModalMain user={user} />

@@ -24,7 +24,7 @@ export const CommunityMain = () => {
   const [currentUser, setCurrentUser] = useState(null);
 
   return (
-    <StyledCommunityMain style={{ display: 'flex', flexDirection: 'column', border: '1px solid white' }}>
+    <StyledCommunityMain style={{ border: '1px solid white' }}>
       {/*  이 부분 따로 컴포넌트로 분리 CommunityHeader */}
       <CommunityTitleContainer />
 

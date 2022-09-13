@@ -4,8 +4,8 @@ export const COMMUNITY_DUMMY = [
     kakaoId: '123x45',
     profileUrl: 'https://avatars.githubusercontent.com/u/83988230?v=4',
     content:
-      'JavaScript koans 04. Scope 부분의 맨마지막 문제 관련해서 질문 드립니다. 132번째 줄의 const innerFn = outerFn() 에 의해 outerFn()가 호출이 되었다고 봐도 무방한가요? outerFn()가 호출이 되었다면 135번째 줄의 정답 자체는 이해할 수 있지만 변수 선언 후 함수를 변수에 할당하는 것으로 함수의 호출이 어떻게 가능한 건지 잘 모르겠습니다.',
-    title: '변수 선언 후 해당 변수에 함수를 할당할 때 해당 함수의 호출도 함께 되나요? (JavaScript koans 4. scope 문제 관련) ',
+      'JavaScript koans 04. Scope 부분의 맨마지막 문제 관련해서 질문 드립니다. 132번째 줄의 const innerFn = outerFn() 에 의해 outerFn()가 호출이 되었다고 봐도 무방한가요? outerFn()가 호출이 되었다면 135번째 줄의 정답 자체는 이해할 수 있지만 변수 선언 후 함수를 변수에 할당하는 것으로 함수의 호출이 어떻게 가능한 건지 잘 모르겠습니다.JavaScript koans 04. Scope 부분의 맨마지막 문제 관련해서 질문 드립니다. 132번째 줄의 const innerFn = outerFn() 에 의해 outerFn()가 호출이 되었다고 봐도 무방한가요? outerFn( = outerFn() 에 의해 outerFn()가 호출이 되었다고 봐도 무방한가요? outerFn( = outerFn() 에 의해 outerFn()가 호출이 되었다고 봐도 무방한가요? outerFn( = outerFn() 에 의해 outerFn()가 호출이 되었다고 봐도 무방한가요? outerFn( = outerFn() 에 의해 outerFn()가 호출이 되었다고 봐도 무방한가요? outerFn( = outerFn() 에 의해 outerFn()가 호출이 되었다고 봐도 무방한가요? outerFn()가 호출이 되었다면 135번째 줄의 정답 자체는 이해할 수 있지만 변수 선언 후 함수를 변수에 할당하는 것으로 함수의 호출이 어떻게 가능한 건지 잘 모르겠습니다.JavaScript koans 04. Scope 부분의 맨마지막 문제 관련해서 질문 드립니다. 132번째 줄의 const innerFn = outerFn() 에 의해 outerFn()가 호출이 되었다고 봐도 무방한가요? outerFn()가 호출이 되었다면 135번째 줄의 정답 자체는 이해할 수 있지만 변수 선언 후 함수를 변수에 할당하는 것으로 함수의 호출이 어떻게 가능한 건지 잘 모르겠습니다.JavaScript koans 04. Scope 부분의 맨마지막 문제 관련해서 질문 드립니다. 132번째 줄의 const innerFn = outerFn() 에 의해 outerFn()가 호출이 되었다고 봐도 무방한가요? outerFn()가 호출이 되었다면 135번째 줄의 정답 자체는 이해할 수 있지만 변수 선언 후 함수를 변수에 할당하는 것으로 함수의 호출이 어떻게 가능한 건지 잘 모르겠습니다.JavaScript koans 04. Scope 부분의 맨마지막 문제 관련해서 질문 드립니다. 132번째 줄의 const innerFn = outerFn() 에 의해 outerFn()가 호출이 되었다고 봐도 무방한가요? outerFn()가 호출이 되었다면 135번째 줄의 정답 자체는 이해할 수 있지만 변수 선언 후 함수를 변수에 할당하는 것으로 함수의 호출이 어떻게 가능한 건지 잘 모르겠습니다.',
+    title: '컨텐츠의 길이가 너무 길어지면 모달창 스크롤바가 생길까요 ?  ',
     createdAt: '2022.09.12 12 :32',
   },
   {
