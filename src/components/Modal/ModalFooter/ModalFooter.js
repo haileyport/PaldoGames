@@ -1,11 +1,11 @@
-import { StyledModalFooter } from './ModalFooter.style';
+import { StyledModalFooter, StyledModalFooterInner } from './ModalFooter.style';
 
 export const ModalFooter = (props) => {
   return (
     <>
-      <footer>
-        <StyledModalFooter>로그아웃</StyledModalFooter>
-      </footer>
+      <StyledModalFooter>
+        <StyledModalFooterInner>로그아웃</StyledModalFooterInner>
+      </StyledModalFooter>
     </>
   );
 };

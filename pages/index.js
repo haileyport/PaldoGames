@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import { Layout, Main } from '../components';
+import { Layout, Main } from '../src/components';
 
 export const Home = () => {
   return (

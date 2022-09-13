@@ -1,5 +1,5 @@
 import { COMMUNITY_DUMMY } from './dummydata';
-import modalState from './modal';
+import { modalState, communityModalState } from './modal';
 import wordRelayGameInfo from './wordRelayGameInfo';
 
-export { modalState, wordRelayGameInfo, COMMUNITY_DUMMY };
+export { modalState, communityModalState, wordRelayGameInfo, COMMUNITY_DUMMY };

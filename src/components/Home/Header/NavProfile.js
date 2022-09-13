@@ -5,6 +5,7 @@ import { modalState } from '../../../states';
 
 import { Flex } from '../../@commons';
 import { Modal, ModalHeader, ModalFooter, ModalMain, ModalProfile } from '../../Modal';
+import { StyledModalSection } from '../../Modal/Modal.style';
 
 const DUMMY = {
   profileImg: 'https://avatars.githubusercontent.com/u/83988230?v=4',
@@ -14,20 +15,19 @@ const DUMMY = {
 
 export const Profile = () => {
   const [modal, setModal] = useRecoilState(modalState);
-  const handleModal = () => setModal(!modal);
 
   return (
     <Flex flexDirection='column'>
-      <NavProfile type='image' src={DUMMY.profileImg} onClick={handleModal} />
+      <NavProfile type='image' src={DUMMY.profileImg} onClick={() => setModal(!modal)} />
       <div>
         {modal && (
           <Modal>
-            <section>
-              <ModalHeader handleModal={handleModal} />
+            <StyledModalSection width='40%' maxWidth='350px' minWidth='300px' top='20%' left='40%'>
+              <ModalHeader content='배경화면' />
               <ModalProfile DUMMY={DUMMY} />
               <ModalMain />
               <ModalFooter />
-            </section>
+            </StyledModalSection>
           </Modal>
         )}
       </div>

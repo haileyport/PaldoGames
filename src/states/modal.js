@@ -1,6 +1,13 @@
 import { atom } from 'recoil';
 
-export default atom({
+const modalState = atom({
   key: `modalState`,
   default: false,
 });
+
+const communityModalState = atom({
+  key: 'communityModalState',
+  default: false,
+});
+
+export { modalState, communityModalState };

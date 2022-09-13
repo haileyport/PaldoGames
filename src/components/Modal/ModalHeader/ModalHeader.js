@@ -1,8 +1,17 @@
-export const ModalHeader = ({ handleModal }) => {
+import { useSetRecoilState } from 'recoil';
+import { communityModalState, modalState } from '../../../states';
+import { StyledModalHeader } from './ModalHeader.style';
+
+export const ModalHeader = ({ content }) => {
+  const setModal = useSetRecoilState(modalState);
+  const setCommunityModal = useSetRecoilState(communityModalState);
+
+  const onClickCloseModal = () => (setModal(false), setCommunityModal(false));
+
   return (
-    <header>
-      <div>배경이미지</div>
-      <button onClick={handleModal}>&times;</button>
-    </header>
+    <StyledModalHeader>
+      <div>{content}</div>
+      <button onClick={onClickCloseModal}>&times;</button>
+    </StyledModalHeader>
   );
 };

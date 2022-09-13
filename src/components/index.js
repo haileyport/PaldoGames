@@ -7,6 +7,7 @@ import { ModalFooter } from './Modal/ModalFooter/ModalFooter';
 import { ModalMain } from './Modal/ModalMain/ModalMain';
 import { ModalProfile } from './Modal/ModalProfile/ModalProfile';
 import { ModalHeader } from './Modal/ModalHeader/ModalHeader';
+import { CommunityModalMain } from './Modal/ModalMain/CommunityModalMain';
 
 // Home related
 import { Hero } from './Home/Hero/Hero';
@@ -30,6 +31,7 @@ import { WordRelayMain } from './Games/WordRelay/WordRelayMain/WordRelay';
 
 // Community Main related
 import { CommunityMain } from './Community/CommunityMain/CommunityMain';
+import { CommunityContentModal } from './Community/CommunityContentModal/CommunityContentModal';
 
 // DarkMode related
 import { DarkModeToggleButton } from './Home/DarkMode/DarkMode';
@@ -53,4 +55,6 @@ export {
   GamesMain,
   CommunityMain,
   WordRelayMain,
+  CommunityModalMain,
+  CommunityContentModal,
 };

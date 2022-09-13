@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import { Layout, CommunityMain } from '../components';
+import { Layout, CommunityMain } from '../src/components';
 
 const CommunityPage = () => {
   return (

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Flex } from '../../@commons/Flex/Flex';
 import { StyledModalProfile } from './ModalProfile.style';
 
@@ -13,7 +14,9 @@ export const ModalProfile = ({ DUMMY }) => {
   return (
     <div>
       <Flex flexDirection='column' alignItems='center' style={sectionStyle}>
-        <StyledModalProfile type='image' src={DUMMY.profileImg} alt='profile-image' />
+        <Link href='https://github.com/leezer94'>
+          <StyledModalProfile type='image' src={DUMMY.profileImg} alt='profile-image' />
+        </Link>
         {/* 프로필 눌렀을때 깃헙 프로필 페이지로 이동 ?? */}
         {/* 깃헙 로그인은 깃헙 이모티콘 / 카카오는 카카오 */}
         <section>

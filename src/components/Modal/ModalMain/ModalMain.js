@@ -6,12 +6,13 @@ import { faBoxOpen } from '@fortawesome/free-solid-svg-icons';
 import { faBitcoin } from '@fortawesome/free-brands-svg-icons';
 import { useRecoilState } from 'recoil';
 import { modalState } from '../../../states';
+import { StyledInnerModalMain } from './ModalMain.style';
 
 export const ModalMain = (props) => {
   const [modal, setModal] = useRecoilState(modalState);
 
   return (
-    <main>
+    <StyledInnerModalMain>
       <Flex justifyContent='space-between' style={{ margin: 40, marginTop: 20 }}>
         <Flex flexDirection='column'>
           <FontAwesomeIcon icon={faBitcoin} size='2x' style={{ marginBottom: 10, cursor: 'pointer' }} />
@@ -24,6 +25,6 @@ export const ModalMain = (props) => {
           <span>인벤토리</span>
         </Flex>
       </Flex>
-    </main>
+    </StyledInnerModalMain>
   );
 };

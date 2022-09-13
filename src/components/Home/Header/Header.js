@@ -4,7 +4,6 @@ import { HomeLink } from './HomeLink/HomeLink';
 import { Profile } from './NavProfile';
 import StyledHeader from './Header.style';
 import { StyledNav, NavContent } from './Nav.style';
-import { A } from '../../@commons';
 
 export const Header = () => {
   return (
@@ -22,11 +21,7 @@ export const Header = () => {
           <Link href='/community'>
             <NavContent>커뮤니티</NavContent>
           </Link>
-          <Link href=''>
-            <a>
-              <Profile></Profile>
-            </a>
-          </Link>
+          <Profile></Profile>
         </StyledNav>
       </StyledHeader>
     </>
