@@ -6,12 +6,18 @@ export default function Test() {
   const [email, setEmail] = useState();
   const [id, setId] = useState();
   const getUser = async () => {
-    const res = await axios
-      .get("/api/user/getAll")
-      .catch((err) => console.log(err));
+    const res = await axios.get("/api/user").catch((err) => console.log(err));
     console.log("---user---");
     console.log(res.data.users);
     setUser(res.data.users);
+  };
+
+  const updateUser = async () => {
+    const userId = id; // id값은 전역으로 저장해서 들고 다니기
+    const aboutMe = "안녕하세요?";
+    const res = await axios.patch(`api/user`, { userId, aboutMe });
+    console.log(res.data);
+    console.log(id);
   };
 
   const getId = async () => {
@@ -52,7 +58,7 @@ export default function Test() {
   };
 
   const updateGame = async () => {
-    const point = 5000;
+    const point = 3000;
     const userId = id; // id값은 전역으로 저장해서 들고 다니기
     const res = await axios.patch(`api/game`, { userId, point });
     console.log(res.data.totalPoint);
@@ -67,6 +73,7 @@ export default function Test() {
       <button onClick={handleGame}>게임TB 생성하기</button>
       <button onClick={getGame}>아이디로 유저 game정보 찾기</button>
       <button onClick={updateGame}>아이디로 유저 game 정보 update하기</button>
+      <button onClick={updateUser}>아이디로 유저 정보 update하기</button>
     </div>
   );
 }
