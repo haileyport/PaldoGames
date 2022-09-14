@@ -39,11 +39,11 @@ model Session {
 
 model User {
   id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
+  name          String
+  email         String    @unique
   emailVerified DateTime?
   image         String?
-  aboutMe       String?
+  aboutMe       String?   @default("반갑습니다")
   accounts      Account[]
   games         Game[]
   sessions      Session[]
@@ -59,8 +59,7 @@ model VerificationToken {
 
 model Game {
   id         String @id @default(cuid())
-  userId     String
-  about      String
+  userId     String @unique
   totalPoint Int    @default(5000)
   user       User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
