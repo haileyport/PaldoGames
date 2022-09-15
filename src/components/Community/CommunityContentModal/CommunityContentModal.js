@@ -1,3 +1,4 @@
+import { Flex } from '../../@commons';
 import { Modal, ModalHeader, ModalProfile } from '../../Modal';
 import { StyledModalSection } from '../../Modal/Modal.style';
 import { CommunityModalMain } from '../../Modal/ModalMain/CommunityModalMain';
@@ -15,6 +16,7 @@ export const CommunityContentModal = ({ user }) => {
         <ModalHeader content='쓴 글 보기' />
         <ModalProfile DUMMY={DUMMY} />
         <CommunityModalMain user={user} />
+        {/* 댓글 부분 */}
       </StyledModalSection>
     </Modal>
   );

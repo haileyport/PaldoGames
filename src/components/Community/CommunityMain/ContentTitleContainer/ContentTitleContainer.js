@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Flex, P } from '../../../@commons';
 
-export const CommunityTitleContainer = () => {
+export const ContentTitleContainer = () => {
   return (
     <Flex flexDirection='row' justifyContent='space-around' style={containerStyle}>
       <Link href='#'>

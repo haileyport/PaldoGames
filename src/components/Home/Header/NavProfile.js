@@ -21,14 +21,16 @@ export const Profile = () => {
       <NavProfile type='image' src={DUMMY.profileImg} onClick={() => setModal(!modal)} />
       <div>
         {modal && (
-          <Modal>
-            <StyledModalSection width='40%' maxWidth='350px' minWidth='300px' top='20%' left='40%'>
-              <ModalHeader content='배경화면' />
-              <ModalProfile DUMMY={DUMMY} />
-              <ModalMain />
-              <ModalFooter />
-            </StyledModalSection>
-          </Modal>
+          <Flex>
+            <Modal>
+              <StyledModalSection width='40%' maxWidth='350px' minWidth='300px' left='40%'>
+                <ModalHeader content='배경화면' />
+                <ModalProfile DUMMY={DUMMY} />
+                <ModalMain />
+                <ModalFooter />
+              </StyledModalSection>
+            </Modal>
+          </Flex>
         )}
       </div>
     </Flex>

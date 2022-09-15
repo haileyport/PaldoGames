@@ -1,14 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 
-import { StyledCommunityMain } from './Community.style';
 import { Flex, Input, P } from '../../@commons';
+import { StyledCommunityMain } from './Community.style';
 import { CommunityContentModal } from '../CommunityContentModal/CommunityContentModal';
+import { ContentTitleContainer } from './ContentTitleContainer/ContentTitleContainer';
+
 import { communityModalState, COMMUNITY_DUMMY, modalState } from '../../../states';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMessage } from '@fortawesome/free-solid-svg-icons';
-import { CommunityTitleContainer } from './CommunityTitleContainer/CommunityTitleContainer';
+import { Pagination } from '../Pagination/Pagination';
 
 const mainStyle = {
   flex: 2,
@@ -23,10 +25,21 @@ export const CommunityMain = () => {
   const [communityModal, setCommunityModal] = useRecoilState(communityModalState);
   const [currentUser, setCurrentUser] = useState(null);
 
+  // 페이지네이션
+
+  const [posts, setPosts] = useState([]);
+  const [limit, setLimits] = useState(10);
+  const [page, setPage] = useState(1);
+  const offset = (page - 1) * limit;
+
+  useEffect(() => {
+    setPosts(COMMUNITY_DUMMY);
+  }, []);
+
   return (
     <StyledCommunityMain style={{ border: '1px solid white' }}>
       {/*  이 부분 따로 컴포넌트로 분리 CommunityHeader */}
-      <CommunityTitleContainer />
+      <ContentTitleContainer />
 
       {/* 글을 쓸수 있는 부분 컴포넌트 분리*/}
       <Flex flexDirection='column' style={mainStyle}>
@@ -63,6 +76,9 @@ export const CommunityMain = () => {
           );
         })}
         {communityModal && <CommunityContentModal user={currentUser} />}
+        <footer>
+          <Pagination total={posts.length} limit={limit} page={page} setPage={setPage} />
+        </footer>
       </Flex>
     </StyledCommunityMain>
   );

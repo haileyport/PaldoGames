@@ -2,12 +2,11 @@
 import { Flex } from './@commons/Flex/Flex';
 
 // Modal related
-import { Modal } from './Modal/Modal';
+import { Modal } from './Modal';
 import { ModalFooter } from './Modal/ModalFooter/ModalFooter';
 import { ModalMain } from './Modal/ModalMain/ModalMain';
 import { ModalProfile } from './Modal/ModalProfile/ModalProfile';
 import { ModalHeader } from './Modal/ModalHeader/ModalHeader';
-import { CommunityModalMain } from './Modal/ModalMain/CommunityModalMain';
 
 // Home related
 import { Hero } from './Home/Hero/Hero';
@@ -32,29 +31,19 @@ import { WordRelayMain } from './Games/WordRelay/WordRelayMain/WordRelay';
 // Community Main related
 import { CommunityMain } from './Community/CommunityMain/CommunityMain';
 import { CommunityContentModal } from './Community/CommunityContentModal/CommunityContentModal';
+import { Pagination } from './Community/Pagination/Pagination';
+import { CommunityModalMain } from './Modal/ModalMain/CommunityModalMain';
 
 // DarkMode related
 import { DarkModeToggleButton } from './Home/DarkMode/DarkMode';
 
-export {
-  Flex,
-  Modal,
-  ModalFooter,
-  ModalMain,
-  ModalProfile,
-  ModalHeader,
-  Hero,
-  Animation,
-  Footer,
-  Header,
-  Layout,
-  DarkModeToggleButton,
-  Main,
-  Profile,
-  InventoriesMain,
-  GamesMain,
-  CommunityMain,
-  WordRelayMain,
-  CommunityModalMain,
-  CommunityContentModal,
-};
+//  Commons
+export { Hero, Animation, Footer, Header, Layout, DarkModeToggleButton, Main, Profile };
+
+export { Flex, Modal, ModalFooter, ModalMain, ModalProfile, ModalHeader };
+
+export { InventoriesMain };
+
+export { GamesMain, WordRelayMain };
+
+export { CommunityContentModal, CommunityMain, CommunityModalMain, Pagination };
