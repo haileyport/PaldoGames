@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import prisma from "./../../../libs/client";
+import prisma from "./../../../../libs/client";
 import KakaoProvider from "next-auth/providers/kakao";
 import GithubProvider from "next-auth/providers/github";
 
