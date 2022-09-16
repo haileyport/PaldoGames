@@ -22,6 +22,12 @@ const Button = styled.nav`
     cursor: pointer;
     transform: translateY(-2px);
   }
+  &[disabled] {
+    background: grey;
+    cursor: revert;
+    transform: revert;
+    pointer-events: none;
+  }
 
   &[aria-current] {
     cursor: revert;

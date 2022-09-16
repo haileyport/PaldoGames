@@ -5,12 +5,12 @@ import { Flex, Input, P } from '../../@commons';
 import { StyledCommunityMain } from './Community.style';
 import { CommunityContentModal } from '../CommunityContentModal/CommunityContentModal';
 import { ContentTitleContainer } from './ContentTitleContainer/ContentTitleContainer';
+import { Pagination } from '../Pagination/Pagination';
 
 import { communityModalState, COMMUNITY_DUMMY, modalState } from '../../../states';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMessage } from '@fortawesome/free-solid-svg-icons';
-import { Pagination } from '../Pagination/Pagination';
 
 const mainStyle = {
   flex: 2,
@@ -43,32 +43,27 @@ export const CommunityMain = () => {
 
       {/* 글을 쓸수 있는 부분 컴포넌트 분리*/}
       <Flex flexDirection='column' style={mainStyle}>
-        {COMMUNITY_DUMMY.map((detail, i) => {
+        {posts.slice(offset, offset + limit).map(({ kakaoId, title, profileUrl }, i) => {
           return (
             <Flex flexDirection='row' justifyContent='space-between' key={i} style={{ width: '90%', borderBottom: '1px solid white', margin: '0 auto' }}>
-              <Flex justifyContent=''>
-                <input type='radio' id={detail.kakaoId} />
+              <Flex>
+                <input type='radio' id={kakaoId} />
                 <P
                   className='ellipsis'
-                  content={detail.title}
+                  content={title}
                   style={{ width: '70%', marginLeft: 20, color: 'white', cursor: 'pointer' }}
                   onClick={({ target }) => {
                     setCommunityModal(!communityModal);
                     setCurrentUser((prev) => (prev = target.id));
                   }}
-                  id={detail.kakaoId}
+                  id={kakaoId}
                 />
               </Flex>
               <Flex alignItems='center' alignSelf='flex-end'>
                 {/* 추후에 input image 클릭시에 프로필 팝업 보여지나, id 에 해당하는 프로필이 보여져야 함
                  +  본인이 클릭시에는 본인 프로필 팝업이 보여지고 다른사람이 클릭시에는 다른 팝업 ??  깃헙 링크 만 보여지게??? 
                 */}
-                <Input
-                  type='image'
-                  src={detail.profileUrl}
-                  onClick={() => setModal(!modal)}
-                  style={{ width: 30, height: 30, borderRadius: 50, marginRight: 10 }}
-                />
+                <Input type='image' src={profileUrl} onClick={() => setModal(!modal)} style={{ width: 30, height: 30, borderRadius: 50, marginRight: 10 }} />
                 <FontAwesomeIcon icon={faMessage} style={{ color: 'white' }} />
                 <span style={{ marginLeft: 5, color: 'white' }}>3</span>
               </Flex>

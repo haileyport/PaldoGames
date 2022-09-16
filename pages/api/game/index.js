@@ -1,7 +1,8 @@
-import prisma from "../../../libs/client";
+import prisma from '../../../libs/client';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default async (req, res) => {
-  if (req.method === "POST") {
+  if (req.method === 'POST') {
     try {
       const id = req.body.id;
       await prisma.game.create({
@@ -13,15 +14,15 @@ export default async (req, res) => {
           },
         },
       });
-      res.json({ ok: true, test: "ok" });
+      res.json({ ok: true, test: 'ok' });
     } catch (e) {
-      if (e.code === "P2002") {
-        console.log("이미 게임 table이 존재합니다.");
+      if (e.code === 'P2002') {
+        console.log('이미 게임 table이 존재합니다.');
       } else {
         console.log(e);
       }
     }
-  } else if (req.method === "PATCH") {
+  } else if (req.method === 'PATCH') {
     try {
       const { userId, point } = req.body;
       console.log(point);
