@@ -37,6 +37,7 @@ export default NextAuth({
       if (user) {
         token.role = "USER";
       }
+      console.log(token);
       return token;
     },
     async session({ session, token }) {

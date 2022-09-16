@@ -1,5 +1,4 @@
 import { signIn, useSession, signOut } from "next-auth/react";
-import styles from "../styles/Home.module.css";
 import Image from "next/image";
 
 export default function Login() {
@@ -8,7 +7,7 @@ export default function Login() {
   if (session) {
   }
   return (
-    <div className={styles.main}>
+    <div>
       {session ? (
         <>
           <img src={session.user.image} width="100px" height="100px" />

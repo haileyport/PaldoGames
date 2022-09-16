@@ -5,6 +5,7 @@ export default function Test() {
   const [user, setUser] = useState();
   const [email, setEmail] = useState();
   const [id, setId] = useState();
+
   const getUser = async () => {
     const res = await axios.get("/api/user").catch((err) => console.log(err));
     console.log("---user---");
@@ -24,9 +25,9 @@ export default function Test() {
     const res = await axios
       .get(`/api/user/id/${id}`)
       .catch((err) => console.log(err));
-    const { data } = res;
+
     console.log("---res---");
-    console.log(data);
+    console.log(res.data);
   };
 
   const getEmail = async () => {
