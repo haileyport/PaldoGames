@@ -24,9 +24,22 @@ export const CurrentBaseBall = ({ answer, setAnswer, result, setResult }) => {
     const input = inputEl.current;
     // 자릿수가 모자란 경우
     if (value.length < 4) {
-      setResult("정답은 4자리로 작성해주세요.");
+      setResult("정답은 4자리 숫자로 작성해주세요.");
       return;
     }
+
+    // 숫자가 아닌게 있는 경우
+    let num = "";
+    num = value
+      .split("")
+      .map((el) => {
+        if (isNaN(el)) {
+          setResult("정답은 4자리 숫자로 작성해주세요.");
+          return 1;
+        }
+      })
+      .join("");
+    if (num.length > 0) return;
 
     // dev 확인용 콘솔 - production 시 삭제!
     console.log("답은", answer.join(""));
