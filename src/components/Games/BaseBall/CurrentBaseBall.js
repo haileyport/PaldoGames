@@ -1,28 +1,22 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import axios from "axios";
+import { useRouter } from "next/router";
+import { useRecoilState } from "recoil";
+import gameInfo from "./../../../states/gameInfo";
+
 import Balls from "./Balls";
+import GetNumber from "./GetNumber";
 import * as B from "./BaseBallMain.style";
 
-export const CurrentBaseBall = ({ result, setResult }) => {
-  // 랜덤으로 정답을 생성하는 함수
-  const getNumbers = () => {
-    const candidates = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    const array = [];
-    for (let i = 0; i < 4; i += 1) {
-      const chosen = candidates.splice(
-        Math.floor(Math.random() * (9 - i)),
-        1
-      )[0];
-      array.push(chosen);
-    }
-    return array;
-  };
-
+export const CurrentBaseBall = ({ answer, setAnswer, result, setResult }) => {
   // 상태관리 변수
   const inputEl = useRef(null);
-  const [answer, setAnswer] = useState(getNumbers());
   const [value, setValue] = useState("");
   const [tries, setTries] = useState([]);
   const [reTry, setReTry] = useState(false);
+  const [game, setGame] = useRecoilState(gameInfo);
+
+  const router = useRouter();
 
   // 정답 제출 함수
   const onSubmit = (e) => {
@@ -46,10 +40,9 @@ export const CurrentBaseBall = ({ result, setResult }) => {
           try: value,
           strike: 4,
           ball: 0,
-          result: "홈런⚾!",
         },
       ]);
-      setResult("홈런⚾!");
+      setResult("홈런");
       setReTry(true);
     } else {
       // 정답 X
@@ -70,7 +63,6 @@ export const CurrentBaseBall = ({ result, setResult }) => {
           try: value,
           strike: strike,
           ball: ball,
-          result: `${strike} 스트라이크, ${ball} 볼입니다.`,
         },
       ]);
       setValue("");
@@ -92,7 +84,7 @@ export const CurrentBaseBall = ({ result, setResult }) => {
     e.preventDefault();
     const input = inputEl.current;
     setValue("");
-    setAnswer(getNumbers());
+    setAnswer(GetNumber());
     setTries([]);
     setResult("숫자 4개를 맞추면 우승입니다⚾");
     setReTry(false);
@@ -109,6 +101,38 @@ export const CurrentBaseBall = ({ result, setResult }) => {
     res.pop();
     return res;
   };
+
+  const id = "cl84ceald0018t8n018yjpoi9";
+
+  const getUser = async () => {
+    const userId = id; // id값은 전역으로 저장해서 들고 다니기
+    const res = await axios
+      .get(`/api/game/${userId}`)
+      .catch((err) => console.log(err));
+    return res.data.response.totalPoint;
+  };
+
+  const updateUser = async (el) => {
+    const point = el;
+    const userId = id; // id값은 전역으로 저장해서 들고 다니기
+    const res = await axios.patch(`/api/game`, { userId, point });
+  };
+
+  useEffect(() => {
+    if (reTry) {
+      if (result === "홈런") {
+        getUser().then((el) => {
+          updateUser(el + 400);
+        });
+
+        setGame({
+          ...game,
+          point: 400,
+        });
+      }
+      router.push("/games/result");
+    }
+  }, [reTry]);
 
   return (
     <>
