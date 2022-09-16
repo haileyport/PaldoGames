@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import { Layout, CommunityMain } from '../src/components';
+import { Layout, CommunityMain, Footer } from '../src/components';
 
 const CommunityPage = () => {
   return (
@@ -10,6 +10,7 @@ const CommunityPage = () => {
         <meta name='description' content='커뮤니티' />
       </Head>
       <CommunityMain></CommunityMain>
+      <Footer />
     </Layout>
   );
 };

@@ -1,4 +1,3 @@
-import { Flex } from '../../@commons';
 import { Modal, ModalHeader, ModalProfile } from '../../Modal';
 import { StyledModalSection } from '../../Modal/Modal.style';
 import { CommunityModalMain } from '../../Modal/ModalMain/CommunityModalMain';

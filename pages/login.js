@@ -1,11 +1,12 @@
 import { signIn, useSession, signOut } from 'next-auth/react';
-import styles from '../styles/Home.module.css';
-import Image from 'next/image';
 
 export default function Login() {
   const { data: session } = useSession();
   return (
-    <div className={styles.main}>
+    // 세션 유무로 분기 ( 내부에 모달 구현 )
+    // 없는 이미지 (default image)
+
+    <div>
       {session ? (
         <>
           <img src={session.user.image} width='100px' height='100px' />

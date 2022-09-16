@@ -18,20 +18,20 @@ const Button = styled.nav`
   font-size: 1rem;
 
   &:hover {
-    background: tomato;
-    cursor: pointer;
+    background: #d0756f;
     transform: translateY(-2px);
+    cursor: pointer;
   }
   &[disabled] {
-    background: grey;
+    opacity: 30%;
     cursor: revert;
     transform: revert;
     pointer-events: none;
   }
 
   &[aria-current] {
-    cursor: revert;
     transform: revert;
+    cursor: pointer;
   }
 `;
 

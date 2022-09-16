@@ -24,7 +24,7 @@ export const Profile = () => {
           <Flex>
             <Modal>
               <StyledModalSection width='40%' maxWidth='350px' minWidth='300px' left='40%'>
-                <ModalHeader content='배경화면' />
+                <ModalHeader content='프로필' />
                 <ModalProfile DUMMY={DUMMY} />
                 <ModalMain />
                 <ModalFooter />
