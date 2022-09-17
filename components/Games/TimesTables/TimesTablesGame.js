@@ -42,6 +42,9 @@ const {first, second, count} = numbers;
       valueInput.current.focus();
       const timer = setInterval(() => {
         setSeconds(seconds-1);
+        if(count === 10 || lives.length === 0){
+          clearInterval(timer);
+        }
       }, 1000);
       return () => clearInterval(timer);
     }
