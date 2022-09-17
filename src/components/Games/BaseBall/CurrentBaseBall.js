@@ -23,8 +23,8 @@ export const CurrentBaseBall = ({ answer, setAnswer, result, setResult }) => {
     e.preventDefault();
     const input = inputEl.current;
     // 자릿수가 모자란 경우
-    if (value.length < 4) {
-      setResult("정답은 4자리 숫자로 작성해주세요.");
+    if (value.length < 4 || value.includes(0)) {
+      setResult("정답은 1~9의 숫자를 4자리로 작성해주세요.");
       return;
     }
 
@@ -34,15 +34,29 @@ export const CurrentBaseBall = ({ answer, setAnswer, result, setResult }) => {
       .split("")
       .map((el) => {
         if (isNaN(el)) {
-          setResult("정답은 4자리 숫자로 작성해주세요.");
+          setResult("정답은 숫자로 작성해주세요.");
           return 1;
         }
       })
       .join("");
     if (num.length > 0) return;
 
+    // 중복 확인
+    const isRepeat = [...new Set(value)];
+    if (isRepeat.length < value.length) {
+      setResult("중복된 숫자가 있습니다.");
+      return;
+    }
+
     // dev 확인용 콘솔 - production 시 삭제!
     console.log("답은", answer.join(""));
+
+    // 참가비 가감
+    if (tries.length === 0) {
+      getUser().then((el) => {
+        updateUser(el - 100);
+      });
+    }
 
     // 정답 비교 로직
     if (value === answer.join("")) {
@@ -55,7 +69,7 @@ export const CurrentBaseBall = ({ answer, setAnswer, result, setResult }) => {
           ball: 0,
         },
       ]);
-      setResult("홈런");
+      setResult("홈런⚾");
       setReTry(true);
     } else {
       // 정답 X
@@ -99,8 +113,12 @@ export const CurrentBaseBall = ({ answer, setAnswer, result, setResult }) => {
     setValue("");
     setAnswer(GetNumber());
     setTries([]);
-    setResult("숫자 4개를 맞추면 우승입니다⚾");
+    setResult("참가비 100포인트🕹️ 숫자 4개를 맞추면 우승입니다⚾");
     setReTry(false);
+    setGame({
+      ...game,
+      point: 0,
+    });
     if (input) {
       input.focus();
     }
@@ -132,8 +150,9 @@ export const CurrentBaseBall = ({ answer, setAnswer, result, setResult }) => {
   };
 
   useEffect(() => {
+    console.log("setgame", game);
     if (reTry) {
-      if (result === "홈런") {
+      if (result === "홈런⚾") {
         getUser().then((el) => {
           updateUser(el + 400);
         });
@@ -142,8 +161,12 @@ export const CurrentBaseBall = ({ answer, setAnswer, result, setResult }) => {
           ...game,
           point: 400,
         });
+        console.log(game.game);
       }
       router.push("/games/result");
+    } else {
+      console.log("failed");
+      console.log(game);
     }
   }, [reTry]);
 
@@ -167,7 +190,7 @@ export const CurrentBaseBall = ({ answer, setAnswer, result, setResult }) => {
           <B.BottomSpan>게임을 시작해주세요.</B.BottomSpan>
         ) : (
           tries.map((v, i) => (
-            <B.HistoryDiv>
+            <B.HistoryDiv key={v.id}>
               <B.Text>{i + 1}</B.Text>
               <B.BallSet>
                 {light(v.strike, v.ball).map((el) => {

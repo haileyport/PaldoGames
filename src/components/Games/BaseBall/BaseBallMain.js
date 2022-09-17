@@ -8,7 +8,9 @@ import { useRecoilState } from "recoil";
 import * as B from "./BaseBallMain.style";
 
 const BaseBallMain = () => {
-  const [result, setResult] = useState("숫자 4개를 맞추면 우승입니다⚾");
+  const [result, setResult] = useState(
+    "참가비 100포인트🕹️ 숫자 4개를 맞추면 우승입니다⚾"
+  );
   const [answer, setAnswer] = useState(GetNumber());
   const [game, setGame] = useRecoilState(gameInfo);
 
@@ -20,7 +22,7 @@ const BaseBallMain = () => {
       },
       ...game,
     });
-  }, [answer]);
+  }, []);
 
   return (
     <B.StyledBaseBallMain>
