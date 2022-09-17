@@ -4,15 +4,13 @@ import { Layout, Main } from '../src/components';
 
 export const Home = () => {
   return (
-    <>
-      <Layout>
-        <Head>
-          <title>팔도게임즈!</title>
-          <meta name='description' content='오늘도 즐겜' />
-        </Head>
-        <Main />
-      </Layout>
-    </>
+    <Layout>
+      <Head>
+        <title>팔도게임즈!</title>
+        <meta name='description' content='오늘도 즐겜' />
+      </Head>
+      <Main />
+    </Layout>
   );
 };
 

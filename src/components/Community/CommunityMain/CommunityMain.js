@@ -7,10 +7,11 @@ import { CommunityContentModal } from '../CommunityContentModal/CommunityContent
 import { ContentTitleContainer } from './ContentTitleContainer/ContentTitleContainer';
 import { Pagination } from '../Pagination/Pagination';
 
-import { communityModalState, COMMUNITY_DUMMY, modalState } from '../../../states';
+import { COMMUNITY_DUMMY, modalStates } from '../../../states';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMessage } from '@fortawesome/free-solid-svg-icons';
+
 import { CommunityPostModal } from '../CommunityPostModal/CommunityPostModal';
 
 const mainStyle = {
@@ -20,8 +21,9 @@ const mainStyle = {
 };
 
 export const CommunityMain = () => {
-  const [modal, setModal] = useRecoilState(modalState);
-  const [communityModal, setCommunityModal] = useRecoilState(communityModalState);
+  // const [modal, setModal] = useRecoilState(modalState);
+
+  const [modal, setModal] = useRecoilState(modalStates);
 
   const [currentUser, setCurrentUser] = useState(null);
 
@@ -44,8 +46,8 @@ export const CommunityMain = () => {
       <Flex flexDirection='column' style={mainStyle}>
         {/* 글을 쓸수 있는 부분 컴포넌트 분리*/}
         <Flex justifyContent='flex-end' alignItems='center' style={{ width: '95%', marginBottom: '10px' }}>
-          <button onClick={() => console.log('aa')}>글쓰기</button>
-          {/* <CommunityPostModal /> */}
+          <button onClick={() => setModal({ ...modal, post: true })}>글쓰기</button>
+          {modal.post && <CommunityPostModal />}
         </Flex>
 
         {/* 글 내용을 불러오는 컴포넌트 */}
@@ -59,7 +61,7 @@ export const CommunityMain = () => {
                   content={title}
                   style={{ width: '70%', marginLeft: 20, color: 'white', cursor: 'pointer' }}
                   onClick={({ target }) => {
-                    setCommunityModal(!communityModal);
+                    setModal({ ...modal, community: true });
                     setCurrentUser((prev) => (prev = target.id));
                   }}
                   id={kakaoId}
@@ -69,7 +71,12 @@ export const CommunityMain = () => {
                 {/* 추후에 input image 클릭시에 프로필 팝업 보여지나, id 에 해당하는 프로필이 보여져야 함
                  +  본인이 클릭시에는 본인 프로필 팝업이 보여지고 다른사람이 클릭시에는 다른 팝업 ??  깃헙 링크 만 보여지게??? 
                 */}
-                <Input type='image' src={profileUrl} onClick={() => setModal(!modal)} style={{ width: 30, height: 30, borderRadius: 50, marginRight: 10 }} />
+                <Input
+                  type='image'
+                  src={profileUrl}
+                  onClick={() => setModal({ ...modal, profile: true })}
+                  style={{ width: 30, height: 30, borderRadius: 50, marginRight: 10 }}
+                />
                 {/* 댓글기능 구현시 주석 제거 */}
                 <FontAwesomeIcon icon={faMessage} style={{ color: 'white' }} />
                 <span style={{ marginLeft: 5, color: 'white' }}>3</span>
@@ -78,7 +85,7 @@ export const CommunityMain = () => {
           );
         })}
         {/* 글 클릭시 나오는 모달 */}
-        {communityModal && <CommunityContentModal user={currentUser} />}
+        {modal.community && <CommunityContentModal user={currentUser} />}
         {/* 페이지네이션 */}
         <footer style={{ position: 'relative' }}>
           <Pagination total={posts.length} limit={limit} page={page} setPage={setPage} />

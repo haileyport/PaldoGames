@@ -1,17 +1,24 @@
 import { useEffect, useRef } from 'react';
 import { useSetRecoilState } from 'recoil';
-import { communityModalState, modalState } from '../../states';
+import { communityModalState, modalState, modalStates, postModalState } from '../../states';
 
 import { StyledModal } from './Modal.style';
 
-export const Modal = (props) => {
-  const { children } = props;
+export const Modal = ({ children }) => {
+  // const setModal = useSetRecoilState(modalState);
+  // const setCommunityModal = useSetRecoilState(communityModalState);
+  // const setPostModal = useSetRecoilState(postModalState);
 
-  const setModal = useSetRecoilState(modalState);
-  const setCommunityModal = useSetRecoilState(communityModalState);
+  const setModal = useSetRecoilState(modalStates);
+
   const backgroundRef = useRef(null);
 
-  const onClickBackground = ({ target }) => target === backgroundRef.current && (setModal(false), setCommunityModal(false));
+  const handleModals = () => {
+    // 백그라운드 클릭시 모달창 꺼짐
+    setModal({ login: false, profile: false, community: false, post: false });
+  };
+
+  const onClickBackground = ({ target }) => target === backgroundRef.current && handleModals();
 
   // 모달창 팝업시 배경 스크롤 제한
   useEffect(() => {

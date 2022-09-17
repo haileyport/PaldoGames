@@ -9,6 +9,9 @@ export const GamesMain = () => {
         <Link href='games/wordrelay'>
           <div style={{ width: 300, height: 200, border: '1px solid white', backgroundColor: 'white' }}></div>
         </Link>
+        <Link href='games/baseball'>
+          <div style={{ width: 300, height: 200, border: '1px solid white', backgroundColor: 'green' }}></div>
+        </Link>
       </MainSection>
     </StyledGamesMain>
   );

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { Flex } from '../../@commons';
 import { Modal, ModalHeader, ModalProfile } from '../../Modal';
 import { StyledModalSection } from '../../Modal/Modal.style';
-import { CommunityModalMain } from '../../Modal/ModalMain/CommunityModalMain';
 
 const DUMMY = {
   profileImg: 'https://avatars.githubusercontent.com/u/83988230?v=4',
@@ -16,8 +15,7 @@ export const CommunityPostModal = ({ user }) => {
       <StyledModalSection width='80%' maxWidth='1000px' minWidth='500px' style={{ maxHeight: '500px', overflowY: 'auto' }}>
         <ModalHeader />
         <ModalProfile DUMMY={DUMMY} />
-        {/* <CommunityPostForm /> */}
-        {/* 댓글 부분 */}
+        <CommunityPostForm />
       </StyledModalSection>
     </Modal>
   );

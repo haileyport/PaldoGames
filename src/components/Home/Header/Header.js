@@ -1,11 +1,18 @@
 import Link from 'next/link';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
 import { HomeLink } from './HomeLink/HomeLink';
 import { Profile } from './NavProfile';
 import StyledHeader from './Header.style';
 import { StyledNav, NavContent } from './Nav.style';
+import { currentUserState, modalStates } from '../../../states';
 
 export const Header = () => {
+  let { isLoggedIn } = useRecoilValue(currentUserState);
+
+  isLoggedIn = true;
+  const [modal, setModal] = useRecoilState(modalStates);
+
   return (
     <>
       <StyledHeader>
@@ -21,7 +28,7 @@ export const Header = () => {
           <Link href='/community'>
             <NavContent>커뮤니티</NavContent>
           </Link>
-          <Profile></Profile>
+          {!isLoggedIn ? <NavContent onClick={() => setModal({ ...modal, login: true })}>로그인</NavContent> : <Profile></Profile>}
         </StyledNav>
       </StyledHeader>
     </>

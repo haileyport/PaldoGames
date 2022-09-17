@@ -1,18 +1,25 @@
 import { signIn, useSession, signOut } from 'next-auth/react';
+import { useEffect } from 'react';
+import { useSetRecoilState } from 'recoil';
+import { currentUserState } from '../src/states';
 
 export default function Login() {
   const { data: session } = useSession();
-  return (
-    // 세션 유무로 분기 ( 내부에 모달 구현 )
-    // 없는 이미지 (default image)
 
+  const setCurrentUser = useSetRecoilState(currentUserState);
+
+  useEffect(() => {
+    session && setCurrentUser({ isLoggedIn: true, currentUser: session.user });
+  }, [session, setCurrentUser]);
+
+  return (
     <div>
       {session ? (
         <>
-          <img src={session.user.image} width='100px' height='100px' />
+          <input type='image' src={session.user.image} width='100px' height='100px' />
           <div>이름: {session.user.name}</div>
           <div>이메일: {session.user.email}</div>
-          <button type='button' onClick={() => signOut('kakao')}>
+          <button type='button' onClick={() => signOut()}>
             로그아웃
           </button>
         </>
