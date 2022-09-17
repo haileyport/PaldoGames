@@ -14,10 +14,6 @@ const StyledGamesMain = styled.section`
 const GamesSection = styled.div`
   width: 100%;
   display: grid;
-  /* position: relative;
-  bottom: 100px; */
-  justify-content: center;
-  align-items: center;
   grid-template-columns: repeat(2, 1fr);
   @media screen and (max-width: 40em) {
     grid-template-columns: repeat(1, 1fr);

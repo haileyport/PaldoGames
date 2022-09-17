@@ -11,10 +11,10 @@ const GamesCardTitle = styled.h2`
     margin-left: 20px;
 `
 
-const GamesCardImg = styled.div`
+const GamesCardImgWrapper = styled.div`
        border-top-left-radius: 8px;
        border-top-right-radius: 8px;
        overflow: hidden;
     `
 
-export { StyledGamesCard, GamesCardTitle, GamesCardImg };
+export { StyledGamesCard, GamesCardTitle, GamesCardImgWrapper };
