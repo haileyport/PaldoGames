@@ -1,17 +1,17 @@
+import { StyledHomeLink, Name, LogoBox } from './HomeLink.style';
 import Image from 'next/image';
 import Logo from '../../../../../public/logo.png';
 import Link from 'next/link';
-import * as Styled from './HomeLink.style';
 
 export const HomeLink = () => {
   return (
-    <Styled.HomeLink>
-      <Styled.Logo>
+    <StyledHomeLink>
+      <LogoBox>
         <Image src={Logo} alt='로고' width={25} height={22}></Image>
-      </Styled.Logo>
+      </LogoBox>
       <Link href='/'>
-        <Styled.Name>팔도게임즈</Styled.Name>
+        <Name>팔도게임즈</Name>
       </Link>
-    </Styled.HomeLink>
+    </StyledHomeLink>
   );
 };
