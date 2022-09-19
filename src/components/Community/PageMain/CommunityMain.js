@@ -1,18 +1,18 @@
-import { useEffect, useState } from 'react';
-import { useRecoilState } from 'recoil';
+import { useEffect, useState } from "react";
+import { useRecoilState } from "recoil";
 
-import { Flex } from '../../@commons';
-import { ContentModal } from '../ContentModal/ContentModal';
-import { Pagination } from '../Pagination/Pagination';
+import { Flex } from "../../@commons";
+import { ContentModal } from "../ContentModal/ContentModal";
+import { Pagination } from "../Pagination/Pagination";
 
-import { modalStates } from '../../../states';
+import { modalStates } from "../../../states";
 
-import { PostModal } from '../PostModal/PostModal';
-import { MainHeader } from './MainHeader/MainHeader';
+import { PostModal } from "../PostModal/PostModal";
+import { MainHeader } from "./MainHeader/MainHeader";
 
-import * as Styled from './Community.style';
-import { ContentList } from './ContentList/ContentList';
-import { postData } from '../../../states/dummydata';
+import * as Styled from "./Community.style";
+import { ContentList } from "./ContentList/ContentList";
+import { postData } from "../../../states/dummydata";
 
 export const CommunityMain = () => {
   const [modal, setModal] = useRecoilState(modalStates);
@@ -24,10 +24,10 @@ export const CommunityMain = () => {
   const offset = (page - 1) * limit;
 
   return (
-    <Styled.Section style={{ border: '1px solid white' }}>
+    <Styled.Section style={{ border: "1px solid white" }}>
       <MainHeader />
       <Styled.Main>
-        <Flex justifyContent='flex-end' alignItems='center' style={{ width: '95%', marginBottom: '10px' }}>
+        <Flex justifyContent='flex-end' alignItems='center' style={{ width: "95%", marginBottom: "10px" }}>
           <button onClick={() => setModal({ ...modal, post: true })}>글쓰기</button>
           {modal.post && <PostModal />}
         </Flex>

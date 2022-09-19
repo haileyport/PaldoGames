@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Section = styled.section`
   position: relative;
@@ -10,7 +10,7 @@ const Section = styled.section`
 
 const Image = styled.input`
   position: relative;
-  left: 60px;
+  left: 20px;
   width: 50px;
   height: 50px;
   border-radius: 50px;

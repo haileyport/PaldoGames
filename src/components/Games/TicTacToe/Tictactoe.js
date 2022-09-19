@@ -1,15 +1,15 @@
 /* eslint-disable no-unused-expressions */
-import { useEffect, useRef, useState, version } from 'react';
-import { TicTacToeGameResult } from './GameResult';
-import { Cell } from './Cell';
-import { Flex } from '../../@commons';
-import { createEmptyArray, generateRandomNumber } from '../../../utils/utils';
+import { useEffect, useRef, useState, version } from "react";
+import { TicTacToeGameResult } from "./GameResult";
+import { Cell } from "./Cell";
+import { Flex } from "../../@commons";
+import { createEmptyArray, generateRandomNumber } from "../../../utils/utils";
 
 export const Tictactoe = () => {
   // 랜덤한 숫자로 1 ~ 9 중 한개의 cell에 바둑돌이 들어가 있게 하면 난이도가 올라감.
   // 실패 구현
-  const [turn, setTurn] = useState('⚪️');
-  const [cells, setCells] = useState(createEmptyArray(9).fill(''));
+  const [turn, setTurn] = useState("⚪️");
+  const [cells, setCells] = useState(createEmptyArray(9).fill(""));
   const [winner, setWinner] = useState();
   const [gameCount, setGameCount] = useState(0);
   const cellsRef = useRef(null);
@@ -34,7 +34,7 @@ export const Tictactoe = () => {
 
     for (let combo in combos) {
       combos[combo].forEach((pattern) => {
-        if (squares[pattern[0]] === '' || squares[pattern[1]] === '' || squares[pattern[2]] === '') {
+        if (squares[pattern[0]] === "" || squares[pattern[1]] === "" || squares[pattern[2]] === "") {
           // do nothing
         } else if (squares[pattern[0]] === squares[pattern[1]] && squares[pattern[1]] === squares[pattern[2]]) {
           setWinner(squares[pattern[0]]);
@@ -44,14 +44,14 @@ export const Tictactoe = () => {
   };
 
   const handleClick = (num) => {
-    if (cells[num] !== '') {
+    if (cells[num] !== "") {
       return;
     }
 
     let squares = [...cells];
     // Empty array * 9
 
-    turn === '⚪️' ? ((squares[num] = '⚪️'), setTurn('⚫️')) : ((squares[num] = '⚫️'), setTurn('⚪️'));
+    turn === "⚪️" ? ((squares[num] = "⚪️"), setTurn("⚫️")) : ((squares[num] = "⚫️"), setTurn("⚪️"));
 
     decideWinner(squares);
     setCells(squares);
@@ -61,7 +61,7 @@ export const Tictactoe = () => {
   const handleRestart = () => {
     // void
     setWinner(null);
-    setCells(createEmptyArray(9).fill(''));
+    setCells(createEmptyArray(9).fill(""));
     setGameCount(0);
   };
 
@@ -82,7 +82,7 @@ export const Tictactoe = () => {
         <table style={{ width: 600, height: 600 }}>
           <thead>
             <tr>
-              <th style={{ color: 'white', fontSize: 30, fontWeight: 300 }}>Turn : {turn}</th>
+              <th style={{ color: "white", fontSize: 30, fontWeight: 300 }}>Turn : {turn}</th>
             </tr>
           </thead>
           <tbody ref={cellsRef}>

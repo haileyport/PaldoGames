@@ -1,12 +1,12 @@
-import { useRef } from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { COMMUNITY_DUMMY, currentUserState, modalStates } from '../../../states';
+import { useRef } from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { currentUserState, modalStates } from "../../../states";
 
-import { Flex } from '../../@commons';
-import { Modal, ModalHeader, ModalProfile } from '../../@commons/Modal';
-import * as Post from './PostModal.style';
-import * as M from '../../@commons/Modal/Modal.style';
-import { postData } from '../../../states/dummydata';
+import { Flex } from "../../@commons";
+import { Modal, ModalHeader, ModalProfile } from "../../@commons/Modal";
+import * as Post from "./PostModal.style";
+import * as M from "../../@commons/Modal/Modal.style";
+import { postData } from "../../../states/dummydata";
 
 export const PostModal = () => {
   const { user } = useRecoilValue(currentUserState);
@@ -47,18 +47,18 @@ export const PostModal = () => {
           content: contentValue,
           contentId: Math.floor(Math.random() * 1000),
           viewCount: 0,
-          createdAt: '2022.09.18',
+          createdAt: "2022.09.18",
         },
       ]);
       setModal({ ...modal, post: false });
     } else {
-      alert('제목 혹은 내용을 입력해 주세요.');
+      alert("제목 혹은 내용을 입력해 주세요.");
     }
   };
 
   return (
     <Modal>
-      <M.Section width='80%' maxWidth='1000px' minWidth='500px' maxHeight='1000px' style={{ overflowY: 'auto' }}>
+      <M.Section width='80%' maxWidth='1000px' minWidth='500px' maxHeight='1000px' style={{ overflowY: "auto" }}>
         <ModalHeader content='글쓰기' />
         {/* 현재유저 */}
         <ModalProfile user={user} />

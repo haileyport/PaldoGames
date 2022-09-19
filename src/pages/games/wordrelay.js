@@ -1,16 +1,16 @@
-import Head from 'next/head';
+import Head from "next/head";
 
-import { useRecoilState } from 'recoil';
-import { wordRelayGameInfo } from '../../states';
+import { useRecoilState } from "recoil";
+import { wordRelayGameInfo } from "../../states";
 
-import { WordRelayMain } from '../../components';
-import { Button, Flex, P } from '../../components/@commons';
+import { WordRelayMain } from "../../components";
+import { Button, Flex, P } from "../../components/@commons";
 
 const WordRelayGamePage = () => {
   const [gameInfo, setGameInfo] = useRecoilState(wordRelayGameInfo);
 
   const { lives } = gameInfo;
-  const heartsArray = lives ? Array.from({ length: lives }).fill('♥') : [];
+  const heartsArray = lives ? Array.from({ length: lives }).fill("♥") : [];
 
   const resetGameInfo = () => {
     setGameInfo({ lives: 3, count: 0, points: 0 });
@@ -28,10 +28,10 @@ const WordRelayGamePage = () => {
       */}
       <Flex flexDirection='column' alignItems='center'>
         {lives ? (
-          <P content={`${heartsArray.join('')}`} style={{ fontSize: 50 }} />
+          <P content={`${heartsArray.join("")}`} style={{ fontSize: 50 }} />
         ) : (
           <>
-            <P className='current-word' content={'더이상 목숨이 남아있지 않습니다.'} style={{ color: 'red', fontSize: 20, alignItems: 'center' }}></P>
+            <P className='current-word' content={"더이상 목숨이 남아있지 않습니다."} style={{ color: "red", fontSize: 20, alignItems: "center" }}></P>
             <Button content='게임 재시작' onClickEvent={resetGameInfo}></Button>
           </>
         )}

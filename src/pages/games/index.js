@@ -1,6 +1,6 @@
-import Head from 'next/head';
+import Head from "next/head";
 
-import { GamesMain } from '../../components';
+import { GamesMain } from "../../components";
 
 const GamesPage = () => {
   return (

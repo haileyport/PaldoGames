@@ -63,7 +63,7 @@ model Game {
 }
 
 model Community {
-  id      String @id
+  id      String @id @unique
   title   String
   content String
   editor  String

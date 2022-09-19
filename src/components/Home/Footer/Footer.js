@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import * as Styled from './Footer.style';
+import Link from "next/link";
+import * as Styled from "./Footer.style";
 export const Footer = () => {
   return (
     <Styled.Footer>

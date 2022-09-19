@@ -1,5 +1,5 @@
-import { CLASSNAME, ERROR_MESSAGE } from '../../../constants';
-import { P } from '../../@commons';
+import { CLASSNAME, ERROR_MESSAGE } from "../../../constants";
+import { P } from "../../@commons";
 
 export const ErrorMessage = (props) => {
   let { message, loadingStatus, definition } = props;
