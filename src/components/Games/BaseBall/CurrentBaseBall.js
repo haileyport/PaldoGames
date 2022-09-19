@@ -147,7 +147,7 @@ export const CurrentBaseBall = ({ answer, setAnswer, result, setResult }) => {
 
   const updateUser = async (el) => {
     const point = el;
-    const userId = id; // id값은 전역으로 저장해서 들고 다니기
+    const userId = user.id; // id값은 전역으로 저장해서 들고 다니기
     const res = await axios.patch(`/api/game`, { userId, point });
   };
 
@@ -157,7 +157,6 @@ export const CurrentBaseBall = ({ answer, setAnswer, result, setResult }) => {
         getUser().then((el) => {
           updateUser(el + 400);
         });
-
         setGame({
           ...game,
           point: 400,
@@ -194,7 +193,7 @@ export const CurrentBaseBall = ({ answer, setAnswer, result, setResult }) => {
             <B.HistoryDiv key={v.id}>
               <B.Text>{i + 1}</B.Text>
               <B.BallSet>
-                {light(v.strike, v.ball).map((el) => {
+                {light(v.strike, v.ball).map((el, idx) => {
                   return <Balls background={el} />;
                 })}
               </B.BallSet>

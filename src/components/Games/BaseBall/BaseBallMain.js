@@ -20,7 +20,7 @@ const BaseBallMain = () => {
         name: "baseball",
         answer: answer,
       },
-      ...game,
+      point: 0,
     });
   }, []);
 
