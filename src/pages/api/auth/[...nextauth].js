@@ -1,8 +1,8 @@
-import NextAuth from 'next-auth';
-import { PrismaAdapter } from '@next-auth/prisma-adapter';
-import KakaoProvider from 'next-auth/providers/kakao';
-import GithubProvider from 'next-auth/providers/github';
-import prisma from '../../../../libs/client';
+import NextAuth from "next-auth";
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
+import prisma from "./../../../../libs/client";
+import KakaoProvider from "next-auth/providers/kakao";
+import GithubProvider from "next-auth/providers/github";
 
 export default NextAuth({
   providers: [
@@ -18,23 +18,25 @@ export default NextAuth({
   adapter: PrismaAdapter(prisma),
   secret: process.env.SECRET,
   session: {
-    strategy: 'jwt',
+    strategy: "jwt",
     maxAge: 30 * 24 * 60 * 60, // 30 days
     updateAge: 24 * 60 * 60, // 24 hours
   },
   jwt: {
     secret: process.env.SECRET,
   },
-
+  pages: {
+    signIn: "/login",
+    signOut: "/",
+  },
   // jwt 커스텀 코드
   callbacks: {
     async jwt({ token, user }) {
-      console.log('token: ' + token);
+      console.log("token: " + token);
       // token 정보 커스텀
       if (user) {
-        token.role = 'USER';
+        token.role = "USER";
       }
-      console.log(token);
       return token;
     },
     async session({ session, token }) {
