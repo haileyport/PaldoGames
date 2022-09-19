@@ -1,4 +1,5 @@
-import prisma from "../../../libs/client";
+// import prisma from "../../../libs/client";
+import { prisma } from "@prisma/client";
 
 export default async (req, res) => {
   if (req.method === "GET") {

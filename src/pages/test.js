@@ -8,8 +8,8 @@ export default function Test() {
   const getUser = async () => {
     const res = await axios.get("/api/user").catch((err) => console.log(err));
     console.log("---user---");
-    console.log(res.data.users);
-    setUser(res.data.users);
+    console.log(res);
+    // setUser(res.data.users);
   };
 
   const updateUser = async () => {
@@ -30,15 +30,14 @@ export default function Test() {
   };
 
   const getEmail = async () => {
-    const email = "partyqueen305@gmail.com";
+    const email = "heewhy3513@gmail.com";
     const res = await axios
       .get(`/api/user/email/${email}`)
       .catch((err) => console.log(err));
-    const { data } = res;
     console.log("---res---");
-    console.log(data.user);
+    console.log(res.data.user);
     setEmail(email);
-    setId(data.user.id);
+    setId(res.data.user.id);
     console.log(id);
   };
 

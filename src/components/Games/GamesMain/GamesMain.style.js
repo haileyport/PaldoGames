@@ -27,7 +27,7 @@ const GamesTitle = styled.h1`
 color: white;
 margin-left: 1.2em;
 @media screen and (max-width: 40em) {
-    font-size: 29px;
+    font-size: 1.8em;
   }
 `
 

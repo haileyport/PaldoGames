@@ -1,7 +1,7 @@
+import { MainSection } from '../../Home/Main/Main.style';
 import { GamesCard } from '../GamesCard/GamesCard';
 import { GamesSection, GamesTitle, StyledGamesMain } from './GamesMain.style';
 import baseball from '../../../../public/baseball.png';
-import { MainSection } from '../../Home/Main/Main.style';
 
 const gameList = [
   {
@@ -13,13 +13,13 @@ const gameList = [
   {
     gameTitle : '끝말잇기',
     imageUrl : baseball,
-    linkUrl : '/games/[wordrelay]',
+    linkUrl : '/games/wordrelay',
     desc : '끝말잇기 게임 입니다.',
   },
   {
     gameTitle : '숫자야구',
     imageUrl : baseball,
-    linkUrl : '/game/baseball',
+    linkUrl : '/games/baseball',
     desc : '숫자야구 게임 입니다.',
   },
   {
