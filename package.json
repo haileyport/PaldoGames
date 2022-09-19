@@ -8,9 +8,6 @@
     "start": "next start",
     "lint": "next lint",
     "prisma": "npx prisma studio",
-    "push": "npx prisma db push",
-    "generate": "npx prisma generate",
-    "reset": "npx prisma migrate reset",
     "pscale": "pscale connect paldo-games main --port 3309"
   },
   "dependencies": {
@@ -39,7 +36,6 @@
     "babel-plugin-inline-react-svg": "^2.0.1",
     "babel-plugin-styled-components": "^2.0.7",
     "eslint": "8.23.0",
-    "eslint-config-next": "12.2.5",
-    "prisma": "^4.3.1"
+    "eslint-config-next": "12.2.5"
   }
 }
