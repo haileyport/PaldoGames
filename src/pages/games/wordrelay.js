@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { useRecoilState } from 'recoil';
 import { wordRelayGameInfo } from '../../states';
 
-import { Layout, WordRelayMain } from '../../components';
+import { WordRelayMain } from '../../components';
 import { Button, Flex, P } from '../../components/@commons';
 
 const WordRelayGamePage = () => {
@@ -17,7 +17,7 @@ const WordRelayGamePage = () => {
   };
 
   return (
-    <Layout>
+    <>
       <Head>
         <title>끝말잇기 게임</title>
         <meta name='description' content='오늘도 즐겜' />
@@ -37,7 +37,7 @@ const WordRelayGamePage = () => {
         )}
         <WordRelayMain></WordRelayMain>
       </Flex>
-    </Layout>
+    </>
   );
 };
 

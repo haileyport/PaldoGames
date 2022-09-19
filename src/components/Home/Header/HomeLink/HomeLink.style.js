@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledHomeLink = styled.p`
+const HomeLink = styled.p`
   display: flex;
   font-weight: 500;
   align-items: center;
@@ -16,7 +16,7 @@ const StyledHomeLink = styled.p`
   }
 `;
 
-const LogoBox = styled.span`
+const Logo = styled.span`
   margin-top: 1.5px;
 `;
 
@@ -27,4 +27,4 @@ const Name = styled.a`
   padding-right: 1rem;
 `;
 
-export { StyledHomeLink, LogoBox, Name };
+export { HomeLink, Logo, Name };

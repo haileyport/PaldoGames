@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledCommunityMain = styled.section`
+const Section = styled.section`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -11,4 +11,16 @@ const StyledCommunityMain = styled.section`
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 `;
 
-export { StyledCommunityMain };
+const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+  height: 80vh;
+`;
+
+const Footer = styled.footer`
+  position: relative;
+`;
+
+export { Section, Main, Footer };

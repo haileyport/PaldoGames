@@ -8,6 +8,7 @@ export default function Test() {
 
   const getUser = async () => {
     const res = await axios.get("/api/user").catch((err) => console.log(err));
+    console.log(res);
     console.log("---user---");
     console.log(res.data.users);
     setUser(res.data.users);
