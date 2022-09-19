@@ -3,6 +3,6 @@ import { modalStates } from './modal';
 import wordRelayGameInfo from './wordRelayGameInfo';
 
 // Current User related
-import { currentUserState } from './user';
+import { contentState, currentUserState } from './user';
 
-export { modalStates, currentUserState, wordRelayGameInfo, COMMUNITY_DUMMY };
+export { modalStates, currentUserState, wordRelayGameInfo, COMMUNITY_DUMMY, contentState };

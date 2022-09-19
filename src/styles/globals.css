@@ -38,8 +38,7 @@ p {
 }
 
 .ellipsis {
-  width: 200px;
-  white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis; /* 말줄임 적용 */
+  white-space: nowrap;
+  width: 200px;
 }

@@ -4,7 +4,6 @@ import { CLASSNAME, COLOR, DEFAULT, ERROR_MESSAGE } from '../../../constants';
 import { Form, Button, P, Input } from '../../@commons';
 import { isValidInputWord, clearInputValue, handleErrorMessage } from '../../../utils';
 import { wordRelayGameInfo } from '../../../states';
-import { fetch우리말api } from '../../../../pages/api/wordRelayApi/[wordRelayApi]';
 
 // 점수관련 필요한 기능
 // 게임의 길이 = wordsArray 의 길이

@@ -22,6 +22,7 @@ const Button = styled.nav`
     transform: translateY(-2px);
     cursor: pointer;
   }
+
   &[disabled] {
     opacity: 30%;
     cursor: revert;
