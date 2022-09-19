@@ -65,6 +65,31 @@ export default function Test() {
     console.log(res.data.totalPoint);
   };
 
+  const getAllCommu = async () => {
+    const res = await axios
+      .get("/api/community")
+      .catch((err) => console.log(err));
+    console.log("---community---");
+    console.log(res.data.response);
+  };
+
+  const createCommu = async () => {
+    const res = await axios.post(`/api/community`, {
+      title: "테스트 페이지 제작",
+      content: "테스트 페이지에서 나온 결과",
+      id: id,
+    });
+  };
+
+  const deleteCommu = async () => {
+    const id = "cl88tnms9003160n0mgdspvxg";
+    const res = await axios.delete("/api/community", {
+      id,
+    });
+    console.log("deleted");
+    console.log(res);
+  };
+
   return (
     <div>
       안녕하세요?
@@ -75,6 +100,9 @@ export default function Test() {
       <button onClick={getGame}>아이디로 유저 game정보 찾기</button>
       <button onClick={updateGame}>아이디로 유저 game 정보 update하기</button>
       <button onClick={updateUser}>아이디로 유저 정보 update하기</button>
+      <button onClick={getAllCommu}>전체 커뮤니티 내용 보기</button>
+      <button onClick={createCommu}>커뮤니티 글 생성</button>
+      <button onClick={deleteCommu}>커뮤니티 글 삭제</button>
     </div>
   );
 }
