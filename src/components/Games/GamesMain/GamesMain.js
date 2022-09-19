@@ -26,11 +26,15 @@ export const GamesMain = () => {
             }}
           ></div>
         </Link>
-        <Link href='games/baseball'>
-          <div style={{ width: 300, height: 200, border: '1px solid white', backgroundColor: 'green' }}></div>
-        </Link>
-        <Link href='games/tictactoe'>
-          <div style={{ width: 300, height: 200, border: '1px solid white', backgroundColor: 'red' }}></div>
+        <Link href="games/tictactoe">
+          <div
+            style={{
+              width: 300,
+              height: 200,
+              border: "1px solid white",
+              backgroundColor: "red",
+            }}
+          ></div>
         </Link>
       </MainSection>
     </StyledGamesMain>

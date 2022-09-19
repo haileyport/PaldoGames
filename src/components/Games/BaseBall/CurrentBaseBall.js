@@ -1,8 +1,9 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useId } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import gameInfo from "./../../../states/gameInfo";
+import { currentUserState } from "./../../../states/user";
 
 import Balls from "./Balls";
 import GetNumber from "./GetNumber";
@@ -15,6 +16,7 @@ export const CurrentBaseBall = ({ answer, setAnswer, result, setResult }) => {
   const [tries, setTries] = useState([]);
   const [reTry, setReTry] = useState(false);
   const [game, setGame] = useRecoilState(gameInfo);
+  const { user } = useRecoilValue(currentUserState);
 
   const router = useRouter();
 
@@ -133,13 +135,13 @@ export const CurrentBaseBall = ({ answer, setAnswer, result, setResult }) => {
     return res;
   };
 
-  const id = "cl84ceald0018t8n018yjpoi9";
-
   const getUser = async () => {
-    const userId = id; // id값은 전역으로 저장해서 들고 다니기
+    const userId = user.id; // id값은 전역으로 저장해서 들고 다니기
+    console.log(userId);
     const res = await axios
       .get(`/api/game/${userId}`)
       .catch((err) => console.log(err));
+    console.log(res);
     return res.data.response.totalPoint;
   };
 
@@ -150,7 +152,6 @@ export const CurrentBaseBall = ({ answer, setAnswer, result, setResult }) => {
   };
 
   useEffect(() => {
-    console.log("setgame", game);
     if (reTry) {
       if (result === "홈런⚾") {
         getUser().then((el) => {

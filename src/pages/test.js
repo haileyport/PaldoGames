@@ -83,11 +83,24 @@ export default function Test() {
   };
 
   const deleteCommu = async () => {
-    const id = "cl88tnms9003160n0mgdspvxg";
-    const res = await axios.delete("/api/community", {
-      id,
+    const id = "cl88r3cur0147mwn076kq039f";
+    await axios.delete(`/api/community`, {
+      data: { id },
     });
     console.log("deleted");
+  };
+
+  const patchCommu = async () => {
+    const id = "cl88tnmx7004060n0t5k1gtqk";
+    const res = await axios
+      .patch(`/api/community`, {
+        id: id,
+        title: "바뀝니다~",
+        content: "짠",
+      })
+      .catch((err) => console.log(err));
+
+    console.log("---res---");
     console.log(res);
   };
 
@@ -104,6 +117,7 @@ export default function Test() {
       <button onClick={getAllCommu}>전체 커뮤니티 내용 보기</button>
       <button onClick={createCommu}>커뮤니티 글 생성</button>
       <button onClick={deleteCommu}>커뮤니티 글 삭제</button>
+      <button onClick={patchCommu}>커뮤니티 글 변경</button>
     </div>
   );
 }

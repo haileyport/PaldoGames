@@ -26,17 +26,37 @@ export default async (req, res) => {
     } catch (e) {
       console.log(e);
     }
+  } else if (req.method === "PATCH") {
+    try {
+      const { id, title, content } = req.body;
+      const response = await prisma.community.update({
+        where: {
+          id: id,
+        },
+        data: {
+          title: title,
+          content: content,
+        },
+      });
+      res.json({ ok: true, response });
+    } catch (e) {
+      console.log(e);
+    }
   } else if (req.method === "DELETE") {
     try {
-      const id = req.query.id;
+      const id = req.body.id;
+      console.log("id!!!!!!!!!!!!!!!!!!", id);
       const deleteUser = await prisma.community.delete({
         where: {
           id: id,
         },
       });
-      res.json({ ok: true, deleteUser });
+      console.log("ok???????????");
+      console.log(deleteUser);
+      res.json({ ok: true, test: "ok" });
     } catch (e) {
       console.log(e);
+      console.log("ha........");
     }
   }
 };

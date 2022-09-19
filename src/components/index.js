@@ -21,9 +21,6 @@ import { WordRelayMain } from "./Games/WordRelay/WordRelayMain/WordRelay";
 // Baseball Game related
 import { BaseBallMain } from "./Games/BaseBall/BaseBallMain";
 
-// Tictactoe related
-import { TictactoeMain } from "./Games/TicTacToe/TicTacToeMain/Tictactoe";
-
 // Community Main related
 import { CommunityMain } from "./Community/PageMain/CommunityMain";
 import { ContentModal } from "./Community/ContentModal/ContentModal";
@@ -47,6 +44,6 @@ export {
 
 export { InventoriesMain };
 
-export { GamesMain, WordRelayMain, TictactoeMain };
+export { GamesMain, WordRelayMain, BaseBallMain };
 
 export { ContentModal, CommunityMain, CommunityModalMain, Pagination };

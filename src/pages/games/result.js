@@ -9,11 +9,9 @@ import { Button, Flex, P } from "../../components/@commons";
 const Result = () => {
   const [game, setGame] = useRecoilState(gameInfo);
   return (
-    <Layout>
-      <Flex flexDirection="column" alignItems="center">
-        <GamesResult game={game.game} point={game.point} />
-      </Flex>
-    </Layout>
+    <Flex flexDirection="column" alignItems="center">
+      <GamesResult game={game.game} point={game.point} />
+    </Flex>
   );
 };
 
