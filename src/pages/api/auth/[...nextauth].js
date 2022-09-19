@@ -25,10 +25,6 @@ export default NextAuth({
   jwt: {
     secret: process.env.SECRET,
   },
-  pages: {
-    signIn: "/login",
-    signOut: "/",
-  },
   // jwt 커스텀 코드
   callbacks: {
     async jwt({ token, user }) {
