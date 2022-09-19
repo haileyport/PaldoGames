@@ -1,32 +1,31 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 
 export default function Test() {
   const [user, setUser] = useState();
   const [email, setEmail] = useState();
   const [id, setId] = useState();
+
   const getUser = async () => {
-    const res = await axios.get("/api/user").catch((err) => console.log(err));
-    console.log("---user---");
+    const res = await axios.get('/api/user').catch((err) => console.log(err));
     console.log(res);
-    // setUser(res.data.users);
+    console.log('---user---');
+    console.log(res.data.users);
+    setUser(res.data.users);
   };
 
   const updateUser = async () => {
     const userId = id; // id값은 전역으로 저장해서 들고 다니기
-    const aboutMe = "안녕하세요?";
+    const aboutMe = '안녕하세요?';
     const res = await axios.patch(`api/user`, { userId, aboutMe });
     console.log(res.data);
     console.log(id);
   };
 
   const getId = async () => {
-    const res = await axios
-      .get(`/api/user/id/${id}`)
-      .catch((err) => console.log(err));
-    const { data } = res;
-    console.log("---res---");
-    console.log(data);
+    const res = await axios.get(`/api/user/id/${id}`).catch((err) => console.log(err));
+    console.log('---res---');
+    console.log(res);
   };
 
   const getEmail = async () => {
@@ -43,10 +42,8 @@ export default function Test() {
 
   const getGame = async () => {
     const userId = id; // id값은 전역으로 저장해서 들고 다니기
-    const res = await axios
-      .get(`/api/game/${userId}`)
-      .catch((err) => console.log(err));
-    console.log("---res---");
+    const res = await axios.get(`/api/game/${userId}`).catch((err) => console.log(err));
+    console.log('---res---');
     console.log(res);
   };
 
