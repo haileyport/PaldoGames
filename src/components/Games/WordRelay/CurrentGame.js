@@ -1,11 +1,9 @@
-import { useCallback, useRef, useState } from 'react';
-import { useRecoilState } from 'recoil';
-
-import { CLASSNAME, COLOR, DEFAULT, ERROR_MESSAGE } from '../../../constants';
-import { Form, Button, P, Input } from '../../@commons';
-import { fetch우리말api } from '../../api/wordRelayApi/wordRelayApi';
-import { isValidInputWord, clearInputValue, handleErrorMessage } from '../../../utils';
-import { wordRelayGameInfo } from '../../../states';
+import { useCallback, useRef, useState } from "react";
+import { useRecoilState } from "recoil";
+import { Form } from "../../../components/@commons/Form";
+import { P } from "../../../components/@commons/P";
+import { Input } from "../../../components/@commons/Input/Input";
+import { Button } from "../../@commons/Button/Button";
 
 // 점수관련 필요한 기능
 // 게임의 길이 = wordsArray 의 길이
@@ -17,57 +15,72 @@ import { wordRelayGameInfo } from '../../../states';
 
 export const CurrentGame = () => {
   const [wordsArray, setWordsArray] = useState([DEFAULT.GIVEN_WORDS]);
-  const [state, setState] = useState({ prevWord: undefined, currentWord: wordsArray[0], definition: undefined, loading: false });
+  const [state, setState] = useState({
+    prevWord: undefined,
+    currentWord: wordsArray[0],
+    definition: undefined,
+    loading: false,
+  });
   const [gameInfo, setGameInfo] = useRecoilState(wordRelayGameInfo);
 
   const wordInput = useRef(null);
   const errorMessage = useRef(null);
   const wordRelayForm = useRef(null);
 
+  // 아래 두 함수 리팩터링 필요
+  const onFailGameStatus = (lives) => {
+    if (lives !== 0) {
+      setGameInfo({
+        ...gameInfo,
+        lives: lives - 1,
+      });
+    }
+
+    setState({
+      ...state,
+      prevWord: currentWord,
+      definition: undefined,
+      loading: false,
+    });
+  };
+
+  const onSuccessGameStatus = async (word, currentWord, count, points) => {
+    setState({
+      ...state,
+      prevWord: currentWord,
+      currentWord: word,
+      definition: await fetch우리말api(word),
+      loading: false,
+    });
+
+    setWordsArray((prev) => [...prev, word]);
+
+    if (count === 2) {
+      setWordsArray([]);
+    }
+
+    if (count === 3) {
+      setGameInfo({
+        lives: 3,
+        count: 0,
+        points: points + 200,
+      });
+    } else {
+      setGameInfo({
+        ...gameInfo,
+        count: count + 1,
+      });
+    }
+  };
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleGameStates = async (word, currentWord, lives, count, points) => {
     (await fetch우리말api(word))
       ? setTimeout(async () => {
-          setState({
-            ...state,
-            prevWord: currentWord,
-            currentWord: word,
-            definition: await fetch우리말api(word),
-            loading: false,
-          });
-
-          setWordsArray((prev) => [...prev, word]);
-
-          if (count === 2) {
-            setWordsArray([]);
-          }
-
-          if (count === 3) {
-            setGameInfo({
-              lives: 3,
-              count: 0,
-              points: points + 200,
-            });
-          } else {
-            setGameInfo({
-              ...gameInfo,
-              count: count + 1,
-            });
-          }
+          onSuccessGameStatus(word, currentWord, count, points);
         })
       : setTimeout(() => {
-          if (lives !== 0) {
-            setGameInfo({
-              ...gameInfo,
-              lives: lives - 1,
-            });
-          }
-
-          setState({
-            ...state,
-            prevWord: currentWord,
-            definition: undefined,
-            loading: false,
-          });
+          onFailGameStatus(lives);
         });
   };
 
@@ -75,21 +88,26 @@ export const CurrentGame = () => {
     errorMessage.current.textContent = message;
   };
 
-  const handleSubmitButton = async (word) => {
+  const handleSubmitButton = (word) => {
     let { currentWord } = state;
     const { lives, count, points } = gameInfo;
 
     setState({
+      ...state,
       loading: true,
     });
 
     handleGameStates(word, currentWord, lives, count, points);
   };
 
-  useCallback(handleSubmitButton, []);
+  useCallback(handleSubmitButton, [gameInfo, handleGameStates, state]);
 
   const onClickSubmitButton = (currentWord, wordsArray) => {
-    const errorMessageHandler = handleErrorMessage(wordInput.current.value, currentWord, wordsArray);
+    const errorMessageHandler = handleErrorMessage(
+      wordInput.current.value,
+      currentWord,
+      wordsArray
+    );
 
     updateErrorMessage(errorMessageHandler);
 
@@ -101,7 +119,7 @@ export const CurrentGame = () => {
   };
 
   const handleKeyPressEvent = (e) => {
-    return e.key === 'Enter' ? handleSubmitWord(e) : null;
+    return e.key === "Enter" ? handleSubmitWord(e) : null;
   };
 
   const handleSubmitWord = (e) => {
@@ -116,12 +134,31 @@ export const CurrentGame = () => {
 
   return (
     <Form ref={wordRelayForm} onSubmit={handleSubmitWord}>
-      <P className='current-word' content={currentWord} style={{ color: 'white', fontSize: 30 }}></P>
-      <Input ref={wordInput} type='text' onKeyPressEvent={handleKeyPressEvent} />
-      <Button type={'submit'} content={'입력'} className={''} />
-      <P className={loading ? undefined : CLASSNAME.HIDE} content={'사전 검색중...'}></P>
-      <P className={loading ? CLASSNAME.HIDE : undefined} content={definition ? definition : ERROR_MESSAGE.EMPTY_INPUT}></P>
-      <P style={{ color: COLOR.RED }} ref={errorMessage} content={undefined} className={undefined}></P>
+      <P
+        className="current-word"
+        content={currentWord}
+        style={{ color: "white", fontSize: 30 }}
+      ></P>
+      <Input
+        ref={wordInput}
+        type="text"
+        onKeyPressEvent={handleKeyPressEvent}
+      />
+      <Button type={"submit"} content={"입력"} className={""} />
+      <P
+        className={loading ? undefined : CLASSNAME.HIDE}
+        content={"사전 검색중..."}
+      ></P>
+      <P
+        className={loading ? CLASSNAME.HIDE : undefined}
+        content={definition ? definition : ERROR_MESSAGE.EMPTY_INPUT}
+      ></P>
+      <P
+        style={{ color: COLOR.RED }}
+        ref={errorMessage}
+        content={undefined}
+        className={undefined}
+      ></P>
     </Form>
   );
 };

@@ -1,10 +1,10 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-import { HomeLink } from './HomeLink/HomeLink';
-import { Profile } from './NavProfile';
-import StyledHeader from './Header.style';
-import { StyledNav, NavContent } from './Nav.style';
-import { A } from '../../@commons';
+import { HomeLink } from "./HomeLink/HomeLink";
+import { Profile } from "./NavProfile";
+import StyledHeader from "./Header.style";
+import { StyledNav, NavContent } from "./Nav.style";
+import { A } from "../../@commons";
 
 export const Header = () => {
   return (
@@ -12,21 +12,22 @@ export const Header = () => {
       <StyledHeader>
         <HomeLink />
         <StyledNav>
-          <Link href='/'>
+          <Link href="/">
             <NavContent>홈</NavContent>
           </Link>
-          <Link href='/games'>
+          <Link href="/games">
             <NavContent>게임</NavContent>
           </Link>
           {/* 추가되는 NAV 링크들은 이 아래쪽으로 추가해주시면 됩니다. */}
-          <Link href='/community'>
+          <Link href="/community">
             <NavContent>커뮤니티</NavContent>
           </Link>
-          <Link href=''>
+          <Link href="">
             <a>
               <Profile></Profile>
             </a>
           </Link>
+          <Profile></Profile>
         </StyledNav>
       </StyledHeader>
     </>

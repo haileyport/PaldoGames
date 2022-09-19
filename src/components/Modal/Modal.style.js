@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledModal = styled.div`
-  width :100%;
-  height : 100%;
+  width: 100%;
+  height: 100%;
   display: flex;
   position: fixed;
   top: 0;
@@ -16,13 +16,13 @@ export const StyledModal = styled.div`
   animation: modal-bg-show 0.3s;
 
   > section {
-    position : fixed;
+    position: fixed;
     width: 40%;
     max-width: 300px;
     min-width: 250px;
     /* 모달 위치 조정 */
-    top : 20%;
-    left : 40%;
+    top: 20%;
+    left: 40%;
     border-radius: 0.3rem;
     background-color: #fff;
     /* 팝업이 열릴때 스르륵 열리는 효과 */
@@ -31,12 +31,12 @@ export const StyledModal = styled.div`
 
     /* 반응형 모달 팝업 구현 필요 */
 
-    @media screen and (max-width:767px) {
-      position : fixed;
-      top : 30%;
-      left : 30%;
+    @media screen and (max-width: 767px) {
+      position: fixed;
+      top: 30%;
+      left: 30%;
     }
- 
+
     > header {
       position: relative;
       padding: 16px 64px 16px 16px;
@@ -44,7 +44,7 @@ export const StyledModal = styled.div`
       font-weight: 700;
 
       > button {
-        border : none;
+        border: none;
         position: absolute;
         top: 5px;
         right: 5px;
@@ -53,7 +53,7 @@ export const StyledModal = styled.div`
         font-weight: 700;
         color: #999;
         background-color: transparent;
-        cursor : pointer;
+        cursor: pointer;
       }
     }
 
@@ -86,4 +86,5 @@ export const StyledModal = styled.div`
         opacity: 1;
       }
     }
-  `;
+  }
+`;

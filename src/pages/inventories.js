@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import { InventoriesMain, Layout, Main } from '../components';
+import { InventoriesMain, Layout } from '../src/components';
 
 const InventoriesPage = () => {
   return (

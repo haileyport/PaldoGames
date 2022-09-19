@@ -1,4 +1,4 @@
-import { StyledModalFooter } from './ModalFooter.style';
+import { StyledModalFooter } from "./ModalFooter.style";
 
 export const ModalFooter = (props) => {
   return (
