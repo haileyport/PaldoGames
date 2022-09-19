@@ -28,6 +28,8 @@ import { GamesMain } from './Games/GamesMain/GamesMain';
 // WordRelay Game related
 import { WordRelayMain } from './Games/WordRelay/WordRelayMain/WordRelay';
 
+import { TimesTablesGame } from './Games/TimesTables/TimesTablesGame'
+
 // Community Main related
 import { CommunityMain } from './Community/CommunityMain/CommunityMain';
 
@@ -53,4 +55,5 @@ export {
   GamesMain,
   CommunityMain,
   WordRelayMain,
+  TimesTablesGame,
 };

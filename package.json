@@ -20,7 +20,6 @@
     "@fortawesome/free-regular-svg-icons": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@next-auth/prisma-adapter": "^1.0.4",
     "@prisma/client": "^4.3.1",
     "axios": "^0.27.2",
     "next": "12.2.5",

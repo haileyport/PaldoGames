@@ -29,4 +29,4 @@ margin-left: 1.2em;
 `
 
 
-export { StyledGamesMain, GamesSection, GamesTitle };
+export { StyledCommunityMain, GamesSection, GamesTitle };

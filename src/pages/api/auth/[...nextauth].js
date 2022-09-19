@@ -1,27 +1,10 @@
-<<<<<<< HEAD
-import NextAuth from "next-auth/next";
-=======
 import NextAuth from "next-auth";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import prisma from "./../../../../libs/client";
->>>>>>> 7f62c654710095a86a457c5080f7b83d01f6530f
 import KakaoProvider from "next-auth/providers/kakao";
 import GithubProvider from "next-auth/providers/github";
 
 export default NextAuth({
-<<<<<<< HEAD
-    providers: [
-        KakaoProvider({
-          clientId: process.env.KAKAO_ID,
-          clientSecret: process.env.KAKAO_SECRET,
-        }),
-        GithubProvider({
-          clientId: process.env.GITHUB_ID,
-          clientSecret: process.env.GITHUB_SECRET,
-        }),
-      ],
-})
-=======
   providers: [
     KakaoProvider({
       clientId: process.env.KAKAO_ID,
@@ -64,4 +47,3 @@ export default NextAuth({
     },
   },
 });
->>>>>>> 7f62c654710095a86a457c5080f7b83d01f6530f

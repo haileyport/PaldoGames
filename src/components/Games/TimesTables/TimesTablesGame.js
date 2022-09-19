@@ -116,4 +116,4 @@ useEffect(() => {
       )
     }
    
-    export default TimesTablesGame
+    export { TimesTablesGame }

@@ -9,6 +9,8 @@ const StyledTimesTables = styled.section`
   min-height: 100vh;
   background-color: #1e293b;
   position: relative;
+  color: rgb(75 85 99);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 `;
 
 const TimesTablesTitle = styled.div`
