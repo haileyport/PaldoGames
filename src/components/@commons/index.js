@@ -4,4 +4,5 @@ import { Form } from './Form/Form';
 import { P } from './P/P';
 import { Input } from './Input/Input';
 
+// Atoms
 export { Flex, Button, Form, P, Input };
