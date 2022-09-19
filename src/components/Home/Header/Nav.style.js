@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledNav = styled.nav`
+const Nav = styled.nav`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -12,7 +12,7 @@ const StyledNav = styled.nav`
   }
 `;
 
-const NavContent = styled.a`
+const Content = styled.a`
   color: rgb(100 116 139);
   font-weight: 600;
   margin-left: 1.25rem;
@@ -22,11 +22,11 @@ const NavContent = styled.a`
   }
 `;
 
-const NavProfile = styled.input`
+const Profile = styled.input`
   width: 45px;
   height: 45px;
   border-radius: 50px;
   margin-left: 1.25rem;
 `;
 
-export { StyledNav, NavContent, NavProfile };
+export { Nav, Content, Profile };
