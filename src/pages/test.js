@@ -32,7 +32,7 @@ export default function Test() {
   };
 
   const getEmail = async () => {
-    const email = "sugar9935@gmail.com";
+    const email = "heewhy3513@gmail.com";
     const res = await axios
       .get(`/api/user/email/${email}`)
       .catch((err) => console.log(err));
@@ -40,7 +40,7 @@ export default function Test() {
     console.log("---res---");
     console.log(data.user);
     setEmail(email);
-    setId(data.user.id);
+    setId(res.data.user.id);
     console.log(id);
   };
 
