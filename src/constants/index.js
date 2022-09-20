@@ -21,5 +21,9 @@ export const ERROR_MESSAGE = Object.freeze({
   NOT_EXIST: "사전에 정의되지 않는 단어입니다.",
 });
 
+export const POST = Object.freeze({
+  EMPTY_INPUT: "제목 혹은 내용을 입력해 주세요.",
+});
+
 // Regex
 export const 한글_정규표현식 = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;

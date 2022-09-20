@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const Nav = styled.nav`
+export const Nav = styled.nav`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -22,11 +22,9 @@ const Content = styled.a`
   }
 `;
 
-const Profile = styled.input`
+export const Profile = styled.input`
   width: 45px;
   height: 45px;
   border-radius: 50px;
   margin-left: 1.25rem;
 `;
-
-export { Nav, Content, Profile };

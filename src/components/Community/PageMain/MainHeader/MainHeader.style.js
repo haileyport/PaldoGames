@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const P = styled.p`
+export const P = styled.p`
   margin-top: 25px;
   cursor: pointer;
   color: black;
@@ -13,5 +13,3 @@ const P = styled.p`
   background-color: white;
   height: 30px;
 `;
-
-export { P };

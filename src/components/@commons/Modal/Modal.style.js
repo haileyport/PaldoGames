@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const Container = styled.div`
+export const Container = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
@@ -37,7 +37,7 @@ const Container = styled.div`
   }
 `;
 
-const Section = styled.section`
+export const Section = styled.section`
   position: relative;
 
   width: ${(props) => props.width};
@@ -54,5 +54,3 @@ const Section = styled.section`
   animation: modal-show 0.3s;
   overflow: hidden;
 `;
-
-export { Container, Section };

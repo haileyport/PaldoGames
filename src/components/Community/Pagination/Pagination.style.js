@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Nav = styled.nav`
+export const Nav = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,7 +8,7 @@ const Nav = styled.nav`
   margin: 16px;
 `;
 
-const Button = styled.nav`
+export const Button = styled.nav`
   border: none;
   border-radius: 8px;
   padding: 8px;
@@ -35,5 +35,3 @@ const Button = styled.nav`
     cursor: pointer;
   }
 `;
-
-export { Nav, Button };

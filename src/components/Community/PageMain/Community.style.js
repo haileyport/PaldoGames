@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Section = styled.section`
+export const Section = styled.section`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -11,7 +11,7 @@ const Section = styled.section`
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 `;
 
-const Main = styled.main`
+export const Main = styled.main`
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -19,8 +19,6 @@ const Main = styled.main`
   height: 80vh;
 `;
 
-const Footer = styled.footer`
+export const Footer = styled.footer`
   position: relative;
 `;
-
-export { Section, Main, Footer };

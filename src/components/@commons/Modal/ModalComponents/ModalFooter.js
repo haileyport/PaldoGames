@@ -1,6 +1,6 @@
-import { signOut } from 'next-auth/react';
+import { signOut } from "next-auth/react";
 
-import * as Styled from './ModalComponents.style';
+import * as Styled from "./ModalComponents.style";
 
 export const ModalFooter = () => {
   return (

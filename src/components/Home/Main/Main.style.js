@@ -1,16 +1,16 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const StyledMain = styled.section`
+export const StyledMain = styled.section`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   align-items: center;
   justify-content: center;
   color: rgb(75 85 99);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 `;
 
-const MainSection = styled.div`
+export const MainSection = styled.div`
   width: 100%;
   display: flex;
   padding: 6rem 1.25rem 6rem 1.25rem;
@@ -35,5 +35,3 @@ const MainSection = styled.div`
     max-width: 1536px;
   }
 `;
-
-export { StyledMain, MainSection };

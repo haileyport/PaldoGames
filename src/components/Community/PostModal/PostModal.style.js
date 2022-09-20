@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Header = styled.header`
+export const Header = styled.header`
   position: relative;
   padding: 16px 64px 16px 16px;
   background-color: #f1f1f1;
@@ -19,20 +19,20 @@ const Header = styled.header`
   }
 `;
 
-const Main = styled.main`
+export const Main = styled.main`
   padding: 16px;
   border-bottom: 1px solid #dee2e6;
   border-top: 1px solid #dee2e6;
 `;
 
-const Form = styled.form``;
+export const Form = styled.form``;
 
-const Input = styled.input`
+export const Input = styled.input`
   width: 80%;
   height: 30px;
 `;
 
-const TextArea = styled.textarea`
+export const TextArea = styled.textarea`
   width: 80%;
   height: 300px;
   padding: 0.8em;
@@ -42,15 +42,13 @@ const TextArea = styled.textarea`
   resize: none;
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   width: 80%;
   height: 30px;
 `;
 
-const label = styled.label`
+export const label = styled.label`
   padding: 0.8em;
   position: absolute;
   background-color: white;
 `;
-
-export { Main, Form, Input, TextArea, Button, label };

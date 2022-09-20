@@ -7,6 +7,7 @@ import { Modal, ModalHeader, ModalProfile } from "../../@commons/Modal";
 import * as Post from "./PostModal.style";
 import * as M from "../../@commons/Modal/Modal.style";
 import { postData } from "../../../states/dummydata";
+import { POST } from "../../../constants";
 
 export const PostModal = () => {
   const { user } = useRecoilValue(currentUserState);
@@ -52,7 +53,7 @@ export const PostModal = () => {
       ]);
       setModal({ ...modal, post: false });
     } else {
-      alert("제목 혹은 내용을 입력해 주세요.");
+      alert(POST.EMPTY_INPUT);
     }
   };
 
