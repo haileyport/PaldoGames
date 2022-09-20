@@ -16,6 +16,7 @@ import kakao from "../../../../public/kakao_login_medium_wide.png";
 export const Login = () => {
   const [modal, setModal] = useRecoilState(modalStates);
   const setCurrentUser = useSetRecoilState(currentUserState);
+
   const { data: session } = useSession();
 
   const fetchLoginData = useCallback(async () => {

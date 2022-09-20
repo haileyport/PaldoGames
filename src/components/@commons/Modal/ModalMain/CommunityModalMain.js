@@ -1,6 +1,7 @@
+import axios from "axios";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { contentState, currentUserState, modalStates } from "../../../../states";
-import { postData } from "../../../../states/dummydata";
+import { postState } from "../../../../states/community";
 import { Flex } from "../../Flex/Flex";
 import { P } from "../../P/P";
 import * as Styled from "./ModalMain.style";
@@ -8,16 +9,22 @@ import * as Styled from "./ModalMain.style";
 export const CommunityModalMain = () => {
   // 게시물의 번호를 고유id 로 관리해서 검증시에 userId 와 게시물Id 까지 맞으면 렌더링
   const ids = useRecoilValue(contentState);
-  const [post, setPost] = useRecoilState(postData);
+  const [post, setPost] = useRecoilState(postState);
   const { user } = useRecoilValue(currentUserState);
   const [modal, setModal] = useRecoilState(modalStates);
 
   const currentPost = post.filter((details) => details.writer.id === ids.userId && details.id === ids.contentId);
   const iAmTheOne = user.id === currentPost[0].writer.id;
 
-  const deletePost = () => {
+  const deletePost = async () => {
     // 추후에 정말 삭제할건지 물어보기
-    setPost((prev) => prev.filter((post) => post.id !== ids.contentId));
+    const id = currentPost[0].writer.id;
+
+    await axios.delete(`/api/community`, {
+      data: { id },
+    });
+    console.log("deleted");
+
     setModal({ ...modal, community: false });
   };
 

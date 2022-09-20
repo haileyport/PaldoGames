@@ -1,5 +1,6 @@
 import prisma from "./../../../../libs/client";
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default async (req, res) => {
   if (req.method === "GET") {
     try {
@@ -13,8 +14,8 @@ export default async (req, res) => {
       const { title, content, id } = req.body;
       await prisma.community.create({
         data: {
-          title: title,
-          content: content,
+          title,
+          content,
           user: {
             connect: {
               id: id,

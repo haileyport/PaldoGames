@@ -19,7 +19,7 @@ export const postData = atom({
       id: 2,
       title: "노종열님의 게시글",
       writer: {
-        id: "cl88rbsx9000634vh34tw1fsu",
+        id: "cl8a9v3sc0026q4vhtdwbqkzg",
         image: "https://avatars.githubusercontent.com/u/96723716?v=4",
         name: "노종열",
         email: "jyeol0210@naver.com",

@@ -1,4 +1,4 @@
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { contentState, modalStates } from "../../../../states";
 import { Flex, P, Input } from "../../../@commons";
 
@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMessage } from "@fortawesome/free-solid-svg-icons";
 
 export const ContentList = ({ details }) => {
-  const { id, title, writer } = details;
+  let { id, title, writer } = details;
 
   const [modal, setModal] = useRecoilState(modalStates);
   const [currentPostId, setCurrentPostId] = useRecoilState(contentState);
