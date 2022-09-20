@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef } from 'react';
-import { AlarmContainer, StyledTimesTables, TimesTablesAlarm, TimesTablesalarm, TimesTablesBtn, TimesTablesLives, TimesTablesSmallTitle, TimesTablestext, TimesTablesTitle } from './TimesTablesGame.style';
+import { AlarmContainer, StyledTimesTables, TimesTablesAlarm, TimesTablesalarm, TimesTablesBtn, TimesTablesLives, TimesTablesSmallTitle, TimesTablestext, TimesTablesTitle } from './TimesTablesMain.style';
 import alarm from '../../../../public/alarm.png'
 import Image from 'next/image';
 import { MainSection } from '../../Home/Main/Main.style';
 
-const TimesTablesGame = () => {
+const TimesTablesMain = () => {
 
   const [numbers, setNumbers] = useState({first: Math.ceil(Math.random()*19), 
     second: Math.ceil(Math.random()*19), count: 0});
@@ -116,4 +116,4 @@ useEffect(() => {
       )
     }
    
-    export { TimesTablesGame }
+    export { TimesTablesMain }
