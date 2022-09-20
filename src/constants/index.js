@@ -1,3 +1,5 @@
+import baseball from "../../public/baseball.png";
+
 // Word Relay Game related
 export const CLASSNAME = Object.freeze({
   HIDE: "hide",
@@ -27,3 +29,30 @@ export const POST = Object.freeze({
 
 // Regex
 export const 한글_정규표현식 = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+
+export const GAME_LIST = Object.freeze([
+  {
+    gameTitle: "구구단",
+    imageUrl: baseball,
+    linkUrl: "/games/timestables",
+    desc: "구구단 게임 입니다.",
+  },
+  {
+    gameTitle: "끝말잇기",
+    imageUrl: baseball,
+    linkUrl: "/games/wordrelay",
+    desc: "끝말잇기 게임 입니다.",
+  },
+  {
+    gameTitle: "숫자야구",
+    imageUrl: baseball,
+    linkUrl: "/games/baseball",
+    desc: "숫자야구 게임 입니다.",
+  },
+  {
+    gameTitle: "로또",
+    imageUrl: baseball,
+    linkUrl: "/games/lotto",
+    desc: "로또 입니다.",
+  },
+]);

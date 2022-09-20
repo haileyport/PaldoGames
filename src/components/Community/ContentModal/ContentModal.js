@@ -1,4 +1,4 @@
-import { CommunityModalMain } from "../..";
+import { CommunityModalMain } from "../../";
 import * as Styled from "../../@commons/Modal/Modal.style";
 
 import { Modal, ModalHeader, ModalProfile } from "../../@commons/Modal";

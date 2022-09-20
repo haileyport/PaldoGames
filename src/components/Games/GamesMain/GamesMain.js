@@ -1,21 +1,20 @@
-import Link from "next/link";
 import { MainSection } from "../../Home/Main/Main.style";
-import { StyledGamesMain } from "./GamesMain.style";
+import { GamesCard } from "../GamesCard/GamesCard";
+import { GamesSection, GamesTitle, StyledGamesMain } from "./GamesMain.style";
+import { GAME_LIST } from "../../../constants";
 
 export const GamesMain = () => {
   return (
-    <StyledGamesMain>
-      <MainSection>
-        <Link href='games/wordrelay'>
-          <div style={{ width: 300, height: 200, border: "1px solid white", backgroundColor: "white" }}></div>
-        </Link>
-        <Link href='games/baseball'>
-          <div style={{ width: 300, height: 200, border: "1px solid white", backgroundColor: "green" }}></div>
-        </Link>
-        <Link href='games/tictactoe'>
-          <div style={{ width: 300, height: 200, border: "1px solid white", backgroundColor: "red" }}></div>
-        </Link>
-      </MainSection>
-    </StyledGamesMain>
+    <>
+      <GamesTitle>팔도게임즈의 미니게임을 즐겨 보세요!</GamesTitle>
+      <StyledGamesMain>
+        <GamesSection>
+          {GAME_LIST.map(({ gameTitle, imageUrl, linkUrl, desc }, i) => {
+            return <GamesCard key={i} gameTitle={gameTitle} imageUrl={imageUrl} linkUrl={linkUrl} />;
+          })}
+        </GamesSection>
+        <MainSection />
+      </StyledGamesMain>
+    </>
   );
 };

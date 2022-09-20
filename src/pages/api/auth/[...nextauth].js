@@ -1,15 +1,10 @@
 import NextAuth from "next-auth";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import KakaoProvider from "next-auth/providers/kakao";
 import GithubProvider from "next-auth/providers/github";
 import prisma from "../../../../libs/client";
 
 export default NextAuth({
   providers: [
-    KakaoProvider({
-      clientId: process.env.KAKAO_ID,
-      clientSecret: process.env.KAKAO_SECRET,
-    }),
     GithubProvider({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
@@ -25,7 +20,6 @@ export default NextAuth({
   jwt: {
     secret: process.env.SECRET,
   },
-
   // jwt 커스텀 코드
   callbacks: {
     async jwt({ token, user }) {

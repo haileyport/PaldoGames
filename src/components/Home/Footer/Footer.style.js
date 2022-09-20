@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Footer = styled.footer`
+export const Footer = styled.footer`
   margin-top: -85px;
   background-color: #3d4b5e;
   height: 100%;
@@ -15,7 +15,7 @@ const Footer = styled.footer`
   }
 `;
 
-const Container = styled.div`
+export const Container = styled.div`
   padding: 1.5rem 1.25rem 1.5rem 1.25rem;
   margin-right: auto;
   margin-left: auto;
@@ -42,7 +42,7 @@ const Container = styled.div`
   }
 `;
 
-const InfoContainer = styled.a`
+export const InfoContainer = styled.a`
   display: flex;
   font-weight: 500;
   align-items: center;
@@ -53,7 +53,7 @@ const InfoContainer = styled.a`
   }
 `;
 
-const TeamName = styled.span`
+export const TeamName = styled.span`
   color: rgb(148 163 184);
   margin-left: 0.75rem;
   font-size: 1.25rem;
@@ -64,7 +64,7 @@ const TeamName = styled.span`
   }
 `;
 
-const CopyRight = styled.p`
+export const CopyRight = styled.p`
   color: rgb(148 163 184);
   margin-top: 1rem;
   @media screen and (min-width: 640px) {
@@ -72,8 +72,6 @@ const CopyRight = styled.p`
   }
 `;
 
-const A = styled.a`
+export const A = styled.a`
   margin-left: 0.25rem;
 `;
-
-export { Footer, Container, InfoContainer, TeamName, CopyRight, A };

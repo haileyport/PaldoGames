@@ -12,7 +12,7 @@ export const Nav = styled.nav`
   }
 `;
 
-const Content = styled.a`
+export const Content = styled.a`
   color: rgb(100 116 139);
   font-weight: 600;
   margin-left: 1.25rem;
