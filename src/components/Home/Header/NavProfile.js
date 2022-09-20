@@ -1,46 +1,46 @@
 import { NavProfile } from "./Nav.style";
 
-import { useRecoilState } from "recoil";
-import { modalState } from "../../../states";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { currentUserState, modalStates } from "../../../states";
 
 import { Flex } from "../../@commons";
 import {
   Modal,
   ModalHeader,
   ModalFooter,
-  ModalMain,
+  ProfileModalMain,
   ModalProfile,
-} from "../../Modal";
-import { StyledModalSection } from "../../Modal/Modal.style";
-
-const DUMMY = {
-  profileImg: "https://avatars.githubusercontent.com/u/83988230?v=4",
-  githubId: "2kunhee94",
-  greetings: `안녕하세요.`,
-};
+} from "../../@commons/Modal";
+import * as Styled from "../../@commons/Modal/Modal.style";
+import * as StyledNav from "./Nav.style";
 
 export const Profile = () => {
-  const [modal, setModal] = useRecoilState(modalState);
-  const handleModal = () => setModal(!modal);
+  const [modal, setModal] = useRecoilState(modalStates);
+  const { user } = useRecoilValue(currentUserState);
+  console.log(user);
 
   return (
     <Flex flexDirection="column">
-      <NavProfile type="image" src={DUMMY.profileImg} onClick={handleModal} />
+      <StyledNav.Profile
+        type="image"
+        src={user?.image}
+        onClick={() => setModal({ ...modal, profile: true })}
+      />
       <div>
-        {modal && (
+        {modal.profile && (
           <Flex>
             <Modal>
-              <StyledModalSection
+              <Styled.Section
                 width="40%"
                 maxWidth="350px"
                 minWidth="300px"
                 left="40%"
               >
                 <ModalHeader content="프로필" />
-                <ModalProfile DUMMY={DUMMY} />
-                <ModalMain />
+                <ModalProfile user={user} />
+                <ProfileModalMain />
                 <ModalFooter />
-              </StyledModalSection>
+              </Styled.Section>
             </Modal>
           </Flex>
         )}

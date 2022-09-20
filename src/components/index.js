@@ -1,13 +1,3 @@
-// @Commons
-import { Flex } from "./@commons/Flex/Flex";
-
-// Modal related
-import { Modal } from "./Modal";
-import { ModalFooter } from "./Modal/ModalFooter/ModalFooter";
-import { ModalMain } from "./Modal/ModalMain/ModalMain";
-import { ModalProfile } from "./Modal/ModalProfile/ModalProfile";
-import { ModalHeader } from "./Modal/ModalHeader/ModalHeader";
-
 // Home related
 import { Hero } from "./Home/Hero/Hero";
 import { Animation } from "./Home/Main/Animation";
@@ -27,12 +17,16 @@ import { GamesMain } from "./Games/GamesMain/GamesMain";
 
 // WordRelay Game related
 import { WordRelayMain } from "./Games/WordRelay/WordRelayMain/WordRelay";
+// TimesTables Game related
+import { TimesTablesMain } from "./Games/TimesTables/TimesTablesMain";
+// Baseball Game related
+import { BaseBallMain } from "./Games/BaseBall/BaseBallMain";
 
 // Community Main related
-import { CommunityMain } from "./Community/CommunityMain/CommunityMain";
-import { CommunityContentModal } from "./Community/CommunityContentModal/CommunityContentModal";
+import { CommunityMain } from "./Community/PageMain/CommunityMain";
+import { ContentModal } from "./Community/ContentModal/ContentModal";
 import { Pagination } from "./Community/Pagination/Pagination";
-import { CommunityModalMain } from "./Modal/ModalMain/CommunityModalMain";
+import { CommunityModalMain } from "./@commons/Modal/ModalMain/CommunityModalMain";
 
 // DarkMode related
 import { DarkModeToggleButton } from "./Home/DarkMode/DarkMode";
@@ -49,10 +43,8 @@ export {
   Profile,
 };
 
-export { Flex, Modal, ModalFooter, ModalMain, ModalProfile, ModalHeader };
-
 export { InventoriesMain };
 
-export { GamesMain, WordRelayMain };
+export { GamesMain, WordRelayMain, BaseBallMain, TimesTablesMain };
 
-export { CommunityContentModal, CommunityMain, CommunityModalMain, Pagination };
+export { ContentModal, CommunityMain, CommunityModalMain, Pagination };

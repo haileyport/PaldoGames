@@ -1,6 +1,4 @@
 import { signIn, useSession, signOut } from "next-auth/react";
-import styles from "../styles/Home.module.css";
-import Image from "next/image";
 
 export default function Login() {
   const { data: session } = useSession();
@@ -8,7 +6,7 @@ export default function Login() {
   if (session) {
   }
   return (
-    <div className={styles.main}>
+    <div>
       {session ? (
         <>
           <img src={session.user.image} width="100px" height="100px" />
@@ -21,9 +19,6 @@ export default function Login() {
       ) : (
         <>
           <h1>Login</h1>
-          <button type="button" onClick={() => signIn("kakao")}>
-            카카오로 로그인
-          </button>
           <button type="button" onClick={() => signIn("github")}>
             깃허브로 로그인
           </button>

@@ -1,5 +1,16 @@
 import { COMMUNITY_DUMMY } from "./dummydata";
-import modalState from "./modal";
+import { modalStates } from "./modal";
 import wordRelayGameInfo from "./wordRelayGameInfo";
+import gameInfo from "./gameInfo";
 
-export { modalState, wordRelayGameInfo, COMMUNITY_DUMMY };
+// Current User related
+import { contentState, currentUserState } from "./user";
+
+export {
+  modalStates,
+  currentUserState,
+  wordRelayGameInfo,
+  COMMUNITY_DUMMY,
+  gameInfo,
+  contentState,
+};

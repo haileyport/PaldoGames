@@ -864,6 +864,8 @@
     "ms" "^2.1.1"
 
 "debug@^4.1.0", "debug@^4.1.1", "debug@^4.3.2", "debug@^4.3.4":
+  "integrity" "sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ=="
+  "resolved" "https://registry.npmjs.org/debug/-/debug-4.3.4.tgz"
   "version" "4.3.4"
   dependencies:
     "ms" "2.1.2"
@@ -1462,6 +1464,8 @@
     "wrappy" "1"
 
 "inherits@2", "inherits@2.0.4":
+  "integrity" "sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ=="
+  "resolved" "https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz"
   "version" "2.0.4"
 
 "internal-slot@^1.0.3":
@@ -1665,6 +1669,8 @@
   "version" "1.52.0"
 
 "mime-types@^2.1.12", "mime-types@~2.1.24", "mime-types@~2.1.34":
+  "integrity" "sha512-ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw=="
+  "resolved" "https://registry.npmjs.org/mime-types/-/mime-types-2.1.35.tgz"
   "version" "2.1.35"
   dependencies:
     "mime-db" "1.52.0"
@@ -1910,7 +1916,9 @@
 "pretty-format@^3.8.0":
   "version" "3.8.0"
 
-"prisma@*", "prisma@^4.3.1":
+"prisma@*":
+  "integrity" "sha512-90xo06wtqil76Xsi3mNpc4Js3SdDRR5g4qb9h+4VWY4Y8iImJY6xc3PX+C9xxTSt1lr0Q89A0MLkJjd8ax6KiQ=="
+  "resolved" "https://registry.npmjs.org/prisma/-/prisma-4.3.1.tgz"
   "version" "4.3.1"
   dependencies:
     "@prisma/engines" "4.3.1"

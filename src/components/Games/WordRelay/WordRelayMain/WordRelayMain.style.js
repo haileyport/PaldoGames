@@ -7,7 +7,7 @@ const StyledWordRelayMain = styled.section`
   min-height: 100vh;
   align-items: center;
   justify-content: center;
-  margin-bottom : 500px
+  margin-bottom : 500px;
   color: rgb(75 85 99);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 `;

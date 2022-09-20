@@ -1,9 +1,13 @@
 import { useCallback, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
-import { Form } from "../../../components/@commons/Form";
-import { P } from "../../../components/@commons/P";
-import { Input } from "../../../components/@commons/Input/Input";
-import { Button } from "../../@commons/Button/Button";
+import { CLASSNAME, COLOR, DEFAULT, ERROR_MESSAGE } from "../../../constants";
+import { Form, Button, P, Input } from "../../@commons";
+import {
+  isValidInputWord,
+  clearInputValue,
+  handleErrorMessage,
+} from "../../../utils";
+import { wordRelayGameInfo } from "../../../states";
 
 // 점수관련 필요한 기능
 // 게임의 길이 = wordsArray 의 길이
