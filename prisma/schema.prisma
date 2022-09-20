@@ -22,7 +22,8 @@ model Account {
   scope             String?
   id_token          String? @db.Text
   session_state     String?
-  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
@@ -36,14 +37,15 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String      @id @default(cuid())
   name          String
-  email         String    @unique
+  email         String      @unique
   emailVerified DateTime?
   image         String?
-  aboutMe       String?   @default("반갑습니다")
+  aboutMe       String?     @default("반갑습니다")
   accounts      Account[]
   games         Game[]
+  communities   Community[]
   sessions      Session[]
 }
 
@@ -63,8 +65,11 @@ model Game {
 }
 
 model Community {
-  id      String @id
+  id      String @id @default(cuid())
   title   String
   content String
   editor  String
+  user    User   @relation(fields: [editor], references: [id], onDelete: Cascade)
+
+  @@unique([id])
 }
