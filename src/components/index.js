@@ -19,8 +19,6 @@ import { GamesMain } from './Games/GamesMain/GamesMain';
 import { WordRelayMain } from './Games/WordRelay/WordRelayMain/WordRelay';
 
 import { TimesTablesGame } from './Games/TimesTables/TimesTablesGame'
-// Tictactoe related
-import { TictactoeMain } from './Games/TicTacToe/TicTacToeMain/Tictactoe';
 
 // Community Main related
 import { CommunityMain } from './Community/PageMain/CommunityMain';
@@ -36,6 +34,6 @@ export { Hero, Animation, Footer, Header, Layout, DarkModeToggleButton, Main, Pr
 
 export { InventoriesMain };
 
-export { GamesMain, WordRelayMain, TictactoeMain, TimesTablesGame };
+export { GamesMain, WordRelayMain, TimesTablesGame };
 
 export { ContentModal, CommunityMain, CommunityModalMain, Pagination };

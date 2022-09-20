@@ -6,13 +6,13 @@ import { MainSection } from '../../components/Home/Main/Main.style';
 
 const TimesTables = () => {
   return(
-    <Layout>
+    <>
       <Head>
           <title>구구단 게임</title>
       </Head>
       <TimesTablesGame />
       <MainSection />
-    </Layout>
+    </>
 )
 }
 export default TimesTables;
