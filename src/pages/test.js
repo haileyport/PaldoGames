@@ -40,7 +40,7 @@ export default function Test() {
     console.log("---res---");
     console.log(data.user);
     setEmail(email);
-    setId(data.user.id);
+    setId(res.data.user.id);
     console.log(id);
   };
 
@@ -60,7 +60,7 @@ export default function Test() {
   };
 
   const updateGame = async () => {
-    const point = 3000;
+    const point = 10000000;
     const userId = id; // id값은 전역으로 저장해서 들고 다니기
     const res = await axios.patch(`api/game`, { userId, point });
     console.log(res.data.totalPoint);

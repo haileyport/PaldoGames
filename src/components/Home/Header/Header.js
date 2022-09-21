@@ -1,13 +1,13 @@
-import Link from 'next/link';
-import { useRecoilValue } from 'recoil';
+import Link from "next/link";
+import { useRecoilValue } from "recoil";
 
-import { HomeLink } from './HomeLink/HomeLink';
-import { Profile } from './NavProfile';
-import { Login } from './NavLogin';
-import * as StyledNav from './Nav.style';
-import { currentUserState } from '../../../states';
+import { HomeLink } from "./HomeLink/HomeLink";
+import { Profile } from "./NavProfile";
+import { Login } from "./NavLogin";
+import * as StyledNav from "./Nav.style";
+import { currentUserState } from "../../../states";
 
-import * as Styled from './Header.style';
+import * as Styled from "./Header.style";
 
 export const Header = () => {
   const { isLoggedIn } = useRecoilValue(currentUserState);

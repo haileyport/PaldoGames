@@ -3,6 +3,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: white;
 }
 
 a {
@@ -12,11 +13,6 @@ a {
 
 * {
   box-sizing: border-box;
-}
-
-footer {
-  color: rgb(75 85 99);
-  background-color: rgb(100 116 139/ 0.2);
 }
 
 p {
@@ -34,7 +30,11 @@ p {
 }
 
 .hide {
-  display: none;
+  display: block;
+}
+
+.show {
+  display: flex !important;
 }
 
 .ellipsis {

@@ -1,5 +1,5 @@
 /* eslint-disable react/display-name */
-import { forwardRef } from 'react';
+import { forwardRef } from "react";
 
 export const P = forwardRef((props, forwardRef) => {
   const { className, style, content, ...rest } = props;
