@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Footer = styled.footer`
   margin-top: -85px;
-  background-color: #3d4b5e;
+  background: none;
   height: 100%;
 
   @media screen and (min-width: 640px) {

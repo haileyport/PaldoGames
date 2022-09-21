@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const DarkModeButton = styled.button`
+export const DarkModeButton = styled.button`
   display: inline-flex;
   align-items: center;
   border-width: 0px;
@@ -20,5 +20,3 @@ const DarkModeButton = styled.button`
     margin-top: 0px;
   }
 `;
-
-export { DarkModeButton };

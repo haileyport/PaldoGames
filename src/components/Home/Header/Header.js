@@ -17,14 +17,14 @@ export const Header = () => {
       <Styled.Header>
         <HomeLink />
         <StyledNav.Nav>
-          <Link href="/">
+          <Link href='/'>
             <StyledNav.Content>홈</StyledNav.Content>
           </Link>
-          <Link href="/games">
+          <Link href='/games'>
             <StyledNav.Content>게임</StyledNav.Content>
           </Link>
           {/* 추가되는 NAV 링크들은 이 아래쪽으로 추가해주시면 됩니다. */}
-          <Link href="/community">
+          <Link href='/community'>
             <StyledNav.Content>커뮤니티</StyledNav.Content>
           </Link>
           {!isLoggedIn ? <Login /> : <Profile />}

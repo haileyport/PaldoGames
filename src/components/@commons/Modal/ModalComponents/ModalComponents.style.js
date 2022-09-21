@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const Header = styled.header`
+export const Header = styled.header`
   position: relative;
   padding: 16px 64px 16px 16px;
   background-color: #f1f1f1;
@@ -19,14 +19,12 @@ const Header = styled.header`
   }
 `;
 
-const Footer = styled.footer`
+export const Footer = styled.footer`
   padding: 12px 16px;
   text-align: right;
 `;
 
-const FooterInner = styled.span`
+export const FooterInner = styled.span`
   margin-right: 20px;
   cursor: pointer;
 `;
-
-export { Header, Footer, FooterInner };

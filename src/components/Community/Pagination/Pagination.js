@@ -12,18 +12,11 @@ export const Pagination = ({ total, limit, page, setPage }) => {
         {Array(numPages)
           .fill()
           .map((_, i) => (
-            <Styled.Button
-              key={i + 1}
-              onClick={() => setPage(i + 1)}
-              aria-current={page === i + 1 && "page"}
-            >
+            <Styled.Button key={i + 1} onClick={() => setPage(i + 1)} aria-current={page === i + 1 && "page"}>
               {i + 1}
             </Styled.Button>
           ))}
-        <Styled.Button
-          onClick={() => setPage(page + 1)}
-          disabled={page === numPages}
-        >
+        <Styled.Button onClick={() => setPage(page + 1)} disabled={page === numPages}>
           &gt;
         </Styled.Button>
       </Styled.Nav>
