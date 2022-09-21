@@ -30,7 +30,7 @@ export default function Test() {
   };
 
   const getEmail = async () => {
-    const email = "heewhy3513@gmail.com";
+    const email = "jyeol0210@naver.com";
     const res = await axios.get(`/api/user/email/${email}`).catch((err) => console.log(err));
     const { data } = res;
     console.log("---res---");
@@ -54,7 +54,7 @@ export default function Test() {
   };
 
   const updateGame = async () => {
-    const point = 3000;
+    const point = 10000000;
     const userId = id; // id값은 전역으로 저장해서 들고 다니기
     const res = await axios.patch(`api/game`, { userId, point });
     console.log(res.data.totalPoint);

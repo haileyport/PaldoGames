@@ -183,7 +183,7 @@ export const CurrentBaseBall = ({ answer, setAnswer, result, setResult }) => {
               <B.Text>{i + 1}</B.Text>
               <B.BallSet>
                 {light(v.strike, v.ball).map((el, idx) => {
-                  return <Balls key={idx} background={el} />;
+                  return <Balls key={{ idx }} background={el} />;
                 })}
               </B.BallSet>
               <B.Text>{v.try}</B.Text>

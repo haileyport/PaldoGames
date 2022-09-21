@@ -9,7 +9,6 @@ import * as M from "../../@commons/Modal/Modal.style";
 import { POST } from "../../../constants";
 import { postState } from "../../../states/community";
 import axios from "axios";
-import { dialog } from "../../../states/modal";
 
 export const PostModal = () => {
   const { user } = useRecoilValue(currentUserState);

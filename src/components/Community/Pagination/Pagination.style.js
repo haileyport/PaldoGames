@@ -6,6 +6,8 @@ export const Nav = styled.nav`
   align-items: center;
   gap: 4px;
   margin: 16px;
+
+  background: none;
 `;
 
 export const Button = styled.nav`
@@ -16,13 +18,13 @@ export const Button = styled.nav`
   background: none;
   color: white;
   font-size: 1rem;
+  background: none;
 
   &:hover {
     background: #d0756f;
     transform: translateY(-2px);
     cursor: pointer;
   }
-
   &[disabled] {
     opacity: 30%;
     cursor: revert;

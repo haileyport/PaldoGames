@@ -6,8 +6,3 @@ export const modalStates = atom({
   key: `modalStates`,
   default: { login: false, profile: false, community: false, post: false, editor: false, edit: false },
 });
-
-export const dialog = atom({
-  key: "modal",
-  default: false,
-});

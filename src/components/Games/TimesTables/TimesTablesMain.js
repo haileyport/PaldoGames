@@ -3,16 +3,18 @@ import {
   AlarmContainer,
   StyledTimesTables,
   TimesTablesAlarm,
+  TimesTablesalarm,
   TimesTablesBtn,
   TimesTablesLives,
   TimesTablesSmallTitle,
-  TimesTablesText,
+  TimesTablestext,
   TimesTablesTitle,
 } from "./TimesTablesMain.style";
 import alarm from "../../../../public/alarm.png";
 import Image from "next/image";
+import { MainSection } from "../../Home/Main/Main.style";
 
-export const TimesTablesMain = () => {
+const TimesTablesMain = () => {
   const [numbers, setNumbers] = useState({ first: Math.ceil(Math.random() * 19), second: Math.ceil(Math.random() * 19), count: 0 });
   const [seconds, setSeconds] = useState(3);
   const [score, setScore] = useState(0);
@@ -103,13 +105,13 @@ export const TimesTablesMain = () => {
         <>
           <TimesTablesSmallTitle>구구단 게임 💬</TimesTablesSmallTitle>
           <AlarmContainer>
-            <Image src={alarm} width='80%' height='80%' alt='알람이미지' />
+            <Image src={alarm} width='80%' height='80%' />
             <TimesTablesAlarm>{seconds}</TimesTablesAlarm>
           </AlarmContainer>
           <TimesTablesLives>{lives}</TimesTablesLives>
-          <TimesTablesText>
+          <TimesTablestext>
             {first} 곱하기 {second}은(는)?
-          </TimesTablesText>
+          </TimesTablestext>
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -134,3 +136,5 @@ export const TimesTablesMain = () => {
     </StyledTimesTables>
   );
 };
+
+export { TimesTablesMain };

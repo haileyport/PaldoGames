@@ -26,7 +26,7 @@ const BaseBallMain = () => {
     <B.StyledBaseBallMain>
       <B.TitleDiv>
         <B.HeadTitle>숫자야구</B.HeadTitle>
-        <B.Description>{result}</B.Description>
+        <B.Discription>{result}</B.Discription>
         <CurrentBaseBall answer={answer} setAnswer={setAnswer} result={result} setResult={setResult} />
       </B.TitleDiv>
       <B.Bottom>

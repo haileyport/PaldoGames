@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledTimesTables = styled.section`
+const StyledTimesTables = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,22 +12,22 @@ export const StyledTimesTables = styled.section`
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 `;
 
-export const TimesTablesTitle = styled.div`
+const TimesTablesTitle = styled.div`
   font-size: 3em;
 `;
 
-export const TimesTablesSmallTitle = styled.span`
+const TimesTablesSmallTitle = styled.span`
   font-size: 1.3em;
   margin: 1em 0;
 `;
 
-export const TimesTablesText = styled.div`
+const TimesTablestext = styled.div`
   font-size: 1.5em;
   font-weight: 300;
   margin-bottom: 0.5em;
 `;
 
-export const TimesTablesLives = styled.div`
+const TimesTablesLives = styled.div`
   font-size: 3.3em;
   position: absolute;
   top: 5%;
@@ -37,12 +37,12 @@ export const TimesTablesLives = styled.div`
   }
 `;
 
-export const TimesTablesBtn = styled.button`
+const TimesTablesBtn = styled.button`
   font-size: 1em;
   margin-top: 1.3em;
 `;
 
-export const AlarmContainer = styled.span`
+const AlarmContainer = styled.span`
   position: relative;
   position: absolute;
   right: 36%;
@@ -53,7 +53,7 @@ export const AlarmContainer = styled.span`
   }
 `;
 
-export const TimesTablesAlarm = styled.span`
+const TimesTablesAlarm = styled.span`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -61,3 +61,5 @@ export const TimesTablesAlarm = styled.span`
   font-weight: 700;
   transform: translate(-50%, -50%);
 `;
+
+export { StyledTimesTables, TimesTablesTitle, TimesTablestext, TimesTablesSmallTitle, TimesTablesLives, TimesTablesBtn, TimesTablesAlarm, AlarmContainer };

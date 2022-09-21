@@ -13,7 +13,7 @@ export const HeadTitle = styled.h1`
   font-size: 4rem;
 `;
 
-export const Description = styled.div`
+export const Discription = styled.div`
   color: white;
   margin-bottom: 2rem;
   line-height: 1.625;

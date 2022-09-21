@@ -37,7 +37,7 @@ export const ProfileModalMain = ({ user }) => {
     <Styled.InnerModalMain>
       <Flex justifyContent='space-between' style={{ margin: 40, marginTop: 20 }}>
         <Flex flexDirection='column'>
-          <Link href='/community/ranking'>
+          <Link href='/ranking'>
             <FontAwesomeIcon icon={faCoins} size='2x' style={{ marginBottom: 10, cursor: "pointer" }} />
           </Link>
           <span>{totalPoint.point} 포인트</span>

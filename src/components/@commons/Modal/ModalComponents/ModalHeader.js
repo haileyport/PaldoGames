@@ -6,9 +6,7 @@ import * as Styled from "./ModalComponents.style";
 export const ModalHeader = ({ content }) => {
   const setModal = useSetRecoilState(modalStates);
 
-  const onClickCloseModal = () => {
-    setModal({ login: false, profile: false, community: false, post: false });
-  };
+  const onClickCloseModal = () => setModal({ login: false, profile: false, community: false, post: false });
 
   return (
     <Styled.Header>

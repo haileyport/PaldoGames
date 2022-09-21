@@ -54,7 +54,7 @@ export const CommunityMain = () => {
   }, []);
 
   return (
-    <Styled.Section style={{ border: "1px solid white" }}>
+    <Styled.Section>
       <MainHeader />
       <Styled.Main>
         <Flex justifyContent='flex-end' alignItems='center' style={{ width: "95%", marginBottom: "10px" }}>

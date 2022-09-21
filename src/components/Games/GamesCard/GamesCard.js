@@ -10,7 +10,7 @@ export const GamesCard = ({ imageUrl, gameTitle, linkUrl }) => {
     <Link href={linkUrl}>
       <StyledGamesCard>
         <GamesCardImgWrapper onMouseOver={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
-          <Image src={imageUrl} width='100%' height='60%' layout='responsive' quality={100} alt='이미지' />
+          <Image src={imageUrl} width='100%' height='60%' layout='responsive' quality={100} />
           {isHovering ? (
             <>
               <GameStartBtn>게임 시작</GameStartBtn>
