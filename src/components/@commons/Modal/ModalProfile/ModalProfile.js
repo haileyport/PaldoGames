@@ -11,7 +11,7 @@ export const ModalProfile = ({ user }) => {
         <Styled.Image type='image' src={image} alt='profile-image' />
         <Flex flexDirection='column' style={{ textAlign: "center" }}>
           <P content={name} style={{ marginBottom: -5 }} />
-          <P content={aboutMe}></P>
+          <P content={aboutMe} />
         </Flex>
       </Styled.Section>
     </Flex>

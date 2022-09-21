@@ -1,24 +1,35 @@
+import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { currentUserState, modalStates } from "../../../states";
+import axios from "axios";
 
 import { Flex } from "../../@commons";
 import { ContentModal } from "../ContentModal/ContentModal";
 import { Pagination } from "../Pagination/Pagination";
 
-import { modalStates } from "../../../states";
-
 import { PostModal } from "../PostModal/PostModal";
 import { MainHeader } from "./MainHeader/MainHeader";
 
-import * as Styled from "./Community.style";
 import { ContentList } from "./ContentList/ContentList";
-import axios from "axios";
 import { postState } from "../../../states/community";
 import { EditModal } from "../EditModal/EditModal";
+import * as Styled from "./Community.style";
 
 export const CommunityMain = () => {
   const [modal, setModal] = useRecoilState(modalStates);
   const [post, setPost] = useRecoilState(postState);
+  const { isLoggedIn } = useRecoilValue(currentUserState);
+  const router = useRouter();
+
+  const handleVisitWithoutLoggingIn = () => {
+    const currentRoute = router.route;
+
+    if (!isLoggedIn && currentRoute === "/community") {
+      router.push("/");
+      setModal({ ...modal, login: true });
+    }
+  };
 
   // 페이지네이션
   const [limit] = useState(10);
@@ -49,6 +60,7 @@ export const CommunityMain = () => {
 
   useEffect(() => {
     fetchCommunityData();
+    handleVisitWithoutLoggingIn();
 
     return () => fetchCommunityData();
   }, []);
