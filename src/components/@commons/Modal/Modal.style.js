@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  display: flex;
   width: 100%;
   height: 100%;
-  display: flex;
   position: fixed;
   top: 0;
   right: 0;
@@ -16,6 +16,10 @@ export const Container = styled.div`
   align-items: center;
   animation: modal-bg-show 0.3s;
   cursor: auto;
+
+  .modal.openModal {
+    display: flex;
+  }
 
   @keyframes modal-show {
     from {

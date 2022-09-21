@@ -21,7 +21,7 @@ export const TimesTablesSmallTitle = styled.span`
   margin: 1em 0;
 `;
 
-export const TimesTablestext = styled.div`
+export const TimesTablesText = styled.div`
   font-size: 1.5em;
   font-weight: 300;
   margin-bottom: 0.5em;

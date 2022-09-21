@@ -6,7 +6,7 @@ import {
   TimesTablesBtn,
   TimesTablesLives,
   TimesTablesSmallTitle,
-  TimesTablestext,
+  TimesTablesText,
   TimesTablesTitle,
 } from "./TimesTablesMain.style";
 import alarm from "../../../../public/alarm.png";
@@ -103,13 +103,13 @@ export const TimesTablesMain = () => {
         <>
           <TimesTablesSmallTitle>구구단 게임 💬</TimesTablesSmallTitle>
           <AlarmContainer>
-            <Image src={alarm} width='80%' height='80%' />
+            <Image src={alarm} width='80%' height='80%' alt='알람이미지' />
             <TimesTablesAlarm>{seconds}</TimesTablesAlarm>
           </AlarmContainer>
           <TimesTablesLives>{lives}</TimesTablesLives>
-          <TimesTablestext>
+          <TimesTablesText>
             {first} 곱하기 {second}은(는)?
-          </TimesTablestext>
+          </TimesTablesText>
           <form
             onSubmit={(e) => {
               e.preventDefault();

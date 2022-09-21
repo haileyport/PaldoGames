@@ -14,6 +14,7 @@ import * as Styled from "./Community.style";
 import { ContentList } from "./ContentList/ContentList";
 import axios from "axios";
 import { postState } from "../../../states/community";
+import { EditModal } from "../EditModal/EditModal";
 
 export const CommunityMain = () => {
   const [modal, setModal] = useRecoilState(modalStates);
@@ -65,7 +66,7 @@ export const CommunityMain = () => {
           return <ContentList key={i} details={details} id={details.id} />;
         })}
 
-        {modal.community && <ContentModal users={post} />}
+        {modal.community ? <ContentModal users={post} /> : modal.edit ? <EditModal /> : null}
         <Styled.Footer>
           <Pagination total={post.length} limit={limit} page={page} setPage={setPage} />
         </Styled.Footer>

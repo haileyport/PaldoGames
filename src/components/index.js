@@ -15,8 +15,6 @@ import { InventoriesMain } from "./Inventories/InventoriesMain/InventoriesMain";
 // Games Main related
 import { GamesMain } from "./Games/GamesMain/GamesMain";
 
-// WordRelay Game related
-import { WordRelayMain } from "./Games/WordRelay/WordRelayMain/WordRelay";
 // TimesTables Game related
 import { TimesTablesMain } from "./Games/TimesTables/TimesTablesMain";
 // Baseball Game related
@@ -36,6 +34,6 @@ export { Hero, Animation, Footer, Header, Layout, DarkModeToggleButton, Main, Pr
 
 export { InventoriesMain };
 
-export { GamesMain, WordRelayMain, BaseBallMain, TimesTablesMain };
+export { GamesMain, BaseBallMain, TimesTablesMain };
 
 export { ContentModal, CommunityMain, CommunityModalMain, Pagination };

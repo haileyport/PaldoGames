@@ -13,42 +13,39 @@ export const CommunityModalMain = () => {
   const { user } = useRecoilValue(currentUserState);
   const [modal, setModal] = useRecoilState(modalStates);
 
-  const currentPost = post.filter((details) => details.writer.id === ids.userId && details.id === ids.contentId);
-  const iAmTheOne = user.id === currentPost[0].writer.id;
+  const currentPost = post.filter((details) => details.writer.id === ids.userId && details.id === ids.contentId)[0];
+  const iAmTheOne = user.id === currentPost.writer.id;
 
   const deletePost = async () => {
     // 추후에 정말 삭제할건지 물어보기
-    const id = currentPost[0].writer.id;
+    const id = currentPost.id;
 
     await axios.delete(`/api/community`, {
       data: { id },
     });
-    console.log("deleted");
 
+    setPost((prev) => prev.filter((post) => post.id !== ids.contentId));
     setModal({ ...modal, community: false });
   };
 
   return (
     <Styled.InnerModalMain>
+      {iAmTheOne && (
+        <Flex flexDirection='row' justifyContent='flex-end' style={{ position: "relative" }}>
+          <button onClick={() => setModal({ ...modal, edit: true, community: false })}>수정</button>
+          <button onClick={deletePost}>삭제</button>
+        </Flex>
+      )}
       <Flex justifyContent='space-between' style={{ margin: 40, marginTop: 20 }}>
-        {currentPost.map(({ title, content }, i) => {
-          return (
-            <Flex flexDirection='column' key={i} style={{ width: "100%", textAlign: "center" }}>
-              {iAmTheOne && (
-                <button onClick={deletePost} style={{ width: "80px", position: "relative", left: "95%", borderRadius: "8px" }}>
-                  삭제
-                </button>
-              )}
-              <Flex flexDirection='column' style={{ borderBottom: "1px solid lightGray" }}>
-                <span style={{ letterSpacing: 5 }}>제목</span>
-                <P content={title} />
-              </Flex>
-              <Flex>
-                <P content={content} style={{ textAlign: "left", lineHeight: 2, letterSpacing: 2 }} />
-              </Flex>
-            </Flex>
-          );
-        })}
+        <Flex flexDirection='column' style={{ width: "100%", textAlign: "center" }}>
+          <Flex flexDirection='column' style={{ borderBottom: "1px solid lightGray" }}>
+            <span style={{ letterSpacing: 5 }}>제목</span>
+            <P content={currentPost.title} />
+          </Flex>
+          <Flex>
+            <P content={currentPost.content} style={{ textAlign: "left", lineHeight: 2, letterSpacing: 2 }} />
+          </Flex>
+        </Flex>
       </Flex>
     </Styled.InnerModalMain>
   );

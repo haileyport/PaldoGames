@@ -8,8 +8,8 @@ import * as Post from "./PostModal.style";
 import * as M from "../../@commons/Modal/Modal.style";
 import { POST } from "../../../constants";
 import { postState } from "../../../states/community";
-import { uuidV4 } from "../../../utils/utils";
 import axios from "axios";
+import { dialog } from "../../../states/modal";
 
 export const PostModal = () => {
   const { user } = useRecoilValue(currentUserState);
@@ -53,34 +53,31 @@ export const PostModal = () => {
   const handlePostDetails = async (e) => {
     e.preventDefault();
 
-    const id = uuidV4();
     const titleValue = title.current.value;
     const contentValue = content.current.value;
     const { point } = totalPoint;
 
     if (postingValidation(titleValue, contentValue)) {
-      // await axios
-      //   .post(`/api/community`, {
-      //     id,
-      //     title: titleValue,
-      //     content: contentValue,
-      //     writer: user,
-      //   })
-      //   .then((res) => {
-      //     console.log(res.status);
-      //   })
-      //   .catch((err) => console.log(err));
+      await axios
+        .post(`/api/community`, {
+          id: user.id,
+          title: titleValue,
+          content: contentValue,
+        })
+        .then((res) => {
+          console.log(res.status);
+        })
+        .catch((err) => console.log(err));
 
-      const res = await axios.patch(`api/game`, { userId: user.id, point: point + 100 });
-      console.log(res.data.totalPoint);
+      await axios.patch(`api/game`, { userId: user.id, point: point + 100 });
 
       setPost((prev) => [
         ...prev,
         {
-          id,
           title: titleValue,
-          writer: user,
+          editor: user.id,
           content: contentValue,
+          writer: user,
         },
       ]);
 

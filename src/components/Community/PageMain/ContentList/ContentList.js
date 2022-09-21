@@ -2,9 +2,6 @@ import { useRecoilState } from "recoil";
 import { contentState, modalStates } from "../../../../states";
 import { Flex, P, Input } from "../../../@commons";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMessage } from "@fortawesome/free-solid-svg-icons";
-
 export const ContentList = ({ details }) => {
   let { id, title, writer } = details;
 
@@ -20,7 +17,7 @@ export const ContentList = ({ details }) => {
           writer={writer.id}
           className='ellipsis'
           content={title}
-          style={{ width: "70%", marginLeft: 20, color: "white", cursor: "pointer", maxWidth: "300px" }}
+          style={{ fontSize: 17, fontWeight: 300, width: "70%", marginLeft: 20, color: "white", cursor: "pointer", maxWidth: "300px" }}
           onClick={() => {
             setModal({ ...modal, community: true });
             setCurrentPostId({ ...currentPostId, contentId: id, userId: writer.id });
@@ -38,8 +35,7 @@ export const ContentList = ({ details }) => {
           }}
           style={{ width: 30, height: 30, borderRadius: 50, marginRight: 10 }}
         />
-        {/* 댓글기능 구현시 주석 제거 */}
-        {/* <FontAwesomeIcon icon={faMessage} style={{ color: 'white' }} /> */}
+
         <span style={{ marginLeft: 5, color: "white" }}>{writer.name}</span>
       </Flex>
     </Flex>

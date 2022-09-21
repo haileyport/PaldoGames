@@ -38,12 +38,6 @@ export const GAME_LIST = Object.freeze([
     desc: "구구단 게임 입니다.",
   },
   {
-    gameTitle: "끝말잇기",
-    imageUrl: baseball,
-    linkUrl: "/games/wordrelay",
-    desc: "끝말잇기 게임 입니다.",
-  },
-  {
     gameTitle: "숫자야구",
     imageUrl: baseball,
     linkUrl: "/games/baseball",
