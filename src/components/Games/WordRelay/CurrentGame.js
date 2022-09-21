@@ -1,9 +1,13 @@
-import { useCallback, useRef, useState } from 'react';
-import { useRecoilState } from 'recoil';
-import { CLASSNAME, COLOR, DEFAULT, ERROR_MESSAGE } from '../../../constants';
-import { Form, Button, P, Input } from '../../@commons';
-import { isValidInputWord, clearInputValue, handleErrorMessage } from '../../../utils';
-import { wordRelayGameInfo } from '../../../states';
+import { useCallback, useRef, useState } from "react";
+import { useRecoilState } from "recoil";
+import { CLASSNAME, COLOR, DEFAULT, ERROR_MESSAGE } from "../../../constants";
+import { Form, Button, P, Input } from "../../@commons";
+import {
+  isValidInputWord,
+  clearInputValue,
+  handleErrorMessage,
+} from "../../../utils";
+import { wordRelayGameInfo } from "../../../states";
 
 // 점수관련 필요한 기능
 // 게임의 길이 = wordsArray 의 길이
@@ -15,7 +19,12 @@ import { wordRelayGameInfo } from '../../../states';
 
 export const CurrentGame = () => {
   const [wordsArray, setWordsArray] = useState([DEFAULT.GIVEN_WORDS]);
-  const [state, setState] = useState({ prevWord: undefined, currentWord: wordsArray[0], definition: undefined, loading: false });
+  const [state, setState] = useState({
+    prevWord: undefined,
+    currentWord: wordsArray[0],
+    definition: undefined,
+    loading: false,
+  });
   const [gameInfo, setGameInfo] = useRecoilState(wordRelayGameInfo);
 
   const wordInput = useRef(null);
@@ -98,7 +107,11 @@ export const CurrentGame = () => {
   useCallback(handleSubmitButton, [gameInfo, handleGameStates, state]);
 
   const onClickSubmitButton = (currentWord, wordsArray) => {
-    const errorMessageHandler = handleErrorMessage(wordInput.current.value, currentWord, wordsArray);
+    const errorMessageHandler = handleErrorMessage(
+      wordInput.current.value,
+      currentWord,
+      wordsArray
+    );
 
     updateErrorMessage(errorMessageHandler);
 
@@ -110,7 +123,7 @@ export const CurrentGame = () => {
   };
 
   const handleKeyPressEvent = (e) => {
-    return e.key === 'Enter' ? handleSubmitWord(e) : null;
+    return e.key === "Enter" ? handleSubmitWord(e) : null;
   };
 
   const handleSubmitWord = (e) => {
@@ -125,12 +138,31 @@ export const CurrentGame = () => {
 
   return (
     <Form ref={wordRelayForm} onSubmit={handleSubmitWord}>
-      <P className='current-word' content={currentWord} style={{ color: 'white', fontSize: 30 }}></P>
-      <Input ref={wordInput} type='text' onKeyPressEvent={handleKeyPressEvent} />
-      <Button type={'submit'} content={'입력'} className={''} />
-      <P className={loading ? undefined : CLASSNAME.HIDE} content={'사전 검색중...'}></P>
-      <P className={loading ? CLASSNAME.HIDE : undefined} content={definition ? definition : ERROR_MESSAGE.EMPTY_INPUT}></P>
-      <P style={{ color: COLOR.RED }} ref={errorMessage} content={undefined} className={undefined}></P>
+      <P
+        className="current-word"
+        content={currentWord}
+        style={{ color: "white", fontSize: 30 }}
+      ></P>
+      <Input
+        ref={wordInput}
+        type="text"
+        onKeyPressEvent={handleKeyPressEvent}
+      />
+      <Button type={"submit"} content={"입력"} className={""} />
+      <P
+        className={loading ? undefined : CLASSNAME.HIDE}
+        content={"사전 검색중..."}
+      ></P>
+      <P
+        className={loading ? CLASSNAME.HIDE : undefined}
+        content={definition ? definition : ERROR_MESSAGE.EMPTY_INPUT}
+      ></P>
+      <P
+        style={{ color: COLOR.RED }}
+        ref={errorMessage}
+        content={undefined}
+        className={undefined}
+      ></P>
     </Form>
   );
 };

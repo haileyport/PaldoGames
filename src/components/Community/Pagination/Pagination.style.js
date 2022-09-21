@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Nav = styled.nav`
   display: flex;
@@ -22,7 +22,6 @@ const Button = styled.nav`
     transform: translateY(-2px);
     cursor: pointer;
   }
-
   &[disabled] {
     opacity: 30%;
     cursor: revert;

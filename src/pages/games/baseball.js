@@ -12,9 +12,7 @@ const BaseBallGamePage = () => {
         <title>숫자야구 게임</title>
         <meta name="description" content="오늘도 즐겜" />
       </Head>
-      <Flex flexDirection="column" alignItems="center">
-        <BaseBallMain />
-      </Flex>
+      <BaseBallMain />
     </>
   );
 };
