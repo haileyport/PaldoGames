@@ -17,12 +17,17 @@ import { EditModal } from "../EditModal/EditModal";
 import * as Styled from "./Community.style";
 
 export const CommunityMain = () => {
+  // useSession()
   const [modal, setModal] = useRecoilState(modalStates);
   const [post, setPost] = useRecoilState(postState);
   const { isLoggedIn } = useRecoilValue(currentUserState);
   const router = useRouter();
 
   const handleVisitWithoutLoggingIn = () => {
+    // 서버사이드에서
+
+    // 커뮤니티 페이지에서 새로고침 시에 홈으로 이동됨
+    // 렌더링 최적화로 고칠수 있음
     const currentRoute = router.route;
 
     if (!isLoggedIn && currentRoute === "/community") {
@@ -48,9 +53,10 @@ export const CommunityMain = () => {
     postData.map((data) => {
       const { id, title, content, editor } = data;
 
+      // user 값을 넣어주기 위해
       users.map((user) => {
         if (user.id === editor) {
-          postArray.push({ id, title, content, editor, writer: user });
+          postArray.unshift({ id, title, content, editor, writer: user });
         }
       });
     });
@@ -60,7 +66,7 @@ export const CommunityMain = () => {
 
   useEffect(() => {
     fetchCommunityData();
-    handleVisitWithoutLoggingIn();
+    // handleVisitWithoutLoggingIn();
 
     return () => fetchCommunityData();
   }, []);
@@ -70,7 +76,9 @@ export const CommunityMain = () => {
       <MainHeader />
       <Styled.Main>
         <Flex justifyContent='flex-end' alignItems='center' style={{ width: "95%", marginBottom: "10px" }}>
-          <button onClick={() => setModal({ ...modal, post: true })}>글쓰기</button>
+          <button onClick={() => setModal({ ...modal, post: true })} style={{ position: "relative", top: 40 }}>
+            글쓰기
+          </button>
           {modal.post && <PostModal />}
         </Flex>
 

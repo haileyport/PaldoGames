@@ -1,7 +1,7 @@
 import { signIn, useSession } from "next-auth/react";
 import Image from "next/image";
 
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useLayoutEffect } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { currentUserState, modalStates } from "../../../states";
 
@@ -13,6 +13,7 @@ import * as Styled from "../../@commons/Modal/Modal.style";
 import * as StyledNav from "./Nav.style";
 import kakao from "../../../../public/kakao_login_medium_wide.png";
 
+// props 로 받아와서 serverside
 export const Login = () => {
   const [modal, setModal] = useRecoilState(modalStates);
   const setCurrentUser = useSetRecoilState(currentUserState);
@@ -57,3 +58,10 @@ export const Login = () => {
     </Flex>
   );
 };
+
+// export function getServersideProps = () => {
+
+//   reutrn {
+
+//   }
+// }

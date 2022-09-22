@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { currentUserState, modalStates } from "../../../states";
 
 import { Flex } from "../../@commons";
@@ -20,22 +20,17 @@ export const PostModal = () => {
   const content = useRef(null);
 
   // 공통되는것 hooks로 관리
-  const fetchTotalPoint = useCallback(async () => {
+  const fetchTotalPoint = async () => {
     const { data } = await axios.get(`/api/game/${user.id}`);
     let point;
 
     if (data.response) {
       point = data.response.totalPoint;
+      setTotalPoint({ id: user.id, point });
     } else {
       point = 0;
     }
-
-    setTotalPoint({ id: user.id, point });
-  }, [user.id]);
-
-  useEffect(() => {
-    fetchTotalPoint();
-  }, [fetchTotalPoint, totalPoint]);
+  };
 
   const postingValidation = (titleValue, contentValue) => {
     let isValid = false;
@@ -71,13 +66,13 @@ export const PostModal = () => {
       await axios.patch(`api/game`, { userId: user.id, point: point + 100 });
 
       setPost((prev) => [
-        ...prev,
         {
           title: titleValue,
           editor: user.id,
           content: contentValue,
           writer: user,
         },
+        ...prev,
       ]);
 
       setModal({ ...modal, post: false });
@@ -85,6 +80,10 @@ export const PostModal = () => {
       alert(POST.EMPTY_INPUT);
     }
   };
+
+  useEffect(() => {
+    fetchTotalPoint();
+  }, []);
 
   return (
     <Modal>

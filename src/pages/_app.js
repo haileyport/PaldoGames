@@ -5,13 +5,13 @@ import { Layout } from "../components";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <RecoilRoot>
-      <SessionProvider session={pageProps.session}>
+    <SessionProvider session={pageProps.session}>
+      <RecoilRoot>
         <Layout>
           <Component {...pageProps} />
         </Layout>
-      </SessionProvider>
-    </RecoilRoot>
+      </RecoilRoot>
+    </SessionProvider>
   );
 }
 

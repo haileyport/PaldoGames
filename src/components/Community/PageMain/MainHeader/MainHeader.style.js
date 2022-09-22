@@ -5,7 +5,7 @@ export const P = styled.p`
   cursor: pointer;
   color: black;
   width: 40%;
-  height: 5%;
+  height: 30%;
   border-radius: 10px;
   text-align: center;
   padding-top: 5px;

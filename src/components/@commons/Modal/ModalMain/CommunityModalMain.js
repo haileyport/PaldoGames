@@ -18,6 +18,10 @@ export const CommunityModalMain = () => {
 
   const deletePost = async () => {
     // 추후에 정말 삭제할건지 물어보기
+    // 리렌더링
+    // id 가 유실됨
+
+    // delete / patch
     const id = currentPost.id;
 
     await axios.delete(`/api/community`, {

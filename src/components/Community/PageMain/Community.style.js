@@ -17,6 +17,7 @@ export const Main = styled.main`
   position: absolute;
   width: 100%;
   height: 80vh;
+  max-height: 80vh;
 `;
 
 export const Footer = styled.footer`

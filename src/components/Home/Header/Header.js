@@ -12,6 +12,8 @@ import * as Styled from "./Header.style";
 export const Header = () => {
   const { isLoggedIn } = useRecoilValue(currentUserState);
 
+  console.log("isLoggedIn :", isLoggedIn);
+
   return (
     <>
       <Styled.Header>

@@ -9,7 +9,11 @@ export const ContentList = ({ details }) => {
   const [currentPostId, setCurrentPostId] = useRecoilState(contentState);
 
   return (
-    <Flex flexDirection='row' justifyContent='space-between' style={{ width: "90%", borderBottom: "1px solid white", margin: "0 auto" }}>
+    <Flex
+      flexDirection='row'
+      justifyContent='space-between'
+      style={{ width: "90%", position: "relative", top: "40px", borderBottom: "1px solid white", margin: "0 auto" }}
+    >
       <Flex>
         <input type='radio' id={id} disabled />
         <P
