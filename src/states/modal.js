@@ -4,7 +4,10 @@ import { atom } from 'recoil';
 
 const modalStates = atom({
   key: `modalStates`,
-  default: { login: false, profile: false, community: false, post: false },
+  default: { login: false, profile: false, community: false, post: false ,gameCard : false, desc:false }
 });
+
+
+
 
 export { modalStates };
