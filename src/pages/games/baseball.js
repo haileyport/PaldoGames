@@ -1,7 +1,6 @@
 import Head from "next/head";
 
 import { BaseBallMain } from "../../components";
-import { Flex } from "../../components/@commons";
 
 const BaseBallGamePage = () => {
   return (
