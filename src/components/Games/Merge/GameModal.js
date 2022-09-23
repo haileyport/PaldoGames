@@ -41,15 +41,13 @@ const GameModal = ({ gameModal }) => {
         },
         point: 2048,
       });
-      console.log(game.game);
-      // router.push("/games/result");
+      router.push("/games/result");
     }
   }, [gameModal.message]);
 
   return (
     <Modal>
       <Message>{gameModal.message}</Message>
-      <ButtonWrap>{gameModal.button}</ButtonWrap>
     </Modal>
   );
 };
@@ -77,32 +75,6 @@ const Message = styled.div`
   font-size: 4rem;
   font-weight: 900;
   color: #1e293b;
-`;
-
-const ButtonWrap = styled.div`
-  button {
-    display: inline-flex;
-    border-width: 0px;
-    line-height: 1.75rem;
-    color: rgb(255 255 255);
-    border-radius: 0.25rem;
-    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
-    font-size: 1.125rem;
-    font-weight: bold;
-    &.btn-continue {
-      background-color: rgb(99 102 241);
-    }
-    &.btn-lose {
-      background-color: rgb(99 102 241);
-    }
-    &.btn-new-game {
-      background-color: rgb(99 102 241);
-    }
-    :hover {
-      background-color: rgb(79 70 229);
-      cursor: pointer;
-    }
-  }
 `;
 
 export default GameModal;

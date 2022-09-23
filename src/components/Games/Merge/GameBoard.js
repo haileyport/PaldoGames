@@ -39,7 +39,7 @@ const getMaxNumber = (numbers) => {
   );
 };
 
-const GameBoard = ({ score, setScore, reset, setReset }) => {
+const GameBoard = ({ reset, setReset }) => {
   const [gameModal, setGameModal] = useState(null);
   const [numbers, setNumbers] = useState(defaultArray);
   const [prevPosition, setPrevPosition] = useState({});
@@ -49,7 +49,6 @@ const GameBoard = ({ score, setScore, reset, setReset }) => {
 
   const setInitTile = () => {
     setBeRemovedTiles([]);
-    setScore(0);
     setGameState(1);
     const newTile = getNewTile(defaultArray, true);
     const newTile2 = getNewTile(defaultArray, newTile.index);
@@ -85,30 +84,14 @@ const GameBoard = ({ score, setScore, reset, setReset }) => {
       switch (gameState) {
         case 0:
           message = "Game Over!";
-          button = (
-            <button
-              className="btn-lose"
-              onClick={() => setReset((reset) => !reset)}
-            >
-              Try again
-            </button>
-          );
           break;
         case 2048:
           message = "You Win!";
-          button = (
-            <button
-              className="btn-new-game"
-              onClick={() => setReset((reset) => !reset)}
-            >
-              New Game
-            </button>
-          );
           break;
         default:
           break;
       }
-      setGameModal({ message, button });
+      setGameModal({ message });
     } else setGameModal(null);
   };
 
@@ -179,7 +162,6 @@ const GameBoard = ({ score, setScore, reset, setReset }) => {
         const newTile = getNewTile(newArray);
         if (newTile) {
           newArray[newTile.index] = newTile;
-          setScore((score) => score + totalAddedScore);
           setNumbers([...newArray]);
           setBeRemovedTiles([...combinedArray]);
         }

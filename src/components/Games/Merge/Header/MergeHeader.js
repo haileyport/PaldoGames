@@ -1,16 +1,15 @@
 import styled from "styled-components";
-import ScoreBoard from "./ScoreBoard";
 
-const MergeHeader = ({ score, reset, setReset }) => {
+const MergeHeader = ({ reset, setReset }) => {
   return (
     <HeaderWrap>
       <TitleWrap>
         <span className="title">2048</span>
-        <span className="subTitle">🕹️ 새 게임을 시작하면</span>
-        <span className="subTitle"> 포인트가 100점 차감됩니다.</span>
+        <span className="subTitle">
+          🕹️ 새 게임을 시작하면 포인트가 100점 차감됩니다.
+        </span>
       </TitleWrap>
       <Heading>
-        <ScoreBoard score={score} />
         <Button onClick={() => setReset((reset) => !reset)}>New Game</Button>
       </Heading>
     </HeaderWrap>
