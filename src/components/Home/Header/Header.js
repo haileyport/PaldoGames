@@ -51,7 +51,7 @@ export const Header = () => {
           <Link href='/community'>
             <StyledNav.Content>커뮤니티</StyledNav.Content>
           </Link>
-          {status === "unauthenticated" ? <Login /> : status === "authenticated" ? <Profile /> : ""}
+          {status === "unauthenticated" ? <Login /> : <Profile />}
         </StyledNav.Nav>
       </Styled.Header>
     </>
