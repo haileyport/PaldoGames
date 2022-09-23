@@ -1,11 +1,8 @@
-import { signIn, useSession } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import Image from "next/image";
 
-import { useCallback, useEffect, useLayoutEffect } from "react";
-import { useRecoilState, useSetRecoilState } from "recoil";
-import { currentUserState, modalStates } from "../../../states";
-
-import axios from "axios";
+import { useRecoilState } from "recoil";
+import { modalStates } from "../../../states";
 
 import { Flex } from "../../@commons";
 import { Modal, ModalHeader } from "../../@commons/Modal";
@@ -13,30 +10,8 @@ import * as Styled from "../../@commons/Modal/Modal.style";
 import * as StyledNav from "./Nav.style";
 import kakao from "../../../../public/kakao_login_medium_wide.png";
 
-// props 로 받아와서 serverside
 export const Login = () => {
   const [modal, setModal] = useRecoilState(modalStates);
-  const setCurrentUser = useSetRecoilState(currentUserState);
-
-  const { data: session } = useSession();
-
-  const fetchLoginData = useCallback(async () => {
-    const users = await (await axios.get("/api/user")).data.users;
-
-    if (session) {
-      const email = session.user.email;
-      const userIndex = users.findIndex((user, i) => user.email === email);
-
-      setModal({ ...modal, login: false });
-      setCurrentUser({ user: users[userIndex], isLoggedIn: true });
-    }
-  }, [session]);
-
-  useEffect(() => {
-    fetchLoginData();
-
-    return () => fetchLoginData();
-  }, [session]);
 
   return (
     <Flex flexDirection='column'>
@@ -58,10 +33,3 @@ export const Login = () => {
     </Flex>
   );
 };
-
-// export function getServersideProps = () => {
-
-//   reutrn {
-
-//   }
-// }

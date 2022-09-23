@@ -24,16 +24,6 @@ export const EditModal = () => {
   const getPostList = post.filter((details) => details.writer.id === ids.userId && details.id === ids.contentId)[0];
   const index = post.findIndex((details) => details.id === getPostList.id);
 
-  const updatePost = (res, index) => {
-    const _post = post.slice();
-    const _editedPost = { ...res.data.response, editor: user.id, writer: user };
-
-    _post.splice(index, 1, _editedPost);
-
-    setPost(_post);
-    setModal({ ...modal, edit: false });
-  };
-
   const handleEditPost = async (e) => {
     e.preventDefault();
 
@@ -50,6 +40,16 @@ export const EditModal = () => {
       .then((res) => {
         updatePost(res, index);
       });
+  };
+
+  const updatePost = (res, index) => {
+    const _post = post.slice();
+    const _editedPost = { ...res.data.response, editor: user.id, writer: user };
+
+    _post.splice(index, 1, _editedPost);
+
+    setPost(_post);
+    setModal({ ...modal, edit: false });
   };
 
   return (

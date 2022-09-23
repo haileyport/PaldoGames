@@ -13,19 +13,17 @@ export const CommunityModalMain = () => {
   const { user } = useRecoilValue(currentUserState);
   const [modal, setModal] = useRecoilState(modalStates);
 
-  const currentPost = post.filter((details) => details.writer.id === ids.userId && details.id === ids.contentId)[0];
-  const iAmTheOne = user.id === currentPost.writer.id;
+  const getPostList = post.filter((details) => details?.writer?.id === ids?.userId && details?.id === ids?.contentId)[0];
+
+  const iAmTheOne = user.id === getPostList?.writer.id;
 
   const deletePost = async () => {
-    // 추후에 정말 삭제할건지 물어보기
-    // 리렌더링
-    // id 가 유실됨
-
-    // delete / patch
-    const id = currentPost.id;
+    const { data } = await axios.get("/api/community");
+    const response = data.response;
+    const currentPost = response.filter((post) => post.editor === ids.userId && getPostList.title === post.title)[0];
 
     await axios.delete(`/api/community`, {
-      data: { id },
+      data: { id: currentPost.id },
     });
 
     setPost((prev) => prev.filter((post) => post.id !== ids.contentId));
@@ -44,10 +42,10 @@ export const CommunityModalMain = () => {
         <Flex flexDirection='column' style={{ width: "100%", textAlign: "center" }}>
           <Flex flexDirection='column' style={{ borderBottom: "1px solid lightGray" }}>
             <span style={{ letterSpacing: 5 }}>제목</span>
-            <P content={currentPost.title} />
+            <P content={getPostList?.title} />
           </Flex>
           <Flex>
-            <P content={currentPost.content} style={{ textAlign: "left", lineHeight: 2, letterSpacing: 2 }} />
+            <P content={getPostList?.content} style={{ textAlign: "left", lineHeight: 2, letterSpacing: 2 }} />
           </Flex>
         </Flex>
       </Flex>

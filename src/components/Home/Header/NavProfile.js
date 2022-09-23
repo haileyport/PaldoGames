@@ -1,5 +1,6 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
+import { useEffect, useRef, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { modalStates, currentUserState, contentState } from "../../../states";
 
@@ -11,7 +12,6 @@ import * as StyledNav from "./Nav.style";
 export const Profile = () => {
   const [modal, setModal] = useRecoilState(modalStates);
   const [editor, setEditor] = useState("");
-
   const { user } = useRecoilValue(currentUserState);
   const { editorId } = useRecoilValue(contentState);
 

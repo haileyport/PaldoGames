@@ -1,18 +1,40 @@
+import axios from "axios";
 import Link from "next/link";
-import { useRecoilValue } from "recoil";
+import { useCallback, useEffect } from "react";
+import { useSession } from "next-auth/react";
+
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { currentUserState, modalStates } from "../../../states";
 
 import { HomeLink } from "./HomeLink/HomeLink";
 import { Profile } from "./NavProfile";
 import { Login } from "./NavLogin";
 import * as StyledNav from "./Nav.style";
-import { currentUserState } from "../../../states";
-
 import * as Styled from "./Header.style";
 
 export const Header = () => {
-  const { isLoggedIn } = useRecoilValue(currentUserState);
+  const { data: session, status } = useSession();
 
-  console.log("isLoggedIn :", isLoggedIn);
+  const setCurrentUser = useSetRecoilState(currentUserState);
+  const [modal, setModal] = useRecoilState(modalStates);
+
+  const fetchLoginData = useCallback(async () => {
+    const response = await axios.get("/api/user");
+
+    const users = response.data.users;
+
+    if (session) {
+      const email = session.user.email;
+      const userIndex = users.findIndex((user, i) => user.email === email);
+
+      setModal({ ...modal, login: false });
+      setCurrentUser({ user: users[userIndex], isLoggedIn: true });
+    }
+  }, [modal, session, setCurrentUser, setModal]);
+
+  useEffect(() => {
+    fetchLoginData();
+  }, [session]);
 
   return (
     <>
@@ -29,7 +51,7 @@ export const Header = () => {
           <Link href='/community'>
             <StyledNav.Content>커뮤니티</StyledNav.Content>
           </Link>
-          {!isLoggedIn ? <Login /> : <Profile />}
+          {status === "unauthenticated" ? <Login /> : status === "authenticated" ? <Profile /> : ""}
         </StyledNav.Nav>
       </Styled.Header>
     </>

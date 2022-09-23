@@ -1,8 +1,6 @@
-import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { currentUserState, modalStates } from "../../../states";
-import axios from "axios";
+import { useRecoilState } from "recoil";
+import { modalStates } from "../../../states";
 
 import { Flex } from "../../@commons";
 import { ContentModal } from "../ContentModal/ContentModal";
@@ -16,25 +14,10 @@ import { postState } from "../../../states/community";
 import { EditModal } from "../EditModal/EditModal";
 import * as Styled from "./Community.style";
 
-export const CommunityMain = () => {
-  // useSession()
+export const CommunityMain = ({ postDataObj, userDataObj }) => {
+  const postData = postDataObj.response;
   const [modal, setModal] = useRecoilState(modalStates);
   const [post, setPost] = useRecoilState(postState);
-  const { isLoggedIn } = useRecoilValue(currentUserState);
-  const router = useRouter();
-
-  const handleVisitWithoutLoggingIn = () => {
-    // 서버사이드에서
-
-    // 커뮤니티 페이지에서 새로고침 시에 홈으로 이동됨
-    // 렌더링 최적화로 고칠수 있음
-    const currentRoute = router.route;
-
-    if (!isLoggedIn && currentRoute === "/community") {
-      router.push("/");
-      setModal({ ...modal, login: true });
-    }
-  };
 
   // 페이지네이션
   const [limit] = useState(10);
@@ -43,12 +26,7 @@ export const CommunityMain = () => {
 
   const fetchCommunityData = useCallback(async () => {
     const postArray = [];
-
-    const { data } = await axios.get("/api/community");
-    const postData = data.response;
-
-    const usersData = await axios.get("/api/user").then((res) => res.data);
-    const { users } = usersData;
+    const { users } = userDataObj;
 
     postData.map((data) => {
       const { id, title, content, editor } = data;
@@ -62,14 +40,13 @@ export const CommunityMain = () => {
     });
 
     setPost((prev) => (prev = postArray));
-  }, [post]);
+  }, [postData, setPost, userDataObj]);
 
   useEffect(() => {
     fetchCommunityData();
-    // handleVisitWithoutLoggingIn();
 
     return () => fetchCommunityData();
-  }, []);
+  }, [fetchCommunityData]);
 
   return (
     <Styled.Section>
@@ -86,7 +63,7 @@ export const CommunityMain = () => {
           return <ContentList key={i} details={details} id={details.id} />;
         })}
 
-        {modal.community ? <ContentModal users={post} /> : modal.edit ? <EditModal /> : null}
+        {modal.community ? <ContentModal postData={post} /> : modal.edit ? <EditModal /> : null}
         <Styled.Footer>
           <Pagination total={post.length} limit={limit} page={page} setPage={setPage} />
         </Styled.Footer>

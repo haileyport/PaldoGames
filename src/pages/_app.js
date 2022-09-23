@@ -1,8 +1,7 @@
 import "../styles/globals.css";
-import { SessionProvider } from "next-auth/react";
+import { getSession, SessionProvider } from "next-auth/react";
 import { RecoilRoot } from "recoil";
 import { Layout } from "../components";
-
 function MyApp({ Component, pageProps }) {
   return (
     <SessionProvider session={pageProps.session}>
@@ -13,6 +12,16 @@ function MyApp({ Component, pageProps }) {
       </RecoilRoot>
     </SessionProvider>
   );
+}
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  return {
+    props: {
+      session,
+    },
+  };
 }
 
 export default MyApp;

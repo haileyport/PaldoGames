@@ -13,14 +13,13 @@ import axios from "axios";
 export const PostModal = () => {
   const { user } = useRecoilValue(currentUserState);
   const [modal, setModal] = useRecoilState(modalStates);
-  const [post, setPost] = useRecoilState(postState);
+  const setPost = useSetRecoilState(postState);
   const [totalPoint, setTotalPoint] = useState({ id: "", point: 0 });
 
   const title = useRef(null);
   const content = useRef(null);
 
-  // 공통되는것 hooks로 관리
-  const fetchTotalPoint = async () => {
+  const fetchTotalPoint = useCallback(async () => {
     const { data } = await axios.get(`/api/game/${user.id}`);
     let point;
 
@@ -30,7 +29,7 @@ export const PostModal = () => {
     } else {
       point = 0;
     }
-  };
+  }, [user.id]);
 
   const postingValidation = (titleValue, contentValue) => {
     let isValid = false;
@@ -42,6 +41,20 @@ export const PostModal = () => {
     }
 
     return isValid;
+  };
+
+  const updatePost = (title, editor, content, writer) => {
+    setPost((prev) => [
+      {
+        title,
+        editor,
+        content,
+        writer,
+      },
+      ...prev,
+    ]);
+
+    setModal({ ...modal, post: false });
   };
 
   const handlePostDetails = async (e) => {
@@ -58,24 +71,11 @@ export const PostModal = () => {
           title: titleValue,
           content: contentValue,
         })
-        .then((res) => {
-          console.log(res.status);
-        })
         .catch((err) => console.log(err));
 
       await axios.patch(`api/game`, { userId: user.id, point: point + 100 });
 
-      setPost((prev) => [
-        {
-          title: titleValue,
-          editor: user.id,
-          content: contentValue,
-          writer: user,
-        },
-        ...prev,
-      ]);
-
-      setModal({ ...modal, post: false });
+      updatePost(titleValue, user.id, contentValue, user);
     } else {
       alert(POST.EMPTY_INPUT);
     }
@@ -83,13 +83,12 @@ export const PostModal = () => {
 
   useEffect(() => {
     fetchTotalPoint();
-  }, []);
+  }, [fetchTotalPoint]);
 
   return (
     <Modal>
       <M.Section width='80%' maxWidth='1000px' minWidth='500px' maxHeight='1000px' style={{ overflowY: "auto" }}>
         <ModalHeader content='글쓰기' />
-        {/* 현재유저 */}
         <ModalProfile user={user} />
         <Post.Main type='submit'>
           <Post.Form onSubmit={handlePostDetails}>
