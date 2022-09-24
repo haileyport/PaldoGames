@@ -1,24 +1,23 @@
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { useCallback, useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { modalStates } from "../../../states";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import { Flex } from "../../@commons";
 import { ContentModal } from "../ContentModal/ContentModal";
 import { Pagination } from "../Pagination/Pagination";
-
 import { PostModal } from "../PostModal/PostModal";
-
 import { ContentList } from "./ContentList/ContentList";
-import { postState } from "../../../states/community";
 import { EditModal } from "../EditModal/EditModal";
 import * as Styled from "./Community.style";
+
+import { postState } from "../../../states/community";
 import { debounceFunction } from "../../../utils/utils";
 
-export const CommunityMain = ({ postDataObj, userDataObj }) => {
-  const postData = postDataObj.response;
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+
+export const CommunityMain = ({ postList }) => {
   const [modal, setModal] = useRecoilState(modalStates);
   const [post, setPost] = useRecoilState(postState);
   const [searchValue, setSearchValue] = useState("");
@@ -27,31 +26,9 @@ export const CommunityMain = ({ postDataObj, userDataObj }) => {
   const [limit] = useState(10);
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
+  const filteredPost = post.filter((details) => details.title.includes(searchValue));
 
-  const fetchCommunityData = useCallback(async () => {
-    const postArray = [];
-    const { users } = userDataObj;
-
-    postData.map((data) => {
-      const { id, title, content, editor } = data;
-
-      // user 값을 넣어주기 위해
-      users.map((user) => {
-        if (user.id === editor) {
-          postArray.unshift({ id, title, content, editor, writer: user });
-        }
-      });
-    });
-
-    setPost((prev) => (prev = postArray));
-  }, [postData, setPost, userDataObj]);
-
-  useLayoutEffect(() => {
-    fetchCommunityData();
-
-    return () => fetchCommunityData();
-  }, [fetchCommunityData]);
-
+  // 검색기능
   const updateSearchValue = debounceFunction((target) => {
     setSearchValue((prev) => (prev = target.value));
   }, 500);
@@ -63,21 +40,28 @@ export const CommunityMain = ({ postDataObj, userDataObj }) => {
     [updateSearchValue]
   );
 
-  const printFilteredPosts = useCallback(() => {
-    // indexOf
-    post.slice(offset, offset + limit).map((details) => console.log(details.title, searchValue));
-    const filteredPost = post.slice(offset, offset + limit).filter((details) => details.title.includes(searchValue));
+  useEffect(() => {
+    setPost((prev) => (prev = postList));
+  }, [postList, setPost]);
 
+  const handleFilteredPost = useCallback(() => {
+    // 검색어를 포함한 제목이 없을경우
     if (filteredPost.length === 0 && searchValue) {
       return <Styled.Empty>텅</Styled.Empty>;
     }
 
-    if (filteredPost.length !== 0) {
-      return filteredPost.map((details, i) => {
+    // 검색어를 포함한 제목이 있을경우
+    if (filteredPost.length !== 0 && searchValue) {
+      return filteredPost.slice(offset, offset + limit).map((details, i) => {
         return <ContentList key={i} details={details} id={details.id} />;
       });
     }
-  }, [limit, offset, post, searchValue]);
+
+    // Default behavior
+    return post.slice(offset, offset + limit).map((details, i) => {
+      return <ContentList key={i} details={details} id={details.id} />;
+    });
+  }, [filteredPost, limit, offset, post, searchValue]);
 
   return (
     <>
@@ -92,21 +76,21 @@ export const CommunityMain = ({ postDataObj, userDataObj }) => {
         </Flex>
         <Flex flexDirection='row' justifyContent='center'>
           <Styled.SearchInput type='text' placeholder='   검색어를 입력하세요' onChange={onChangeSearchEvent} />
-          <FontAwesomeIcon icon={faSearch} size='1x' style={{ position: "relative", top: 62, right: 30, color: "black", zIndex: 67, cursor: "none" }} />
+          <FontAwesomeIcon icon={faSearch} size='1x' style={{ position: "relative", top: 63, right: 330, color: "black", zIndex: 67, cursor: "none" }} />
         </Flex>
       </Styled.Header>
       <Styled.Section>
         <Styled.Main>
           <Flex justifyContent='flex-end' alignItems='center' style={{ width: "95%", marginBottom: "10px" }}>
-            <button onClick={() => setModal({ ...modal, post: true })} style={{ position: "relative", top: 40 }}>
+            <Styled.Button onClick={() => setModal({ ...modal, post: true })} style={{ position: "relative", top: 40 }}>
               글쓰기
-            </button>
+            </Styled.Button>
             {modal.post && <PostModal />}
           </Flex>
-          {printFilteredPosts()}
+          {handleFilteredPost()}
           {modal.community ? <ContentModal postData={post} /> : modal.edit ? <EditModal /> : null}
           <Styled.Footer>
-            <Pagination total={post.length} limit={limit} page={page} setPage={setPage} />
+            <Pagination total={filteredPost.length} limit={limit} page={page} setPage={setPage} />
           </Styled.Footer>
         </Styled.Main>
       </Styled.Section>

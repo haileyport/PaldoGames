@@ -16,7 +16,7 @@ export const Home = ({ session }) => {
     } else {
       router.push("/");
     }
-  }, [modal, router, session, setModal]);
+  }, [router, session, setModal]);
 
   console.log("LoginPage", session);
 

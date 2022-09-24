@@ -36,9 +36,20 @@ export const SearchInput = styled.input`
   font-size: 16px;
   border-radius: 50px;
   z-index: 66;
-  text-align: left;
-  padding-left: 20px;
+  text-align: center;
+  // padding-left: 25px;
+  padding-right: 10px;
   padding-top: 4px;
+`;
+
+export const Button = styled.button`
+  color: black;
+  border-style: outset;
+  border-radius: 50px;
+  height: 30px;
+  width: 60px;
+  text-shadow: none;
+  cursor: pointer;
 `;
 
 export const P = styled.p`
