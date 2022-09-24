@@ -1,7 +1,7 @@
-import { useSetRecoilState } from 'recoil';
-import { modalStates } from '../../../../states';
+import { useSetRecoilState } from "recoil";
+import { modalStates } from "../../../../states";
 
-import * as Styled from './ModalComponents.style';
+import * as Styled from "./ModalComponents.style";
 
 export const ModalHeader = ({ content }) => {
   const setModal = useSetRecoilState(modalStates);

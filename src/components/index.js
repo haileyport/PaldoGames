@@ -15,8 +15,8 @@ import { InventoriesMain } from "./Inventories/InventoriesMain/InventoriesMain";
 // Games Main related
 import { GamesMain } from "./Games/GamesMain/GamesMain";
 
-// TimesTables Game related 
-import { TimesTablesMain } from './Games/TimesTables/TimesTablesMain'
+// TimesTables Game related
+import { TimesTablesMain } from "./Games/TimesTables/TimesTablesMain";
 // Baseball Game related
 import { BaseBallMain } from "./Games/BaseBall/BaseBallMain";
 

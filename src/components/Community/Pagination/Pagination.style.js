@@ -1,14 +1,16 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const Nav = styled.nav`
+export const Nav = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 4px;
   margin: 16px;
+
+  background: none;
 `;
 
-const Button = styled.nav`
+export const Button = styled.nav`
   border: none;
   border-radius: 8px;
   padding: 8px;
@@ -16,13 +18,13 @@ const Button = styled.nav`
   background: none;
   color: white;
   font-size: 1rem;
+  background: none;
 
   &:hover {
     background: #d0756f;
     transform: translateY(-2px);
     cursor: pointer;
   }
-
   &[disabled] {
     opacity: 30%;
     cursor: revert;
@@ -35,5 +37,3 @@ const Button = styled.nav`
     cursor: pointer;
   }
 `;
-
-export { Nav, Button };

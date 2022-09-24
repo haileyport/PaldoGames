@@ -1,4 +1,3 @@
-import { COMMUNITY_DUMMY } from "./dummydata";
 import { modalStates } from "./modal";
 import gameInfo from "./gameInfo";
 import gameModal from "./gameModal";
@@ -6,11 +5,4 @@ import gameModal from "./gameModal";
 // Current User related
 import { contentState, currentUserState } from "./user";
 
-export {
-  modalStates,
-  currentUserState,
-  COMMUNITY_DUMMY,
-  gameInfo,
-  contentState,
-  gameModal,
-};
+export { modalStates, currentUserState, gameInfo, contentState, gameModal };

@@ -9,10 +9,6 @@ const StyledGamesCard = styled.div`
   }
 `;
 
-const GamesCardTitle = styled.h3`
-  margin-left: 20px;
-`;
-
 const GamesCardImgWrapper = styled.div`
   border-radius: 8px;
   overflow: hidden;
@@ -73,7 +69,6 @@ const GameBtnText = styled.span`
 
 export {
   StyledGamesCard,
-  GamesCardTitle,
   GamesCardImgWrapper,
   GameBtn,
   GameBtnRound,
