@@ -176,7 +176,7 @@ const TimesTablesMain = () => {
           </AlarmContainer>
           <TimesTablesLives>{lives}</TimesTablesLives>
           <TimesTablestext>
-            {count + 1}.{first} 곱하기 {second}은(는)? {score}점
+            {count + 1}. {first} 곱하기 {second}은(는)? {score}점
           </TimesTablestext>
           <form
             onSubmit={(e) => {

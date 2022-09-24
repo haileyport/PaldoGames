@@ -2,15 +2,18 @@ import { GameBtn, GameBtnRound, GameBtnText } from "./GamesCard.style";
 import Link from "next/link";
 import { useRecoilState } from "recoil";
 import { modalStates } from "../../../states/modal";
+import { gameModal } from "../../../states";
 
-export const GameButtons = ({ content, linkUrl, setIsHovering }) => {
+export const GameButtons = ({ content, linkUrl, setIsHovering, gameTitle }) => {
   const [modal, setModal] = useRecoilState(modalStates);
+  const [currentGame, setCurrentGame] = useRecoilState(gameModal);
+
   return (
     <>
       <Link href={linkUrl}>
         <GameBtn
           top="40%"
-          left="38%"
+          left="36%"
           onMouseOver={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >
@@ -21,10 +24,13 @@ export const GameButtons = ({ content, linkUrl, setIsHovering }) => {
       </Link>
       <GameBtn
         top="40%"
-        left="63%"
+        left="65%"
         onMouseOver={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}
-        onClick={() => setModal({ ...modal, desc: true })}
+        onMouseOut={() => setIsHovering(false)}
+        onClick={() => {
+          setModal({ ...modal, desc: true });
+          setCurrentGame({ game: gameTitle });
+        }}
       >
         <GameBtnRound color="blue" hover="#1617B7">
           <GameBtnText>{content[1]}</GameBtnText>

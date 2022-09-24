@@ -9,14 +9,13 @@ export const GamesMain = () => {
       <GamesTitle>팔도게임즈의 미니게임을 즐겨 보세요!</GamesTitle>
       <StyledGamesMain>
         <GamesSection>
-          {GAME_LIST.map(({ gameTitle, imageUrl, linkUrl, desc }, i) => {
+          {GAME_LIST.map(({ gameTitle, imageUrl, linkUrl }) => {
             return (
               <GamesCard
-                key={i}
+                key={gameTitle}
                 gameTitle={gameTitle}
                 imageUrl={imageUrl}
                 linkUrl={linkUrl}
-                desc={desc}
               />
             );
           })}

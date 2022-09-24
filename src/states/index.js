@@ -1,6 +1,7 @@
 import { COMMUNITY_DUMMY } from "./dummydata";
 import { modalStates } from "./modal";
 import gameInfo from "./gameInfo";
+import gameModal from "./gameModal";
 
 // Current User related
 import { contentState, currentUserState } from "./user";
@@ -11,4 +12,5 @@ export {
   COMMUNITY_DUMMY,
   gameInfo,
   contentState,
+  gameModal,
 };

@@ -11,12 +11,11 @@ import { GameButtons } from "./GameButtons";
 import { Flex } from "../../@commons";
 import { CardModal } from "./CardModal/CardModal";
 
-export const GamesCard = ({ imageUrl, gameTitle, linkUrl, desc }) => {
+export const GamesCard = ({ imageUrl, gameTitle, linkUrl }) => {
   const [isHovering, setIsHovering] = useState(false);
   const [modal, setModal] = useRecoilState(modalStates);
 
   return (
-    // <Link href={linkUrl}>
     <StyledGamesCard>
       <GamesCardImgWrapper
         onMouseOver={() => setIsHovering(true)}
@@ -29,19 +28,18 @@ export const GamesCard = ({ imageUrl, gameTitle, linkUrl, desc }) => {
           layout="responsive"
           quality={100}
         />
-        {modal.desc && <CardModal desc={desc} />}
       </GamesCardImgWrapper>
+      {modal.desc && <CardModal />}
       {isHovering ? (
         <Flex>
           <GameButtons
             content={["게임 시작", "게임 설명"]}
             linkUrl={linkUrl}
             setIsHovering={setIsHovering}
+            gameTitle={gameTitle}
           />
         </Flex>
       ) : null}
-      <GamesCardTitle>{gameTitle}</GamesCardTitle>
     </StyledGamesCard>
-    // </Link>
   );
 };
