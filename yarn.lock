@@ -1854,7 +1854,7 @@
 "pretty-format@^3.8.0":
   "version" "3.8.0"
 
-"prop-types@^15.8.1":
+"prop-types@^15.7.2", "prop-types@^15.8.1":
   "version" "15.8.1"
   dependencies:
     "loose-envify" "^1.4.0"
@@ -1902,6 +1902,13 @@
   dependencies:
     "clsx" "^1.1.1"
     "prop-types" "^15.8.1"
+
+"react-github-login-button@^1.0.1":
+  "integrity" "sha512-HXtYwgy8EwR9i+W5HgP1d/Ndf28AXLgc2l7TQwDQfn3Tf6PeS7xD0vqF+xGAfvqKOx6rFWP5E5wpAaoC8wzirw=="
+  "resolved" "https://registry.npmjs.org/react-github-login-button/-/react-github-login-button-1.0.1.tgz"
+  "version" "1.0.1"
+  dependencies:
+    "prop-types" "^15.7.2"
 
 "react-is@^16.13.1", "react-is@^16.7.0", "react-is@>= 16.8.0":
   "version" "16.13.1"
