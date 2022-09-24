@@ -32,7 +32,7 @@ export const Profile = () => {
 
   return (
     <Flex flexDirection='column'>
-      <StyledNav.Profile type='image' src={session.user.image} onClick={() => setModal({ ...modal, profile: true })} />
+      <StyledNav.Profile type='image' src={session?.user.image} onClick={() => setModal({ ...modal, profile: true })} />
       <div>
         {(modal.profile || modal.editor) && (
           <Flex>

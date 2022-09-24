@@ -38,7 +38,7 @@ export const ProfileModalMain = ({ user }) => {
       <Flex justifyContent='space-between' style={{ margin: 40, marginTop: 20 }}>
         <Flex flexDirection='column'>
           <Link href='/ranking'>
-            <FontAwesomeIcon icon={faCoins} size='2x' style={{ marginBottom: 10, cursor: "pointer" }} />
+            <FontAwesomeIcon icon={faCoins} size='2x' style={{ marginBottom: 10, cursor: "pointer" }} onClick={() => setModal({ ...modal, profile: false })} />
           </Link>
           <span>{totalPoint.point} 포인트</span>
         </Flex>

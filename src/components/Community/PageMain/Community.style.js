@@ -21,5 +21,8 @@ export const Main = styled.main`
 `;
 
 export const Footer = styled.footer`
-  position: relative;
+  position: absolute;
+  width: 10%;
+  top: 70%;
+  left: 47%;
 `;
