@@ -11,11 +11,14 @@ export const CardModal = ({}) => {
     <Modal>
       <Styled.Section
         width="80%"
-        maxWidth="800px"
+        maxWidth="600px"
         minWidth="500px"
-        style={{ maxHeight: "500px", overflowY: "auto" }}
+        style={{
+          maxHeight: "500px",
+          overflowY: "auto",
+        }}
       >
-        <ModalHeader content={`${game} 게임 설명`} />
+        <ModalHeader content={`${game} 게임설명`} />
         <CardModalMain />
       </Styled.Section>
     </Modal>

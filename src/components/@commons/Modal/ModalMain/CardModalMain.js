@@ -9,9 +9,14 @@ export const CardModalMain = ({}) => {
 
   return (
     <Styled.InnerModalMain>
-      <Flex>
+      <Flex justifyContent="center">
         {GAME_LIST.map((el) => {
-          if (game === el.gameTitle) return <div>{el.desc}</div>;
+          if (game === el.gameTitle)
+            return (
+              <div style={{ whiteSpace: "pre-line", textAlign: "center" }}>
+                {el.desc}
+              </div>
+            );
         })}
       </Flex>
     </Styled.InnerModalMain>

@@ -2,11 +2,9 @@ import styled from "styled-components";
 
 const StyledGamesCard = styled.div`
   border-radius: 8px;
-  width: 100%;
+  width: 256px;
+  height: 256px;
   position: relative;
-  &:hover {
-    cursor: pointer;
-  }
 `;
 
 const GamesCardImgWrapper = styled.div`
@@ -21,56 +19,45 @@ const GamesCardImgWrapper = styled.div`
 `;
 
 const GameBtn = styled.button`
-  width: 8em;
-  height: 8em;
-  outline: none;
-  background: none;
-  border: 0;
-  margin: 0.5em;
-  border-radius: 50%;
-  position: absolute;
-  transform: translate(-50%, -50%);
+  display: inline-flex;
+  color: rgb(255 255 255);
+  background-color: rgb(99 102 241);
+  border-width: 0px;
+  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  border-radius: 0.25rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
   top: ${(props) => (props.top ? props.top : null)};
   left: ${(props) => (props.left ? props.left : null)};
-  @media screen and (max-width: 40em) {
-    width: 6em;
-    height: 6em;
+  width: 6em;
+  height: 2em;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
   }
-`;
 
-const GameBtnRound = styled.div`
-  width: 100%;
-  height: 92.39%;
-  border-radius: 50%;
-  border: 10px solid #cfdcec;
-  overflow: hidden;
-  background: ${(props) => (props.color ? props.color : "white")};
-  box-shadow: 0 0 3px gray;
   &:hover {
-    background: ${(props) => (props.hover ? props.hover : "#30588e")};
+    background-color: rgb(79 70 229);
+    cursor: pointer;
   }
 `;
 
 const GameBtnText = styled.span`
-  float: left;
   width: 100%;
-  padding: 50% 0;
   line-height: 1em;
-  margin-top: -0.5em;
   text-align: center;
   color: #e2eaf3;
-  font-size: 1.3em;
+  font-size: 0.7em;
   font-weight: bold;
   text-decoration: none;
   @media screen and (max-width: 40em) {
-    font-size: 0.8em;
+    font-size: 0.6em;
   }
 `;
 
-export {
-  StyledGamesCard,
-  GamesCardImgWrapper,
-  GameBtn,
-  GameBtnRound,
-  GameBtnText,
-};
+export { StyledGamesCard, GamesCardImgWrapper, GameBtn, GameBtnText };

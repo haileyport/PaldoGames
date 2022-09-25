@@ -1,8 +1,4 @@
-import {
-  GamesCardImgWrapper,
-  GamesCardTitle,
-  StyledGamesCard,
-} from "./GamesCard.style";
+import { GamesCardImgWrapper, StyledGamesCard } from "./GamesCard.style";
 import Image from "next/image";
 import { useState } from "react";
 import { useRecoilState } from "recoil";
@@ -24,7 +20,7 @@ export const GamesCard = ({ imageUrl, gameTitle, linkUrl }) => {
         <Image
           src={imageUrl}
           width="100%"
-          height="60%"
+          height="100%"
           layout="responsive"
           quality={100}
         />
@@ -33,7 +29,7 @@ export const GamesCard = ({ imageUrl, gameTitle, linkUrl }) => {
       {isHovering ? (
         <Flex>
           <GameButtons
-            content={["게임 시작", "게임 설명"]}
+            content={["게임시작", "게임설명"]}
             linkUrl={linkUrl}
             setIsHovering={setIsHovering}
             gameTitle={gameTitle}

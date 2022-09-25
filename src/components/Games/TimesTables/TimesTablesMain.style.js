@@ -13,17 +13,17 @@ const StyledTimesTables = styled.section`
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 `;
 
-const TimesTablesTitle = styled.div`
-  font-size: 3em;
+const TimesTablesTitle = styled.h1`
+  font-size: 4rem;
 `;
 
 const TimesTablesSmallTitle = styled.span`
-  font-size: 1.3em;
+  font-size: 1.8em;
   margin: 1em 0;
 `;
 
 const TimesTablestext = styled.div`
-  font-size: 1.5em;
+  font-size: 2.5em;
   font-weight: 300;
   margin-bottom: 0.5em;
 `;
@@ -33,24 +33,41 @@ const TimesTablesLives = styled.div`
   position: absolute;
   top: 5%;
   right: 10%;
-  @media screen and (max-width: 40em) {
+  @media screen and (max-width: 65em) {
     font-size: 2.8em;
   }
 `;
 
 const TimesTablesBtn = styled.button`
-  font-size: 1em;
-  margin-top: 1.3em;
+  display: inline-flex;
+  color: rgb(255 255 255);
+  background-color: rgb(99 102 241);
+  border-width: 0px;
+  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  border-radius: 0.25rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+
+  &:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  &:hover {
+    background-color: rgb(79 70 229);
+    cursor: pointer;
+  }
 `;
 
 const AlarmContainer = styled.span`
   position: relative;
   position: absolute;
-  right: 36%;
-  top: 25%;
+  right: 34%;
+  top: 19%;
 
   @media screen and (max-width: 65em) {
-    right: 12%;
+    top: 18%;
+    right: 10%;
   }
 `;
 
@@ -63,6 +80,30 @@ const TimesTablesAlarm = styled.span`
   transform: translate(-50%, -50%);
 `;
 
+const TimesTablesInput = styled.input`
+  width: 100px;
+  font-size: 1.5rem;
+  padding: 6px 8px;
+  background-color: none;
+  outline: none;
+  border-width: 1px;
+  border-radius: 1rem;
+  border-style: solid;
+  margin-right: 10px;
+  margin: 10px;
+`;
+
+const TimesTablesScore = styled.span`
+  position: absolute;
+  top: 13%;
+  right: 9%;
+  font-size: 2.8em;
+  @media screen and (max-width: 65em) {
+    font-size: 2em;
+    right: 10.5%;
+  }
+`;
+
 export {
   StyledTimesTables,
   TimesTablesTitle,
@@ -72,4 +113,6 @@ export {
   TimesTablesBtn,
   TimesTablesAlarm,
   AlarmContainer,
+  TimesTablesInput,
+  TimesTablesScore,
 };

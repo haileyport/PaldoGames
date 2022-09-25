@@ -13,24 +13,22 @@ const StyledGamesMain = styled.section`
 `;
 
 const GamesSection = styled.div`
-  width: 60%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   @media screen and (max-width: 80em) {
     grid-template-columns: repeat(1, 1fr);
   }
   margin-top: 10px;
+  margin-right: 5%;
   padding: 13px;
   grid-gap: 5%;
 `;
 
 const GamesTitle = styled.h1`
   color: white;
-  margin-left: 1.2em;
-  @media screen and (max-width: 80em) {
+  @media screen and (max-width: 50em) {
     font-size: 1.7em;
   }
-  text-align: center;
 `;
 
 export { StyledGamesMain, GamesSection, GamesTitle };

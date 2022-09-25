@@ -4,7 +4,9 @@ import {
   StyledTimesTables,
   TimesTablesAlarm,
   TimesTablesBtn,
+  TimesTablesInput,
   TimesTablesLives,
+  TimesTablesScore,
   TimesTablesSmallTitle,
   TimesTablestext,
   TimesTablesTitle,
@@ -16,6 +18,7 @@ import { currentUserState } from "../../../states";
 import axios from "axios";
 import { useRouter } from "next/router";
 import gameInfo from "../../../states/gameInfo";
+import { Flex } from "../../@commons";
 
 const TimesTablesMain = () => {
   const [numbers, setNumbers] = useState({
@@ -174,7 +177,10 @@ const TimesTablesMain = () => {
             <Image src={alarm} width="80%" height="80%" />
             <TimesTablesAlarm>{seconds}</TimesTablesAlarm>
           </AlarmContainer>
-          <TimesTablesLives>{lives}</TimesTablesLives>
+          <Flex justifyContent="center" alignItems="center">
+            <TimesTablesLives>{lives}</TimesTablesLives>
+            <TimesTablesScore>SCORE: {score}</TimesTablesScore>
+          </Flex>
           <TimesTablestext>
             {first} 곱하기 {second}은(는)?
           </TimesTablestext>
@@ -186,7 +192,7 @@ const TimesTablesMain = () => {
               }
             }}
           >
-            <input
+            <TimesTablesInput
               type="number"
               value={value}
               ref={valueInput}
@@ -194,7 +200,7 @@ const TimesTablesMain = () => {
                 setStates({ ...states, value: e.target.value });
               }}
             />
-            <button>입력</button>
+            <TimesTablesBtn>입력</TimesTablesBtn>
           </form>
           <TimesTablesSmallTitle>{status}</TimesTablesSmallTitle>
         </>
