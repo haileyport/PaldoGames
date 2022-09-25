@@ -14,13 +14,11 @@ const StyledGamesMain = styled.section`
 
 const GamesSection = styled.div`
   display: grid;
-  margin-top: 10px;
   padding: 10px;
   grid-template-columns: repeat(2, 1fr);
   @media screen and (max-width: 80em) {
     grid-template-columns: repeat(1, 1fr);
   }
-  margin-top: 10px;
   margin-right: 5%;
   padding: 13px;
   grid-gap: 5%;
@@ -28,6 +26,7 @@ const GamesSection = styled.div`
 
 const GamesTitle = styled.h1`
   color: white;
+  margin-top: 5rem;
   @media screen and (max-width: 50em) {
     font-size: 1.7em;
   }

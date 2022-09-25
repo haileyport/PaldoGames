@@ -87,10 +87,10 @@ const A = styled.a`
 `;
 
 export const HideButton = styled.button`
-  background-color: red;
   bottom: 90%;
   opacity: 0.1;
-  /* background-color: #1e293b; */
+  height: 10px; //찾기 쉽게 좀 키웠슴다..
+  background-color: #1e293b;
   cursor: pointer;
 `;
 

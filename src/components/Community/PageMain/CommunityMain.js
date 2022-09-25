@@ -66,41 +66,6 @@ export const CommunityMain = ({ postList }) => {
   }, [filteredPost, limit, offset, post, searchValue]);
 
   return (
-<<<<<<< HEAD
-    <Styled.Section>
-      <MainHeader />
-      <Styled.Main>
-        <Flex
-          justifyContent="flex-end"
-          alignItems="center"
-          style={{ width: "95%", marginBottom: "10px" }}
-        >
-          <button onClick={() => setModal({ ...modal, post: true })}>
-            글쓰기
-          </button>
-          {modal.post && <PostModal />}
-        </Flex>
-
-        {post.slice(offset, offset + limit).map((details, i) => {
-          return <ContentList key={i} details={details} id={details.id} />;
-        })}
-
-        {modal.community ? (
-          <ContentModal users={post} />
-        ) : modal.edit ? (
-          <EditModal />
-        ) : null}
-        <Styled.Footer>
-          <Pagination
-            total={post.length}
-            limit={limit}
-            page={page}
-            setPage={setPage}
-          />
-        </Styled.Footer>
-      </Styled.Main>
-    </Styled.Section>
-=======
     <>
       <Styled.Header>
         <Flex flexDirection="row" justifyContent="space-around">
@@ -163,6 +128,5 @@ export const CommunityMain = ({ postList }) => {
         </Styled.Main>
       </Styled.Section>
     </>
->>>>>>> 093127aeb5b9fbf3073ecd6e487181d6fa0ef937
   );
 };

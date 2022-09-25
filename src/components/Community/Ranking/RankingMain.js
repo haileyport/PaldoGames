@@ -4,14 +4,12 @@ import axios from "axios";
 import { MainHeader } from "../PageMain/MainHeader/MainHeader";
 import * as ranking from "./Ranking.style";
 
-const RankingMain = ({ userData }) => {
-  const { users } = userData;
+const RankingMain = () => {
   const [user, setUser] = useState("");
   const [filterArr, setFilterArr] = useState([]);
 
   const arr = [];
   const newArr = [];
-  console.log("users", users);
 
   const getUser = async () => {
     const res = await axios.get("/api/user").catch((err) => console.log(err));
