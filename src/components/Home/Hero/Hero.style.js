@@ -1,18 +1,17 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const StyledHeroContainer = styled.div`
+export const StyledHeroContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 4rem;
   align-items: center;
   text-align: center;
   @media screen and (min-width: 1024px) {
-    //lg
+    width: 80%;
     flex-grow: 1;
     padding-right: 6rem;
   }
   @media screen and (min-width: 768px) {
-    //md
     width: 50%;
     padding-right: 4rem;
     align-items: flex-start;
@@ -21,31 +20,32 @@ const StyledHeroContainer = styled.div`
   }
 `;
 
-const HeroTitle = styled.h1`
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+export const HeroTitle = styled.h1`
+  font-size: 4rem;
+  line-height: 5rem;
   margin-bottom: 1rem;
   font-weight: 500;
   color: rgb(255 255 255);
-  @media screen and (min-width: 640px) {
-    //sm
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-  }
 `;
 
-const HeroMiniTitle = styled.p`
+export const HeroMiniTitle = styled.p`
+  color: rgb(148 163 184);
   margin-bottom: 2rem;
   line-height: 1.625;
   font-weight: 600;
+  font-size: 2rem;
+  @media screen and (min-width: 640px) {
+    font-size: 3rem;
+    line-height: 5rem;
+  }
 `;
 
-const GameButton = styled.div`
+export const GameButton = styled.div`
   display: flex;
   justify-content: center;
 `;
 
-const HeroButton = styled.a`
+export const HeroButton = styled.a`
   display: inline-flex;
   color: rgb(255 255 255);
   background-color: rgb(99 102 241);
@@ -66,15 +66,15 @@ const HeroButton = styled.a`
   }
 `;
 
-const AnimationContainer = styled.div`
-  width: 83%;
+export const AnimationContainer = styled.div`
+  width: 90%;
+  margin-top: 7rem;
   @media screen and (min-width: 1024px) {
-    max-width: 32rem;
+    max-width: 45rem;
     width: 100%;
   }
   @media screen and (min-width: 768px) {
+    max-width: 40rem;
     width: 50%;
   }
 `;
-
-export { StyledHeroContainer, HeroTitle, HeroMiniTitle, GameButton, HeroButton, AnimationContainer };

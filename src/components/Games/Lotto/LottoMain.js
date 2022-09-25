@@ -44,6 +44,13 @@ const LottoMain = () => {
   useEffect(() => {
     getUser().then((el) => {
       setPoint(el);
+      setGame({
+        game: {
+          name: "lotto",
+          answer: null,
+        },
+        point: 0,
+      });
     });
   }, []);
 
@@ -74,12 +81,13 @@ const LottoMain = () => {
       }
     });
 
+    //게임 이름이 안나옴 수정필요//
     const hits = winNumbers.length;
     setHits(hits);
-    //히트에 비례한 포인트 획득 비율
+    //히트에 비례한 포인트 획득 비율//
     if (hits === 0 || hits === 1 || hits === 2) {
       getUser().then((el) => {
-        updateUser(el - 1000); //그냥 감소만
+        updateUser(el - 1000); //그냥 감소만 //-1000
       });
       setGame({
         ...game,
@@ -115,7 +123,7 @@ const LottoMain = () => {
     //
     if (hits === 5) {
       getUser().then((el) => {
-        updateUser(el + 11390000); //11391000 = 11390000
+        updateUser(el + 11390000); //11391000 => 11390000
       });
       setGame({
         ...game,
@@ -127,7 +135,7 @@ const LottoMain = () => {
     //
     if (hits === 6) {
       getUser().then((el) => {
-        updateUser(el + 3213956000); //11391000 = 11390000
+        updateUser(el + 3213956000); //3213957000 => 3213956000
       });
       setGame({
         ...game,
@@ -153,15 +161,6 @@ const LottoMain = () => {
       checkWin(playerNum, drawedNumbers);
     }
   };
-
-  // const resetGame = () => {
-  //   const selectedNumbers = [...document.querySelectorAll(".selected")];
-  //   selectedNumbers.forEach((num) => num.classList.remove("selected"));
-  //   setPlayerNum([]);
-  //   setDrawedNumbers([]);
-  //   setHits(0);
-  //   setPoint(point);
-  // };
 
   return (
     <BixContainer>

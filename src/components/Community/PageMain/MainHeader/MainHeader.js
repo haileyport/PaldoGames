@@ -10,11 +10,10 @@ export const MainHeader = () => {
       style={{
         flex: 1,
         width: "100%",
-        border: "1px solid green",
         height: "10vh",
       }}
     >
-      <Link href="#">
+      <Link href="community">
         <Styled.P>커뮤니티</Styled.P>
       </Link>
       <Link href="ranking">

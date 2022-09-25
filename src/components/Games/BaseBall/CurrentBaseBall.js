@@ -138,9 +138,7 @@ export const CurrentBaseBall = ({ answer, setAnswer, result, setResult }) => {
   const getUser = async () => {
     const userId = user.id; // id값은 전역으로 저장해서 들고 다니기
     console.log(userId);
-    const res = await axios
-      .get(`/api/game/${userId}`)
-      .catch((err) => console.log(err));
+    const res = await axios.get(`/api/game/${userId}`).catch((err) => console.log(err));
     console.log(res);
     return res.data.response.totalPoint;
   };
@@ -173,17 +171,8 @@ export const CurrentBaseBall = ({ answer, setAnswer, result, setResult }) => {
   return (
     <>
       <B.Form onSubmit={onSubmit}>
-        <B.AnswerInput
-          ref={inputEl}
-          maxLength={4}
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-        />
-        {reTry ? (
-          <B.Button onClick={handleRetry}>다시하기</B.Button>
-        ) : (
-          <B.Button>입력</B.Button>
-        )}
+        <B.AnswerInput ref={inputEl} maxLength={4} value={value} onChange={(e) => setValue(e.target.value)} />
+        {reTry ? <B.Button onClick={handleRetry}>다시하기</B.Button> : <B.Button>입력</B.Button>}
       </B.Form>
       <B.AnswerZone>
         {tries.length === 0 ? (

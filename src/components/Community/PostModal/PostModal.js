@@ -1,19 +1,41 @@
-import { useRef } from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { COMMUNITY_DUMMY, currentUserState, modalStates } from '../../../states';
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { currentUserState, modalStates } from "../../../states";
 
-import { Flex } from '../../@commons';
-import { Modal, ModalHeader, ModalProfile } from '../../@commons/Modal';
-import * as Post from './PostModal.style';
-import * as M from '../../@commons/Modal/Modal.style';
-import { postData } from '../../../states/dummydata';
+import { Flex } from "../../@commons";
+import { Modal, ModalHeader, ModalProfile } from "../../@commons/Modal";
+import * as Post from "./PostModal.style";
+import * as M from "../../@commons/Modal/Modal.style";
+import { POST } from "../../../constants";
+import { postState } from "../../../states/community";
+import axios from "axios";
 
 export const PostModal = () => {
   const { user } = useRecoilValue(currentUserState);
-  const [post, setPost] = useRecoilState(postData);
   const [modal, setModal] = useRecoilState(modalStates);
+  const [post, setPost] = useRecoilState(postState);
+  const [totalPoint, setTotalPoint] = useState({ id: "", point: 0 });
+
   const title = useRef(null);
   const content = useRef(null);
+
+  // 공통되는것 hooks로 관리
+  const fetchTotalPoint = useCallback(async () => {
+    const { data } = await axios.get(`/api/game/${user.id}`);
+    let point;
+
+    if (data.response) {
+      point = data.response.totalPoint;
+    } else {
+      point = 0;
+    }
+
+    setTotalPoint({ id: user.id, point });
+  }, [user.id]);
+
+  useEffect(() => {
+    fetchTotalPoint();
+  }, [fetchTotalPoint, totalPoint]);
 
   const postingValidation = (titleValue, contentValue) => {
     let isValid = false;
@@ -27,43 +49,51 @@ export const PostModal = () => {
     return isValid;
   };
 
-  const handlePostDetails = (e) => {
+  const handlePostDetails = async (e) => {
     e.preventDefault();
 
-    // const { email, image, name, id, aboutMe } = user;
     const titleValue = title.current.value;
     const contentValue = content.current.value;
+    const { point } = totalPoint;
 
-    // 로직변경 db로 예정
     if (postingValidation(titleValue, contentValue)) {
-      // 고유 id 로 작업해야함 ?
+      await axios
+        .post(`/api/community`, {
+          id: user.id,
+          title: titleValue,
+          content: contentValue,
+        })
+        .then((res) => {
+          console.log(res.status);
+        })
+        .catch((err) => console.log(err));
+
+      await axios.patch(`api/game`, { userId: user.id, point: point + 100 });
 
       setPost((prev) => [
         ...prev,
         {
-          id: post.length + 1,
           title: titleValue,
-          writer: user,
+          editor: user.id,
           content: contentValue,
-          contentId: Math.floor(Math.random() * 1000),
-          viewCount: 0,
-          createdAt: '2022.09.18',
+          writer: user,
         },
       ]);
+
       setModal({ ...modal, post: false });
     } else {
-      alert('제목 혹은 내용을 입력해 주세요.');
+      alert(POST.EMPTY_INPUT);
     }
   };
 
   return (
     <Modal>
-      <M.Section width='80%' maxWidth='1000px' minWidth='500px' maxHeight='1000px' style={{ overflowY: 'auto' }}>
+      <M.Section width='80%' maxWidth='1000px' minWidth='500px' maxHeight='1000px' style={{ overflowY: "auto" }}>
         <ModalHeader content='글쓰기' />
         {/* 현재유저 */}
         <ModalProfile user={user} />
         <Post.Main type='submit'>
-          <Post.Form onSubmit={(e) => handlePostDetails(e)}>
+          <Post.Form onSubmit={handlePostDetails}>
             <Flex justifyContent='center'>
               <Post.Input ref={title} type='text' placeholder='타이틀을 입력해 주세요.' />
             </Flex>

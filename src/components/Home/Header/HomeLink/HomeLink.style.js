@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const HomeLink = styled.p`
+export const HomeLink = styled.p`
   display: flex;
   font-weight: 500;
   align-items: center;
@@ -16,15 +16,18 @@ const HomeLink = styled.p`
   }
 `;
 
-const Logo = styled.span`
+export const Logo = styled.span`
   margin-top: 1.5px;
 `;
 
-const Name = styled.a`
+export const Name = styled.a`
+  color: rgb(148 163 184);
   margin-left: 0.2rem;
-  font-size: 1.25rem;
+  font-size: 3rem;
   line-height: 1.75rem;
   padding-right: 1rem;
-`;
 
-export { HomeLink, Logo, Name };
+  &:hover {
+    color: rgb(255, 255, 255);
+  }
+`;

@@ -20,7 +20,8 @@ export const GamesCard = ({ imageUrl, gameTitle, linkUrl }) => {
           onMouseLeave={() => setIsHovering(false)}
         >
           <Image
-            src={imageUrl}
+            src={linkUrl}
+            alt="image"
             width="100%"
             height="60%"
             layout="responsive"
@@ -33,7 +34,6 @@ export const GamesCard = ({ imageUrl, gameTitle, linkUrl }) => {
             </>
           ) : null}
         </GamesCardImgWrapper>
-        <GamesCardTitle>{gameTitle}</GamesCardTitle>
       </StyledGamesCard>
     </Link>
   );

@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { Animation } from '../Main/Animation';
-import { StyledHeroContainer, HeroTitle, HeroMiniTitle, GameButton, HeroButton, AnimationContainer } from './Hero.style';
+import Link from "next/link";
+import { Animation } from "../Main/Animation";
+import { StyledHeroContainer, HeroTitle, HeroMiniTitle, GameButton, HeroButton, AnimationContainer } from "./Hero.style";
 
 export const Hero = () => {
   return (

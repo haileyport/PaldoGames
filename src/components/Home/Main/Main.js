@@ -1,5 +1,5 @@
-import { Hero } from '../..';
-import { StyledMain, MainSection } from './Main.style';
+import { Hero } from "../..";
+import { StyledMain, MainSection } from "./Main.style";
 
 export const Main = () => {
   return (

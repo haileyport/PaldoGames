@@ -4,6 +4,7 @@ const BixContainer = styled.div`
   width: 100%;
   min-height: 100vh;
   background-color: rgb(30, 41, 59);
+  margin: 0 auto;
 `;
 
 const TotalPoint = styled.span`

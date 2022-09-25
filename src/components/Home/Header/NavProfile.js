@@ -1,7 +1,7 @@
-import { NavProfile } from "./Nav.style";
-
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { currentUserState, modalStates } from "../../../states";
+import { modalStates, currentUserState, contentState } from "../../../states";
 
 import { Flex } from "../../@commons";
 import {
@@ -16,8 +16,24 @@ import * as StyledNav from "./Nav.style";
 
 export const Profile = () => {
   const [modal, setModal] = useRecoilState(modalStates);
+  const [editor, setEditor] = useState("");
+
   const { user } = useRecoilValue(currentUserState);
-  console.log(user);
+  const { editorId } = useRecoilValue(contentState);
+
+  let current;
+
+  const fetchEditorProfile = async (userId) => {
+    const { data } = await axios.get(`/api/user/id/${userId}`);
+
+    setEditor((prev) => (prev = data.user));
+  };
+
+  useEffect(() => {
+    if (editorId) fetchEditorProfile(editorId);
+  }, [editorId]);
+
+  modal.profile ? (current = user) : (current = editor);
 
   return (
     <Flex flexDirection="column">
@@ -27,7 +43,7 @@ export const Profile = () => {
         onClick={() => setModal({ ...modal, profile: true })}
       />
       <div>
-        {modal.profile && (
+        {(modal.profile || modal.editor) && (
           <Flex>
             <Modal>
               <Styled.Section
@@ -37,8 +53,8 @@ export const Profile = () => {
                 left="40%"
               >
                 <ModalHeader content="프로필" />
-                <ModalProfile user={user} />
-                <ProfileModalMain />
+                <ModalProfile user={current} />
+                <ProfileModalMain user={current} />
                 <ModalFooter />
               </Styled.Section>
             </Modal>
