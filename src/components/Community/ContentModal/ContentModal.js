@@ -13,7 +13,7 @@ export const ContentModal = ({ postData }) => {
 
   return (
     <Modal>
-      <Styled.Section width='80%' maxWidth='1000px' minWidth='500px' style={{ maxHeight: "500px", overflowY: "auto" }}>
+      <Styled.Section width='80%' maxWidth='1000px' minWidth='300px' style={{ maxHeight: "500px", overflowY: "auto" }}>
         <ModalHeader content='게시물' />
         <ModalProfile user={user?.writer} />
         <CommunityModalMain />

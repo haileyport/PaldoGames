@@ -38,3 +38,9 @@ p {
 .show {
   display: flex !important;
 }
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

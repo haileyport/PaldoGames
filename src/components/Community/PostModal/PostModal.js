@@ -9,6 +9,7 @@ import * as M from "../../@commons/Modal/Modal.style";
 import { POST } from "../../../constants";
 import { postState } from "../../../states/community";
 import axios from "axios";
+import { useSession } from "next-auth/react";
 
 export const PostModal = () => {
   const { user } = useRecoilValue(currentUserState);
@@ -87,7 +88,7 @@ export const PostModal = () => {
 
   return (
     <Modal>
-      <M.Section width='80%' maxWidth='1000px' minWidth='500px' maxHeight='1000px' style={{ overflowY: "auto" }}>
+      <M.Section width='80%' maxWidth='1000px' minWidth='350px' maxHeight='1000px' style={{ overflowY: "auto" }}>
         <ModalHeader content='글쓰기' />
         <ModalProfile user={user} />
         <Post.Main type='submit'>

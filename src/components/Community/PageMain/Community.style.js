@@ -104,4 +104,8 @@ export const Footer = styled.footer`
   @media screen and (min-width: 300px) {
     top: 88%;
   }
+
+  @media screen and (max-height: 900px) {
+    top: 91%;
+  }
 `;
