@@ -16,6 +16,7 @@ import { debounceFunction } from "../../../utils/utils";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { HeroButton } from "../../Home/Hero/Hero.style";
 
 export const CommunityMain = ({ postList }) => {
   const [modal, setModal] = useRecoilState(modalStates);
@@ -81,17 +82,26 @@ export const CommunityMain = ({ postList }) => {
       </Styled.Header>
       <Styled.Section>
         <Styled.Main>
-          <Flex justifyContent='flex-end' alignItems='center' style={{ width: "95%", marginBottom: "10px" }}>
-            <Styled.Button onClick={() => setModal({ ...modal, post: true })} style={{ position: "relative", top: 40 }}>
-              글쓰기
-            </Styled.Button>
-            {modal.post && <PostModal />}
-          </Flex>
           {handleFilteredPost()}
           {modal.community ? <ContentModal postData={post} /> : modal.edit ? <EditModal /> : null}
           <Styled.Footer>
             <Pagination total={filteredPost.length} limit={limit} page={page} setPage={setPage} />
           </Styled.Footer>
+          <Flex justifyContent='flex-end' alignItems='center' style={{ width: "95%", marginBottom: "10px" }}>
+            <HeroButton
+              onClick={() => setModal({ ...modal, post: true })}
+              style={{
+                position: "relative",
+                top: 50,
+                fontSize: 15,
+                letterSpacing: "none",
+                textAlign: "center",
+              }}
+            >
+              글쓰기
+            </HeroButton>
+            {modal.post && <PostModal />}
+          </Flex>
         </Styled.Main>
       </Styled.Section>
     </>

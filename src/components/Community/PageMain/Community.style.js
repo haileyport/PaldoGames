@@ -40,6 +40,7 @@ export const SearchInput = styled.input`
   // padding-left: 25px;
   padding-right: 10px;
   padding-top: 4px;
+  color: black;
 `;
 
 export const Button = styled.button`
@@ -55,14 +56,15 @@ export const Button = styled.button`
 export const P = styled.p`
   margin-top: 25px;
   cursor: pointer;
-  color: black;
+  color: #fff;
+  font-weight: 600;
   width: 40%;
-  height: 30%;
   border-radius: 10px;
   text-align: center;
-  padding-top: 5px;
-  background-color: #e6e6e6;
-  height: 30px;
+  padding-top: 10px;
+  letter-spacing: 5px;
+  background-color: rgb(99 102 241);
+  height: 40px;
 `;
 
 export const Empty = styled.p`

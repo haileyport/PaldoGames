@@ -21,9 +21,7 @@ const RankingMain = () => {
 
   const getPoint = async (id) => {
     const userId = id;
-    const res = await axios
-      .get(`/api/game/${userId}`)
-      .catch((err) => console.log(err));
+    const res = await axios.get(`/api/game/${userId}`).catch((err) => console.log(err));
     return res?.data?.response?.totalPoint;
   };
   //네임 뿌리기(네임)
@@ -49,24 +47,22 @@ const RankingMain = () => {
       }
     });
   }, []);
-  //유저
+
   return (
     <ranking.Backcolor>
       <ranking.RankingTitle>
         랭킹
-        <Image src={crown} width={50} height={50}></Image>
+        <Image src={crown} width={50} height={50} alt='image'></Image>
       </ranking.RankingTitle>
-      <ranking.RankingSubTitle>
-        자신의 랭킹을 확인해보세요!!
-      </ranking.RankingSubTitle>
+      <ranking.RankingSubTitle>자신의 랭킹을 확인해보세요!!</ranking.RankingSubTitle>
 
       <ranking.MiddleBox>
         <ranking.RankingBox>
           <thead>
             <tr>
-              <th scope="col">순위</th>
-              <th scope="col">닉네임</th>
-              <th scope="col">포인트</th>
+              <th scope='col'>순위</th>
+              <th scope='col'>닉네임</th>
+              <th scope='col'>포인트</th>
             </tr>
           </thead>
           {filterArr.map((el, i) => {

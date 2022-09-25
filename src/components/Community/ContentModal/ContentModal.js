@@ -8,15 +8,16 @@ import { contentState } from "../../../states";
 export const ContentModal = ({ postData }) => {
   const ids = useRecoilValue(contentState);
 
-  const userIndex = postData.findIndex((user) => user?.writer.id === ids?.userId);
-  const user = postData[userIndex];
+  const index = postData.findIndex((post) => post.title === ids.editorId && post.editor === ids.userId);
+
+  const user = postData[index];
 
   return (
     <Modal>
       <Styled.Section width='80%' maxWidth='1000px' minWidth='300px' style={{ maxHeight: "500px", overflowY: "auto" }}>
         <ModalHeader content='게시물' />
         <ModalProfile user={user?.writer} />
-        <CommunityModalMain />
+        <CommunityModalMain postData={postData} />
       </Styled.Section>
     </Modal>
   );

@@ -1,11 +1,11 @@
 import { useRecoilState } from "recoil";
-import { contentState, modalStates } from "../../../../states";
+import { contentState, modalStates, postState } from "../../../../states";
 import { Flex, P, Input } from "../../../@commons";
 
 export const ContentList = ({ details }) => {
-  let { id, title, writer } = details;
-
+  const { title, writer } = details;
   const [modal, setModal] = useRecoilState(modalStates);
+  const [postList, setPost] = useRecoilState(postState);
   const [currentPostId, setCurrentPostId] = useRecoilState(contentState);
 
   return (
@@ -15,16 +15,17 @@ export const ContentList = ({ details }) => {
       style={{ width: "90%", position: "relative", top: "40px", borderBottom: "1px solid white", margin: "0 auto" }}
     >
       <Flex>
-        <input type='radio' id={id} disabled />
+        <input type='radio' disabled />
         <P
-          id={id}
           writer={writer.id}
           className='ellipsis'
           content={title}
           style={{ fontSize: 17, fontWeight: 300, width: "70%", marginLeft: 20, color: "white", cursor: "pointer", minWidth: 245, maxWidth: 245 }}
           onClick={() => {
+            const currentPost = postList.filter((post) => post.title === title && post.editor === writer.id)[0];
+
             setModal({ ...modal, community: true });
-            setCurrentPostId({ ...currentPostId, contentId: id, userId: writer.id });
+            setCurrentPostId({ contentId: currentPost?.id, userId: currentPost?.editor, editorId: currentPost?.title });
           }}
         />
       </Flex>

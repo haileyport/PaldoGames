@@ -1,3 +1,4 @@
+import { getSession } from "next-auth/react";
 import Head from "next/head";
 import { Flex } from "../components/@commons/";
 import RankingMain from "../components/Community/Ranking/RankingMain";
