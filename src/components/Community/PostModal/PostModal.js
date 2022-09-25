@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { currentUserState, modalStates } from "../../../states";
 
 import { Flex } from "../../@commons";
@@ -9,33 +9,28 @@ import * as M from "../../@commons/Modal/Modal.style";
 import { POST } from "../../../constants";
 import { postState } from "../../../states/community";
 import axios from "axios";
+import { useSession } from "next-auth/react";
 
 export const PostModal = () => {
   const { user } = useRecoilValue(currentUserState);
   const [modal, setModal] = useRecoilState(modalStates);
-  const [post, setPost] = useRecoilState(postState);
+  const setPost = useSetRecoilState(postState);
   const [totalPoint, setTotalPoint] = useState({ id: "", point: 0 });
 
   const title = useRef(null);
   const content = useRef(null);
 
-  // 공통되는것 hooks로 관리
   const fetchTotalPoint = useCallback(async () => {
     const { data } = await axios.get(`/api/game/${user.id}`);
     let point;
 
     if (data.response) {
       point = data.response.totalPoint;
+      setTotalPoint({ id: user.id, point });
     } else {
       point = 0;
     }
-
-    setTotalPoint({ id: user.id, point });
   }, [user.id]);
-
-  useEffect(() => {
-    fetchTotalPoint();
-  }, [fetchTotalPoint, totalPoint]);
 
   const postingValidation = (titleValue, contentValue) => {
     let isValid = false;
@@ -47,6 +42,20 @@ export const PostModal = () => {
     }
 
     return isValid;
+  };
+
+  const updatePost = (title, editor, content, writer) => {
+    setPost((prev) => [
+      {
+        title,
+        editor,
+        content,
+        writer,
+      },
+      ...prev,
+    ]);
+
+    setModal({ ...modal, post: false });
   };
 
   const handlePostDetails = async (e) => {
@@ -63,34 +72,24 @@ export const PostModal = () => {
           title: titleValue,
           content: contentValue,
         })
-        .then((res) => {
-          console.log(res.status);
-        })
         .catch((err) => console.log(err));
 
       await axios.patch(`api/game`, { userId: user.id, point: point + 100 });
 
-      setPost((prev) => [
-        ...prev,
-        {
-          title: titleValue,
-          editor: user.id,
-          content: contentValue,
-          writer: user,
-        },
-      ]);
-
-      setModal({ ...modal, post: false });
+      updatePost(titleValue, user.id, contentValue, user);
     } else {
       alert(POST.EMPTY_INPUT);
     }
   };
 
+  useEffect(() => {
+    fetchTotalPoint();
+  }, [fetchTotalPoint]);
+
   return (
     <Modal>
-      <M.Section width='80%' maxWidth='1000px' minWidth='500px' maxHeight='1000px' style={{ overflowY: "auto" }}>
+      <M.Section width='80%' maxWidth='1000px' minWidth='350px' maxHeight='1000px' style={{ overflowY: "auto" }}>
         <ModalHeader content='글쓰기' />
-        {/* 현재유저 */}
         <ModalProfile user={user} />
         <Post.Main type='submit'>
           <Post.Form onSubmit={handlePostDetails}>

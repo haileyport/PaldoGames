@@ -1,3 +1,4 @@
+import axios from "axios";
 import Link from "next/link";
 import { useRecoilState } from "recoil";
 import { modalStates } from "../../../../states";
@@ -10,10 +11,8 @@ import { faCoins } from "@fortawesome/free-solid-svg-icons";
 import { faTicket } from "@fortawesome/free-solid-svg-icons";
 
 import { useCallback, useEffect, useState } from "react";
-import axios from "axios";
 
 export const ProfileModalMain = ({ user }) => {
-  // 인벤토리 클릭시 모달창 사라짐
   const [modal, setModal] = useRecoilState(modalStates);
   const [totalPoint, setTotalPoint] = useState({ id: "", point: 0 });
 
@@ -38,7 +37,7 @@ export const ProfileModalMain = ({ user }) => {
       <Flex justifyContent='space-between' style={{ margin: 40, marginTop: 20 }}>
         <Flex flexDirection='column'>
           <Link href='/ranking'>
-            <FontAwesomeIcon icon={faCoins} size='2x' style={{ marginBottom: 10, cursor: "pointer" }} />
+            <FontAwesomeIcon icon={faCoins} size='2x' style={{ marginBottom: 10, cursor: "pointer" }} onClick={() => setModal({ ...modal, profile: false })} />
           </Link>
           <span>{totalPoint.point} 포인트</span>
         </Flex>

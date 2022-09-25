@@ -4,5 +4,13 @@ import gameModal from "./gameModal";
 
 // Current User related
 import { contentState, currentUserState } from "./user";
+import { postState } from "./community";
 
-export { modalStates, currentUserState, gameInfo, contentState, gameModal };
+export {
+  modalStates,
+  currentUserState,
+  gameInfo,
+  contentState,
+  postState,
+  gameModal,
+};

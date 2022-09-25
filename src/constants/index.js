@@ -1,4 +1,7 @@
-import baseball from "../../public/baseball.png";
+import baseball from "../../public/baseballthumbnail.jpeg";
+import lotto from "../../public/lottothumbnail.jpeg";
+import timestables from "../../public/timestablesthumbnail.jpeg";
+import merge from "../../public/2048thumbnail.jpeg";
 
 // Word Relay Game related
 export const CLASSNAME = Object.freeze({
@@ -33,7 +36,7 @@ export const 한글_정규표현식 = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
 export const GAME_LIST = Object.freeze([
   {
     gameTitle: "구구단",
-    imageUrl: baseball,
+    imageUrl: timestables,
     linkUrl: "/games/timestables",
     desc: `2 ~ 19단까지 랜덤으로 나오는 구구단 문제를 맞혀 주세요.
 
@@ -63,7 +66,7 @@ export const GAME_LIST = Object.freeze([
   },
   {
     gameTitle: "로또",
-    imageUrl: baseball,
+    imageUrl: lotto,
     linkUrl: "/games/lotto",
     desc: `원하는 번호 6개를 클릭해 주세요.🎰
 
@@ -81,7 +84,7 @@ export const GAME_LIST = Object.freeze([
   },
   {
     gameTitle: "2048",
-    imageUrl: baseball,
+    imageUrl: merge,
     linkUrl: "/games/merge",
     desc: `키보드/화면 스와이프를 이용해 같은 숫자를 합쳐 2048이라는 수를 만드는 게임입니다.🧩
 

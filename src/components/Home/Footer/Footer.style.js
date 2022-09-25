@@ -5,14 +5,23 @@ const Footer = styled.footer`
   background: none;
   height: 100%;
 
+  @media screen and (min-width: 350px) {
+    margin-top: -100px;
+  }
+
   @media screen and (min-width: 640px) {
     margin-top: -100px;
   }
 
   @media screen and (max-width: 768px) {
+    display: none;
     margin-top: -100px;
     height: 100%;
   }
+
+  /* @media screen and (max-height: 900px) {
+    display: none;
+  } */
 `;
 
 const Container = styled.div`

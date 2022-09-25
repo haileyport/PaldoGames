@@ -1,9 +1,5 @@
 import Head from "next/head";
-
-import { useRecoilState } from "recoil";
-
 import { BaseBallMain } from "../../components";
-import { Flex } from "../../components/@commons";
 
 const BaseBallGamePage = () => {
   return (

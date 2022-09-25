@@ -3,15 +3,15 @@ import { Flex } from "../../Flex/Flex";
 import * as Styled from "./ModalProfile.style";
 
 export const ModalProfile = ({ user }) => {
-  const { name, aboutMe, image } = user;
+  const { name, aboutMe, image, email } = user;
 
   return (
     <Flex flexDirection='column' alignItems='center'>
       <Styled.Section>
-        <Styled.Image type='image' src={image} alt='profile-image' />
         <Flex flexDirection='column' style={{ textAlign: "center" }}>
+          <Styled.Image type='image' src={image} alt='profile-image' />
           <P content={name} style={{ marginBottom: -5 }} />
-          <P content={aboutMe}></P>
+          <P content={aboutMe ? aboutMe : email} />
         </Flex>
       </Styled.Section>
     </Flex>
