@@ -17,6 +17,12 @@ const gameList = [
     desc: "숫자야구 게임 입니다.",
   },
   {
+    gameTitle: "2048",
+    imageUrl: baseball,
+    linkUrl: "/games/merge",
+    desc: "2048 게임 입니다.",
+  },
+  {
     gameTitle: "로또",
     imageUrl: baseball,
     linkUrl: "/games/lotto",
@@ -31,7 +37,14 @@ export const GamesMain = () => {
       <StyledGamesMain>
         <GamesSection>
           {gameList.map(({ gameTitle, imageUrl, linkUrl, desc }, i) => {
-            return <GamesCard key={i} gameTitle={gameTitle} imageUrl={imageUrl} linkUrl={linkUrl} />;
+            return (
+              <GamesCard
+                key={i}
+                gameTitle={gameTitle}
+                imageUrl={imageUrl}
+                linkUrl={linkUrl}
+              />
+            );
           })}
         </GamesSection>
         <MainSection />
