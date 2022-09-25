@@ -5,6 +5,10 @@ const Footer = styled.footer`
   background: none;
   height: 100%;
 
+  @media screen and (min-width: 350px) {
+    margin-top: -100px;
+  }
+
   @media screen and (min-width: 640px) {
     margin-top: -100px;
   }

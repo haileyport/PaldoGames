@@ -38,9 +38,3 @@ p {
 .show {
   display: flex !important;
 }
-
-.ellipsis {
-  text-overflow: ellipsis; /* 말줄임 적용 */
-  white-space: nowrap;
-  width: 200px;
-}

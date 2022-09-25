@@ -21,7 +21,7 @@ export const ContentList = ({ details }) => {
           writer={writer.id}
           className='ellipsis'
           content={title}
-          style={{ fontSize: 17, fontWeight: 300, width: "70%", marginLeft: 20, color: "white", cursor: "pointer", maxWidth: "300px" }}
+          style={{ fontSize: 17, fontWeight: 300, width: "70%", marginLeft: 20, color: "white", cursor: "pointer", minWidth: 245, maxWidth: 245 }}
           onClick={() => {
             setModal({ ...modal, community: true });
             setCurrentPostId({ ...currentPostId, contentId: id, userId: writer.id });

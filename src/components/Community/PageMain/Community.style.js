@@ -100,4 +100,8 @@ export const Footer = styled.footer`
   position: absolute;
   width: 100%;
   top: 82%;
+
+  @media screen and (min-width: 300px) {
+    top: 88%;
+  }
 `;
