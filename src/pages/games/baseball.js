@@ -1,5 +1,4 @@
 import Head from "next/head";
-
 import { BaseBallMain } from "../../components";
 
 const BaseBallGamePage = () => {

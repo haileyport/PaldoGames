@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { modalStates, currentUserState, contentState } from "../../../states";
@@ -11,9 +12,9 @@ import * as StyledNav from "./Nav.style";
 export const Profile = () => {
   const [modal, setModal] = useRecoilState(modalStates);
   const [editor, setEditor] = useState("");
-
   const { user } = useRecoilValue(currentUserState);
   const { editorId } = useRecoilValue(contentState);
+  const { data: session } = useSession();
 
   let current;
 
@@ -31,7 +32,7 @@ export const Profile = () => {
 
   return (
     <Flex flexDirection='column'>
-      <StyledNav.Profile type='image' src={user?.image} onClick={() => setModal({ ...modal, profile: true })} />
+      <StyledNav.Profile type='image' src={session?.user.image} onClick={() => setModal({ ...modal, profile: true })} />
       <div>
         {(modal.profile || modal.editor) && (
           <Flex>
