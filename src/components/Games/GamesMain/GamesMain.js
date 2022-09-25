@@ -17,6 +17,12 @@ const gameList = [
     desc: "숫자야구 게임 입니다.",
   },
   {
+    gameTitle: "2048",
+    imageUrl: baseball,
+    linkUrl: "/games/merge",
+    desc: "2048 게임 입니다.",
+  },
+  {
     gameTitle: "로또",
     imageUrl: baseball,
     linkUrl: "/games/lotto",

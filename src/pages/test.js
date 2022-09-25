@@ -30,7 +30,7 @@ export default function Test() {
   };
 
   const getEmail = async () => {
-    const email = "jyeol0210@naver.com";
+    const email = "sugar9935@gmail.com";
     const res = await axios.get(`/api/user/email/${email}`).catch((err) => console.log(err));
     const { data } = res;
     console.log("---res---");

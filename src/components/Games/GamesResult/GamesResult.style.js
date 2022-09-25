@@ -35,3 +35,18 @@ export const Button = styled.button`
     cursor: pointer;
   }
 `;
+
+export const Alert = styled.div`
+  border: 3px solid white;
+  border-radius: 2rem;
+  margin: 2rem;
+  padding: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  font-display: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
