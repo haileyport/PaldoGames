@@ -32,12 +32,13 @@ const Container = styled.div`
   align-items: center;
   flex-direction: column;
   height: 100px;
+
   @media screen and (min-width: 640px) {
     max-width: 640px;
     flex-direction: row;
   }
   @media screen and (min-width: 768px) {
-    max-width: 768px;
+    // max-width: 768px;
     flex-direction: row;
   }
   @media screen and (min-width: 1024px) {

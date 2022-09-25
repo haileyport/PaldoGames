@@ -10,7 +10,8 @@ export const Section = styled.section`
   position: relative;
   flex-direction: column;
   width: 100%;
-  min-height: 90vh;
+  height: 90vh;
+  // min-height: 90vh;
   align-items: center;
   justify-content: center;
   color: rgb(75 85 99);
@@ -22,8 +23,9 @@ export const Main = styled.main`
   position: absolute;
   flex-direction: column;
   width: 100%;
-  height: 80vh;
+  height: 75%;
   max-height: 80vh;
+  bottom: 150px;
 `;
 
 export const SearchInput = styled.input`
@@ -81,21 +83,27 @@ export const Empty = styled.p`
   }
 
   @keyframes shake {
-    10%, 90% {
+    10%,
+    90% {
       transform: translate3d(-1px, 0, 0);
     }
-    
-    20%, 80% {
+
+    20%,
+    80% {
       transform: translate3d(2px, 0, 0);
     }
-  
-    30%, 50%, 70% {
+
+    30%,
+    50%,
+    70% {
       transform: translate3d(-4px, 0, 0);
     }
-  
-    40%, 60% {
+
+    40%,
+    60% {
       transform: translate3d(4px, 0, 0);
     }
+  }
 `;
 
 export const Footer = styled.footer`
@@ -103,11 +111,15 @@ export const Footer = styled.footer`
   width: 100%;
   top: 82%;
 
-  @media screen and (min-width: 300px) {
-    top: 88%;
+  @media screen and (max-width: 600px) {
+    top: 90%;
   }
 
-  @media screen and (max-height: 900px) {
-    top: 91%;
+  @media screen and (max-height: 1500px) {
+    top: 97%;
+  }
+
+  @media screen and (max-width: 400px) {
+    top: 97%;
   }
 `;

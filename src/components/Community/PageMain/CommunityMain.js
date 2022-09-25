@@ -77,7 +77,18 @@ export const CommunityMain = ({ postList }) => {
         </Flex>
         <Flex flexDirection='row' justifyContent='center'>
           <Styled.SearchInput type='text' placeholder='   검색어를 입력하세요' onChange={onChangeSearchEvent} />
-          <FontAwesomeIcon icon={faSearch} size='1x' style={{ position: "relative", top: 63, right: 330, color: "black", zIndex: 67, cursor: "none" }} />
+          <FontAwesomeIcon
+            icon={faSearch}
+            size='1x'
+            style={{
+              position: "relative",
+              top: 63,
+              right: 330,
+              color: "black",
+              zIndex: 67,
+              cursor: "none",
+            }}
+          />
         </Flex>
       </Styled.Header>
       <Styled.Section>
