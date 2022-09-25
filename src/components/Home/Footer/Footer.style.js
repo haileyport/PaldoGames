@@ -8,12 +8,17 @@ const Footer = styled.footer`
   justify-content: center;
   align-items: center;
 
+  @media screen and (min-width: 350px) {
+    margin-top: -100px;
+  }
+
   @media screen and (min-width: 640px) {
     //640이상
     margin-top: -100px;
   }
   @media screen and (max-width: 768px) {
-    //768이하
+    display: none;
+    margin-top: -100px;
     height: 100%;
     margin-top: -100px;
   }
@@ -21,6 +26,10 @@ const Footer = styled.footer`
   @media screen and (max-height: 900px) {
     display: none;
   }
+
+  /* @media screen and (max-height: 900px) {
+    display: none;
+  } */
 `;
 
 const Container = styled.div`

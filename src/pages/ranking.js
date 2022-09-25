@@ -10,7 +10,7 @@ const Ranking = ({ userDataObj }) => {
         <meta name="description" content="오늘도 즐겜" />
       </Head>
       <Flex flexDirection="column" alignItems="center">
-        <RankingMain userData={userDataObj} />
+        <RankingMain />
       </Flex>
     </>
   );

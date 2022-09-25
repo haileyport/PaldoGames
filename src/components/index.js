@@ -17,8 +17,12 @@ import { GamesMain } from "./Games/GamesMain/GamesMain";
 
 // TimesTables Game related
 import { TimesTablesMain } from "./Games/TimesTables/TimesTablesMain";
+
 // Baseball Game related
 import { BaseBallMain } from "./Games/BaseBall/BaseBallMain";
+
+// Merge Game related
+import { MergeGameMain } from "./Games/Merge/MergeGameMain";
 
 // Community Main related
 import { CommunityMain } from "./Community/PageMain/CommunityMain";
@@ -26,23 +30,11 @@ import { ContentModal } from "./Community/ContentModal/ContentModal";
 import { Pagination } from "./Community/Pagination/Pagination";
 import { CommunityModalMain } from "./@commons/Modal/ModalMain/CommunityModalMain";
 
-// DarkMode related
-import { DarkModeToggleButton } from "./Home/DarkMode/DarkMode";
-
 //  Commons
-export {
-  Hero,
-  Animation,
-  Footer,
-  Header,
-  Layout,
-  DarkModeToggleButton,
-  Main,
-  Profile,
-};
+export { Hero, Animation, Footer, Header, Layout, Main, Profile };
 
 export { InventoriesMain };
 
-export { GamesMain, BaseBallMain, TimesTablesMain };
+export { GamesMain, BaseBallMain, TimesTablesMain, MergeGameMain };
 
 export { ContentModal, CommunityMain, CommunityModalMain, Pagination };

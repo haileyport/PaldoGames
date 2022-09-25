@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledGamesMain = styled.section`
+const StyledGamesMain = styled.section`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -12,25 +12,25 @@ export const StyledGamesMain = styled.section`
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 `;
 
-export const GamesSection = styled.div`
-  width: 80%;
+const GamesSection = styled.div`
   display: grid;
   margin-top: 10px;
   padding: 10px;
   grid-template-columns: repeat(2, 1fr);
-  @media screen and (max-width: 40em) {
+  @media screen and (max-width: 80em) {
     grid-template-columns: repeat(1, 1fr);
+  }
+  margin-top: 10px;
+  margin-right: 5%;
+  padding: 13px;
+  grid-gap: 5%;
+`;
+
+const GamesTitle = styled.h1`
+  color: white;
+  @media screen and (max-width: 50em) {
+    font-size: 1.7em;
   }
 `;
 
-export const GamesTitle = styled.h1`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  margin-left: 1.2em;
-  padding-top: 50px;
-  @media screen and (max-width: 40em) {
-    font-size: 1.8em;
-  }
-`;
+export { StyledGamesMain, GamesSection, GamesTitle };

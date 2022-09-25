@@ -24,7 +24,7 @@ export const Footer = styled.footer`
   text-align: right;
 `;
 
-export const FooterInner = styled.span`
+export const FooterInner = styled.a`
   margin-right: 20px;
   cursor: pointer;
 `;

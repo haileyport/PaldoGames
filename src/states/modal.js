@@ -11,5 +11,7 @@ export const modalStates = atom({
     post: false,
     editor: false,
     edit: false,
+    gameCard: false,
+    desc: false,
   },
 });

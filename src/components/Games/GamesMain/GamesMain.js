@@ -1,46 +1,30 @@
 import { MainSection } from "../../Home/Main/Main.style";
 import { GamesCard } from "../GamesCard/GamesCard";
 import { GamesSection, GamesTitle, StyledGamesMain } from "./GamesMain.style";
-import baseball from "../../../../public/baseball.png";
-
-const gameList = [
-  {
-    gameTitle: "구구단",
-    imageUrl: baseball,
-    linkUrl: "/games/timestables",
-    desc: "구구단 게임 입니다.",
-  },
-  {
-    gameTitle: "숫자야구",
-    imageUrl: baseball,
-    linkUrl: "/games/baseball",
-    desc: "숫자야구 게임 입니다.",
-  },
-  {
-    gameTitle: "로또",
-    imageUrl: baseball,
-    linkUrl: "/games/lotto",
-    desc: "로또 입니다.",
-  },
-];
+import { GAME_LIST } from "../../../constants/index.js";
+import { Flex } from "../../@commons";
 
 export const GamesMain = () => {
   return (
     <>
-      <GamesTitle>팔도게임즈의 미니게임을 즐겨 보세요!</GamesTitle>
+      <Flex justifyContent="center" alignItems="center">
+        <GamesTitle>팔도게임즈의 미니게임을 즐겨 보세요!</GamesTitle>
+      </Flex>
       <StyledGamesMain>
-        <GamesSection>
-          {gameList.map(({ gameTitle, imageUrl, linkUrl, desc }, i) => {
-            return (
-              <GamesCard
-                key={i}
-                gameTitle={gameTitle}
-                imageUrl={imageUrl}
-                linkUrl={linkUrl}
-              />
-            );
-          })}
-        </GamesSection>
+        <Flex justifyContent="center" alignItems="center">
+          <GamesSection>
+            {GAME_LIST.map(({ gameTitle, imageUrl, linkUrl }) => {
+              return (
+                <GamesCard
+                  key={gameTitle}
+                  gameTitle={gameTitle}
+                  imageUrl={imageUrl}
+                  linkUrl={linkUrl}
+                />
+              );
+            })}
+          </GamesSection>
+        </Flex>
         <MainSection />
       </StyledGamesMain>
     </>

@@ -5,23 +5,25 @@ import { Modal, ModalHeader, ModalProfile } from "../../@commons/Modal";
 import { useRecoilValue } from "recoil";
 import { contentState } from "../../../states";
 
-export const ContentModal = ({ users }) => {
+export const ContentModal = ({ postData }) => {
   const ids = useRecoilValue(contentState);
 
-  const userIndex = users.findIndex((user) => user?.writer.id === ids?.userId);
-  const user = users[userIndex];
+  const userIndex = postData.findIndex(
+    (user) => user?.writer.id === ids?.userId
+  );
+  const user = postData[userIndex];
 
   return (
     <Modal>
       <Styled.Section
         width="80%"
         maxWidth="1000px"
-        minWidth="500px"
+        minWidth="300px"
         style={{ maxHeight: "500px", overflowY: "auto" }}
       >
         <ModalHeader content="게시물" />
         <ModalProfile user={user?.writer} />
-        <CommunityModalMain user={user} />
+        <CommunityModalMain />
       </Styled.Section>
     </Modal>
   );
