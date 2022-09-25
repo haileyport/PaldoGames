@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Header = styled.header`
   background-color: #1e293b;
-  color: rgb(75 85 99);
+  color: rgb(148 163 184);
   width: 100%;
   margin-left: auto;
   margin-right: auto;

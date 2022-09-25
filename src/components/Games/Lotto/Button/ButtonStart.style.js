@@ -19,12 +19,6 @@ const StartButtonOn = styled.button`
     background-color: rgb(79 70 229);
     cursor: pointer;
   }
-  @media screen and (max-width: 520px) {
-    display: none;
-  }
-  @media screen and (max-height: 606px) {
-    display: none;
-  }
 `;
 
 const StartButtonOff = styled.button`
@@ -36,21 +30,13 @@ const StartButtonOff = styled.button`
   border-radius: 0.25rem;
   font-size: 1.125rem;
   line-height: 1.75rem;
-
   &:focus {
     outline: 2px solid transparent;
     outline-offset: 2px;
   }
-
   &:hover {
     background-color: rgb(79 70 229);
     cursor: pointer;
-  }
-  @media screen and (max-width: 520px) {
-    display: none;
-  }
-  @media screen and (max-height: 606px) {
-    display: none;
   }
 `;
 

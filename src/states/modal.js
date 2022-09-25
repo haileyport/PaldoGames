@@ -4,5 +4,14 @@ import { atom } from "recoil";
 
 export const modalStates = atom({
   key: `modalStates`,
-  default: { login: false, profile: false, community: false, post: false, editor: false, edit: false },
+  default: {
+    login: false,
+    profile: false,
+    community: false,
+    post: false,
+    editor: false,
+    edit: false,
+    gameCard: false,
+    desc: false,
+  },
 });

@@ -3,31 +3,77 @@ import {
   AlarmContainer,
   StyledTimesTables,
   TimesTablesAlarm,
-  TimesTablesalarm,
   TimesTablesBtn,
+  TimesTablesInput,
   TimesTablesLives,
+  TimesTablesScore,
   TimesTablesSmallTitle,
   TimesTablestext,
   TimesTablesTitle,
 } from "./TimesTablesMain.style";
 import alarm from "../../../../public/alarm.png";
 import Image from "next/image";
-import { MainSection } from "../../Home/Main/Main.style";
+import { useRecoilValue, useRecoilState } from "recoil";
+import { currentUserState } from "../../../states";
+import axios from "axios";
+import { useRouter } from "next/router";
+import gameInfo from "../../../states/gameInfo";
+import { Flex } from "../../@commons";
 
 const TimesTablesMain = () => {
-  const [numbers, setNumbers] = useState({ first: Math.ceil(Math.random() * 19), second: Math.ceil(Math.random() * 19), count: 0 });
+  const [numbers, setNumbers] = useState({
+    first: Math.ceil(Math.random() * 19),
+    second: Math.ceil(Math.random() * 19),
+    count: 0,
+  });
   const [seconds, setSeconds] = useState(3);
   const [score, setScore] = useState(0);
-  const [game, setGame] = useState(false);
+  const [gameStart, setGameStart] = useState(false);
   const [lives, setLives] = useState(["💖", "💖", "💖"]);
   const [states, setStates] = useState({ status: "", result: null, value: "" });
-
   const valueInput = useRef();
   const { status, result, value } = states;
   const { first, second, count } = numbers;
+  const [game, setGame] = useRecoilState(gameInfo);
+
+  const [point, setPoint] = useState(0);
+  const { user } = useRecoilValue(currentUserState);
+
+  const router = useRouter();
+
+  const getUser = async () => {
+    const userId = user.id;
+    const res = await axios
+      .get(`/api/game/${userId}`)
+      .catch((err) => console.log(err));
+    return res?.data?.response?.totalPoint;
+  };
+
+  const updateUser = async (el) => {
+    const point = el;
+    const userId = user.id;
+    const res = await axios.patch(`/api/game`, { userId, point });
+  };
+
+  useEffect(() => {
+    getUser().then((el) => {
+      setPoint(el);
+    });
+    setGame({
+      game: {
+        name: "timestables",
+        answer: null,
+      },
+      point: 0,
+    });
+  }, []);
 
   const nextQue = () => {
-    setNumbers({ first: Math.ceil(Math.random() * 19), second: Math.ceil(Math.random() * 19), count: count + 1 });
+    setNumbers({
+      first: Math.ceil(Math.random() * 19),
+      second: Math.ceil(Math.random() * 19),
+      count: count + 1,
+    });
   };
 
   const right = () => {
@@ -49,7 +95,7 @@ const TimesTablesMain = () => {
   };
 
   useEffect(() => {
-    if (game) {
+    if (gameStart) {
       valueInput.current.focus();
       const timer = setInterval(() => {
         setSeconds(seconds - 1);
@@ -78,9 +124,21 @@ const TimesTablesMain = () => {
   }, [seconds]);
 
   const gameOver = () => {
-    alert(`게임이 끝났습니다! 당신의 점수는 ${score}점입니다!`);
+    if (score >= 7) {
+      // 게임 성공 200 포인트
+      getUser().then((el) => {
+        updateUser(el + 200);
+      });
+      setGame({
+        game: {
+          name: "timestables",
+          answer: null,
+        },
+        point: 200,
+      });
+    }
+    router.push("/games/result");
     setNumbers({ ...numbers, count: 0 });
-    setGame(!game);
     setScore(0);
     setStates({ ...states, status: "", result: null });
     setSeconds(3);
@@ -92,23 +150,37 @@ const TimesTablesMain = () => {
   }
 
   const handleGameStatus = () => {
-    setGame(!game);
+    getUser().then((el) => {
+      // 게임 참가비 100 포인트
+      updateUser(el - 100);
+    });
+    setGameStart(!gameStart);
   };
+
   return (
     <StyledTimesTables>
-      {!game ? (
+      {!gameStart ? (
         <>
           <TimesTablesTitle>구구단 게임 💬</TimesTablesTitle>
-          <TimesTablesBtn onClick={handleGameStatus}>게임 시작하기</TimesTablesBtn>
+          <TimesTablesBtn
+            onClick={() => {
+              handleGameStatus();
+            }}
+          >
+            게임 시작하기
+          </TimesTablesBtn>
         </>
       ) : (
         <>
           <TimesTablesSmallTitle>구구단 게임 💬</TimesTablesSmallTitle>
           <AlarmContainer>
-            <Image src={alarm} width='80%' height='80%' />
+            <Image src={alarm} width="80%" height="80%" />
             <TimesTablesAlarm>{seconds}</TimesTablesAlarm>
           </AlarmContainer>
-          <TimesTablesLives>{lives}</TimesTablesLives>
+          <Flex justifyContent="center" alignItems="center">
+            <TimesTablesLives>{lives}</TimesTablesLives>
+            <TimesTablesScore>SCORE: {score}</TimesTablesScore>
+          </Flex>
           <TimesTablestext>
             {first} 곱하기 {second}은(는)?
           </TimesTablestext>
@@ -120,15 +192,15 @@ const TimesTablesMain = () => {
               }
             }}
           >
-            <input
-              type='number'
+            <TimesTablesInput
+              type="number"
               value={value}
               ref={valueInput}
               onChange={(e) => {
                 setStates({ ...states, value: e.target.value });
               }}
             />
-            <button>입력</button>
+            <TimesTablesBtn>입력</TimesTablesBtn>
           </form>
           <TimesTablesSmallTitle>{status}</TimesTablesSmallTitle>
         </>
