@@ -6,7 +6,6 @@ const Footer = styled.footer`
   height: 100%;
 
   @media screen and (min-width: 350px) {
-    d
     margin-top: -100px;
   }
 
@@ -15,14 +14,14 @@ const Footer = styled.footer`
   }
 
   @media screen and (max-width: 768px) {
-    display : none;
+    display: none;
     margin-top: -100px;
     height: 100%;
   }
 
-  @media screen and (max-height: 900px) {
+  /* @media screen and (max-height: 900px) {
     display: none;
-  }
+  } */
 `;
 
 const Container = styled.div`
