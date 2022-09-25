@@ -37,7 +37,14 @@ export const GamesMain = () => {
       <StyledGamesMain>
         <GamesSection>
           {gameList.map(({ gameTitle, imageUrl, linkUrl, desc }, i) => {
-            return <GamesCard key={i} gameTitle={gameTitle} imageUrl={imageUrl} linkUrl={linkUrl} />;
+            return (
+              <GamesCard
+                key={i}
+                gameTitle={gameTitle}
+                imageUrl={imageUrl}
+                linkUrl={linkUrl}
+              />
+            );
           })}
         </GamesSection>
         <MainSection />
