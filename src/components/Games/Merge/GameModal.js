@@ -15,11 +15,9 @@ const GameModal = ({ gameModal }) => {
 
   const getUser = async () => {
     const userId = user.id;
-    console.log(userId);
     const res = await axios
       .get(`/api/game/${userId}`)
       .catch((err) => console.log(err));
-    console.log(res);
     return res.data.response.totalPoint;
   };
 
@@ -41,13 +39,29 @@ const GameModal = ({ gameModal }) => {
         },
         point: 2048,
       });
-      router.push("/games/result");
+    } else {
+      setGame({
+        game: {
+          name: "2048",
+          result: null,
+        },
+        point: 0,
+      });
     }
+
+    let timer = setTimeout(() => {
+      router.push("/games/result");
+    }, 2000);
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, [gameModal.message]);
 
   return (
     <Modal>
       <Message>{gameModal.message}</Message>
+      <SubMessage>2초 후 결과창으로 이동합니다.</SubMessage>
     </Modal>
   );
 };
@@ -74,6 +88,12 @@ const Modal = styled.div`
 const Message = styled.div`
   font-size: 4rem;
   font-weight: 900;
+  color: #1e293b;
+`;
+
+const SubMessage = styled.div`
+  font-size: 2rem;
+  font-weight: 800;
   color: #1e293b;
 `;
 

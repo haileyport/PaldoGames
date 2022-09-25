@@ -44,6 +44,7 @@ const GameBoard = ({ reset, setReset }) => {
   const [numbers, setNumbers] = useState(defaultArray);
   const [prevPosition, setPrevPosition] = useState({});
   const [size, setSize] = useState([0, 0]);
+  const [first, setFirst] = useState(true);
   const [game, setGame] = useRecoilState(gameInfo);
   const { user } = useRecoilValue(currentUserState);
 
@@ -59,15 +60,15 @@ const GameBoard = ({ reset, setReset }) => {
       newNumbers[newTile2.index] = newTile2;
       setNumbers(newNumbers);
     }
+
+    setFirst(true);
   };
 
   const getUser = async () => {
     const userId = user.id;
-    console.log(userId);
     const res = await axios
       .get(`/api/game/${userId}`)
       .catch((err) => console.log(err));
-    console.log(res);
     return res.data.response.totalPoint;
   };
 
@@ -160,6 +161,13 @@ const GameBoard = ({ reset, setReset }) => {
       ]);
       if (isChanged(newArray)) {
         const newTile = getNewTile(newArray);
+        if (first) {
+          getUser()
+            .then((el) => {
+              updateUser(el - 100);
+            })
+            .then(() => setFirst(false));
+        }
         if (newTile) {
           newArray[newTile.index] = newTile;
           setNumbers([...newArray]);
@@ -210,9 +218,6 @@ const GameBoard = ({ reset, setReset }) => {
 
   useEffect(() => {
     setInitTile();
-    getUser().then((el) => {
-      updateUser(el - 100);
-    });
   }, [reset]);
 
   useLayoutEffect(() => {
@@ -232,9 +237,12 @@ const GameBoard = ({ reset, setReset }) => {
     </G.Container>
   ) : (
     <G.Alert>
-      <span>
-        2048 게임은 가로 길이 650px 이상의 디스플레이에서만 가능합니다.
-      </span>
+      <div>
+        ⚠️ 2048 게임은 가로 길이 650px 이상의 디스플레이에서만 가능합니다.
+      </div>
+      <div>
+        현재 화면에서 방향키 입력 시 게임이 실행되고 포인트가 차감됩니다.
+      </div>
     </G.Alert>
   );
 };
