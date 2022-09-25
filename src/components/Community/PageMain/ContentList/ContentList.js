@@ -9,7 +9,11 @@ export const ContentList = ({ details }) => {
   const [currentPostId, setCurrentPostId] = useRecoilState(contentState);
 
   return (
-    <Flex flexDirection='row' justifyContent='space-between' style={{ width: "90%", borderBottom: "1px solid white", margin: "0 auto" }}>
+    <Flex
+      flexDirection='row'
+      justifyContent='space-between'
+      style={{ width: "90%", position: "relative", top: "40px", borderBottom: "1px solid white", margin: "0 auto" }}
+    >
       <Flex>
         <input type='radio' id={id} disabled />
         <P
@@ -17,7 +21,7 @@ export const ContentList = ({ details }) => {
           writer={writer.id}
           className='ellipsis'
           content={title}
-          style={{ fontSize: 17, fontWeight: 300, width: "70%", marginLeft: 20, color: "white", cursor: "pointer", maxWidth: "300px" }}
+          style={{ fontSize: 17, fontWeight: 300, width: "70%", marginLeft: 20, color: "white", cursor: "pointer", minWidth: 245, maxWidth: 245 }}
           onClick={() => {
             setModal({ ...modal, community: true });
             setCurrentPostId({ ...currentPostId, contentId: id, userId: writer.id });

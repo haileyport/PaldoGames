@@ -23,9 +23,7 @@ export default function Test() {
   };
 
   const getId = async () => {
-    const res = await axios
-      .get(`/api/user/id/${id}`)
-      .catch((err) => console.log(err));
+    const res = await axios.get(`/api/user/id/${id}`).catch((err) => console.log(err));
 
     console.log("---res---");
     console.log(res.data);
@@ -33,9 +31,7 @@ export default function Test() {
 
   const getEmail = async () => {
     const email = "sugar9935@gmail.com";
-    const res = await axios
-      .get(`/api/user/email/${email}`)
-      .catch((err) => console.log(err));
+    const res = await axios.get(`/api/user/email/${email}`).catch((err) => console.log(err));
     const { data } = res;
     console.log("---res---");
     console.log(data.user);
@@ -46,9 +42,7 @@ export default function Test() {
 
   const getGame = async () => {
     const userId = id; // id값은 전역으로 저장해서 들고 다니기
-    const res = await axios
-      .get(`/api/game/${userId}`)
-      .catch((err) => console.log(err));
+    const res = await axios.get(`/api/game/${userId}`).catch((err) => console.log(err));
     console.log("---res---");
     console.log(res);
   };
@@ -67,9 +61,7 @@ export default function Test() {
   };
 
   const getAllCommu = async () => {
-    const res = await axios
-      .get("/api/community")
-      .catch((err) => console.log(err));
+    const res = await axios.get("/api/community").catch((err) => console.log(err));
     console.log("---community---");
     console.log(res.data.response);
   };

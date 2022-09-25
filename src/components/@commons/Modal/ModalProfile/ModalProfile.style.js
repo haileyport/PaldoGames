@@ -15,3 +15,8 @@ export const Image = styled.input`
   height: 50px;
   border-radius: 50px;
 `;
+
+export const EditInput = styled.input`
+  position: relative;
+  top: 10px;
+`;
