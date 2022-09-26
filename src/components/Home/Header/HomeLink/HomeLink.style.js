@@ -21,8 +21,13 @@ export const Logo = styled.span`
 `;
 
 export const Name = styled.a`
+  color: rgb(148 163 184);
   margin-left: 0.2rem;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   line-height: 1.75rem;
   padding-right: 1rem;
+
+  &:hover {
+    color: rgb(255, 255, 255);
+  }
 `;

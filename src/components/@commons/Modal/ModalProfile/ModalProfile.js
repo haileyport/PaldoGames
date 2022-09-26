@@ -9,8 +9,6 @@ export const ModalProfile = ({ user }) => {
   const { name, aboutMe, image, email } = user;
   const ids = useRecoilValue(contentState);
 
-  console.log(ids);
-
   return (
     <Flex flexDirection='column' alignItems='center'>
       <Styled.Section>

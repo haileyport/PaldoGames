@@ -1,10 +1,8 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
-
+import { MainHeader } from "../PageMain/MainHeader/MainHeader";
 import * as ranking from "./Ranking.style";
-import Image from "next/image";
-import crown from "./crown.png";
 
 const RankingMain = () => {
   const [user, setUser] = useState("");
@@ -24,6 +22,7 @@ const RankingMain = () => {
     const res = await axios.get(`/api/game/${userId}`).catch((err) => console.log(err));
     return res?.data?.response?.totalPoint;
   };
+
   //네임 뿌리기(네임)
   useEffect(() => {
     getUser().then((res) => {
@@ -50,19 +49,16 @@ const RankingMain = () => {
 
   return (
     <ranking.BackColor>
-      <ranking.RankingTitle>
-        랭킹
-        <Image src={crown} width={50} height={50} alt='image'></Image>
-      </ranking.RankingTitle>
+      <MainHeader />
       <ranking.RankingSubTitle>자신의 랭킹을 확인해보세요!!</ranking.RankingSubTitle>
 
       <ranking.MiddleBox>
         <ranking.RankingBox>
           <thead>
             <tr>
-              <th scope='col'>순위</th>
-              <th scope='col'>닉네임</th>
-              <th scope='col'>포인트</th>
+              <th>순위</th>
+              <th>닉네임</th>
+              <th>포인트</th>
             </tr>
           </thead>
           {filterArr.map((el, i) => {
@@ -82,18 +78,6 @@ const RankingMain = () => {
       </ranking.MiddleBox>
     </ranking.BackColor>
   );
-
-  {
-    /* {filterArr.map((el, i) => {
-          i >= 9;
-          return (
-            <ranking.RankingBox key={i}>
-            <div>{i + 1}</div>
-            <div>{el.name}</div>
-            <div>{el.point}</div>
-            );
-          </tbody> */
-  }
 };
 
 export default RankingMain;

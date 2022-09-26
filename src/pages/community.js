@@ -3,8 +3,6 @@ import { getSession } from "next-auth/react";
 
 import { CommunityMain, Footer } from "../components";
 const CommunityPage = ({ session, postList }) => {
-  console.log("CommunityPage");
-
   return (
     <>
       <Head>

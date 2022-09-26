@@ -1,15 +1,15 @@
 import { getSession } from "next-auth/react";
 import Head from "next/head";
-import { Main } from "../components";
+import FooterEasterEgg from "../components/Home/Footer/EasterEgg/FooterEasterEgg";
 
-export const Home = ({ session }) => {
+const EasterEgg = () => {
   return (
     <>
       <Head>
-        <title>팔도게임즈!</title>
-        <meta name='description' content='오늘도 즐겜' />
+        <title>커뮤니티공간</title>
+        <meta name='description' content='커뮤니티' />
       </Head>
-      <Main />
+      <FooterEasterEgg />
     </>
   );
 };
@@ -24,4 +24,4 @@ export async function getServerSideProps(context) {
   };
 }
 
-export default Home;
+export default EasterEgg;

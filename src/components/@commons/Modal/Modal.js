@@ -9,9 +9,17 @@ export const Modal = ({ children }) => {
 
   const backgroundRef = useRef(null);
 
-  const handleModals = () => setModal({ login: false, profile: false, community: false, post: false });
+  const handleModals = () =>
+    setModal({
+      login: false,
+      profile: false,
+      community: false,
+      post: false,
+      easteregg: false,
+    });
 
-  const onClickBackground = ({ target }) => target === backgroundRef.current && handleModals();
+  const onClickBackground = ({ target }) =>
+    target === backgroundRef.current && handleModals();
 
   // 모달창 팝업시 배경 스크롤 제한
   useEffect(() => {

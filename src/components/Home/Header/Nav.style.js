@@ -13,6 +13,8 @@ export const Nav = styled.nav`
 `;
 
 export const Content = styled.a`
+  font-size: 1.2rem;
+  margin-top: 1.3rem;
   color: rgb(100 116 139);
   font-weight: 600;
   margin-left: 1.25rem;
@@ -23,6 +25,7 @@ export const Content = styled.a`
 `;
 
 export const Profile = styled.input`
+  margin-top: 1rem;
   width: 45px;
   height: 45px;
   border-radius: 50px;

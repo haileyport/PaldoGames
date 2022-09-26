@@ -25,7 +25,7 @@ export const Main = styled.main`
   width: 100%;
   height: 75%;
   max-height: 80vh;
-  bottom: 150px;
+  bottom: 180px;
 `;
 
 export const SearchInput = styled.input`

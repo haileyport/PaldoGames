@@ -7,22 +7,30 @@ const BackColor = styled.div`
   align-items: center;
   justify-content: center;
 `;
-
+//타이틀
 const RankingTitle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 5rem;
   padding-left: 50px;
+
+  @media screen and (min-width: 640px) {
+    font-size: 4rem;
+    line-height: 5rem;
+  }
+  @media screen and (max-width: 640px) {
+    font-size: 4rem;
+    line-height: 5rem;
+  }
 `;
 
 const RankingSubTitle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 2rem;
-  font-size: 1rem;
-  color: rgb(100 116 139);
+  padding-top: 3rem;
+  font-size: 2rem;
+  color: rgb(148 163 184);
 `;
 
 const MiddleBox = styled.div`
@@ -30,24 +38,24 @@ const MiddleBox = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 5rem;
-  position: relative;
+  margin-top: 7rem;
 `;
 
 const RankingBox = styled.table`
   border-collapse: collapse;
   text-align: left;
   line-height: 1.5;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  border-top: 1px solid rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(255, 255, 255);
   margin: 20px 10px;
 
-  > thead th {
+  > thead tr th {
     width: 150px;
     padding: 10px;
     font-weight: bold;
+    font-size: 2rem;
     vertical-align: top;
-    color: rgt(255, 255, 255);
+    color: rgb(255, 255, 255);
     background: rgb(99 102 241);
     margin: 20px 10px;
   }
@@ -59,9 +67,7 @@ const RankingBox = styled.table`
     width: 300px;
     padding: 10px;
     vertical-align: top;
-  }
-  @media screen and (max-width: 520px) {
-    display: none;
+    font-size: 2rem;
   }
 `;
 

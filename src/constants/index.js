@@ -2,21 +2,12 @@ import baseball from "../../public/baseballthumbnail.jpeg";
 import lotto from "../../public/lottothumbnail.jpeg";
 import timestables from "../../public/timestablesthumbnail.jpeg";
 import merge from "../../public/2048thumbnail.jpeg";
-import Logo from "../../public/logo.png";
 
 export const COMMUNITY_ADMINS = Object.freeze([
-  {
-    id: "cl88qhsxu0090mwn0oj3w3jw0",
-  },
-  {
-    id: "cl88qprau0016i83salw7d64y",
-  },
-  {
-    id: "heewhy3513@gmail.com",
-  },
-  {
-    id: "cl8a9v3sc0026q4vhtdwbqkzg",
-  },
+  { name: "전은혜", id: "cl88qhsxu0090mwn0oj3w3jw0" },
+  // { name: "이건희", id: "cl88qprau0016i83salw7d64y" },
+  { name: "홍다희", id: "cl88u48fa0006gonslpyu9nx1" },
+  { name: "노종열", id: "cl8a9v3sc0026q4vhtdwbqkzg" },
 ]);
 
 export const ADMIN_INFO = Object.freeze({
