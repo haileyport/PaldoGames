@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { adminState, contentState, currentUserState, modalStates } from "../../../../states";
 import { postState } from "../../../../states/community";
@@ -8,7 +8,7 @@ import { P } from "../../P/P";
 import * as Styled from "./ModalMain.style";
 
 export const CommunityModalMain = () => {
-  // 게시물의 번호를 고유id 로 관리해서 검증시에 userId 와 게시물Id 까지 맞으면 렌더링
+  const [totalPoint, setTotalPoint] = useState({ id: "", point: 0 });
   const ids = useRecoilValue(contentState);
   const [post, setPost] = useRecoilState(postState);
   const { user } = useRecoilValue(currentUserState);
@@ -17,12 +17,24 @@ export const CommunityModalMain = () => {
 
   const getPost = post.filter(({ writer, title }) => writer.id === ids.userId && title === ids.title)[0];
   const index = post.findIndex((details) => details.id === getPost.id);
-
   const iAmTheOne = user.id === getPost?.writer.id;
+
+  const fetchTotalPoint = useCallback(async () => {
+    const { data } = await axios.get(`/api/game/${user.id}`);
+    let point;
+
+    if (data.response) {
+      point = data.response.totalPoint;
+      setTotalPoint({ id: user.id, point });
+    } else {
+      point = 0;
+    }
+  }, [user.id]);
 
   const deletePost = useCallback(async () => {
     const { data } = await axios.get("/api/community");
     const response = data.response;
+    const { point } = totalPoint;
 
     const currentPost = response.filter((post) => post.editor === ids.userId && ids.title === post.title)[0];
 
@@ -38,7 +50,9 @@ export const CommunityModalMain = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, [ids.title, ids.userId, updatePost]);
+
+    await axios.patch(`api/game`, { userId: user.id, point: point - 100 });
+  }, [ids.title, ids.userId, totalPoint, updatePost, user.id]);
 
   const updatePost = useCallback(() => {
     const _post = [...post];
@@ -48,6 +62,10 @@ export const CommunityModalMain = () => {
     setPost((prev) => (prev = _post));
     setModal({ ...modal, community: false });
   }, [index, modal, post, setModal, setPost]);
+
+  useEffect(() => {
+    fetchTotalPoint();
+  }, [fetchTotalPoint]);
 
   return (
     <Styled.InnerModalMain>
