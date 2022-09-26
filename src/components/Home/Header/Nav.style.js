@@ -7,6 +7,7 @@ export const Nav = styled.nav`
   font-size: 1rem;
   line-height: 1.5rem;
   justify-content: center;
+  margin-top: 2rem;
   @media screen and (min-width: 768px) {
     margin-left: auto;
   }
@@ -17,7 +18,7 @@ export const Content = styled.a`
   margin-top: 1.3rem;
   color: rgb(100 116 139);
   font-weight: 600;
-  margin-left: 1.25rem;
+  margin: 1.25rem;
   &:hover {
     color: rgb(255 255 255);
     cursor: pointer;

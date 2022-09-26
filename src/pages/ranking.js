@@ -3,7 +3,7 @@ import Head from "next/head";
 import { Flex } from "../components/@commons/";
 import RankingMain from "../components/Community/Ranking/RankingMain";
 
-const Ranking = () => {
+const Ranking = ({ userDataObj }) => {
   return (
     <>
       <Head>

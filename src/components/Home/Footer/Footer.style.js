@@ -35,6 +35,7 @@ const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   height: 100px;
+  //이이이이
   @media screen and (min-width: 640px) {
     max-width: 640px;
   }
