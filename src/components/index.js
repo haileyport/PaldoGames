@@ -9,9 +9,6 @@ import { Layout } from "./Home/Layout/Layout";
 import { Main } from "./Home/Main/Main";
 import { Profile } from "./Home/Header/NavProfile";
 
-// Inventories Main related
-import { InventoriesMain } from "./Inventories/InventoriesMain/InventoriesMain";
-
 // Games Main related
 import { GamesMain } from "./Games/GamesMain/GamesMain";
 
@@ -30,10 +27,7 @@ import { ContentModal } from "./Community/ContentModal/ContentModal";
 import { Pagination } from "./Community/Pagination/Pagination";
 import { CommunityModalMain } from "./@commons/Modal/ModalMain/CommunityModalMain";
 
-//  Commons
 export { Hero, Animation, Footer, Header, Layout, Main, Profile };
-
-export { InventoriesMain };
 
 export { GamesMain, BaseBallMain, TimesTablesMain, MergeGameMain };
 

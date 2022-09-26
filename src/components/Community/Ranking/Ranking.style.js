@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Backcolor = styled.div`
+const BackColor = styled.div`
   background-color: #1e293b;
   width: 100%;
   min-height: 100vh;
@@ -113,12 +113,4 @@ const ImageBox = styled.div`
     border-left: 1px solid white;
   } */
 
-export {
-  Backcolor,
-  RankingBox,
-  BoxSectionOne,
-  MiddleBox,
-  RankingTitle,
-  RankingSubTitle,
-  ImageBox,
-};
+export { BackColor, RankingBox, BoxSectionOne, MiddleBox, RankingTitle, RankingSubTitle, ImageBox };

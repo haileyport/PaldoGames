@@ -19,13 +19,13 @@ export const Header = styled.header`
   }
 `;
 
+export const Form = styled.form``;
+
 export const Main = styled.main`
   padding: 16px;
   border-bottom: 1px solid #dee2e6;
   border-top: 1px solid #dee2e6;
 `;
-
-export const Form = styled.form``;
 
 export const Input = styled.input`
   width: 80%;
