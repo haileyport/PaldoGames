@@ -9,11 +9,11 @@ export const CardModalMain = ({}) => {
 
   return (
     <Styled.InnerModalMain>
-      <Flex justifyContent="center">
-        {GAME_LIST.map((el) => {
+      <Flex justifyContent='center'>
+        {GAME_LIST.map((el, i) => {
           if (game === el.gameTitle)
             return (
-              <div style={{ whiteSpace: "pre-line", textAlign: "center" }}>
+              <div key={i} style={{ whiteSpace: "pre-line", textAlign: "center" }}>
                 {el.desc}
               </div>
             );

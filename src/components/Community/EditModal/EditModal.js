@@ -29,6 +29,7 @@ export const EditModal = () => {
 
     const _title = titleRef?.current.value;
     const _content = contentRef?.current.value;
+
     const currentPost = response.filter((post) => post.editor === ids.userId && getPostList.title === post.title)[0];
 
     axios
@@ -38,17 +39,22 @@ export const EditModal = () => {
         content: _content,
       })
       .then((res) => {
-        updatePost(res, index);
+        if (res.status === 200) {
+          editPost(res, index);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
 
-  const updatePost = (res, index) => {
-    const _post = post.slice();
+  const editPost = (res, index) => {
+    const _post = [...post];
     const _editedPost = { ...res.data.response, editor: user.id, writer: user };
 
     _post.splice(index, 1, _editedPost);
 
-    setPost(_post);
+    setPost((prev) => (prev = _post));
     setModal({ ...modal, edit: false });
   };
 

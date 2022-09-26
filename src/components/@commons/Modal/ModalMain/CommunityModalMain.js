@@ -1,8 +1,7 @@
 import axios from "axios";
-import { useRouter } from "next/router";
 import { useCallback } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { contentState, currentUserState, modalStates } from "../../../../states";
+import { adminState, contentState, currentUserState, modalStates } from "../../../../states";
 import { postState } from "../../../../states/community";
 import { Flex } from "../../Flex/Flex";
 import { P } from "../../P/P";
@@ -10,20 +9,22 @@ import * as Styled from "./ModalMain.style";
 
 export const CommunityModalMain = () => {
   // 게시물의 번호를 고유id 로 관리해서 검증시에 userId 와 게시물Id 까지 맞으면 렌더링
-  const router = useRouter();
   const ids = useRecoilValue(contentState);
   const [post, setPost] = useRecoilState(postState);
   const { user } = useRecoilValue(currentUserState);
   const [modal, setModal] = useRecoilState(modalStates);
+  const isAdmin = useRecoilValue(adminState);
 
-  const getPost = post.filter(({ writer, title }) => writer.id === ids.userId && title === ids.editorId)[0];
+  const getPost = post.filter(({ writer, title }) => writer.id === ids.userId && title === ids.title)[0];
+  const index = post.findIndex((details) => details.id === getPost.id);
+
   const iAmTheOne = user.id === getPost?.writer.id;
 
   const deletePost = useCallback(async () => {
     const { data } = await axios.get("/api/community");
     const response = data.response;
 
-    const currentPost = response.filter((post) => post.editor === ids.userId && ids.editorId === post.title)[0];
+    const currentPost = response.filter((post) => post.editor === ids.userId && ids.title === post.title)[0];
 
     await axios
       .delete(`/api/community`, {
@@ -31,25 +32,26 @@ export const CommunityModalMain = () => {
       })
       .then((res) => {
         if (res.status === 200) {
-          updatePost(currentPost);
+          updatePost();
         }
+      })
+      .catch((err) => {
+        console.log(err);
       });
-  }, [ids.editorId, ids.userId, updatePost]);
+  }, [ids.title, ids.userId, updatePost]);
 
-  const updatePost = useCallback(
-    (currentPost) => {
-      const deletedPostList = post.filter((post) => post.id !== currentPost.id);
+  const updatePost = useCallback(() => {
+    const _post = [...post];
 
-      setPost((prev) => (prev = deletedPostList));
-      router.push("/community");
-      setModal({ ...modal, community: false });
-    },
-    [modal, post, router, setModal, setPost]
-  );
+    _post.splice(index, 1);
+
+    setPost((prev) => (prev = _post));
+    setModal({ ...modal, community: false });
+  }, [index, modal, post, setModal, setPost]);
 
   return (
     <Styled.InnerModalMain>
-      {iAmTheOne && (
+      {(iAmTheOne || isAdmin) && (
         <Flex flexDirection='row' justifyContent='flex-end' style={{ position: "relative" }}>
           <button onClick={() => setModal({ ...modal, edit: true, community: false })}>수정</button>
           <button onClick={() => deletePost()}>삭제</button>

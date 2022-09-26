@@ -49,7 +49,7 @@ const RankingMain = () => {
   }, []);
 
   return (
-    <ranking.Backcolor>
+    <ranking.BackColor>
       <ranking.RankingTitle>
         랭킹
         <Image src={crown} width={50} height={50} alt='image'></Image>
@@ -66,20 +66,21 @@ const RankingMain = () => {
             </tr>
           </thead>
           {filterArr.map((el, i) => {
-            i > 10;
-            return (
-              <tbody key={i}>
-                <tr>
-                  <td>{i + 1}</td>
-                  <td>{el.name}</td>
-                  <td>{el.point}</td>
-                </tr>
-              </tbody>
-            );
+            while (i < 10) {
+              return (
+                <tbody key={i}>
+                  <tr>
+                    <td>{i + 1}</td>
+                    <td>{el.name}</td>
+                    <td>{el.point}</td>
+                  </tr>
+                </tbody>
+              );
+            }
           })}
         </ranking.RankingBox>
       </ranking.MiddleBox>
-    </ranking.Backcolor>
+    </ranking.BackColor>
   );
 
   {

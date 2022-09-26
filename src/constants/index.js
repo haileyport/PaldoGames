@@ -2,36 +2,34 @@ import baseball from "../../public/baseballthumbnail.jpeg";
 import lotto from "../../public/lottothumbnail.jpeg";
 import timestables from "../../public/timestablesthumbnail.jpeg";
 import merge from "../../public/2048thumbnail.jpeg";
+import Logo from "../../public/logo.png";
 
-// Word Relay Game related
-export const CLASSNAME = Object.freeze({
-  HIDE: "hide",
-});
+export const COMMUNITY_ADMINS = Object.freeze([
+  {
+    id: "cl88qhsxu0090mwn0oj3w3jw0",
+  },
+  {
+    id: "cl88qprau0016i83salw7d64y",
+  },
+  {
+    id: "heewhy3513@gmail.com",
+  },
+  {
+    id: "cl8a9v3sc0026q4vhtdwbqkzg",
+  },
+]);
 
-export const COLOR = Object.freeze({
-  RED: "red",
-});
-
-export const DEFAULT = Object.freeze({
-  GIVEN_WORDS: "자판기",
-});
-
-// Validation
-export const ERROR_MESSAGE = Object.freeze({
-  NOT_THREE_WORD: "세글자만 입력이 가능합니다.",
-  NOT_KOREAN: "한글만 입력이 가능합니다.",
-  NOT_CORRESPONDING_LETTER: `단어의 마지막 글자와 ${"\t"}입력단어의 첫번째 단어가 일치해야 합니다.`,
-  EMPTY_INPUT: "사전에 정의되지 않은 단어입니다.",
-  ALREADY_HAS_SAME_WORD: "이미 입력했던 단어는 입력하실 수 없습니다.",
-  NOT_EXIST: "사전에 정의되지 않는 단어입니다.",
+export const ADMIN_INFO = Object.freeze({
+  id: "cl8ibrkfb00436gn0jsc7czx0",
+  name: "팔도게임즈",
+  image: "https://images.unsplash.com/photo-1570303345338-e1f0eddf4946?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZGljZXxlbnwwfHwwfHw%3D&w=1000&q=80",
+  aboutMe: "팔도게임즈 입니다.",
+  email: "",
 });
 
 export const POST = Object.freeze({
-  EMPTY_INPUT: "제목 혹은 내용을 입력해 주세요.",
+  EMPTY_INPUT: "제목 혹은 내용을 입력해주시기 바랍니다.",
 });
-
-// Regex
-export const 한글_정규표현식 = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
 
 export const GAME_LIST = Object.freeze([
   {

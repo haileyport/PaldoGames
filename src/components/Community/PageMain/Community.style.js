@@ -39,20 +39,27 @@ export const SearchInput = styled.input`
   border-radius: 50px;
   z-index: 66;
   text-align: center;
-  // padding-left: 25px;
   padding-right: 10px;
   padding-top: 4px;
   color: black;
 `;
 
 export const Button = styled.button`
-  color: black;
-  border-style: outset;
-  border-radius: 50px;
-  height: 30px;
-  width: 60px;
-  text-shadow: none;
-  cursor: pointer;
+  width: 100px;
+  color: rgb(255 255 255);
+  background-color: rgb(99 102 241);
+  padding: 10;
+  line-height: 1.75rem;
+
+  &:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  &:hover {
+    background-color: rgb(79 70 229);
+    cursor: pointer;
+  }
 `;
 
 export const P = styled.p`
@@ -103,6 +110,31 @@ export const Empty = styled.p`
     60% {
       transform: translate3d(4px, 0, 0);
     }
+  }
+`;
+
+export const NameSpan = styled.span`
+  margin-left: 5;
+  color: white;
+
+  @media screen and (max-width: 700px) {
+    display: none;
+  }
+`;
+
+export const Title = styled.p`
+  position: relative;
+  font-size: 17;
+  font-weight: 300;
+  width: 70%;
+  margin-left: 20;
+  color: white;
+  cursor: pointer;
+  left: 20px;
+
+  @media screen and (max-width: 450px) {
+    font-size: 16px;
+    max-width: 280px;
   }
 `;
 

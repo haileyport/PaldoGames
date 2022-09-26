@@ -18,10 +18,6 @@ const Footer = styled.footer`
     margin-top: -100px;
     height: 100%;
   }
-
-  /* @media screen and (max-height: 900px) {
-    display: none;
-  } */
 `;
 
 const Container = styled.div`
