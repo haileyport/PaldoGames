@@ -18,8 +18,6 @@ export const Home = ({ session }) => {
     }
   }, [router, session, setModal]);
 
-  console.log("LoginPage", session);
-
   return (
     <>
       <Head>

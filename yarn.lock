@@ -849,9 +849,17 @@
   "resolved" "https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.0.6.tgz"
   "version" "1.0.6"
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+"cookie@^0.4.0", "cookie@^0.4.1":
+=======
+"cookie@^0.4.1":
+>>>>>>> 6c4ca7c0422b5e311d8e815738c6c183a1259ce9
+=======
 "cookie@^0.4.0", "cookie@^0.4.1":
   "integrity" "sha512-aSWTXFzaKWkvHO1Ny/s+ePFpvKsPnjc551iI41v3ny/ow6tBG5Vd+FuqGNhh1LxOmVzOlGUriIlOaokOvhaStA=="
   "resolved" "https://registry.npmjs.org/cookie/-/cookie-0.4.2.tgz"
+>>>>>>> 26f3b38ed624ec12506d7b713d4eb8bd78a9a299
   "version" "0.4.2"
 
 "cookie@0.5.0":
@@ -1649,9 +1657,17 @@
   dependencies:
     "function-bind" "^1.1.1"
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+"hoist-non-react-statics@^3.0.0", "hoist-non-react-statics@^3.3.0":
+=======
+"hoist-non-react-statics@^3.0.0":
+>>>>>>> 6c4ca7c0422b5e311d8e815738c6c183a1259ce9
+=======
 "hoist-non-react-statics@^3.0.0", "hoist-non-react-statics@^3.3.0":
   "integrity" "sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw=="
   "resolved" "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz"
+>>>>>>> 26f3b38ed624ec12506d7b713d4eb8bd78a9a299
   "version" "3.3.2"
   dependencies:
     "react-is" "^16.7.0"

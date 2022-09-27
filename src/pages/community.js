@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { getSession } from "next-auth/react";
+import axios from "axios";
 
 import { CommunityMain, Footer } from "../components";
 const CommunityPage = ({ postList }) => {
@@ -17,12 +18,12 @@ const CommunityPage = ({ postList }) => {
 export async function getServerSideProps(context) {
   const session = await getSession(context);
 
-  const postRes = await fetch("http://localhost:3000/api/community");
-  const postDataObj = await postRes.json();
+  const postRes = await axios.get("http://localhost:3000/api/community");
+  const postDataObj = postRes.data;
   const postData = postDataObj.response;
 
-  const userRes = await fetch("http://localhost:3000/api/user");
-  const userDataObj = await userRes.json();
+  const userRes = await axios.get("http://localhost:3000/api/user");
+  const userDataObj = await userRes.data;
 
   const postList = [];
   const { users } = userDataObj;

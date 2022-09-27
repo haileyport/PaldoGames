@@ -15,8 +15,7 @@ export const Section = styled.section`
   align-items: center;
   justify-content: center;
   color: rgb(75 85 99);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 `;
 
 export const Main = styled.main`
@@ -43,7 +42,12 @@ export const SearchInput = styled.input`
   padding-right: 10px;
   padding-top: 4px;
   color: black;
-  @media screen and (max-width: 650px) {
+
+  @media screen and (max-height: 650px) {
+    display: none;
+  }
+
+  @media screen and (max-width: 400px) {
     display: none;
   }
 `;

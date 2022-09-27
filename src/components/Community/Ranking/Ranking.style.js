@@ -7,7 +7,6 @@ const BackColor = styled.div`
   align-items: center;
   justify-content: center;
 `;
-//타이틀
 const RankingTitle = styled.div`
   display: flex;
   justify-content: center;
@@ -91,34 +90,4 @@ const ImageBox = styled.div`
   padding-top: 10px;
 `;
 
-/* > :nth-child(1) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 2rem;
-    height: 2rem;
-    border-right: 1px solid white;
-  }
-  > :nth-child(2) {
-    display: flex;
-    width: 15rem;
-    padding-left: 3px;
-  }
-  > :nth-child(3) {
-    display: flex;
-    align-items: center;
-    width: 20px;
-    height: 2rem;
-    padding-left: 1px;
-    border-left: 1px solid white;
-  } */
-
-export {
-  BackColor,
-  RankingBox,
-  BoxSectionOne,
-  MiddleBox,
-  RankingTitle,
-  RankingSubTitle,
-  ImageBox,
-};
+export { BackColor, RankingBox, BoxSectionOne, MiddleBox, RankingTitle, RankingSubTitle, ImageBox };
