@@ -25,7 +25,6 @@ export default async (req, res) => {
   } else if (req.method === "PATCH") {
     try {
       const { userId, point } = req.body;
-      console.log(point);
       const response = await prisma.game.update({
         where: { userId: userId },
         data: { totalPoint: point },

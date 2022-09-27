@@ -27,8 +27,7 @@ const LottoMain = () => {
   const router = useRouter();
 
   const getUser = async () => {
-    const userId = user.id; // id값은 전역으로 저장해서 들고 다니기
-    console.log("qwe", userId);
+    const userId = user.id;
     const res = await axios
       .get(`/api/game/${userId}`)
       .catch((err) => console.log(err));
@@ -37,7 +36,7 @@ const LottoMain = () => {
 
   const updateUser = async (el) => {
     const point = el;
-    const userId = user.id; // id값은 전역으로 저장해서 들고 다니기
+    const userId = user.id;
     const res = await axios.patch(`/api/game`, { userId, point });
   };
 
@@ -93,7 +92,6 @@ const LottoMain = () => {
         ...game,
         point: 0,
       });
-      console.log(game.game);
     }
     router.push("/games/result");
     //
@@ -105,7 +103,6 @@ const LottoMain = () => {
         ...game,
         point: 1500,
       });
-      console.log(game.game);
     }
     router.push("/games/result");
     //
@@ -117,7 +114,6 @@ const LottoMain = () => {
         ...game,
         point: 307000,
       });
-      console.log(game.game);
     }
     router.push("/games/result");
     //
@@ -129,7 +125,6 @@ const LottoMain = () => {
         ...game,
         point: 11391000,
       });
-      console.log(game.game);
     }
     router.push("/games/result");
     //
@@ -141,7 +136,6 @@ const LottoMain = () => {
         ...game,
         point: 3213957000,
       });
-      console.log(game.game);
     }
     router.push("/games/result");
   };
