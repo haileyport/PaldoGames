@@ -1,7 +1,7 @@
 import axios from "axios";
 import Link from "next/link";
 import { useRecoilState } from "recoil";
-import { modalStates } from "../../../../states";
+import { currentUserState, modalStates } from "../../../../states";
 
 import * as Styled from "./ModalMain.style";
 import { Flex } from "../../Flex/Flex";
@@ -14,24 +14,22 @@ import { useCallback, useEffect, useState } from "react";
 
 export const ProfileModalMain = ({ user }) => {
   const [modal, setModal] = useRecoilState(modalStates);
-  const [totalPoint, setTotalPoint] = useState({ id: "", point: 0 });
+  const [totalPoint, setTotalPoint] = useState(0);
 
-  // 공통되는것 hooks로 관리
   const fetchTotalPoint = useCallback(async () => {
     const { data } = await axios.get(`/api/game/${user.id}`);
     let point;
 
-    if (data.response) {
+    if (data.response && user) {
       point = data.response.totalPoint;
     }
 
-    setTotalPoint({ id: user.id, point });
-  }, [user.id]);
+    setTotalPoint(point);
+  }, [user]);
 
   useEffect(() => {
     fetchTotalPoint();
-  }, [fetchTotalPoint, totalPoint]);
-
+  }, [fetchTotalPoint]);
   return (
     <Styled.InnerModalMain>
       <Flex justifyContent='space-between' style={{ margin: 40, marginTop: 20 }}>
@@ -39,7 +37,7 @@ export const ProfileModalMain = ({ user }) => {
           <Link href='/ranking'>
             <FontAwesomeIcon icon={faCoins} size='2x' style={{ marginBottom: 10, cursor: "pointer" }} onClick={() => setModal({ ...modal, profile: false })} />
           </Link>
-          <span>{totalPoint.point} 포인트</span>
+          <span>{totalPoint} 포인트</span>
         </Flex>
         <Flex flexDirection='column' onClick={() => setModal({ ...modal, profile: false })}>
           <Link href='/games/lotto'>
