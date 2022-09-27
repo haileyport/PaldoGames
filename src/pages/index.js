@@ -1,8 +1,29 @@
-import { getSession } from "next-auth/react";
+import axios from "axios";
+import { getSession, useSession } from "next-auth/react";
 import Head from "next/head";
+import { useEffect } from "react";
 import { Main } from "../components";
+import { useRecoilValue } from "recoil";
+import { currentUserState } from "./../states/user";
 
 export const Home = ({ session }) => {
+  const { user } = useRecoilValue(currentUserState);
+
+  const newTable = async () => {
+    const userId = user.id;
+    const { response } = await axios.get(`/api/game/${userId}`, { userId });
+    if (!response) {
+      const id = user.id;
+      await axios.post(`/api/game`, { id });
+    }
+  };
+
+  useEffect(() => {
+    if (session) {
+      newTable();
+    }
+  }, [session]);
+
   return (
     <>
       <Head>

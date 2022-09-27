@@ -63,7 +63,7 @@ export const CommunityModalMain = () => {
 
     setPost((prev) => (prev = _post));
     setModal({ ...modal, community: false });
-  }, [index, post, setModal, setPost]);
+  }, [index, post, setPost]);
 
   useEffect(() => {
     fetchTotalPoint();
