@@ -3,10 +3,9 @@ import { useRouter } from "next/router";
 
 export const GamesResult = ({ game, point }) => {
   const router = useRouter();
-  console.log(game);
 
   const handleClick = () => {
-    router.back();
+    router.push("/games");
   };
 
   return (

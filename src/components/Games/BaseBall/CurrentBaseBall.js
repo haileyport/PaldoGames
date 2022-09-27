@@ -50,9 +50,6 @@ export const CurrentBaseBall = ({ answer, setAnswer, result, setResult }) => {
       return;
     }
 
-    // dev 확인용 콘솔 - production 시 삭제!
-    console.log("답은", answer.join(""));
-
     // 참가비 가감
     if (tries.length === 0) {
       getUser().then((el) => {
@@ -136,10 +133,8 @@ export const CurrentBaseBall = ({ answer, setAnswer, result, setResult }) => {
   };
 
   const getUser = async () => {
-    const userId = user.id; // id값은 전역으로 저장해서 들고 다니기
-    console.log(userId);
+    const userId = user.id;
     const res = await axios.get(`/api/game/${userId}`).catch((err) => console.log(err));
-    console.log(res);
     return res.data.response.totalPoint;
   };
 
@@ -159,12 +154,8 @@ export const CurrentBaseBall = ({ answer, setAnswer, result, setResult }) => {
           ...game,
           point: 400,
         });
-        console.log(game.game);
       }
       router.push("/games/result");
-    } else {
-      console.log("failed");
-      console.log(game);
     }
   }, [reTry]);
 
@@ -179,11 +170,11 @@ export const CurrentBaseBall = ({ answer, setAnswer, result, setResult }) => {
           <B.BottomSpan>게임을 시작해주세요.</B.BottomSpan>
         ) : (
           tries.map((v, i) => (
-            <B.HistoryDiv key={v.id}>
+            <B.HistoryDiv key={i}>
               <B.Text>{i + 1}</B.Text>
               <B.BallSet>
                 {light(v.strike, v.ball).map((el, idx) => {
-                  return <Balls key={{ idx }} background={el} />;
+                  return <Balls key={idx} background={el} />;
                 })}
               </B.BallSet>
               <B.Text>{v.try}</B.Text>
