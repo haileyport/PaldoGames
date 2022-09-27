@@ -82,7 +82,7 @@ export const PostModal = () => {
         alert(POST.EMPTY_INPUT);
       }
     },
-    [modal, setModal, totalPoint, updatePost, user]
+    [totalPoint, updatePost, user]
   );
 
   useEffect(() => {

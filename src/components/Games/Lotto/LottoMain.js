@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { LottoMainBox, ResetBox, BixContainer } from "./lotto.style";
+import { LottoMainBox, ResetBox, BixContainer } from "./Lotto.style";
 import axios from "axios";
 import Coupon from "./Coupon/Coupon";
 import LottoHeader from "./LottoHeader/LottoHeader";
-import Result from "./Result/Result";
 import ButtonStart from "./Button/ButtonStart";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { currentUserState } from "./../../../states/user";
@@ -12,9 +11,8 @@ import { useRouter } from "next/router";
 
 const LottoMain = () => {
   const numbers = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-    22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
-    41, 42, 43, 44, 45,
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41,
+    42, 43, 44, 45,
   ];
 
   const [playerNum, setPlayerNum] = useState([]);
@@ -28,9 +26,7 @@ const LottoMain = () => {
 
   const getUser = async () => {
     const userId = user.id;
-    const res = await axios
-      .get(`/api/game/${userId}`)
-      .catch((err) => console.log(err));
+    const res = await axios.get(`/api/game/${userId}`).catch((err) => console.log(err));
     return res?.data?.response?.totalPoint;
   };
 
