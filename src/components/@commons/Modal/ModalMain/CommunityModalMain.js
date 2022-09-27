@@ -51,7 +51,9 @@ export const CommunityModalMain = () => {
         console.log(err);
       });
 
-    await axios.patch(`api/game`, { userId: user.id, point: point - 100 });
+    if (point > 100) {
+      await axios.patch(`api/game`, { userId: user.id, point: point - 100 });
+    }
   }, [ids.title, ids.userId, totalPoint, updatePost, user.id]);
 
   const updatePost = useCallback(() => {

@@ -43,9 +43,7 @@ const TimesTablesMain = () => {
 
   const getUser = async () => {
     const userId = user.id;
-    const res = await axios
-      .get(`/api/game/${userId}`)
-      .catch((err) => console.log(err));
+    const res = await axios.get(`/api/game/${userId}`).catch((err) => console.log(err));
     return res?.data?.response?.totalPoint;
   };
 
@@ -124,17 +122,17 @@ const TimesTablesMain = () => {
   }, [seconds]);
 
   const gameOver = () => {
-    if (score >= 7) {
+    if (score >= 1) {
       // 게임 성공 200 포인트
       getUser().then((el) => {
-        updateUser(el + 200);
+        updateUser(el + 500);
       });
       setGame({
         game: {
           name: "timestables",
           answer: null,
         },
-        point: 200,
+        point: 500,
       });
     }
     router.push("/games/result");
@@ -174,10 +172,10 @@ const TimesTablesMain = () => {
         <>
           <TimesTablesSmallTitle>구구단 게임 💬</TimesTablesSmallTitle>
           <AlarmContainer>
-            <Image src={alarm} width="80%" height="80%" />
+            <Image src={alarm} width='80%' height='80%' />
             <TimesTablesAlarm>{seconds}</TimesTablesAlarm>
           </AlarmContainer>
-          <Flex justifyContent="center" alignItems="center">
+          <Flex justifyContent='center' alignItems='center'>
             <TimesTablesLives>{lives}</TimesTablesLives>
             <TimesTablesScore>SCORE: {score}</TimesTablesScore>
           </Flex>
@@ -193,7 +191,7 @@ const TimesTablesMain = () => {
             }}
           >
             <TimesTablesInput
-              type="number"
+              type='number'
               value={value}
               ref={valueInput}
               onChange={(e) => {

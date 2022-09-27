@@ -374,9 +374,9 @@
   dependencies:
     "glob" "7.1.7"
 
-"@next/swc-win32-x64-msvc@12.2.5":
-  "integrity" "sha512-7h5/ahY7NeaO2xygqVrSG/Y8Vs4cdjxIjowTZ5W6CKoTKn7tmnuxlUc2h74x06FKmbhAd9agOjr/AOKyxYYm9Q=="
-  "resolved" "https://registry.npmjs.org/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-12.2.5.tgz"
+"@next/swc-darwin-arm64@12.2.5":
+  "integrity" "sha512-VOPWbO5EFr6snla/WcxUKtvzGVShfs302TEMOtzYyWni6f9zuOetijJvVh9CCTzInnXAZMtHyNhefijA4HMYLg=="
+  "resolved" "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-12.2.5.tgz"
   "version" "12.2.5"
 
 "@nodelib/fs.scandir@2.1.5":
@@ -416,11 +416,6 @@
   "integrity" "sha512-8yWpXkQRmiSfsi2Wb/ZS5D3RFbeu/btL9Pm/gdF4phB0Lo5KGsDFMxFMgaD64mwED2nHc8ZaEJg/+4Jymb9Znw=="
   "resolved" "https://registry.npmjs.org/@prisma/engines-version/-/engines-version-4.3.0-32.c875e43600dfe042452e0b868f7a48b817b9640b.tgz"
   "version" "4.3.0-32.c875e43600dfe042452e0b868f7a48b817b9640b"
-
-"@prisma/engines@4.3.1":
-  "integrity" "sha512-4JF/uMaEDAPdcdZNOrnzE3BvrbGpjgV0FcPT3EVoi6I86fWkloqqxBt+KcK/+fIRR0Pxj66uGR9wVH8U1Y13JA=="
-  "resolved" "https://registry.npmjs.org/@prisma/engines/-/engines-4.3.1.tgz"
-  "version" "4.3.1"
 
 "@rushstack/eslint-patch@^1.1.3":
   "integrity" "sha512-LwzQKA4vzIct1zNZzBmRKI9QuNpLgTQMEjsQLf3BXuGYb3QPTP4Yjf6mkdX+X1mYttZ808QpOwAzZjv28kq7DA=="
@@ -853,7 +848,22 @@
   "integrity" "sha512-QADzlaHc8icV8I7vbaJXJwod9HWYp8uCqf1xa4OfNu1T7JVxQIrUgOWtHdNDtPiywmFbiS12VjotIXLrKM3orQ=="
   "resolved" "https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.0.6.tgz"
   "version" "1.0.6"
+<<<<<<< HEAD
+
+<<<<<<< HEAD
+<<<<<<< HEAD
 "cookie@^0.4.0", "cookie@^0.4.1":
+=======
+"cookie@^0.4.1":
+>>>>>>> 6c4ca7c0422b5e311d8e815738c6c183a1259ce9
+=======
+"cookie@^0.4.0", "cookie@^0.4.1":
+  "integrity" "sha512-aSWTXFzaKWkvHO1Ny/s+ePFpvKsPnjc551iI41v3ny/ow6tBG5Vd+FuqGNhh1LxOmVzOlGUriIlOaokOvhaStA=="
+  "resolved" "https://registry.npmjs.org/cookie/-/cookie-0.4.2.tgz"
+>>>>>>> 26f3b38ed624ec12506d7b713d4eb8bd78a9a299
+=======
+"cookie@^0.4.0", "cookie@^0.4.1":
+>>>>>>> aae48789a4b190766cee69ad8b2ff2879fd16b30
   "version" "0.4.2"
 
 "cookie@0.5.0":
@@ -1651,7 +1661,20 @@
   dependencies:
     "function-bind" "^1.1.1"
 
+<<<<<<< HEAD
+<<<<<<< HEAD
 "hoist-non-react-statics@^3.0.0", "hoist-non-react-statics@^3.3.0":
+=======
+"hoist-non-react-statics@^3.0.0":
+>>>>>>> 6c4ca7c0422b5e311d8e815738c6c183a1259ce9
+=======
+"hoist-non-react-statics@^3.0.0", "hoist-non-react-statics@^3.3.0":
+<<<<<<< HEAD
+  "integrity" "sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw=="
+  "resolved" "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz"
+>>>>>>> 26f3b38ed624ec12506d7b713d4eb8bd78a9a299
+=======
+>>>>>>> aae48789a4b190766cee69ad8b2ff2879fd16b30
   "version" "3.3.2"
   dependencies:
     "react-is" "^16.7.0"
@@ -2877,7 +2900,10 @@
   "resolved" "https://registry.npmjs.org/uuid/-/uuid-8.3.2.tgz"
   "version" "8.3.2"
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> aae48789a4b190766cee69ad8b2ff2879fd16b30
 "vary@~1.1.2":
   "integrity" "sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg=="
   "resolved" "https://registry.npmjs.org/vary/-/vary-1.1.2.tgz"
