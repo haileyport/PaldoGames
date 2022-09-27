@@ -13,8 +13,7 @@ export const COMMUNITY_ADMINS = Object.freeze([
 export const ADMIN_INFO = Object.freeze({
   id: "cl8ibrkfb00436gn0jsc7czx0",
   name: "팔도게임즈",
-  image:
-    "https://images.unsplash.com/photo-1570303345338-e1f0eddf4946?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZGljZXxlbnwwfHwwfHw%3D&w=1000&q=80",
+  image: "https://images.unsplash.com/photo-1570303345338-e1f0eddf4946?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZGljZXxlbnwwfHwwfHw%3D&w=1000&q=80",
   aboutMe: "팔도게임즈 입니다.",
   email: "",
 });

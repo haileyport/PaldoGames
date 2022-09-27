@@ -855,6 +855,7 @@
   "version" "1.0.6"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -876,6 +877,10 @@
 >>>>>>> 2c2e5c64da8795592e743c4fd33f82ba4025024c
 >>>>>>> d0fbc8a04de3fc1e0e73c96b4f6c3ea76d082bf5
 "cookie@^0.4.0", "cookie@^0.4.1":
+=======
+
+"cookie@^0.4.0", "cookie@^0.4.1":
+>>>>>>> 15c3f255e9905b46fee7981c5a228226ba159265
   "integrity" "sha512-aSWTXFzaKWkvHO1Ny/s+ePFpvKsPnjc551iI41v3ny/ow6tBG5Vd+FuqGNhh1LxOmVzOlGUriIlOaokOvhaStA=="
   "resolved" "https://registry.npmjs.org/cookie/-/cookie-0.4.2.tgz"
   "version" "0.4.2"
