@@ -1,15 +1,18 @@
 import { atom } from "recoil";
 
 // 현재 로그인 된 유저
-const currentUserState = atom({
+export const currentUserState = atom({
   key: `currentUser`,
-  default: { isLoggedIn: false, user: {} },
+  default: { isLoggedIn: false, isAdmin: false, user: {} },
+});
+
+export const adminState = atom({
+  key: "adminUser",
+  default: false,
 });
 
 // 커뮤니티
-const contentState = atom({
+export const contentState = atom({
   key: `contentId`,
-  default: { contentId: "", userId: "", editorId: "" },
+  default: { contentId: "", userId: "", title: "", editorId: "" },
 });
-
-export { currentUserState, contentState };

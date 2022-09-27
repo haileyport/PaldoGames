@@ -7,9 +7,9 @@ export const HomeLink = () => {
   return (
     <Styled.HomeLink>
       <Styled.Logo>
-        <Image src={Logo} alt='로고' width={25} height={22}></Image>
+        <Image src={Logo} alt="로고" width={50} height={50}></Image>
       </Styled.Logo>
-      <Link href='/'>
+      <Link href="/">
         <Styled.Name>팔도게임즈</Styled.Name>
       </Link>
     </Styled.HomeLink>
