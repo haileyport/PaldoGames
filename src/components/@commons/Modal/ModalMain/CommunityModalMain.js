@@ -1,51 +1,88 @@
 import axios from "axios";
+import { useCallback, useEffect, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { contentState, currentUserState, modalStates } from "../../../../states";
+import { adminState, contentState, currentUserState, modalStates } from "../../../../states";
 import { postState } from "../../../../states/community";
 import { Flex } from "../../Flex/Flex";
 import { P } from "../../P/P";
 import * as Styled from "./ModalMain.style";
 
 export const CommunityModalMain = () => {
-  // 게시물의 번호를 고유id 로 관리해서 검증시에 userId 와 게시물Id 까지 맞으면 렌더링
+  const [totalPoint, setTotalPoint] = useState({ id: "", point: 0 });
   const ids = useRecoilValue(contentState);
   const [post, setPost] = useRecoilState(postState);
   const { user } = useRecoilValue(currentUserState);
   const [modal, setModal] = useRecoilState(modalStates);
+  const isAdmin = useRecoilValue(adminState);
 
-  const getPostList = post.filter((details) => details?.writer?.id === ids?.userId && details?.id === ids?.contentId)[0];
+  const getPost = post.filter(({ writer, title }) => writer.id === ids.userId && title === ids.title)[0];
+  const index = post.findIndex((details) => details.id === getPost.id);
+  const iAmTheOne = user.id === getPost?.writer.id;
 
-  const iAmTheOne = user.id === getPostList?.writer.id;
+  const fetchTotalPoint = useCallback(async () => {
+    const { data } = await axios.get(`/api/game/${user.id}`);
+    let point;
 
-  const deletePost = async () => {
+    if (data.response) {
+      point = data.response.totalPoint;
+      setTotalPoint({ id: user.id, point });
+    } else {
+      point = 0;
+    }
+  }, [user.id]);
+
+  const deletePost = useCallback(async () => {
     const { data } = await axios.get("/api/community");
     const response = data.response;
-    const currentPost = response.filter((post) => post.editor === ids.userId && getPostList.title === post.title)[0];
+    const { point } = totalPoint;
 
-    await axios.delete(`/api/community`, {
-      data: { id: currentPost.id },
-    });
+    const currentPost = response.filter((post) => post.editor === ids.userId && ids.title === post.title)[0];
 
-    setPost((prev) => prev.filter((post) => post.id !== ids.contentId));
+    await axios
+      .delete(`/api/community`, {
+        data: { id: currentPost.id },
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          updatePost();
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    await axios.patch(`api/game`, { userId: user.id, point: point - 100 });
+  }, [ids.title, ids.userId, totalPoint, updatePost, user.id]);
+
+  const updatePost = useCallback(() => {
+    const _post = [...post];
+
+    _post.splice(index, 1);
+
+    setPost((prev) => (prev = _post));
     setModal({ ...modal, community: false });
-  };
+  }, [index, modal, post, setModal, setPost]);
+
+  useEffect(() => {
+    fetchTotalPoint();
+  }, [fetchTotalPoint]);
 
   return (
     <Styled.InnerModalMain>
-      {iAmTheOne && (
+      {(iAmTheOne || isAdmin) && (
         <Flex flexDirection='row' justifyContent='flex-end' style={{ position: "relative" }}>
           <button onClick={() => setModal({ ...modal, edit: true, community: false })}>수정</button>
-          <button onClick={deletePost}>삭제</button>
+          <button onClick={() => deletePost()}>삭제</button>
         </Flex>
       )}
       <Flex justifyContent='space-between' style={{ margin: 40, marginTop: 20 }}>
         <Flex flexDirection='column' style={{ width: "100%", textAlign: "center" }}>
           <Flex flexDirection='column' style={{ borderBottom: "1px solid lightGray" }}>
             <span style={{ letterSpacing: 5 }}>제목</span>
-            <P content={getPostList?.title} />
+            <P className='contentTitle' content={getPost?.title} />
           </Flex>
           <Flex>
-            <P content={getPostList?.content} style={{ textAlign: "left", lineHeight: 2, letterSpacing: 2 }} />
+            <P content={getPost?.content} style={{ textAlign: "left", lineHeight: 2, letterSpacing: 2 }} />
           </Flex>
         </Flex>
       </Flex>

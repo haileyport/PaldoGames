@@ -8,6 +8,7 @@ import { Flex } from "../../@commons";
 import { Modal, ModalHeader, ModalProfile } from "../../@commons/Modal";
 import * as Post from "../PostModal/PostModal.style";
 import * as M from "../../@commons/Modal/Modal.style";
+import { ADMIN_INFO, COMMUNITY_ADMINS } from "../../../constants";
 
 export const EditModal = () => {
   const [post, setPost] = useRecoilState(postState);
@@ -29,6 +30,7 @@ export const EditModal = () => {
 
     const _title = titleRef?.current.value;
     const _content = contentRef?.current.value;
+
     const currentPost = response.filter((post) => post.editor === ids.userId && getPostList.title === post.title)[0];
 
     axios
@@ -38,17 +40,34 @@ export const EditModal = () => {
         content: _content,
       })
       .then((res) => {
-        updatePost(res, index);
+        if (res.status === 200) {
+          editPost(res, index, currentPost);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
 
-  const updatePost = (res, index) => {
-    const _post = post.slice();
-    const _editedPost = { ...res.data.response, editor: user.id, writer: user };
+  const editPost = (res, index, currentPost) => {
+    const _post = [...post];
+    let _editedPost;
+
+    if (currentPost.editor === ADMIN_INFO.id) {
+      COMMUNITY_ADMINS.map((admin) => {
+        if (admin.id === user.id) {
+          _editedPost = { ...res.data.response, editor: ADMIN_INFO.id, writer: ADMIN_INFO };
+        }
+      });
+    } else {
+      _editedPost = { ...res.data.response, editor: user.id, writer: user };
+    }
+
+    console.log(_editedPost);
 
     _post.splice(index, 1, _editedPost);
 
-    setPost(_post);
+    setPost((prev) => (prev = _post));
     setModal({ ...modal, edit: false });
   };
 

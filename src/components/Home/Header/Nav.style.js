@@ -5,6 +5,7 @@ export const Nav = styled.nav`
   flex-wrap: wrap;
   align-items: center;
   font-size: 1rem;
+  margin-top: 1rem;
   line-height: 1.5rem;
   justify-content: center;
   margin-top: 2rem;

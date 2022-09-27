@@ -22,8 +22,7 @@ model Account {
   scope             String?
   id_token          String? @db.Text
   session_state     String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
@@ -65,11 +64,9 @@ model Game {
 }
 
 model Community {
-  id      String @id @default(cuid())
+  id      String @id @unique @default(cuid())
   title   String
   content String
   editor  String
   user    User   @relation(fields: [editor], references: [id], onDelete: Cascade)
-
-  @@unique([id])
 }

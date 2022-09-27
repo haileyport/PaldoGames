@@ -26,10 +26,6 @@ const Footer = styled.footer`
   @media screen and (max-height: 900px) {
     display: none;
   }
-
-  /* @media screen and (max-height: 900px) {
-    display: none;
-  } */
 `;
 
 const Container = styled.div`
@@ -44,7 +40,7 @@ const Container = styled.div`
     max-width: 640px;
   }
   @media screen and (min-width: 768px) {
-    max-width: 768px;
+    // max-width: 768px;
     flex-direction: row;
   }
   @media screen and (min-width: 1024px) {

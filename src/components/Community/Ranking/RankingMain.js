@@ -48,9 +48,9 @@ const RankingMain = () => {
       }
     });
   }, []);
-  //유저
+
   return (
-    <ranking.Backcolor>
+    <ranking.BackColor>
       <MainHeader />
       <ranking.RankingSubTitle>
         자신의 랭킹을 확인해보세요!!
@@ -66,33 +66,22 @@ const RankingMain = () => {
             </tr>
           </thead>
           {filterArr.map((el, i) => {
-            i > 10;
-            return (
-              <tbody key={i}>
-                <tr>
-                  <td>{i + 1}</td>
-                  <td>{el.name}</td>
-                  <td>{el.point}</td>
-                </tr>
-              </tbody>
-            );
+            while (i < 10) {
+              return (
+                <tbody key={i}>
+                  <tr>
+                    <td>{i + 1}</td>
+                    <td>{el.name}</td>
+                    <td>{el.point}</td>
+                  </tr>
+                </tbody>
+              );
+            }
           })}
         </ranking.RankingBox>
       </ranking.MiddleBox>
-    </ranking.Backcolor>
+    </ranking.BackColor>
   );
-
-  {
-    /* {filterArr.map((el, i) => {
-          i >= 9;
-          return (
-            <ranking.RankingBox key={i}>
-            <div>{i + 1}</div>
-            <div>{el.name}</div>
-            <div>{el.point}</div>
-            );
-          </tbody> */
-  }
 };
 
 export default RankingMain;

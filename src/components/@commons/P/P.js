@@ -3,16 +3,16 @@ import { forwardRef } from "react";
 import styled from "styled-components";
 
 const StyledP = styled.p`
-  .ellipsis {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
+  // .ellipsis {
+  //   white-space: nowrap;
+  //   text-overflow: ellipsis;
+  // }
 
-  @media screen and (min-width: 400px) {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
+  // @media screen and (min-width: 400px) {
+  //   white-space: nowrap;
+  //   text-overflow: ellipsis;
+  //   overflow: hidden;
+  // }
 `;
 
 export const P = forwardRef((props, forwardRef) => {
