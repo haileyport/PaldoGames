@@ -90,4 +90,12 @@ const ImageBox = styled.div`
   padding-top: 10px;
 `;
 
-export { BackColor, RankingBox, BoxSectionOne, MiddleBox, RankingTitle, RankingSubTitle, ImageBox };
+export {
+  BackColor,
+  RankingBox,
+  BoxSectionOne,
+  MiddleBox,
+  RankingTitle,
+  RankingSubTitle,
+  ImageBox,
+};

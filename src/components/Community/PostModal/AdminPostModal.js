@@ -65,7 +65,7 @@ export const AdminPostModal = () => {
         alert(POST.EMPTY_INPUT);
       }
     },
-    [modal, setModal, updatePost]
+    [updatePost]
   );
 
   return (
