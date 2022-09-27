@@ -258,6 +258,11 @@
   "resolved" "https://registry.npmjs.org/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-6.2.0.tgz"
   "version" "6.2.0"
 
+"@fortawesome/fontawesome-free@^6.2.0":
+  "integrity" "sha512-CNR7qRIfCwWHNN7FnKUniva94edPdyQzil/zCwk3v6k4R6rR2Fr8i4s3PM7n/lyfPA6Zfko9z5WDzFxG9SW1uQ=="
+  "resolved" "https://registry.npmjs.org/@fortawesome/fontawesome-free/-/fontawesome-free-6.2.0.tgz"
+  "version" "6.2.0"
+
 "@fortawesome/fontawesome-svg-core@^6.2.0", "@fortawesome/fontawesome-svg-core@~1 || ~6":
   "integrity" "sha512-Cf2mAAeMWFMzpLC7Y9H1I4o3wEU+XovVJhTiNG8ZNgSQj53yl7OCJaS80K4YjrABWZzbAHVaoHE1dVJ27AAYXw=="
   "resolved" "https://registry.npmjs.org/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-6.2.0.tgz"
@@ -850,6 +855,8 @@
   "version" "1.0.6"
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 
@@ -867,6 +874,7 @@
 =======
 
 >>>>>>> 2c2e5c64da8795592e743c4fd33f82ba4025024c
+>>>>>>> d0fbc8a04de3fc1e0e73c96b4f6c3ea76d082bf5
 "cookie@^0.4.0", "cookie@^0.4.1":
   "integrity" "sha512-aSWTXFzaKWkvHO1Ny/s+ePFpvKsPnjc551iI41v3ny/ow6tBG5Vd+FuqGNhh1LxOmVzOlGUriIlOaokOvhaStA=="
   "resolved" "https://registry.npmjs.org/cookie/-/cookie-0.4.2.tgz"
@@ -1670,10 +1678,13 @@
 
 
 "hoist-non-react-statics@^3.0.0", "hoist-non-react-statics@^3.3.0":
+<<<<<<< HEAD
+=======
 
 "hoist-non-react-statics@^3.0.0":
 
 "hoist-non-react-statics@^3.0.0", "hoist-non-react-statics@^3.3.0":
+>>>>>>> d0fbc8a04de3fc1e0e73c96b4f6c3ea76d082bf5
   "integrity" "sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw=="
   "resolved" "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz"
 <<<<<<< HEAD

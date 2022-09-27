@@ -9,6 +9,7 @@ import * as Styled from "./ModalMain.style";
 
 export const CommunityModalMain = () => {
   const [totalPoint, setTotalPoint] = useState({ id: "", point: 0 });
+  const [isDisabled, setIsDisabled] = useState(false);
   const ids = useRecoilValue(contentState);
   const [post, setPost] = useRecoilState(postState);
   const { user } = useRecoilValue(currentUserState);
@@ -32,11 +33,15 @@ export const CommunityModalMain = () => {
   }, [user.id]);
 
   const deletePost = useCallback(async () => {
+    if (isDisabled) return;
+
     const { data } = await axios.get("/api/community");
     const response = data.response;
     const { point } = totalPoint;
 
     const currentPost = response.filter((post) => post.editor === ids.userId && ids.title === post.title)[0];
+
+    setIsDisabled(true);
 
     await axios
       .delete(`/api/community`, {
@@ -74,7 +79,9 @@ export const CommunityModalMain = () => {
       {(iAmTheOne || isAdmin) && (
         <Flex flexDirection='row' justifyContent='flex-end' style={{ position: "relative" }}>
           <button onClick={() => setModal({ ...modal, edit: true, community: false })}>수정</button>
-          <button onClick={() => deletePost()}>삭제</button>
+          <button onClick={() => deletePost()} disabled={isDisabled}>
+            삭제
+          </button>
         </Flex>
       )}
       <Flex justifyContent='space-between' style={{ margin: 40, marginTop: 20 }}>

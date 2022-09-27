@@ -113,13 +113,13 @@ export const CommunityMain = ({ postList }) => {
         </Flex>
         <Flex flexDirection='row' justifyContent='center'>
           <Styled.SearchContainer>
-            <Styled.SearchInput type='text' placeholder='   검색어를 입력하세요' onChange={onChangeSearchEvent} />
+            <Styled.SearchInput type='text' placeholder='    검색어를 입력하세요' onChange={onChangeSearchEvent} />
             <FontAwesomeIcon
               icon={faSearch}
               size='1x'
               style={{
                 position: "relative",
-                top: 52,
+                top: 51,
                 right: 330,
                 color: "black",
                 zIndex: 67,
