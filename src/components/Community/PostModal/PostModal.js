@@ -82,7 +82,7 @@ export const PostModal = () => {
         alert(POST.EMPTY_INPUT);
       }
     },
-    [modal, setModal, totalPoint, updatePost, user]
+    [totalPoint, updatePost, user]
   );
 
   useEffect(() => {
@@ -101,7 +101,7 @@ export const PostModal = () => {
         <ModalHeader content="글쓰기" />
         <ModalProfile user={user} />
         <Post.Main type="submit">
-          <Post.Form onSubmit={(e) => handlePostDetails(e)}>
+          <Post.Form onSubmit={handlePostDetails}>
             <Flex justifyContent="center">
               <Post.Input
                 ref={title}
