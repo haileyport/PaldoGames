@@ -36,7 +36,7 @@ const Container = styled.div`
     max-width: 640px;
   }
   @media screen and (min-width: 768px) {
-    max-width: 768px;
+    // max-width: 768px;
     flex-direction: row;
   }
   @media screen and (min-width: 1024px) {

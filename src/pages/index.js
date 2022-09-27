@@ -3,8 +3,6 @@ import Head from "next/head";
 import { Main } from "../components";
 
 export const Home = ({ session }) => {
-  console.log("HomePage", session);
-
   return (
     <>
       <Head>

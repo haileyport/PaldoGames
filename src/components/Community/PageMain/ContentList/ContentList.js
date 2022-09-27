@@ -1,11 +1,12 @@
-import { useRecoilState } from "recoil";
-import { contentState, modalStates } from "../../../../states";
-import { Flex, P, Input } from "../../../@commons";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { contentState, modalStates, postState } from "../../../../states";
+import { Flex, Input } from "../../../@commons";
+import * as Styled from "../Community.style";
 
-export const ContentList = ({ details }) => {
-  let { id, title, writer } = details;
-
+export const ContentList = ({ post }) => {
+  const { title, writer } = post;
   const [modal, setModal] = useRecoilState(modalStates);
+  const postList = useRecoilValue(postState);
   const [currentPostId, setCurrentPostId] = useRecoilState(contentState);
 
   return (
@@ -14,19 +15,20 @@ export const ContentList = ({ details }) => {
       justifyContent='space-between'
       style={{ width: "90%", position: "relative", top: "40px", borderBottom: "1px solid white", margin: "0 auto" }}
     >
-      <Flex>
-        <input type='radio' id={id} disabled />
-        <P
-          id={id}
+      <Flex style={{ width: 550 }}>
+        <input type='radio' disabled />
+        <Styled.Title
           writer={writer.id}
           className='ellipsis'
-          content={title}
-          style={{ fontSize: 17, fontWeight: 300, width: "70%", marginLeft: 20, color: "white", cursor: "pointer", minWidth: 245, maxWidth: 245 }}
           onClick={() => {
+            const currentPost = postList.filter((post) => post.title === title && post.editor === writer.id)[0];
+
             setModal({ ...modal, community: true });
-            setCurrentPostId({ ...currentPostId, contentId: id, userId: writer.id });
+            setCurrentPostId({ contentId: currentPost?.id, userId: currentPost?.editor, title: currentPost?.title });
           }}
-        />
+        >
+          {title}
+        </Styled.Title>
       </Flex>
       <Flex alignItems='center' alignSelf='flex-end'>
         <Input
@@ -39,8 +41,7 @@ export const ContentList = ({ details }) => {
           }}
           style={{ width: 30, height: 30, borderRadius: 50, marginRight: 10 }}
         />
-
-        <span style={{ marginLeft: 5, color: "white" }}>{writer.name}</span>
+        <Styled.NameSpan>{writer.name}</Styled.NameSpan>
       </Flex>
     </Flex>
   );

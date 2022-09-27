@@ -1,30 +1,37 @@
+import { getSession } from "next-auth/react";
 import Head from "next/head";
 import { Flex } from "../components/@commons/";
 import RankingMain from "../components/Community/Ranking/RankingMain";
 
-const Ranking = ({ userDataObj }) => {
+const Ranking = () => {
   return (
     <>
       <Head>
         <title>랭킹</title>
-        <meta name="description" content="오늘도 즐겜" />
+        <meta name='description' content='오늘도 즐겜' />
       </Head>
-      <Flex flexDirection="column" alignItems="center">
+      <Flex flexDirection='column' alignItems='center'>
         <RankingMain />
       </Flex>
     </>
   );
 };
 
-export async function getStaticProps(context) {
-  const res = await fetch("http://localhost:3000/api/user");
-  const userDataObj = await res.json();
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
 
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
   return {
     props: {
-      userDataObj,
+      session,
     },
   };
 }
-
 export default Ranking;

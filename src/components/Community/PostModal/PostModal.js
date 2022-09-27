@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { currentUserState, modalStates } from "../../../states";
-
 import { Flex } from "../../@commons";
 import { Modal, ModalHeader, ModalProfile } from "../../@commons/Modal";
 import * as Post from "./PostModal.style";
@@ -9,13 +8,12 @@ import * as M from "../../@commons/Modal/Modal.style";
 import { POST } from "../../../constants";
 import { postState } from "../../../states/community";
 import axios from "axios";
-import { useSession } from "next-auth/react";
 
 export const PostModal = () => {
   const { user } = useRecoilValue(currentUserState);
   const [modal, setModal] = useRecoilState(modalStates);
-  const setPost = useSetRecoilState(postState);
   const [totalPoint, setTotalPoint] = useState({ id: "", point: 0 });
+  const setPost = useSetRecoilState(postState);
 
   const title = useRef(null);
   const content = useRef(null);
@@ -44,43 +42,48 @@ export const PostModal = () => {
     return isValid;
   };
 
-  const updatePost = (title, editor, content, writer) => {
-    setPost((prev) => [
-      {
-        title,
-        editor,
-        content,
-        writer,
-      },
-      ...prev,
-    ]);
+  const updatePost = useCallback(
+    (title, editor, content, writer) => {
+      setPost((prev) => [
+        {
+          title,
+          editor,
+          content,
+          writer,
+        },
+        ...prev,
+      ]);
+    },
+    [setPost]
+  );
 
-    setModal({ ...modal, post: false });
-  };
+  const handlePostDetails = useCallback(
+    async (e) => {
+      e.preventDefault();
 
-  const handlePostDetails = async (e) => {
-    e.preventDefault();
+      const titleValue = title.current.value;
+      const contentValue = content.current.value;
+      const { point } = totalPoint;
 
-    const titleValue = title.current.value;
-    const contentValue = content.current.value;
-    const { point } = totalPoint;
+      if (postingValidation(titleValue, contentValue)) {
+        await axios
+          .post(`/api/community`, {
+            id: user.id,
+            title: titleValue,
+            content: contentValue,
+          })
+          .catch((err) => console.log(err));
 
-    if (postingValidation(titleValue, contentValue)) {
-      await axios
-        .post(`/api/community`, {
-          id: user.id,
-          title: titleValue,
-          content: contentValue,
-        })
-        .catch((err) => console.log(err));
+        await axios.patch(`api/game`, { userId: user.id, point: point + 100 });
 
-      await axios.patch(`api/game`, { userId: user.id, point: point + 100 });
-
-      updatePost(titleValue, user.id, contentValue, user);
-    } else {
-      alert(POST.EMPTY_INPUT);
-    }
-  };
+        updatePost(titleValue, user.id, contentValue, user);
+        setModal({ ...modal, post: false });
+      } else {
+        alert(POST.EMPTY_INPUT);
+      }
+    },
+    [modal, setModal, totalPoint, updatePost, user]
+  );
 
   useEffect(() => {
     fetchTotalPoint();
@@ -98,7 +101,7 @@ export const PostModal = () => {
         <ModalHeader content="글쓰기" />
         <ModalProfile user={user} />
         <Post.Main type="submit">
-          <Post.Form onSubmit={handlePostDetails}>
+          <Post.Form onSubmit={(e) => handlePostDetails(e)}>
             <Flex justifyContent="center">
               <Post.Input
                 ref={title}
@@ -112,7 +115,7 @@ export const PostModal = () => {
                 type="text"
                 placeholder="내용을 입력해 주세요."
               />
-              <Post.Button>글쓰기</Post.Button>
+              <Post.Button>글 쓰기</Post.Button>
             </Flex>
           </Post.Form>
         </Post.Main>

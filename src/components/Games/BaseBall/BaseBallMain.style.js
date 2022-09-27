@@ -13,7 +13,7 @@ export const HeadTitle = styled.h1`
   font-size: 4rem;
 `;
 
-export const Discription = styled.div`
+export const Description = styled.div`
   color: white;
   margin-bottom: 2rem;
   line-height: 1.625;
@@ -95,8 +95,7 @@ export const StyledBaseBallMain = styled.section`
   align-items: center;
   justify-content: space-between;
   color: rgb(75 85 99);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 `;
 
 export const Bottom = styled.div`

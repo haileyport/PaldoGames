@@ -10,7 +10,15 @@ export const Section = styled.section`
 
 export const Image = styled.input`
   position: relative;
-  left: 20px;
+  left: 25%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+`;
+
+export const AdminImage = styled.input`
+  position: relative;
+  left: 33%;
   width: 50px;
   height: 50px;
   border-radius: 50px;

@@ -5,19 +5,18 @@ export const Nav = styled.nav`
   flex-wrap: wrap;
   align-items: center;
   font-size: 1rem;
+  margin-top: 1rem;
   line-height: 1.5rem;
   justify-content: center;
-  margin-top: 2rem;
   @media screen and (min-width: 768px) {
     margin-left: auto;
   }
 `;
 
 export const Content = styled.a`
-  font-size: 2rem;
-  color: rgb(148 163 184);
+  color: rgb(100 116 139);
   font-weight: 600;
-  margin: 1.25rem;
+  margin-left: 1.25rem;
   &:hover {
     color: rgb(255 255 255);
     cursor: pointer;
