@@ -1,10 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const StyledNav = styled.nav`
+export const Nav = styled.nav`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   font-size: 1rem;
+  margin-top: 1rem;
   line-height: 1.5rem;
   justify-content: center;
   @media screen and (min-width: 768px) {
@@ -12,7 +13,7 @@ const StyledNav = styled.nav`
   }
 `;
 
-const NavContent = styled.a`
+export const Content = styled.a`
   color: rgb(100 116 139);
   font-weight: 600;
   margin-left: 1.25rem;
@@ -22,11 +23,9 @@ const NavContent = styled.a`
   }
 `;
 
-const NavProfile = styled.input`
+export const Profile = styled.input`
   width: 45px;
   height: 45px;
   border-radius: 50px;
   margin-left: 1.25rem;
 `;
-
-export { StyledNav, NavContent, NavProfile };

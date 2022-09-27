@@ -1,5 +1,6 @@
-import prisma from "../../../libs/client";
+import prisma from "./../../../../libs/client";
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default async (req, res) => {
   if (req.method === "POST") {
     try {
@@ -24,7 +25,6 @@ export default async (req, res) => {
   } else if (req.method === "PATCH") {
     try {
       const { userId, point } = req.body;
-      console.log(point);
       const response = await prisma.game.update({
         where: { userId: userId },
         data: { totalPoint: point },
