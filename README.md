@@ -5,6 +5,10 @@
 
 React로 게임 만들기 스터디를 진행하면서 만든 게임을 모아 커뮤니티 사이트를 만들었습니다.
 
+## Link
+
+https://paldo-games.vercel.app/
+
 ## 🛠️ Stack
 
 ![](https://img.shields.io/badge/Next.js-000000?style-for-the-badge&&logo=Next.js&logoColor=white) ![](https://img.shields.io/badge/React-61DAFB?style-for-the-badge&&logo=React&logoColor=black) ![](https://img.shields.io/badge/Recoil-000000?style-for-the-badge&&logo=Recoil&logoColor=white) ![](https://img.shields.io/badge/StyledComponentes-DB7093?style-for-the-badge&&logo=Styled-components&logoColor=white) ![](https://img.shields.io/badge/Prisma-2D3748?style-for-the-badge&&logo=Prisma&logoColor=white) ![](https://img.shields.io/badge/PlanetScale-000000?style-for-the-badge&&logo=PlanetScale&logoColor=white) ![](https://img.shields.io/badge/Vercel-000000?style-for-the-badge&&logo=Vercel&logoColor=white)
