@@ -16,7 +16,7 @@ export const ContentList = ({ post }) => {
       style={{ width: "90%", position: "relative", top: "40px", borderBottom: "1px solid white", margin: "0 auto" }}
     >
       <Flex style={{ width: 550 }}>
-        <input type='radio' disabled />
+        <input type='radio' disabled style={{ width: "auto" }} />
         <Styled.Title
           writer={writer.id}
           className='ellipsis'

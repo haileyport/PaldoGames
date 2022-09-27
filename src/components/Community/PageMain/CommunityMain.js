@@ -43,6 +43,7 @@ export const CommunityMain = ({ postList }) => {
     },
     [updateSearchValue]
   );
+
   const validateAdmin = useCallback(() => {
     COMMUNITY_ADMINS.map((el) => el.id === user.id && setIsAdmin(true));
   }, [setIsAdmin, user.id]);
@@ -95,19 +96,21 @@ export const CommunityMain = ({ postList }) => {
           </Link>
         </Flex>
         <Flex flexDirection='row' justifyContent='center'>
-          <Styled.SearchInput type='text' placeholder='   검색어를 입력하세요' onChange={onChangeSearchEvent} />
-          <FontAwesomeIcon
-            icon={faSearch}
-            size='1x'
-            style={{
-              position: "relative",
-              top: 63,
-              right: 330,
-              color: "black",
-              zIndex: 67,
-              cursor: "none",
-            }}
-          />
+          <Styled.SearchContainer>
+            <Styled.SearchInput type='text' placeholder='   검색어를 입력하세요' onChange={onChangeSearchEvent} />
+            <FontAwesomeIcon
+              icon={faSearch}
+              size='1x'
+              style={{
+                position: "relative",
+                top: 52,
+                right: 330,
+                color: "black",
+                zIndex: 67,
+                cursor: "none",
+              }}
+            />
+          </Styled.SearchContainer>
         </Flex>
       </Styled.Header>
       <Styled.Section>
