@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "postinstall": "npx prisma generate",
     "vercel-deploy": "next build && next export",
     "prisma": "npx prisma studio"
   },
