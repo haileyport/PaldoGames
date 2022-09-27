@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { adminState, currentUserState, modalStates } from "../../../states";
+import axios from "axios";
 
 import { Flex } from "../../@commons";
 import { ContentModal } from "../ContentModal/ContentModal";
@@ -47,6 +48,21 @@ export const CommunityMain = ({ postList }) => {
   const validateAdmin = useCallback(() => {
     COMMUNITY_ADMINS.map((el) => el.id === user.id && setIsAdmin(true));
   }, [setIsAdmin, user.id]);
+
+  const fetchUserId = async () => {
+    const { data } = await axios.get(`/api/game/${user.id}`);
+
+    if (!data.response) {
+      const id = user.id;
+      const res = await axios.post(`/api/game`, {
+        id: id,
+      });
+    }
+  };
+
+  useEffect(() => {
+    fetchUserId();
+  }, []);
 
   useEffect(() => {
     setPost((prev) => (prev = postList));

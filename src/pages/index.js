@@ -2,7 +2,7 @@ import { getSession } from "next-auth/react";
 import Head from "next/head";
 import { Main } from "../components";
 
-export const Home = ({ session }) => {
+export const Home = () => {
   return (
     <>
       <Head>

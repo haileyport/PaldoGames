@@ -13,6 +13,14 @@ const GamesPage = () => {
 
   const fetchTotalPoint = async () => {
     const { data } = await axios.get(`/api/game/${user.id}`);
+
+    if (!data.response) {
+      const id = user.id;
+      const res = await axios.post(`/api/game`, {
+        id: id,
+      });
+    }
+
     let point;
 
     if (data.response) {
@@ -35,7 +43,7 @@ const GamesPage = () => {
     <>
       <Head>
         <title>게임공간</title>
-        <meta name='description' content='오늘도 즐겜' />
+        <meta name="description" content="오늘도 즐겜" />
       </Head>
       <GamesMain />
     </>
