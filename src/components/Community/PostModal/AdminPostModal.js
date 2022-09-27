@@ -70,30 +70,16 @@ export const AdminPostModal = () => {
 
   return (
     <Modal>
-      <M.Section
-        width="80%"
-        maxWidth="1000px"
-        minWidth="350px"
-        maxHeight="1000px"
-        style={{ overflowY: "auto" }}
-      >
-        <ModalHeader content="공지" />
+      <M.Section width='80%' maxWidth='1000px' minWidth='350px' maxHeight='1000px' style={{ overflowY: "auto" }}>
+        <ModalHeader content='공지' />
         <ModalProfile user={ADMIN_INFO} />
-        <Post.Main type="submit">
+        <Post.Main type='submit'>
           <Post.Form onSubmit={(e) => handleAdminPostDetails(e)}>
-            <Flex justifyContent="center">
-              <Post.Input
-                ref={title}
-                type="text"
-                placeholder="타이틀을 입력해 주세요."
-              />
+            <Flex justifyContent='center'>
+              <Post.Input ref={title} type='text' placeholder='타이틀을 입력해 주세요.' />
             </Flex>
-            <Flex flexDirection="column" alignItems="center">
-              <Post.TextArea
-                ref={content}
-                type="text"
-                placeholder="내용을 입력해 주세요."
-              />
+            <Flex flexDirection='column' alignItems='center'>
+              <Post.TextArea ref={content} type='text' placeholder='내용을 입력해 주세요.' />
               <Post.Button>공지글 쓰기</Post.Button>
             </Flex>
           </Post.Form>

@@ -27,6 +27,20 @@ export const Main = styled.main`
   height: 75%;
   max-height: 80vh;
   bottom: 180px;
+
+  @media screen and (max-height: 500px) {
+    height: 40%;
+  }
+`;
+
+export const SearchContainer = styled.div`
+  @media screen and (max-height: 800px) {
+    display: none;
+  }
+
+  @media screen and (max-width: 400px) {
+    display: none;
+  }
 `;
 
 export const SearchInput = styled.input`
@@ -43,14 +57,6 @@ export const SearchInput = styled.input`
   padding-right: 10px;
   padding-top: 4px;
   color: black;
-
-  @media screen and (max-height: 650px) {
-    display: none;
-  }
-
-  @media screen and (max-width: 400px) {
-    display: none;
-  }
 `;
 
 export const Button = styled.button`

@@ -41,13 +41,13 @@ export const Header = () => {
       <Styled.Header>
         <HomeLink />
         <StyledNav.Nav>
-          <Link href="/">
+          <Link href='/'>
             <StyledNav.Content>홈</StyledNav.Content>
           </Link>
-          <Link href="/games">
+          <Link href='/games'>
             <StyledNav.Content>게임</StyledNav.Content>
           </Link>
-          <Link href="/community">
+          <Link href='/community'>
             <StyledNav.Content>커뮤니티</StyledNav.Content>
           </Link>
           {status === "unauthenticated" ? <Login /> : <Profile />}

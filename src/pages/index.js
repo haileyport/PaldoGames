@@ -7,7 +7,8 @@ export const Home = () => {
     <>
       <Head>
         <title>팔도게임즈!</title>
-        <meta name="description" content="오늘도 즐겜" />
+        <link rel='icon' href='/favicon.ico' />
+        <meta name='description' content='오늘도 즐겜' />
       </Head>
       <Main />
     </>

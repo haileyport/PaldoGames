@@ -14,5 +14,6 @@ export const modalStates = atom({
     gameCard: false,
     desc: false,
     admin: false,
+    easterEgg: false,
   },
 });
