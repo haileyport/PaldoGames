@@ -12,7 +12,7 @@ export const Home = ({ session }) => {
   const newTable = async () => {
     const userId = user.id;
     const res = await axios.get(`/api/game/${userId}`, { userId });
-    if (res.data === undefined) {
+    if (!res.ok || res.ok === undefined) {
       await axios.post(`/api/game`, { userId });
     }
   };
