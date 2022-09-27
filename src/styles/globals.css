@@ -1,11 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
-
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  color: white;
 }
 
 a {
@@ -15,6 +12,11 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+footer {
+  color: rgb(75 85 99);
+  background-color: rgb(100 116 139/ 0.2);
 }
 
 p {
@@ -32,22 +34,12 @@ p {
 }
 
 .hide {
-  display: block;
-}
-
-.show {
-  display: flex !important;
+  display: none;
 }
 
 .ellipsis {
-  text-overflow: ellipsis;
+  width: 200px;
   white-space: nowrap;
-}
-
-@media (max-width: 600px) {
-  .ellipsis {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
+  overflow: hidden;
+  text-overflow: ellipsis; /* 말줄임 적용 */
 }
