@@ -16,13 +16,13 @@ export const Home = ({ session }) => {
     } else {
       router.push("/");
     }
-  }, [router, session, setModal]);
+  }, [router, session]);
 
   return (
     <>
       <Head>
         <title>팔도게임즈!</title>
-        <meta name='description' content='로그인 페이지' />
+        <meta name="description" content="로그인 페이지" />
       </Head>
       <Main />
     </>
