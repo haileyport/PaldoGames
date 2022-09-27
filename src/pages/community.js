@@ -17,15 +17,11 @@ const CommunityPage = ({ postList }) => {
 export async function getServerSideProps(context) {
   const session = await getSession(context);
 
-  const postRes = await fetch(
-    "https://paldo-games-le13chrra-haileyport.vercel.app/api/community"
-  );
+  const postRes = await fetch("https://paldo-games.vercel.app/api/community");
   const postDataObj = await postRes.json();
   const postData = postDataObj.response;
 
-  const userRes = await fetch(
-    "https://paldo-games-le13chrra-haileyport.vercel.app/api/user"
-  );
+  const userRes = await fetch("https://paldo-games.vercel.app/api/user");
   const userDataObj = await userRes.json();
 
   const postList = [];
