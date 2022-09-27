@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const Header = styled.header`
+const StyledHeader = styled.header`
   background-color: #1e293b;
   color: rgb(75 85 99);
   width: 100%;
@@ -28,3 +28,5 @@ export const Header = styled.header`
     max-width: 1536px;
   }
 `;
+
+export default StyledHeader;

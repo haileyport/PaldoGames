@@ -1,5 +1,5 @@
 /* eslint-disable react/display-name */
-import { forwardRef } from "react";
+import { forwardRef } from 'react';
 
 export const Input = forwardRef((props, forwardRef) => {
   const { type, onKeyPressEvent, ...rest } = props;

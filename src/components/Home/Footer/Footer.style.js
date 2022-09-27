@@ -1,42 +1,34 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-const Footer = styled.footer`
-  display: flex;
+const StyledFooter = styled.footer`
   margin-top: -85px;
-  width: 100%;
+  background-color: #3d4b5e;
   height: 100%;
-  justify-content: center;
-  align-items: center;
-
-  @media screen and (min-width: 350px) {
-    margin-top: -100px;
-  }
 
   @media screen and (min-width: 640px) {
-    //640이상
     margin-top: -100px;
   }
+
   @media screen and (max-width: 768px) {
-    display: none;
     margin-top: -100px;
     height: 100%;
-    margin-top: -100px;
   }
 `;
 
-const Container = styled.div`
+const StyledFooterContainer = styled.div`
   padding: 1.5rem 1.25rem 1.5rem 1.25rem;
+  margin-right: auto;
+  margin-left: auto;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   height: 100px;
-  //이이이이
   @media screen and (min-width: 640px) {
     max-width: 640px;
+    flex-direction: row;
   }
   @media screen and (min-width: 768px) {
-    // max-width: 768px;
+    max-width: 768px;
     flex-direction: row;
   }
   @media screen and (min-width: 1024px) {
@@ -50,40 +42,38 @@ const Container = styled.div`
   }
 `;
 
-const InfoContainer = styled.a`
+const StyledFooterInfoContainer = styled.a`
   display: flex;
   font-weight: 500;
   align-items: center;
+  justify-content: center;
   color: rgb(17 24 93);
   @media screen and (min-width: 768px) {
     justify-content: flex-start;
   }
 `;
 
-const TeamName = styled.div`
+const StyledFooterTeamName = styled.span`
   color: rgb(148 163 184);
   margin-left: 0.75rem;
   font-size: 1.25rem;
   line-height: 1.75rem;
-  position: relative;
   &:hover {
-    color: rgb(255, 255, 255);
+    color: rgb(17 24 39);
     cursor: pointer;
   }
 `;
 
-const A = styled.a`
-  font-size: 1.25rem;
+const StyledFooterCopyright = styled.p`
+  color: rgb(148 163 184);
+  margin-top: 1rem;
+  @media screen and (min-width: 640px) {
+    margin-left: 1.5rem;
+  }
+`;
+
+const StyledFooterCopyRightATag = styled.a`
   margin-left: 0.25rem;
-  color: rgb(255, 255, 255);
 `;
 
-export const HideButton = styled.button`
-  bottom: 90%;
-  opacity: 0.1;
-  height: 10px; //찾기 쉽게 좀 키웠슴다..
-  background-color: #1e293b;
-  cursor: pointer;
-`;
-
-export { Footer, Container, InfoContainer, TeamName, A };
+export { StyledFooter, StyledFooterContainer, StyledFooterInfoContainer, StyledFooterTeamName, StyledFooterCopyright, StyledFooterCopyRightATag };

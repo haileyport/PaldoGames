@@ -1,5 +1,5 @@
-import { forwardRef } from "react";
-import { StyledForm } from "./Form.style";
+import { forwardRef } from 'react';
+import { StyledForm } from './Form.style';
 
 // eslint-disable-next-line react/display-name
 export const Form = forwardRef((props, ref) => {

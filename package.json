@@ -7,12 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "vercel-deploy": "next build && next export",
     "prisma": "npx prisma studio",
-    "pscale": "pscale connect paldo-games main --port 3309",
-    "pull": "npx prisma db pull",
+    "push": "npx prisma db push",
     "generate": "npx prisma generate",
-    "push": "npx prisma db push"
+    "reset": "npx prisma migrate reset",
+    "pscale": "pscale connect paldo-games main --port 3309"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
@@ -23,15 +22,11 @@
     "@next-auth/prisma-adapter": "^1.0.4",
     "@prisma/client": "^4.3.1",
     "axios": "^0.27.2",
-    "express": "^4.18.1",
     "next": "12.2.5",
     "next-auth": "^4.10.3",
     "next-themes": "^0.2.0",
     "react": "18.2.0",
-    "react-cookie": "^4.1.1",
     "react-dom": "18.2.0",
-    "react-draggable": "^4.4.5",
-    "react-github-login-button": "^1.0.1",
     "react-lottie-player": "^1.4.3",
     "react-slick": "^0.29.0",
     "recoil": "^0.7.5",
@@ -43,6 +38,7 @@
     "babel-plugin-inline-react-svg": "^2.0.1",
     "babel-plugin-styled-components": "^2.0.7",
     "eslint": "8.23.0",
-    "eslint-config-next": "12.2.5"
+    "eslint-config-next": "12.2.5",
+    "prisma": "^4.3.1"
   }
 }

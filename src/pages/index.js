@@ -1,27 +1,19 @@
-import { getSession } from "next-auth/react";
-import Head from "next/head";
-import { Main } from "../components";
+import Head from 'next/head';
 
-export const Home = ({ session }) => {
+import { Layout, Main } from '../components';
+
+export const Home = () => {
   return (
     <>
-      <Head>
-        <title>팔도게임즈!</title>
-        <meta name="description" content="오늘도 즐겜" />
-      </Head>
-      <Main />
+      <Layout>
+        <Head>
+          <title>팔도게임즈!</title>
+          <meta name='description' content='오늘도 즐겜' />
+        </Head>
+        <Main />
+      </Layout>
     </>
   );
 };
-
-export async function getServerSideProps(context) {
-  const session = await getSession(context);
-
-  return {
-    props: {
-      session,
-    },
-  };
-}
 
 export default Home;
