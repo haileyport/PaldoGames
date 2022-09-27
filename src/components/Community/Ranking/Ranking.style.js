@@ -7,7 +7,6 @@ const BackColor = styled.div`
   align-items: center;
   justify-content: center;
 `;
-//타이틀
 const RankingTitle = styled.div`
   display: flex;
   justify-content: center;
@@ -29,7 +28,7 @@ const RankingSubTitle = styled.div`
   justify-content: center;
   align-items: center;
   padding-top: 3rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: rgb(148 163 184);
 `;
 
@@ -53,7 +52,7 @@ const RankingBox = styled.table`
     width: 150px;
     padding: 10px;
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 1.3rem;
     vertical-align: top;
     color: rgb(255, 255, 255);
     background: rgb(99 102 241);
@@ -67,7 +66,7 @@ const RankingBox = styled.table`
     width: 300px;
     padding: 10px;
     vertical-align: top;
-    font-size: 2rem;
+    font-size: 1.3rem;
   }
 `;
 
@@ -90,28 +89,6 @@ const ImageBox = styled.div`
   height: 100%;
   padding-top: 10px;
 `;
-
-/* > :nth-child(1) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 2rem;
-    height: 2rem;
-    border-right: 1px solid white;
-  }
-  > :nth-child(2) {
-    display: flex;
-    width: 15rem;
-    padding-left: 3px;
-  }
-  > :nth-child(3) {
-    display: flex;
-    align-items: center;
-    width: 20px;
-    height: 2rem;
-    padding-left: 1px;
-    border-left: 1px solid white;
-  } */
 
 export {
   BackColor,

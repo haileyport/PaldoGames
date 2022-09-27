@@ -5,7 +5,7 @@ import merge from "../../public/2048thumbnail.jpeg";
 
 export const COMMUNITY_ADMINS = Object.freeze([
   { name: "전은혜", id: "cl88qhsxu0090mwn0oj3w3jw0" },
-  // { name: "이건희", id: "cl88qprau0016i83salw7d64y" },
+  { name: "이건희", id: "cl88qprau0016i83salw7d64y" },
   { name: "홍다희", id: "cl88u48fa0006gonslpyu9nx1" },
   { name: "노종열", id: "cl8a9v3sc0026q4vhtdwbqkzg" },
 ]);
@@ -13,7 +13,8 @@ export const COMMUNITY_ADMINS = Object.freeze([
 export const ADMIN_INFO = Object.freeze({
   id: "cl8ibrkfb00436gn0jsc7czx0",
   name: "팔도게임즈",
-  image: "https://images.unsplash.com/photo-1570303345338-e1f0eddf4946?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZGljZXxlbnwwfHwwfHw%3D&w=1000&q=80",
+  image:
+    "https://images.unsplash.com/photo-1570303345338-e1f0eddf4946?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZGljZXxlbnwwfHwwfHw%3D&w=1000&q=80",
   aboutMe: "팔도게임즈 입니다.",
   email: "",
 });
@@ -34,7 +35,7 @@ export const GAME_LIST = Object.freeze([
 
     3초의 제한 시간 안에 맞히지 못하면 하트가 하나 사라집니다.💔
     하트는 세 개로 총 세 번의 기회가 주어집니다. 
-    따라서 7점 이상 획득하면 성공이므로 200 포인트를 지급합니다.💰
+    5점 이상 획득하면 성공으로 200 포인트를 지급합니다.💰
     `,
   },
   {

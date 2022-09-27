@@ -7,7 +7,6 @@ export const StyledMergeMain = styled.section`
   min-height: 100vh;
   align-items: center;
   color: rgb(75 85 99);
-  margin-bottom: 100px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 `;

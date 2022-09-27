@@ -1,14 +1,41 @@
 import styled from "styled-components";
+import axios from "axios";
+import { useRouter } from "next/router";
+import { currentUserState } from "./../../../../states/user";
+import { useRecoilValue } from "recoil";
 
 const MergeHeader = ({ reset, setReset }) => {
+  const router = useRouter();
+  const { user } = useRecoilValue(currentUserState);
+
+  const getUser = async () => {
+    const userId = user.id;
+    const res = await axios
+      .get(`/api/game/${userId}`)
+      .catch((err) => console.log(err));
+    return res.data.response.totalPoint;
+  };
+
+  const handleReset = async () => {
+    const point = getUser();
+    if (point >= 100) {
+      setReset((reset) => !reset);
+    } else {
+      alert("포인트가 부족합니다!");
+      router.push("/");
+    }
+  };
+
   return (
     <HeaderWrap>
       <TitleWrap>
-        <span className='title'>2048</span>
-        <span className='subTitle'>🕹️ 새 게임을 시작하면 포인트가 100점 차감됩니다.</span>
+        <span className="title">2048</span>
+        <span className="subTitle">
+          🕹️ 새 게임을 시작하면 포인트가 100점 차감됩니다.
+        </span>
       </TitleWrap>
       <Heading>
-        <Button onClick={() => setReset((reset) => !reset)}>New Game</Button>
+        <Button onClick={handleReset}>New Game</Button>
       </Heading>
     </HeaderWrap>
   );

@@ -7,12 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "postinstall": "npx prisma generate",
     "vercel-deploy": "next build && next export",
-    "prisma": "npx prisma studio",
-    "pscale": "pscale connect paldo-games main --port 3309",
-    "pull": "npx prisma db pull",
-    "generate": "npx prisma generate",
-    "push": "npx prisma db push"
+    "prisma": "npx prisma studio"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",

@@ -23,18 +23,15 @@ export default NextAuth({
   // jwt 커스텀 코드
   callbacks: {
     async jwt({ token, user }) {
-      console.log("token: " + token);
       // token 정보 커스텀
       if (user) {
         token.role = "USER";
       }
-      console.log(token);
       return token;
     },
     async session({ session, token }) {
       // token 정보 기반으로 세션 확인
       session.role = token.role;
-      console.log(session);
       return session;
     },
   },

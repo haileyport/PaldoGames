@@ -33,7 +33,7 @@ export const EditModal = () => {
 
     const currentPost = response.filter((post) => post.editor === ids.userId && getPostList.title === post.title)[0];
 
-    axios
+    await axios
       .patch("/api/community", {
         id: currentPost.id,
         title: _title,
@@ -62,8 +62,6 @@ export const EditModal = () => {
     } else {
       _editedPost = { ...res.data.response, editor: user.id, writer: user };
     }
-
-    console.log(_editedPost);
 
     _post.splice(index, 1, _editedPost);
 

@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { LottoMainBox, ResetBox, BixContainer } from "./lotto.style";
+import { LottoMainBox, ResetBox, BixContainer } from "./Lotto.style";
 import axios from "axios";
 import Coupon from "./Coupon/Coupon";
 import LottoHeader from "./LottoHeader/LottoHeader";
-import Result from "./Result/Result";
 import ButtonStart from "./Button/ButtonStart";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { currentUserState } from "./../../../states/user";
@@ -27,8 +26,7 @@ const LottoMain = () => {
   const router = useRouter();
 
   const getUser = async () => {
-    const userId = user.id; // id값은 전역으로 저장해서 들고 다니기
-    console.log("qwe", userId);
+    const userId = user.id;
     const res = await axios
       .get(`/api/game/${userId}`)
       .catch((err) => console.log(err));
@@ -37,7 +35,7 @@ const LottoMain = () => {
 
   const updateUser = async (el) => {
     const point = el;
-    const userId = user.id; // id값은 전역으로 저장해서 들고 다니기
+    const userId = user.id;
     const res = await axios.patch(`/api/game`, { userId, point });
   };
 
@@ -93,7 +91,6 @@ const LottoMain = () => {
         ...game,
         point: 0,
       });
-      console.log(game.game);
     }
     router.push("/games/result");
     //
@@ -105,7 +102,6 @@ const LottoMain = () => {
         ...game,
         point: 1500,
       });
-      console.log(game.game);
     }
     router.push("/games/result");
     //
@@ -117,7 +113,6 @@ const LottoMain = () => {
         ...game,
         point: 307000,
       });
-      console.log(game.game);
     }
     router.push("/games/result");
     //
@@ -129,7 +124,6 @@ const LottoMain = () => {
         ...game,
         point: 11391000,
       });
-      console.log(game.game);
     }
     router.push("/games/result");
     //
@@ -141,7 +135,6 @@ const LottoMain = () => {
         ...game,
         point: 3213957000,
       });
-      console.log(game.game);
     }
     router.push("/games/result");
   };
