@@ -1,9 +1,32 @@
-pscale will not working on your vscode.
+# 🕹️ 팔도게임즈
 
-Please install scoop and pscale, and run on your OS terminal.
+![메인페이지](https://user-images.githubusercontent.com/50188104/192190656-ede55bd2-f9bf-464e-9ac6-7992ff2a84bc.png)
+**Welcome to 팔도게임즈 🕹️**
 
-reference: https://heokknkn.tistory.com/m/28
+React로 게임 만들기 스터디를 진행하면서 만든 게임을 모아 커뮤니티 사이트를 만들었습니다.
 
-### 커밋 컨벤션 참고 래퍼런스
+## 🛠️ Stack
 
-https://sand-surfboard-bca.notion.site/73df33d1cf86420db970824cd0f6bd89
+![](https://img.shields.io/badge/Next.js-000000?style-for-the-badge&&logo=Next.js&logoColor=white) ![](https://img.shields.io/badge/React-61DAFB?style-for-the-badge&&logo=React&logoColor=black) ![](https://img.shields.io/badge/Recoil-000000?style-for-the-badge&&logo=Recoil&logoColor=white) ![](https://img.shields.io/badge/StyledComponentes-DB7093?style-for-the-badge&&logo=Styled-components&logoColor=white) ![](https://img.shields.io/badge/Prisma-2D3748?style-for-the-badge&&logo=Prisma&logoColor=white) ![](https://img.shields.io/badge/PlanetScale-000000?style-for-the-badge&&logo=PlanetScale&logoColor=white) ![](https://img.shields.io/badge/Vercel-000000?style-for-the-badge&&logo=Vercel&logoColor=white)
+
+## 🎮 User Flow
+
+![userflow](https://user-images.githubusercontent.com/50188104/192191401-567240eb-8d1e-4a7f-8af3-1b1af8470a12.png)
+
+## 🧑🏻‍💻 Contributor
+
+| 이름   | 역할 | 깃허브                                       |
+| ------ | ---- | -------------------------------------------- |
+| 전은혜 | 팀장 | [@haileyport](https://github.com/haileyport) |
+| 노종열 | 팀원 | [@Exist95](https://github.com/Exist95)       |
+| 이건희 | 팀원 | [@leezer94](https://github.com/leezer94)     |
+| 홍다희 | 팀원 | [@hongdahee](https://github.com/hongdahee)   |
+
+## 📖 Update Note
+
+- Version 1.0
+  - 2022.09.26 배포
+
+## 🔰 License
+
+MIT License
