@@ -11,9 +11,8 @@ export const Home = ({ session }) => {
 
   const newTable = async () => {
     const userId = user.id;
-    const res = await axios.get(`/api/game/${userId}`, { userId });
-    console.log(res);
-    if (!res) {
+    const { response } = await axios.get(`/api/game/${userId}`, { userId });
+    if (!response) {
       const id = user.id;
       await axios.post(`/api/game`, { id });
     }
