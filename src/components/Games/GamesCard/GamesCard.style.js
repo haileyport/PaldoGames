@@ -5,6 +5,10 @@ const StyledGamesCard = styled.div`
   width: 256px;
   height: 256px;
   position: relative;
+  @media screen and (max-width: 40em) {
+    width: 180px;
+    height: 180px;
+  }
 `;
 
 const GamesCardImgWrapper = styled.div`
@@ -44,6 +48,10 @@ const GameBtn = styled.button`
   &:hover {
     background-color: rgb(79 70 229);
     cursor: pointer;
+  }
+  @media screen and (max-width: 40em) {
+    width: 5.5em;
+    height: 1.5em;
   }
 `;
 

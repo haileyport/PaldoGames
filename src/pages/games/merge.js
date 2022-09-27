@@ -1,5 +1,5 @@
-import Head from "next/head";
 import { getSession } from "next-auth/react";
+import Head from "next/head";
 import { MergeGameMain } from "../../components";
 
 const MergeGamePage = () => {

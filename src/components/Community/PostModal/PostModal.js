@@ -95,7 +95,7 @@ export const PostModal = () => {
         <ModalHeader content='글쓰기' />
         <ModalProfile user={user} />
         <Post.Main type='submit'>
-          <Post.Form onSubmit={(e) => handlePostDetails(e)}>
+          <Post.Form onSubmit={handlePostDetails}>
             <Flex justifyContent='center'>
               <Post.Input ref={title} type='text' placeholder='타이틀을 입력해 주세요.' />
             </Flex>

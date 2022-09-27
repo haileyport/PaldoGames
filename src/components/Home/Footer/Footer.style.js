@@ -2,29 +2,22 @@ import styled from "styled-components";
 
 const Footer = styled.footer`
   display: flex;
-  margin-top: -85px;
+  margin-top: 3%;
   width: 100%;
   height: 100%;
   justify-content: center;
   align-items: center;
 
-  @media screen and (min-width: 350px) {
+  /* @media screen and (min-width: 350px) {
     margin-top: -100px;
   }
 
   @media screen and (min-width: 640px) {
-    //640이상
-    margin-top: -100px;
-  }
+    margin-top: -100px; 
+  }*/
   @media screen and (max-width: 768px) {
     display: none;
-    margin-top: -100px;
     height: 100%;
-    margin-top: -100px;
-  }
-  //밑으로 눌려질 때, 사라지게 만들었음
-  @media screen and (max-height: 900px) {
-    display: none;
   }
 `;
 

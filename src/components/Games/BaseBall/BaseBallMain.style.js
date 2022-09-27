@@ -105,7 +105,6 @@ export const Bottom = styled.div`
   flex-direction: row;
   margin-left: 50px;
   margin-right: 50px;
-  margin-bottom: 100px;
   justify-content: space-around;
 `;
 
