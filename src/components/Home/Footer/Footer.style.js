@@ -22,10 +22,6 @@ const Footer = styled.footer`
     height: 100%;
     margin-top: -100px;
   }
-  //밑으로 눌려질 때, 사라지게 만들었음
-  @media screen and (max-height: 900px) {
-    display: none;
-  }
 `;
 
 const Container = styled.div`
