@@ -2,7 +2,6 @@ import "../styles/globals.css";
 import { getSession, SessionProvider } from "next-auth/react";
 import { RecoilRoot } from "recoil";
 import { Layout } from "../components";
-import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
   return (
