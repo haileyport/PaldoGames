@@ -29,7 +29,7 @@ const RankingSubTitle = styled.div`
   justify-content: center;
   align-items: center;
   padding-top: 3rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: rgb(148 163 184);
 `;
 
@@ -53,7 +53,7 @@ const RankingBox = styled.table`
     width: 150px;
     padding: 10px;
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 1.3rem;
     vertical-align: top;
     color: rgb(255, 255, 255);
     background: rgb(99 102 241);
@@ -67,7 +67,7 @@ const RankingBox = styled.table`
     width: 300px;
     padding: 10px;
     vertical-align: top;
-    font-size: 2rem;
+    font-size: 1.3rem;
   }
 `;
 

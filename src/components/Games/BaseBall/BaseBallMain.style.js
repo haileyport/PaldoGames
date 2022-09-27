@@ -95,7 +95,8 @@ export const StyledBaseBallMain = styled.section`
   align-items: center;
   justify-content: space-between;
   color: rgb(75 85 99);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 `;
 
 export const Bottom = styled.div`
@@ -105,7 +106,6 @@ export const Bottom = styled.div`
   flex-direction: row;
   margin-left: 50px;
   margin-right: 50px;
-  margin-bottom: 100px;
   justify-content: space-around;
 `;
 

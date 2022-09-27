@@ -52,7 +52,9 @@ export const Button = styled.button`
   width: 100px;
   color: rgb(255 255 255);
   background-color: rgb(99 102 241);
-  padding: 10;
+  border-width: 0px;
+  border-radius: 0.25rem;
+  padding: 3px;
   line-height: 1.75rem;
 
   &:focus {
