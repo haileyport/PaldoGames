@@ -3,8 +3,6 @@ import Head from "next/head";
 import { GamesMain } from "../../components";
 
 const GamesPage = () => {
-  console.log("GamePage");
-
   return (
     <>
       <Head>
