@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { LottoMainBox, ResetBox, BixContainer } from "./lotto.style";
+import { LottoMainBox, ResetBox, BixContainer } from "./Lotto.style";
 import axios from "axios";
 import Coupon from "./Coupon/Coupon";
 import LottoHeader from "./LottoHeader/LottoHeader";
-import Result from "./Result/Result";
 import ButtonStart from "./Button/ButtonStart";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { currentUserState } from "./../../../states/user";
