@@ -56,6 +56,7 @@ export const Button = styled.button`
   border-radius: 0.25rem;
   padding: 3px;
   line-height: 1.75rem;
+  margin-left: 10px;
 
   &:focus {
     outline: 2px solid transparent;
