@@ -1,10 +1,9 @@
-import Head from "next/head";
 import { getSession } from "next-auth/react";
-
+import Head from "next/head";
 import { GamesMain } from "../../components";
 
-const GamesPage = ({ session }) => {
-  console.log("GamePage", session);
+const GamesPage = () => {
+  console.log("GamePage");
 
   return (
     <>
@@ -20,14 +19,6 @@ const GamesPage = ({ session }) => {
 export async function getServerSideProps(context) {
   const session = await getSession(context);
 
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/login",
-        permanent: false,
-      },
-    };
-  }
   return {
     props: {
       session,

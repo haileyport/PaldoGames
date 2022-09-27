@@ -2,9 +2,7 @@ import Head from "next/head";
 import { getSession } from "next-auth/react";
 
 import { CommunityMain, Footer } from "../components";
-const CommunityPage = ({ session, postList }) => {
-  console.log("CommunityPage", session);
-
+const CommunityPage = ({ postList }) => {
   return (
     <>
       <Head>
