@@ -113,4 +113,12 @@ const ImageBox = styled.div`
     border-left: 1px solid white;
   } */
 
-export { BackColor, RankingBox, BoxSectionOne, MiddleBox, RankingTitle, RankingSubTitle, ImageBox };
+export {
+  BackColor,
+  RankingBox,
+  BoxSectionOne,
+  MiddleBox,
+  RankingTitle,
+  RankingSubTitle,
+  ImageBox,
+};
