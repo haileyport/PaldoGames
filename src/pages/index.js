@@ -13,7 +13,8 @@ export const Home = ({ session }) => {
     const userId = user.id;
     const res = await axios.get(`/api/game/${userId}`, { userId });
     if (!res.ok || res.ok === undefined) {
-      await axios.post(`/api/game`, { userId });
+      const id = userId;
+      await axios.post(`/api/game`, { id });
     }
   };
 
