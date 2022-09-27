@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const StyledHeroContainer = styled.div`
+export const StyledHeroContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 4rem;
@@ -21,7 +21,7 @@ const StyledHeroContainer = styled.div`
   }
 `;
 
-const HeroTitle = styled.h1`
+export const HeroTitle = styled.h1`
   font-size: 1.875rem;
   line-height: 2.25rem;
   margin-bottom: 1rem;
@@ -34,18 +34,18 @@ const HeroTitle = styled.h1`
   }
 `;
 
-const HeroMiniTitle = styled.p`
+export const HeroMiniTitle = styled.p`
   margin-bottom: 2rem;
   line-height: 1.625;
   font-weight: 600;
 `;
 
-const GameButton = styled.div`
+export const GameButton = styled.div`
   display: flex;
   justify-content: center;
 `;
 
-const HeroButton = styled.a`
+export const HeroButton = styled.a`
   display: inline-flex;
   color: rgb(255 255 255);
   background-color: rgb(99 102 241);
@@ -66,7 +66,7 @@ const HeroButton = styled.a`
   }
 `;
 
-const AnimationContainer = styled.div`
+export const AnimationContainer = styled.div`
   width: 83%;
   @media screen and (min-width: 1024px) {
     max-width: 32rem;
@@ -76,5 +76,3 @@ const AnimationContainer = styled.div`
     width: 50%;
   }
 `;
-
-export { StyledHeroContainer, HeroTitle, HeroMiniTitle, GameButton, HeroButton, AnimationContainer };

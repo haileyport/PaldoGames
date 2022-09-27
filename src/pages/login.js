@@ -1,34 +1,44 @@
-import { signIn, useSession, signOut } from "next-auth/react";
-import styles from "../styles/Home.module.css";
-import Image from "next/image";
+import { getSession } from "next-auth/react";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { useRecoilState } from "recoil";
+import { Main } from "../components";
+import { modalStates } from "../states";
 
-export default function Login() {
-  const { data: session } = useSession();
-  console.log(session);
-  if (session) {
-  }
+export const Home = ({ session }) => {
+  const router = useRouter();
+  const [modal, setModal] = useRecoilState(modalStates);
+
+  useEffect(() => {
+    if (!session) {
+      setModal({ ...modal, login: true });
+    } else {
+      router.push("/");
+    }
+  }, [router, session, setModal]);
+
+  console.log("LoginPage", session);
+
   return (
-    <div className={styles.main}>
-      {session ? (
-        <>
-          <img src={session.user.image} width="100px" height="100px" />
-          <div>이름: {session.user.name}</div>
-          <div>이메일: {session.user.email}</div>
-          <button type="button" onClick={() => signOut()}>
-            로그아웃
-          </button>
-        </>
-      ) : (
-        <>
-          <h1>Login</h1>
-          <button type="button" onClick={() => signIn("kakao")}>
-            카카오로 로그인
-          </button>
-          <button type="button" onClick={() => signIn("github")}>
-            깃허브로 로그인
-          </button>
-        </>
-      )}
-    </div>
+    <>
+      <Head>
+        <title>팔도게임즈!</title>
+        <meta name='description' content='로그인 페이지' />
+      </Head>
+      <Main />
+    </>
   );
+};
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  return {
+    props: {
+      session,
+    },
+  };
 }
+
+export default Home;
