@@ -12,15 +12,16 @@ export const Home = ({ session }) => {
   const newTable = async () => {
     const userId = user.id;
     const res = await axios.get(`/api/game/${userId}`, { userId });
-    if (!res.ok || res.ok === undefined) {
+    if (res.e) {
       const id = userId;
       await axios.post(`/api/game`, { id });
+      return "good";
     }
   };
 
   useEffect(() => {
     if (session) {
-      newTable();
+      newTable().then((res) => console.log(res));
     }
   }, [session]);
 
