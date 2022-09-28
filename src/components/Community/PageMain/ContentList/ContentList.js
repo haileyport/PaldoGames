@@ -5,9 +5,9 @@ import * as Styled from "../Community.style";
 
 export const ContentList = ({ post }) => {
   const { title, writer } = post;
+  const [modal, setModal] = useRecoilState(modalStates);
   const postList = useRecoilValue(postState);
   const [currentPostId, setCurrentPostId] = useRecoilState(contentState);
-  const [modal, setModal] = useRecoilState(modalStates);
 
   return (
     <Flex
@@ -32,8 +32,8 @@ export const ContentList = ({ post }) => {
       </Flex>
       <Flex alignItems='center' alignSelf='flex-end'>
         <Input
-          type='image'
           id={writer.id}
+          type='image'
           src={writer.image}
           onClick={({ target }) => {
             setModal({ ...modal, editor: true });
@@ -41,7 +41,7 @@ export const ContentList = ({ post }) => {
           }}
           style={{ width: 30, height: 30, borderRadius: 50, marginRight: 10 }}
         />
-        <Styled.NameSpan length={writer.name.length}>{writer.name}</Styled.NameSpan>
+        <Styled.NameSpan>{writer.name}</Styled.NameSpan>
       </Flex>
     </Flex>
   );

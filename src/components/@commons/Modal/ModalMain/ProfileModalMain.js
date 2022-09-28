@@ -1,7 +1,7 @@
 import axios from "axios";
 import Link from "next/link";
 import { useRecoilState } from "recoil";
-import { modalStates } from "../../../../states";
+import { currentUserState, modalStates } from "../../../../states";
 
 import * as Styled from "./ModalMain.style";
 import { Flex } from "../../Flex/Flex";
@@ -14,42 +14,30 @@ import { useCallback, useEffect, useState } from "react";
 
 export const ProfileModalMain = ({ user }) => {
   const [modal, setModal] = useRecoilState(modalStates);
-  const [totalPoint, setTotalPoint] = useState(null);
+  const [totalPoint, setTotalPoint] = useState(0);
 
   const fetchTotalPoint = useCallback(async () => {
-    await axios.get(`/api/game/${user.id}`).then((res) => {
-      const data = res.data;
-      const point = data.response.totalPoint;
+    const { data } = await axios.get(`/api/game/${user.id}`);
+    let point;
 
-      setTotalPoint(point);
+    if (data.response && user) {
+      point = data.response.totalPoint;
+    }
 
-      return point;
-    });
+    setTotalPoint(point);
   }, [user]);
 
   useEffect(() => {
     fetchTotalPoint();
-
-    return () => fetchTotalPoint();
   }, [fetchTotalPoint]);
-
   return (
     <Styled.InnerModalMain>
       <Flex justifyContent='space-between' style={{ margin: 40, marginTop: 20 }}>
         <Flex flexDirection='column'>
-          {totalPoint && (
-            <>
-              <Link href='/ranking'>
-                <FontAwesomeIcon
-                  icon={faCoins}
-                  size='2x'
-                  style={{ marginBottom: 10, cursor: "pointer" }}
-                  onClick={() => setModal({ ...modal, profile: false })}
-                />
-              </Link>
-              <span>{totalPoint} 포인트</span>
-            </>
-          )}
+          <Link href='/ranking'>
+            <FontAwesomeIcon icon={faCoins} size='2x' style={{ marginBottom: 10, cursor: "pointer" }} onClick={() => setModal({ ...modal, profile: false })} />
+          </Link>
+          <span>{totalPoint} 포인트</span>
         </Flex>
         <Flex flexDirection='column' onClick={() => setModal({ ...modal, profile: false })}>
           <Link href='/games/lotto'>

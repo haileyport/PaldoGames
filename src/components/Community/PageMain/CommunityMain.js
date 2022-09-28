@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { adminState, contentState, currentUserState, modalStates } from "../../../states";
+import { adminState, currentUserState, modalStates } from "../../../states";
 import axios from "axios";
 
 import { Flex } from "../../@commons";
@@ -19,7 +19,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { ADMIN_INFO, COMMUNITY_ADMINS } from "../../../constants";
 import { AdminPostModal } from "../PostModal/AdminPostModal";
-import { ContentListProfile } from "./ContentList/ContentListProfile";
 
 export const CommunityMain = ({ postList }) => {
   const { user } = useRecoilValue(currentUserState);
@@ -52,8 +51,24 @@ export const CommunityMain = ({ postList }) => {
     COMMUNITY_ADMINS.map((el) => el.id === user.id && setIsAdmin(true));
   }, [setIsAdmin, user.id]);
 
+  const fetchUserId = async () => {
+    const { data } = await axios.get(`/api/game/${user.id}`);
+
+    if (!data.response) {
+      const id = user.id;
+      const res = await axios.post(`/api/game`, {
+        id: id,
+      });
+    }
+  };
+
+  useEffect(() => {
+    fetchUserId();
+  }, []);
+
   useEffect(() => {
     setPost((prev) => (prev = postList));
+
     validateAdmin();
   }, [postList, setPost, validateAdmin]);
 
@@ -79,6 +94,7 @@ export const CommunityMain = ({ postList }) => {
     }
 
     // Default behavior
+
     return post.slice(offset, offset + limit).map((post, i) => {
       if (post.editor !== ADMIN_INFO.id) {
         return <ContentList key={i} post={post} id={post.id} />;
@@ -170,7 +186,6 @@ export const CommunityMain = ({ postList }) => {
           </Flex>
           {modal.post && <PostModal />}
           {modal.admin && isAdmin ? <AdminPostModal /> : null}
-          {modal.editor && <ContentListProfile />}
         </Styled.Main>
       </Styled.Section>
     </>
