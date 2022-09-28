@@ -7,11 +7,12 @@ export const StyledHeroContainer = styled.div`
   align-items: center;
   text-align: center;
   @media screen and (min-width: 1024px) {
-    width: 80%;
+    //lg
     flex-grow: 1;
     padding-right: 6rem;
   }
   @media screen and (min-width: 768px) {
+    //md
     width: 50%;
     padding-right: 4rem;
     align-items: flex-start;
@@ -26,17 +27,17 @@ export const HeroTitle = styled.h1`
   margin-bottom: 1rem;
   font-weight: 500;
   color: rgb(255 255 255);
+  @media screen and (min-width: 640px) {
+    //sm
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
 `;
 
 export const HeroMiniTitle = styled.p`
   margin-bottom: 2rem;
   line-height: 1.625;
   font-weight: 600;
-  font-size: 2rem;
-  @media screen and (min-width: 640px) {
-    font-size: 3rem;
-    line-height: 5rem;
-  }
 `;
 
 export const GameButton = styled.div`
@@ -68,11 +69,10 @@ export const HeroButton = styled.a`
 export const AnimationContainer = styled.div`
   width: 83%;
   @media screen and (min-width: 1024px) {
-    max-width: 45rem;
+    max-width: 32rem;
     width: 100%;
   }
   @media screen and (min-width: 768px) {
-    max-width: 40rem;
     width: 50%;
   }
 `;

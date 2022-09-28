@@ -1,8 +1,6 @@
-import axios from "axios";
 import { useSession } from "next-auth/react";
-import { useEffect, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { modalStates, currentUserState, contentState } from "../../../states";
+import { modalStates, currentUserState } from "../../../states";
 
 import { Flex } from "../../@commons";
 import {
@@ -16,25 +14,9 @@ import * as Styled from "../../@commons/Modal/Modal.style";
 import * as StyledNav from "./Nav.style";
 
 export const Profile = () => {
-  const [modal, setModal] = useRecoilState(modalStates);
-  const [editor, setEditor] = useState("");
-  const { user } = useRecoilValue(currentUserState);
-  const { editorId } = useRecoilValue(contentState);
   const { data: session } = useSession();
-
-  let current;
-
-  const fetchEditorProfile = async (userId) => {
-    const { data } = await axios.get(`/api/user/id/${userId}`);
-
-    setEditor((prev) => (prev = data.user));
-  };
-
-  useEffect(() => {
-    if (editorId) fetchEditorProfile(editorId);
-  }, [editorId]);
-
-  modal.profile ? (current = user) : (current = editor);
+  const [modal, setModal] = useRecoilState(modalStates);
+  const { user } = useRecoilValue(currentUserState);
 
   return (
     <Flex flexDirection="column">
@@ -44,7 +26,7 @@ export const Profile = () => {
         onClick={() => setModal({ ...modal, profile: true })}
       />
       <div>
-        {(modal.profile || modal.editor) && (
+        {modal.profile && (
           <Flex>
             <Modal>
               <Styled.Section
@@ -54,8 +36,8 @@ export const Profile = () => {
                 left="40%"
               >
                 <ModalHeader content="프로필" />
-                <ModalProfile user={current} />
-                <ProfileModalMain user={current} />
+                <ModalProfile user={user} />
+                <ProfileModalMain user={user} />
                 <ModalFooter />
               </Styled.Section>
             </Modal>

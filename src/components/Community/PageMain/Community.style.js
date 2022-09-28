@@ -15,8 +15,7 @@ export const Section = styled.section`
   align-items: center;
   justify-content: center;
   color: rgb(75 85 99);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 `;
 
 export const Main = styled.main`
@@ -137,6 +136,9 @@ export const NameSpan = styled.span`
 
   @media screen and (max-width: 700px) {
     display: none;
+  }
+  @media screen and (max-width: 800px) {
+    white-space: ${(props) => (props.length > 8 ? "nowrap" : "")};
   }
 `;
 

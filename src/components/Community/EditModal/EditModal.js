@@ -113,7 +113,7 @@ export const EditModal = () => {
                 type="text"
                 defaultValue={getPostList.content}
               />
-              <Post.Button>수정하기</Post.Button>
+              <Post.Button disabled={isDisabled}>수정하기</Post.Button>
             </Flex>
           </Post.Form>
         </Post.Main>

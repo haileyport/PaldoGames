@@ -13,20 +13,11 @@ const Footer = styled.footer`
   }
 
   @media screen and (min-width: 640px) {
-<<<<<<< HEAD
-    //640이상
-=======
->>>>>>> 9eb9af3c65959518b3f54d553573eba4d506a8e6
     margin-top: -100px; 
   }*/
   @media screen and (max-width: 768px) {
     display: none;
     height: 100%;
-    margin-top: -100px;
-  }
-  //밑으로 눌려질 때, 사라지게 만들었음
-  @media screen and (max-height: 900px) {
-    display: none;
   }
 `;
 

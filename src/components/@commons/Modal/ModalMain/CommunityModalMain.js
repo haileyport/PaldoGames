@@ -52,6 +52,8 @@ export const CommunityModalMain = () => {
 
     setIsDisabled(true);
 
+    setIsDisabled(true);
+
     await axios
       .delete(`/api/community`, {
         data: { id: currentPost.id },
@@ -104,7 +106,10 @@ export const CommunityModalMain = () => {
           <button onClick={() => deletePost()} disabled={isDisabled}>
             삭제
           </button>
+<<<<<<< HEAD
 >>>>>>> e779fbec3191f8e6032bf7acec8394c88cfcf90d
+=======
+>>>>>>> 57d2ebb8a8f61f4708fac683919151b759c77e21
         </Flex>
       )}
       <Flex
