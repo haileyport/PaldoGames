@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useCallback, useEffect } from "react";
 import { useSession } from "next-auth/react";
 
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { currentUserState, modalStates } from "../../../states";
 
 import { HomeLink } from "./HomeLink/HomeLink";
@@ -15,7 +15,7 @@ import * as Styled from "./Header.style";
 export const Header = () => {
   const { data: session, status } = useSession();
 
-  const setCurrentUser = useSetRecoilState(currentUserState);
+  const [currentUser, setCurrentUser] = useRecoilState(currentUserState);
   const [modal, setModal] = useRecoilState(modalStates);
 
   const fetchLoginData = useCallback(async () => {
@@ -28,26 +28,30 @@ export const Header = () => {
       const userIndex = users.findIndex((user, i) => user.email === email);
 
       setModal({ ...modal, login: false });
-      setCurrentUser({ user: users[userIndex], isLoggedIn: true });
+      setCurrentUser({
+        ...currentUser,
+        user: users[userIndex],
+        isLoggedIn: true,
+      });
     }
-  }, [session, setCurrentUser]);
+  }, [session]);
 
   useEffect(() => {
     fetchLoginData();
-  }, [session]);
+  }, [fetchLoginData, session]);
 
   return (
     <>
       <Styled.Header>
         <HomeLink />
         <StyledNav.Nav>
-          <Link href='/'>
+          <Link href="/">
             <StyledNav.Content>홈</StyledNav.Content>
           </Link>
-          <Link href='/games'>
+          <Link href="/games">
             <StyledNav.Content>게임</StyledNav.Content>
           </Link>
-          <Link href='/community'>
+          <Link href="/community">
             <StyledNav.Content>커뮤니티</StyledNav.Content>
           </Link>
           {status === "unauthenticated" ? <Login /> : <Profile />}

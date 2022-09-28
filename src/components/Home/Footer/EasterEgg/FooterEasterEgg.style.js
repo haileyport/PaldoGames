@@ -22,7 +22,10 @@ export const MiddleBox = styled.div`
 
 export const SmallBox = styled.div`
   width: 100%;
-  height: 150px;
+  height: 160px;
+  @media screen and (max-width: 660px) {
+    font-size: 9px;
+  }
 `;
 
 export const User = styled.a`

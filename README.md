@@ -2,6 +2,7 @@
 
 ![메인페이지](https://user-images.githubusercontent.com/50188104/192190656-ede55bd2-f9bf-464e-9ac6-7992ff2a84bc.png)
 **Welcome to 팔도게임즈 🕹️**
+**Link: https://paldo-games.vercel.app/**
 
 React로 게임 만들기 스터디를 진행하면서 만든 게임을 모아 커뮤니티 사이트를 만들었습니다.
 
@@ -11,7 +12,7 @@ React로 게임 만들기 스터디를 진행하면서 만든 게임을 모아 �
 
 ## 🎮 User Flow
 
-![userflow](https://user-images.githubusercontent.com/50188104/192191401-567240eb-8d1e-4a7f-8af3-1b1af8470a12.png)
+![userflow](https://velog.velcdn.com/images/partyqueen/post/38ababae-7cbc-4015-9a33-29d1b956fabc/image.png)
 
 ## 🧑🏻‍💻 Contributor
 
@@ -26,6 +27,7 @@ React로 게임 만들기 스터디를 진행하면서 만든 게임을 모아 �
 
 - Version 1.0
   - 2022.09.26 배포
+  - 2022.09.28 HOTFIX 후 재배포
 
 ## 🔰 License
 

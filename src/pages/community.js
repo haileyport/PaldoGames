@@ -1,6 +1,9 @@
 import Head from "next/head";
 import { getSession } from "next-auth/react";
 import { CommunityMain } from "../components";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
 
 const CommunityPage = ({ postList }) => {
   return (
@@ -31,7 +34,6 @@ export async function getServerSideProps(context) {
   postData.map((data) => {
     const { id, title, content, editor } = data;
 
-    // user 값을 넣어주기 위해
     users.map((user) => {
       if (user.id === editor) {
         postList.unshift({ id, title, content, editor, writer: user });
