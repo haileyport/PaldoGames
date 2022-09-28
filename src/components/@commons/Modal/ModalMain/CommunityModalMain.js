@@ -14,6 +14,7 @@ import * as Styled from "./ModalMain.style";
 
 export const CommunityModalMain = () => {
   const [totalPoint, setTotalPoint] = useState({ id: "", point: 0 });
+  const [isDisabled, setIsDisabled] = useState(false);
   const ids = useRecoilValue(contentState);
   const [post, setPost] = useRecoilState(postState);
   const { user } = useRecoilValue(currentUserState);
@@ -39,6 +40,8 @@ export const CommunityModalMain = () => {
   }, [user.id]);
 
   const deletePost = useCallback(async () => {
+    if (isDisabled) return;
+
     const { data } = await axios.get("/api/community");
     const response = data.response;
     const { point } = totalPoint;
@@ -46,6 +49,8 @@ export const CommunityModalMain = () => {
     const currentPost = response.filter(
       (post) => post.editor === ids.userId && ids.title === post.title
     )[0];
+
+    setIsDisabled(true);
 
     await axios
       .delete(`/api/community`, {
@@ -72,7 +77,7 @@ export const CommunityModalMain = () => {
 
     setPost((prev) => (prev = _post));
     setModal({ ...modal, community: false });
-  }, [index, modal, post, setModal, setPost]);
+  }, [index, post, setPost]);
 
   useEffect(() => {
     fetchTotalPoint();
@@ -81,6 +86,7 @@ export const CommunityModalMain = () => {
   return (
     <Styled.InnerModalMain>
       {(iAmTheOne || isAdmin) && (
+<<<<<<< HEAD
         <Flex
           flexDirection="row"
           justifyContent="flex-end"
@@ -92,6 +98,13 @@ export const CommunityModalMain = () => {
             수정
           </button>
           <button onClick={() => deletePost()}>삭제</button>
+=======
+        <Flex flexDirection='row' justifyContent='flex-end' style={{ position: "relative" }}>
+          <button onClick={() => setModal({ ...modal, edit: true, community: false })}>수정</button>
+          <button onClick={() => deletePost()} disabled={isDisabled}>
+            삭제
+          </button>
+>>>>>>> e779fbec3191f8e6032bf7acec8394c88cfcf90d
         </Flex>
       )}
       <Flex

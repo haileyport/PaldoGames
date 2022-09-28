@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import {
   contentState,
@@ -18,6 +18,7 @@ import { ADMIN_INFO, COMMUNITY_ADMINS } from "../../../constants";
 export const EditModal = () => {
   const [post, setPost] = useRecoilState(postState);
   const [modal, setModal] = useRecoilState(modalStates);
+  const [isDisabled, setIsDisabled] = useState(false);
   const { user } = useRecoilValue(currentUserState);
   const ids = useRecoilValue(contentState);
 
@@ -36,6 +37,8 @@ export const EditModal = () => {
   const handleEditPost = async (e) => {
     e.preventDefault();
 
+    if (isDisabled) return;
+
     const _title = titleRef?.current.value;
     const _content = contentRef?.current.value;
 
@@ -43,6 +46,7 @@ export const EditModal = () => {
       (post) => post.editor === ids.userId && getPostList.title === post.title
     )[0];
 
+    setIsDisabled(true);
     await axios
       .patch("/api/community", {
         id: currentPost.id,
@@ -95,7 +99,7 @@ export const EditModal = () => {
         <ModalHeader content="수정하기" />
         <ModalProfile user={user} />
         <Post.Main type="submit">
-          <Post.Form onSubmit={handleEditPost}>
+          <Post.Form onSubmit={handleEditPost} disabled={isDisabled}>
             <Flex justifyContent="center">
               <Post.Input
                 ref={titleRef}

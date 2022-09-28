@@ -16,7 +16,7 @@ export const Home = ({ session }) => {
     } else {
       router.push("/");
     }
-  }, [router, session, setModal]);
+  }, [router, session]);
 
   return (
     <>

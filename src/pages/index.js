@@ -1,13 +1,17 @@
 import { getSession } from "next-auth/react";
 import Head from "next/head";
 import { Main } from "../components";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
 
-export const Home = ({ session }) => {
+export const Home = () => {
   return (
     <>
       <Head>
         <title>팔도게임즈!</title>
-        <meta name="description" content="오늘도 즐겜" />
+        <link rel='icon' href='/favicon.ico' />
+        <meta name='description' content='오늘도 즐겜' />
       </Head>
       <Main />
     </>

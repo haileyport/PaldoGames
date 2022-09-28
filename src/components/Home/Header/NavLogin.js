@@ -25,7 +25,7 @@ export const Login = () => {
                   <GithubButton
                     label='깃허브 로그인'
                     onClick={() => signIn("github")}
-                    style={{ cursor: "pointer", marginTop: 10, marginBottom: 10, width: "100%" }}
+                    style={{ position: "relative", cursor: "pointer", width: "90%", margin: 15 }}
                   />
                 </Flex>
               </Styled.Section>

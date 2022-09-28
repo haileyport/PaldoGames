@@ -13,6 +13,14 @@ const GamesPage = () => {
 
   const fetchTotalPoint = async () => {
     const { data } = await axios.get(`/api/game/${user.id}`);
+
+    if (!data.response) {
+      const id = user.id;
+      const res = await axios.post(`/api/game`, {
+        id: id,
+      });
+    }
+
     let point;
 
     if (data.response) {

@@ -30,7 +30,7 @@ export const Header = () => {
       setModal({ ...modal, login: false });
       setCurrentUser({ user: users[userIndex], isLoggedIn: true });
     }
-  }, [modal, session, setCurrentUser, setModal]);
+  }, [session, setCurrentUser]);
 
   useEffect(() => {
     fetchLoginData();

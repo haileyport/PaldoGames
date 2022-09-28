@@ -13,6 +13,7 @@ export const PostModal = () => {
   const { user } = useRecoilValue(currentUserState);
   const [modal, setModal] = useRecoilState(modalStates);
   const [totalPoint, setTotalPoint] = useState({ id: "", point: 0 });
+  const [isDisabled, setIsDisabled] = useState(false);
   const setPost = useSetRecoilState(postState);
 
   const title = useRef(null);
@@ -61,9 +62,12 @@ export const PostModal = () => {
     async (e) => {
       e.preventDefault();
 
+      if (isDisabled) return;
+
       const titleValue = title.current.value;
       const contentValue = content.current.value;
       const { point } = totalPoint;
+      setIsDisabled(true);
 
       if (postingValidation(titleValue, contentValue)) {
         await axios
@@ -82,7 +86,7 @@ export const PostModal = () => {
         alert(POST.EMPTY_INPUT);
       }
     },
-    [modal, setModal, totalPoint, updatePost, user]
+    [totalPoint, updatePost, user]
   );
 
   useEffect(() => {
@@ -101,7 +105,7 @@ export const PostModal = () => {
         <ModalHeader content="글쓰기" />
         <ModalProfile user={user} />
         <Post.Main type="submit">
-          <Post.Form onSubmit={handlePostDetails}>
+          <Post.Form onSubmit={handlePostDetails} disabled={isDisabled}>
             <Flex justifyContent="center">
               <Post.Input
                 ref={title}
