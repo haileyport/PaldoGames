@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 import { contentState } from "../../../../states";
 import { Flex } from "../../../@commons";
-import { Modal, ModalFooter, ModalHeader, ModalProfile, ProfileModalMain } from "../../../@commons/Modal";
+import { Modal, ModalHeader, ModalProfile, ProfileModalMain } from "../../../@commons/Modal";
 import * as Styled from "../../../@commons/Modal/Modal.style";
 
 export const ContentListProfile = () => {
@@ -40,7 +40,6 @@ export const ContentListProfile = () => {
               <ProfileModalMain user={editor} />
             </>
           )}
-          <ModalFooter />
         </Styled.Section>
       </Modal>
     </Flex>
