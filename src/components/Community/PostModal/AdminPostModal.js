@@ -70,7 +70,7 @@ export const AdminPostModal = () => {
         alert(POST.EMPTY_INPUT);
       }
     },
-    [isDisabled, updatePost]
+    [updatePost]
   );
 
   return (
