@@ -53,8 +53,9 @@ export const AdminPostModal = () => {
       const titleValue = title.current.value;
       const contentValue = content.current.value;
 
-      setIsDisabled(true);
       if (postingValidation(titleValue, contentValue)) {
+        setIsDisabled(true);
+
         await axios
           .post(`/api/community`, {
             id: ADMIN_INFO.id,
@@ -84,7 +85,7 @@ export const AdminPostModal = () => {
             </Flex>
             <Flex flexDirection='column' alignItems='center'>
               <Post.TextArea ref={content} type='text' placeholder='내용을 입력해 주세요.' />
-              <Post.Button>공지글 쓰기</Post.Button>
+              <Post.Button disabled={isDisabled}>공지글 쓰기</Post.Button>
             </Flex>
           </Post.Form>
         </Post.Main>

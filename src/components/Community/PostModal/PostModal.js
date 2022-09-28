@@ -67,9 +67,10 @@ export const PostModal = () => {
       const titleValue = title.current.value;
       const contentValue = content.current.value;
       const { point } = totalPoint;
-      setIsDisabled(true);
 
       if (postingValidation(titleValue, contentValue)) {
+        setIsDisabled(true);
+
         await axios
           .post(`/api/community`, {
             id: user.id,
@@ -86,7 +87,7 @@ export const PostModal = () => {
         alert(POST.EMPTY_INPUT);
       }
     },
-    [totalPoint, updatePost, user, isDisabled]
+    [totalPoint, updatePost, user]
   );
 
   useEffect(() => {
@@ -105,7 +106,7 @@ export const PostModal = () => {
             </Flex>
             <Flex flexDirection='column' alignItems='center'>
               <Post.TextArea ref={content} type='text' placeholder='내용을 입력해 주세요.' />
-              <Post.Button>글 쓰기</Post.Button>
+              <Post.Button disabled={isDisabled}>글 쓰기</Post.Button>
             </Flex>
           </Post.Form>
         </Post.Main>
