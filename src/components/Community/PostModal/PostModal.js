@@ -91,16 +91,30 @@ export const PostModal = () => {
 
   return (
     <Modal>
-      <M.Section width='80%' maxWidth='1000px' minWidth='350px' maxHeight='1000px' style={{ overflowY: "auto" }}>
-        <ModalHeader content='글쓰기' />
+      <M.Section
+        width="80%"
+        maxWidth="1000px"
+        minWidth="350px"
+        maxHeight="1000px"
+        style={{ overflowY: "auto" }}
+      >
+        <ModalHeader content="글쓰기" />
         <ModalProfile user={user} />
-        <Post.Main type='submit'>
-          <Post.Form onSubmit={(e) => handlePostDetails(e)}>
-            <Flex justifyContent='center'>
-              <Post.Input ref={title} type='text' placeholder='타이틀을 입력해 주세요.' />
+        <Post.Main type="submit">
+          <Post.Form onSubmit={handlePostDetails}>
+            <Flex justifyContent="center">
+              <Post.Input
+                ref={title}
+                type="text"
+                placeholder="타이틀을 입력해 주세요."
+              />
             </Flex>
-            <Flex flexDirection='column' alignItems='center'>
-              <Post.TextArea ref={content} type='text' placeholder='내용을 입력해 주세요.' />
+            <Flex flexDirection="column" alignItems="center">
+              <Post.TextArea
+                ref={content}
+                type="text"
+                placeholder="내용을 입력해 주세요."
+              />
               <Post.Button>글 쓰기</Post.Button>
             </Flex>
           </Post.Form>

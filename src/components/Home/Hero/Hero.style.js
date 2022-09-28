@@ -21,15 +21,14 @@ export const StyledHeroContainer = styled.div`
 `;
 
 export const HeroTitle = styled.h1`
-  font-size: 4rem;
-  line-height: 5rem;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
   margin-bottom: 1rem;
   font-weight: 500;
   color: rgb(255 255 255);
 `;
 
 export const HeroMiniTitle = styled.p`
-  color: rgb(148 163 184);
   margin-bottom: 2rem;
   line-height: 1.625;
   font-weight: 600;
@@ -67,8 +66,7 @@ export const HeroButton = styled.a`
 `;
 
 export const AnimationContainer = styled.div`
-  width: 90%;
-  margin-top: 7rem;
+  width: 83%;
   @media screen and (min-width: 1024px) {
     max-width: 45rem;
     width: 100%;

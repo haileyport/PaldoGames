@@ -105,7 +105,10 @@ export const Bottom = styled.div`
   flex-direction: row;
   margin-left: 50px;
   margin-right: 50px;
+<<<<<<< HEAD
   margin-bottom: 100px;
+=======
+>>>>>>> 756e1fd270ec9bbe45594853cb20cf4bacdc5655
   justify-content: space-around;
 `;
 

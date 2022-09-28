@@ -46,18 +46,12 @@ export default async (req, res) => {
   } else if (req.method === "DELETE") {
     try {
       const id = req.body.id;
-      console.log("id!!!!!!!!!!!!!!!!!!", id);
       const deleteUser = await prisma.community.delete({
         where: {
           id: id,
         },
       });
-      console.log("ok???????????");
-      console.log(deleteUser);
       res.json({ ok: true, test: "ok" });
-    } catch (e) {
-      console.log(e);
-      console.log("ha........");
-    }
+    } catch (e) {}
   }
 };

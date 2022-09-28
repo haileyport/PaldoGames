@@ -124,17 +124,17 @@ const TimesTablesMain = () => {
   }, [seconds]);
 
   const gameOver = () => {
-    if (score >= 7) {
+    if (score >= 1) {
       // 게임 성공 200 포인트
       getUser().then((el) => {
-        updateUser(el + 200);
+        updateUser(el + 500);
       });
       setGame({
         game: {
           name: "timestables",
           answer: null,
         },
-        point: 200,
+        point: 500,
       });
     }
     router.push("/games/result");

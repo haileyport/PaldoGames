@@ -15,7 +15,8 @@ export const Section = styled.section`
   align-items: center;
   justify-content: center;
   color: rgb(75 85 99);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 `;
 
 export const Main = styled.main`
@@ -42,14 +43,25 @@ export const SearchInput = styled.input`
   padding-right: 10px;
   padding-top: 4px;
   color: black;
+
+  @media screen and (max-height: 650px) {
+    display: none;
+  }
+
+  @media screen and (max-width: 400px) {
+    display: none;
+  }
 `;
 
 export const Button = styled.button`
   width: 100px;
   color: rgb(255 255 255);
   background-color: rgb(99 102 241);
-  padding: 10;
+  border-width: 0px;
+  border-radius: 0.25rem;
+  padding: 3px;
   line-height: 1.75rem;
+  margin-left: 10px;
 
   &:focus {
     outline: 2px solid transparent;

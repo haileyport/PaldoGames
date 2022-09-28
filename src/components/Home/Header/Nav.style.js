@@ -15,8 +15,7 @@ export const Nav = styled.nav`
 `;
 
 export const Content = styled.a`
-  font-size: 2rem;
-  color: rgb(148 163 184);
+  color: rgb(100 116 139);
   font-weight: 600;
   margin: 1.25rem;
   &:hover {
