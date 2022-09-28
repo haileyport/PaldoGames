@@ -85,7 +85,7 @@ export const EditModal = () => {
             </Flex>
             <Flex flexDirection='column' alignItems='center'>
               <Post.TextArea ref={contentRef} type='text' defaultValue={getPostList.content} />
-              <Post.Button>수정하기</Post.Button>
+              <Post.Button disabled={isDisabled}>수정하기</Post.Button>
             </Flex>
           </Post.Form>
         </Post.Main>
