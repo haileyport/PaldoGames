@@ -1,7 +1,12 @@
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { adminState, contentState, currentUserState, modalStates } from "../../../states";
+import {
+  adminState,
+  contentState,
+  currentUserState,
+  modalStates,
+} from "../../../states";
 import axios from "axios";
 
 import { Flex } from "../../@commons";

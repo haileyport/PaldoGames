@@ -30,6 +30,7 @@
     "react-draggable": "^4.4.5",
     "react-github-login-button": "^1.0.1",
     "react-lottie-player": "^1.4.3",
+    "react-spinners": "^0.13.4",
     "recoil": "^0.7.5",
     "styled-components": "^5.3.5"
   },
