@@ -40,7 +40,6 @@ export const ContentListProfile = () => {
               <ProfileModalMain user={editor} />
             </>
           )}
-          <ModalFooter />
         </Styled.Section>
       </Modal>
     </Flex>
