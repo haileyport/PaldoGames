@@ -1,6 +1,9 @@
 import Head from "next/head";
 import { getSession } from "next-auth/react";
 import { CommunityMain } from "../components";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
 
 const CommunityPage = ({ postList }) => {
   return (
@@ -17,11 +20,11 @@ const CommunityPage = ({ postList }) => {
 export async function getServerSideProps(context) {
   const session = await getSession(context);
 
-  const postRes = await fetch("http://localhost:3000/api/community");
+  const postRes = await fetch("https://paldo-games.vercel.app/api/community");
   const postDataObj = await postRes.json();
   const postData = postDataObj.response;
 
-  const userRes = await fetch("http://localhost:3000/api/user");
+  const userRes = await fetch("https://paldo-games.vercel.app/api/user");
   const userDataObj = await userRes.json();
 
   const postList = [];
@@ -30,7 +33,6 @@ export async function getServerSideProps(context) {
   postData.map((data) => {
     const { id, title, content, editor } = data;
 
-    // user 값을 넣어주기 위해
     users.map((user) => {
       if (user.id === editor) {
         postList.unshift({ id, title, content, editor, writer: user });

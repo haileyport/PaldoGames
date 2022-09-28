@@ -11,7 +11,7 @@ React로 게임 만들기 스터디를 진행하면서 만든 게임을 모아 �
 
 ## 🎮 User Flow
 
-![userflow](https://user-images.githubusercontent.com/50188104/192191401-567240eb-8d1e-4a7f-8af3-1b1af8470a12.png)
+![userflow](https://velog.velcdn.com/images/partyqueen/post/38ababae-7cbc-4015-9a33-29d1b956fabc/image.png)
 
 ## 🧑🏻‍💻 Contributor
 

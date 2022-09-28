@@ -1,4 +1,4 @@
-import { useCallback, useRef } from "react";
+import { useCallback, useRef, useState } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { modalStates } from "../../../states";
 import { Flex } from "../../@commons";
@@ -11,6 +11,7 @@ import axios from "axios";
 
 export const AdminPostModal = () => {
   const [modal, setModal] = useRecoilState(modalStates);
+  const [isDisabled, setIsDisabled] = useState(false);
   const setPost = useSetRecoilState(postState);
 
   const title = useRef(null);
@@ -47,10 +48,14 @@ export const AdminPostModal = () => {
     async (e) => {
       e.preventDefault();
 
+      if (isDisabled) return;
+
       const titleValue = title.current.value;
       const contentValue = content.current.value;
 
       if (postingValidation(titleValue, contentValue)) {
+        setIsDisabled(true);
+
         await axios
           .post(`/api/community`, {
             id: ADMIN_INFO.id,
@@ -74,13 +79,13 @@ export const AdminPostModal = () => {
         <ModalHeader content='공지' />
         <ModalProfile user={ADMIN_INFO} />
         <Post.Main type='submit'>
-          <Post.Form onSubmit={(e) => handleAdminPostDetails(e)}>
+          <Post.Form onSubmit={(e) => handleAdminPostDetails(e)} disabled={isDisabled}>
             <Flex justifyContent='center'>
               <Post.Input ref={title} type='text' placeholder='타이틀을 입력해 주세요.' />
             </Flex>
             <Flex flexDirection='column' alignItems='center'>
               <Post.TextArea ref={content} type='text' placeholder='내용을 입력해 주세요.' />
-              <Post.Button>공지글 쓰기</Post.Button>
+              <Post.Button disabled={isDisabled}>공지글 쓰기</Post.Button>
             </Flex>
           </Post.Form>
         </Post.Main>

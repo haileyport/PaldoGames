@@ -16,7 +16,6 @@ const GamesCardImgWrapper = styled.div`
   overflow: hidden;
   position: relative;
   &:hover {
-    position: relative;
     filter: brightness(50%);
     transition: 0.3s;
   }

@@ -1,7 +1,12 @@
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { adminState, currentUserState, modalStates } from "../../../states";
+import {
+  adminState,
+  contentState,
+  currentUserState,
+  modalStates,
+} from "../../../states";
 import axios from "axios";
 
 import { Flex } from "../../@commons";
@@ -19,6 +24,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { ADMIN_INFO, COMMUNITY_ADMINS } from "../../../constants";
 import { AdminPostModal } from "../PostModal/AdminPostModal";
+import { ContentListProfile } from "./ContentList/ContentListProfile";
 
 export const CommunityMain = ({ postList }) => {
   const { user } = useRecoilValue(currentUserState);
@@ -31,7 +37,9 @@ export const CommunityMain = ({ postList }) => {
   const [limit] = useState(10);
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
-  const filteredPost = post.filter((post) => post.title.includes(searchValue) && post.editor !== ADMIN_INFO.id);
+  const filteredPost = post.filter(
+    (post) => post.title.includes(searchValue) && post.editor !== ADMIN_INFO.id
+  );
 
   // 검색기능
   const updateSearchValue = debounceFunction((target) => {
@@ -49,24 +57,8 @@ export const CommunityMain = ({ postList }) => {
     COMMUNITY_ADMINS.map((el) => el.id === user.id && setIsAdmin(true));
   }, [setIsAdmin, user.id]);
 
-  const fetchUserId = async () => {
-    const { data } = await axios.get(`/api/game/${user.id}`);
-
-    if (!data.response) {
-      const id = user.id;
-      const res = await axios.post(`/api/game`, {
-        id: id,
-      });
-    }
-  };
-
-  useEffect(() => {
-    fetchUserId();
-  }, []);
-
   useEffect(() => {
     setPost((prev) => (prev = postList));
-
     validateAdmin();
   }, [postList, setPost, validateAdmin]);
 
@@ -92,7 +84,6 @@ export const CommunityMain = ({ postList }) => {
     }
 
     // Default behavior
-
     return post.slice(offset, offset + limit).map((post, i) => {
       if (post.editor !== ADMIN_INFO.id) {
         return <ContentList key={i} post={post} id={post.id} />;
@@ -103,20 +94,24 @@ export const CommunityMain = ({ postList }) => {
   return (
     <>
       <Styled.Header>
-        <Flex flexDirection='row' justifyContent='space-around'>
-          <Link href='/community'>
+        <Flex flexDirection="row" justifyContent="space-around">
+          <Link href="/community">
             <Styled.P>커뮤니티</Styled.P>
           </Link>
-          <Link href='/ranking'>
+          <Link href="/ranking">
             <Styled.P>랭킹</Styled.P>
           </Link>
         </Flex>
-        <Flex flexDirection='row' justifyContent='center'>
+        <Flex flexDirection="row" justifyContent="center">
           <Styled.SearchContainer>
-            <Styled.SearchInput type='text' placeholder='   검색어를 입력하세요' onChange={onChangeSearchEvent} />
+            <Styled.SearchInput
+              type="text"
+              placeholder="   검색어를 입력하세요"
+              onChange={onChangeSearchEvent}
+            />
             <FontAwesomeIcon
               icon={faSearch}
-              size='1x'
+              size="1x"
               style={{
                 position: "relative",
                 top: 52,
@@ -133,11 +128,24 @@ export const CommunityMain = ({ postList }) => {
         <Styled.Main>
           {getAdminPost()}
           {handleFilteredPost()}
-          {modal.community ? <ContentModal postData={post} /> : modal.edit ? <EditModal /> : null}
+          {modal.community ? (
+            <ContentModal postData={post} />
+          ) : modal.edit ? (
+            <EditModal />
+          ) : null}
           <Styled.Footer>
-            <Pagination total={filteredPost.length} limit={limit} page={page} setPage={setPage} />
+            <Pagination
+              total={filteredPost.length}
+              limit={limit}
+              page={page}
+              setPage={setPage}
+            />
           </Styled.Footer>
-          <Flex justifyContent='flex-end' alignItems='center' style={{ width: "95%", marginBottom: "10px" }}>
+          <Flex
+            justifyContent="flex-end"
+            alignItems="center"
+            style={{ width: "95%", marginBottom: "10px" }}
+          >
             <Styled.Button
               onClick={() => setModal({ ...modal, post: true })}
               style={{
@@ -167,6 +175,7 @@ export const CommunityMain = ({ postList }) => {
           </Flex>
           {modal.post && <PostModal />}
           {modal.admin && isAdmin ? <AdminPostModal /> : null}
+          {modal.editor && <ContentListProfile />}
         </Styled.Main>
       </Styled.Section>
     </>
