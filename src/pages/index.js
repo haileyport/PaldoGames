@@ -5,6 +5,9 @@ config.autoAddCss = false; /* eslint-disable import/first */
 import { getSession } from "next-auth/react";
 import Head from "next/head";
 import { Main } from "../components";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
 
 export const Home = () => {
   return (
