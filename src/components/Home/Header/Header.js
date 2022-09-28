@@ -28,13 +28,13 @@ export const Header = () => {
       const userIndex = users.findIndex((user, i) => user.email === email);
 
       setModal({ ...modal, login: false });
-      setCurrentUser({ ...currentUser, user: users[userIndex], isLoggedIn: true });
+      setCurrentUser({
+        ...currentUser,
+        user: users[userIndex],
+        isLoggedIn: true,
+      });
     }
-<<<<<<< HEAD
-  }, [session, setCurrentUser]);
-=======
-  }, [currentUser, session, setCurrentUser]);
->>>>>>> 57d2ebb8a8f61f4708fac683919151b759c77e21
+  }, [session]);
 
   useEffect(() => {
     fetchLoginData();
@@ -45,13 +45,13 @@ export const Header = () => {
       <Styled.Header>
         <HomeLink />
         <StyledNav.Nav>
-          <Link href='/'>
+          <Link href="/">
             <StyledNav.Content>홈</StyledNav.Content>
           </Link>
-          <Link href='/games'>
+          <Link href="/games">
             <StyledNav.Content>게임</StyledNav.Content>
           </Link>
-          <Link href='/community'>
+          <Link href="/community">
             <StyledNav.Content>커뮤니티</StyledNav.Content>
           </Link>
           {status === "unauthenticated" ? <Login /> : <Profile />}

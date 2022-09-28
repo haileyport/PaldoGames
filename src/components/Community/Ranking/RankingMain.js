@@ -3,10 +3,12 @@ import { useState } from "react";
 import axios from "axios";
 import { MainHeader } from "../PageMain/MainHeader/MainHeader";
 import * as ranking from "./Ranking.style";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const RankingMain = () => {
   const [user, setUser] = useState("");
   const [filterArr, setFilterArr] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const arr = [];
   const newArr = [];
@@ -47,41 +49,58 @@ const RankingMain = () => {
         });
       }
     });
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
   }, []);
 
-  return (
-    <ranking.BackColor>
-      <MainHeader />
-      <ranking.RankingSubTitle>
-        자신의 랭킹을 확인해보세요!!
-      </ranking.RankingSubTitle>
+  if (loading) {
+    return (
+      <ranking.BackColor>
+        <MainHeader />
+        <ranking.RankingSubTitle>
+          자신의 랭킹을 확인해보세요!!
+        </ranking.RankingSubTitle>
+        <ranking.MiddleBox>
+          <ClipLoader color="#ffff" loading={loading} size={200} />
+        </ranking.MiddleBox>
+      </ranking.BackColor>
+    );
+  } else {
+    return (
+      <ranking.BackColor>
+        <MainHeader />
+        <ranking.RankingSubTitle>
+          자신의 랭킹을 확인해보세요!!
+        </ranking.RankingSubTitle>
 
-      <ranking.MiddleBox>
-        <ranking.RankingBox>
-          <thead>
-            <tr>
-              <th>순위</th>
-              <th>닉네임</th>
-              <th>포인트</th>
-            </tr>
-          </thead>
-          {filterArr.map((el, i) => {
-            while (i < 10) {
-              return (
-                <tbody key={i}>
-                  <tr>
-                    <td>{i + 1}</td>
-                    <td>{el.name}</td>
-                    <td>{el.point}</td>
-                  </tr>
-                </tbody>
-              );
-            }
-          })}
-        </ranking.RankingBox>
-      </ranking.MiddleBox>
-    </ranking.BackColor>
-  );
+        <ranking.MiddleBox>
+          <ranking.RankingBox>
+            <thead>
+              <tr>
+                <th>순위</th>
+                <th>닉네임</th>
+                <th>포인트</th>
+              </tr>
+            </thead>
+            {filterArr.map((el, i) => {
+              while (i < 10) {
+                return (
+                  <tbody key={i}>
+                    <tr>
+                      <td>{i + 1}</td>
+                      <td>{el.name}</td>
+                      <td>{el.point}</td>
+                    </tr>
+                  </tbody>
+                );
+              }
+            })}
+          </ranking.RankingBox>
+        </ranking.MiddleBox>
+      </ranking.BackColor>
+    );
+  }
 };
 
 export default RankingMain;

@@ -1,12 +1,7 @@
 import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
-import {
-  adminState,
-  contentState,
-  currentUserState,
-  modalStates,
-} from "../../../../states";
+import { adminState, contentState, currentUserState, modalStates } from "../../../../states";
 import { postState } from "../../../../states/community";
 import { Flex } from "../../Flex/Flex";
 import { P } from "../../P/P";
@@ -21,9 +16,7 @@ export const CommunityModalMain = () => {
   const [modal, setModal] = useRecoilState(modalStates);
   const isAdmin = useRecoilValue(adminState);
 
-  const getPost = post.filter(
-    ({ writer, title }) => writer.id === ids.userId && title === ids.title
-  )[0];
+  const getPost = post.filter(({ writer, title }) => writer.id === ids.userId && title === ids.title)[0];
   const index = post.findIndex((details) => details.id === getPost.id);
   const iAmTheOne = user.id === getPost?.writer.id;
 
@@ -46,11 +39,7 @@ export const CommunityModalMain = () => {
     const response = data.response;
     const { point } = totalPoint;
 
-    const currentPost = response.filter(
-      (post) => post.editor === ids.userId && ids.title === post.title
-    )[0];
-
-    setIsDisabled(true);
+    const currentPost = response.filter((post) => post.editor === ids.userId && ids.title === post.title)[0];
 
     setIsDisabled(true);
 
@@ -88,50 +77,21 @@ export const CommunityModalMain = () => {
   return (
     <Styled.InnerModalMain>
       {(iAmTheOne || isAdmin) && (
-<<<<<<< HEAD
-        <Flex
-          flexDirection="row"
-          justifyContent="flex-end"
-          style={{ position: "relative" }}
-        >
-          <button
-            onClick={() => setModal({ ...modal, edit: true, community: false })}
-          >
-            수정
-          </button>
-          <button onClick={() => deletePost()}>삭제</button>
-=======
         <Flex flexDirection='row' justifyContent='flex-end' style={{ position: "relative" }}>
           <button onClick={() => setModal({ ...modal, edit: true, community: false })}>수정</button>
           <button onClick={() => deletePost()} disabled={isDisabled}>
             삭제
           </button>
-<<<<<<< HEAD
->>>>>>> e779fbec3191f8e6032bf7acec8394c88cfcf90d
-=======
->>>>>>> 57d2ebb8a8f61f4708fac683919151b759c77e21
         </Flex>
       )}
-      <Flex
-        justifyContent="space-between"
-        style={{ margin: 40, marginTop: 20 }}
-      >
-        <Flex
-          flexDirection="column"
-          style={{ width: "100%", textAlign: "center" }}
-        >
-          <Flex
-            flexDirection="column"
-            style={{ borderBottom: "1px solid lightGray" }}
-          >
+      <Flex justifyContent='space-between' style={{ margin: 40, marginTop: 20 }}>
+        <Flex flexDirection='column' style={{ width: "100%", textAlign: "center" }}>
+          <Flex flexDirection='column' style={{ borderBottom: "1px solid lightGray" }}>
             <span style={{ letterSpacing: 5 }}>제목</span>
-            <P className="contentTitle" content={getPost?.title} />
+            <P className='contentTitle' content={getPost?.title} />
           </Flex>
           <Flex>
-            <P
-              content={getPost?.content}
-              style={{ textAlign: "left", lineHeight: 2, letterSpacing: 2 }}
-            />
+            <P content={getPost?.content} style={{ textAlign: "left", lineHeight: 2, letterSpacing: 2 }} />
           </Flex>
         </Flex>
       </Flex>
