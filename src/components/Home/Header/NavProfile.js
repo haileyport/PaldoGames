@@ -34,7 +34,7 @@ export const Profile = () => {
     if (editorId) fetchEditorProfile(editorId);
   }, [editorId]);
 
-  // modal.profile ? (current = user) : (current = editor);
+  modal.profile ? (current = user) : (current = editor);
 
   return (
     <Flex flexDirection="column">
@@ -54,8 +54,8 @@ export const Profile = () => {
                 left="40%"
               >
                 <ModalHeader content="프로필" />
-                <ModalProfile user={user} />
-                <ProfileModalMain user={user} />
+                <ModalProfile user={current} />
+                <ProfileModalMain user={current} />
                 <ModalFooter />
               </Styled.Section>
             </Modal>
