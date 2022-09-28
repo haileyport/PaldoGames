@@ -36,8 +36,8 @@ export const Profile = () => {
                 left="40%"
               >
                 <ModalHeader content="프로필" />
-                <ModalProfile user={current} />
-                <ProfileModalMain user={current} />
+                <ModalProfile user={user} />
+                <ProfileModalMain user={user} />
                 <ModalFooter />
               </Styled.Section>
             </Modal>
