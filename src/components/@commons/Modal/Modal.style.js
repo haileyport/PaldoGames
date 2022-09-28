@@ -43,7 +43,6 @@ export const Container = styled.div`
 
 export const Section = styled.section`
   position: relative;
-
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   max-width: ${(props) => props.maxWidth};

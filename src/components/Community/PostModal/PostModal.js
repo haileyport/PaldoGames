@@ -13,6 +13,7 @@ export const PostModal = () => {
   const { user } = useRecoilValue(currentUserState);
   const [modal, setModal] = useRecoilState(modalStates);
   const [totalPoint, setTotalPoint] = useState({ id: "", point: 0 });
+  const [isDisabled, setIsDisabled] = useState(false);
   const setPost = useSetRecoilState(postState);
 
   const title = useRef(null);
@@ -61,9 +62,12 @@ export const PostModal = () => {
     async (e) => {
       e.preventDefault();
 
+      if (isDisabled) return;
+
       const titleValue = title.current.value;
       const contentValue = content.current.value;
       const { point } = totalPoint;
+      setIsDisabled(true);
 
       if (postingValidation(titleValue, contentValue)) {
         await axios
@@ -91,16 +95,30 @@ export const PostModal = () => {
 
   return (
     <Modal>
-      <M.Section width='80%' maxWidth='1000px' minWidth='350px' maxHeight='1000px' style={{ overflowY: "auto" }}>
-        <ModalHeader content='글쓰기' />
+      <M.Section
+        width="80%"
+        maxWidth="1000px"
+        minWidth="350px"
+        maxHeight="1000px"
+        style={{ overflowY: "auto" }}
+      >
+        <ModalHeader content="글쓰기" />
         <ModalProfile user={user} />
-        <Post.Main type='submit'>
-          <Post.Form onSubmit={handlePostDetails}>
-            <Flex justifyContent='center'>
-              <Post.Input ref={title} type='text' placeholder='타이틀을 입력해 주세요.' />
+        <Post.Main type="submit">
+          <Post.Form onSubmit={handlePostDetails} disabled={isDisabled}>
+            <Flex justifyContent="center">
+              <Post.Input
+                ref={title}
+                type="text"
+                placeholder="타이틀을 입력해 주세요."
+              />
             </Flex>
-            <Flex flexDirection='column' alignItems='center'>
-              <Post.TextArea ref={content} type='text' placeholder='내용을 입력해 주세요.' />
+            <Flex flexDirection="column" alignItems="center">
+              <Post.TextArea
+                ref={content}
+                type="text"
+                placeholder="내용을 입력해 주세요."
+              />
               <Post.Button>글 쓰기</Post.Button>
             </Flex>
           </Post.Form>

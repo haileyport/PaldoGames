@@ -7,7 +7,7 @@ const CommunityPage = ({ postList }) => {
     <>
       <Head>
         <title>커뮤니티공간</title>
-        <meta name="description" content="커뮤니티" />
+        <meta name='description' content='커뮤니티' />
       </Head>
       <CommunityMain postList={postList}></CommunityMain>
     </>
@@ -22,6 +22,7 @@ export async function getServerSideProps(context) {
   const postData = postDataObj.response;
 
   const userRes = await fetch("https://paldo-games.vercel.app/api/user");
+
   const userDataObj = await userRes.json();
 
   const postList = [];
