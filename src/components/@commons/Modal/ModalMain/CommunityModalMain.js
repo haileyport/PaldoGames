@@ -74,8 +74,8 @@ export const CommunityModalMain = () => {
     <Styled.InnerModalMain>
       {(iAmTheOne || isAdmin) && (
         <Flex
-          flexDirection='row'
-          justifyContent='flex-end'
+          flexDirection="row"
+          justifyContent="flex-end"
           style={{ position: "relative" }}
         >
           <button
@@ -89,19 +89,19 @@ export const CommunityModalMain = () => {
         </Flex>
       )}
       <Flex
-        justifyContent='space-between'
+        justifyContent="space-between"
         style={{ margin: 40, marginTop: 20 }}
       >
         <Flex
-          flexDirection='column'
+          flexDirection="column"
           style={{ width: "100%", textAlign: "center" }}
         >
           <Flex
-            flexDirection='column'
+            flexDirection="column"
             style={{ borderBottom: "1px solid lightGray" }}
           >
             <span style={{ letterSpacing: 5 }}>제목</span>
-            <P className='contentTitle' content={getPost?.title} />
+            <P className="contentTitle" content={getPost?.title} />
           </Flex>
           <Flex>
             <P

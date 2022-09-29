@@ -16,9 +16,9 @@ export const ContentModal = ({ postData }) => {
   return (
     <Modal>
       <Styled.Section
-        width='80%'
-        maxWidth='1000px'
-        minWidth='300px'
+        width="80%"
+        maxWidth="1000px"
+        minWidth="300px"
         style={{ maxHeight: "500px", overflowY: "auto" }}
       >
         <ModalHeader

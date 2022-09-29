@@ -22,7 +22,7 @@ export const Home = ({ session }) => {
     <>
       <Head>
         <title>팔도게임즈!</title>
-        <meta name='description' content='로그인 페이지' />
+        <meta name="description" content="로그인 페이지" />
       </Head>
       <Main />
     </>

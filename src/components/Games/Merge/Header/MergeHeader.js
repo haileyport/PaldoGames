@@ -29,8 +29,8 @@ const MergeHeader = ({ reset, setReset }) => {
   return (
     <HeaderWrap>
       <TitleWrap>
-        <span className='title'>2048</span>
-        <span className='subTitle'>
+        <span className="title">2048</span>
+        <span className="subTitle">
           🕹️ 새 게임을 시작하면 포인트가 100점 차감됩니다.
         </span>
       </TitleWrap>

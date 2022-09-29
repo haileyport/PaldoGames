@@ -10,9 +10,9 @@ export const CardModal = ({}) => {
   return (
     <Modal>
       <Styled.Section
-        width='80%'
-        maxWidth='600px'
-        minWidth='500px'
+        width="80%"
+        maxWidth="600px"
+        minWidth="500px"
         style={{
           maxHeight: "500px",
           overflowY: "auto",
