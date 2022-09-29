@@ -16,7 +16,7 @@ export const GamesCard = ({ imageUrl, gameTitle, linkUrl }) => {
           src={imageUrl}
           layout='responsive'
           quality={100}
-          alt='car-image'
+          alt='card-image'
         />
       </GamesCardImgWrapper>
       {isHovering ? (
