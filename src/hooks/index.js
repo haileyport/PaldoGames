@@ -1,4 +1,5 @@
-import useFetch from "./useFetch";
-import useFetchUserPoint from "./useFetchUserPoint";
+// apis
+import useAxios from "./apis/useAxios";
+import useGet from "./apis/useGet";
 
-export { useFetch, useFetchUserPoint };
+export { useAxios, useGet };
