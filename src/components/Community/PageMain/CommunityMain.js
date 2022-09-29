@@ -88,32 +88,32 @@ export const CommunityMain = ({ postList }) => {
   return (
     <>
       <Styled.Header>
-        <Flex flexDirection='row' justifyContent='space-around'>
-          <Link href='/community'>
+        <Flex flexDirection="row" justifyContent="space-around">
+          <Link href="/community">
             <Styled.P>커뮤니티</Styled.P>
           </Link>
-          <Link href='/ranking'>
+          <Link href="/ranking">
             <Styled.P>랭킹</Styled.P>
           </Link>
         </Flex>
-        <Flex flexDirection='row' justifyContent='center'>
+        <Flex flexDirection="row" justifyContent="center">
           <Styled.SearchContainer>
-            <Styled.SearchInput
-              type='text'
-              placeholder='   검색어를 입력하세요'
-              onChange={onChangeSearchEvent}
-            />
             <FontAwesomeIcon
               icon={faSearch}
-              size='1x'
+              size="1x"
               style={{
                 position: "relative",
-                top: 52,
-                right: 330,
+                top: 1,
+                left: 35,
                 color: "black",
                 zIndex: 67,
                 cursor: "none",
               }}
+            />
+            <Styled.SearchInput
+              type="text"
+              placeholder="   검색어를 입력하세요"
+              onChange={onChangeSearchEvent}
             />
           </Styled.SearchContainer>
         </Flex>
@@ -122,55 +122,39 @@ export const CommunityMain = ({ postList }) => {
         <Styled.Main>
           {getAdminPost()}
           {handleFilteredPost()}
-          {modal.community ? (
-            <ContentModal postData={post} />
-          ) : modal.edit ? (
-            <EditModal />
-          ) : null}
-          <Styled.Footer>
-            <Pagination
-              total={filteredPost.length}
-              limit={limit}
-              page={page}
-              setPage={setPage}
-            />
-          </Styled.Footer>
-          <Flex
-            justifyContent='flex-end'
-            alignItems='center'
-            style={{ width: "95%", marginBottom: "10px" }}
-          >
-            <Styled.Button
-              onClick={() => setModal({ ...modal, post: true })}
-              style={{
-                position: "relative",
-                top: 50,
-                fontSize: 15,
-                letterSpacing: "none",
-                textAlign: "center",
-              }}
-            >
-              글쓰기
-            </Styled.Button>
-            {isAdmin && (
-              <Styled.Button
-                onClick={() => setModal({ ...modal, admin: true })}
-                style={{
-                  position: "relative",
-                  top: 50,
-                  fontSize: 15,
-                  letterSpacing: "none",
-                  textAlign: "center",
-                }}
-              >
-                공지
-              </Styled.Button>
-            )}
-          </Flex>
-          {modal.post && <PostModal />}
-          {modal.admin && isAdmin ? <AdminPostModal /> : null}
-          {modal.editor && <ContentListProfile />}
         </Styled.Main>
+        <Flex
+          justifyContent="flex-end"
+          alignItems="center"
+          style={{
+            width: "95%",
+            marginBottom: "10px",
+          }}
+        >
+          <Styled.Button onClick={() => setModal({ ...modal, post: true })}>
+            글쓰기
+          </Styled.Button>
+          {isAdmin && (
+            <Styled.Button onClick={() => setModal({ ...modal, admin: true })}>
+              공지
+            </Styled.Button>
+          )}
+        </Flex>
+        <Pagination
+          total={filteredPost.length}
+          limit={limit}
+          page={page}
+          setPage={setPage}
+        />
+        {modal.community ? (
+          <ContentModal postData={post} />
+        ) : modal.edit ? (
+          <EditModal />
+        ) : null}
+
+        {modal.post && <PostModal />}
+        {modal.admin && isAdmin ? <AdminPostModal /> : null}
+        {modal.editor && <ContentListProfile />}
       </Styled.Section>
     </>
   );

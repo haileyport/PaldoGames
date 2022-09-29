@@ -11,21 +11,19 @@ export const ContentList = ({ post }) => {
 
   return (
     <Flex
-      flexDirection='row'
-      justifyContent='space-between'
+      flexDirection="row"
+      justifyContent="space-between"
       style={{
         width: "90%",
-        position: "relative",
-        top: "40px",
         borderBottom: "1px solid white",
         margin: "0 auto",
       }}
     >
       <Flex style={{ width: 550 }}>
-        <input type='radio' disabled style={{ width: "auto" }} />
+        <input type="radio" disabled style={{ width: "auto" }} />
         <Styled.Title
           writer={writer.id}
-          className='ellipsis'
+          className="ellipsis"
           onClick={() => {
             const currentPost = postList.filter(
               (post) => post.title === title && post.editor === writer.id
@@ -42,9 +40,9 @@ export const ContentList = ({ post }) => {
           {title}
         </Styled.Title>
       </Flex>
-      <Flex alignItems='center' alignSelf='flex-end'>
+      <Flex alignItems="center" alignSelf="flex-end">
         <Input
-          type='image'
+          type="image"
           id={writer.id}
           src={writer.image}
           onClick={({ target }) => {

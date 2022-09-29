@@ -1,84 +1,6 @@
 import styled from "styled-components";
 
-export const Header = styled.header`
-  width: 100%;
-  height: 10%;
-`;
-
-export const Section = styled.section`
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  width: 100%;
-  height: 90vh;
-  // min-height: 90vh;
-  align-items: center;
-  justify-content: center;
-  color: rgb(75 85 99);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-`;
-
-export const Main = styled.main`
-  display: flex;
-  position: absolute;
-  flex-direction: column;
-  width: 100%;
-  height: 75%;
-  max-height: 80vh;
-  bottom: 180px;
-
-  @media screen and (max-height: 500px) {
-    height: 40%;
-  }
-`;
-
-export const SearchContainer = styled.div`
-  @media screen and (max-height: 800px) {
-    display: none;
-  }
-
-  @media screen and (max-width: 400px) {
-    display: none;
-  }
-`;
-
-export const SearchInput = styled.input`
-  position: relative;
-  top: 50px;
-  width: 350px;
-  height: 40px;
-  border: none;
-  background: #e6e6e6;
-  font-size: 16px;
-  border-radius: 50px;
-  z-index: 66;
-  text-align: center;
-  padding-right: 10px;
-  padding-top: 4px;
-  color: black;
-`;
-
-export const Button = styled.button`
-  width: 100px;
-  color: rgb(255 255 255);
-  background-color: rgb(99 102 241);
-  border-width: 0px;
-  border-radius: 0.25rem;
-  padding: 3px;
-  line-height: 1.75rem;
-  margin-left: 10px;
-
-  &:focus {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-  }
-
-  &:hover {
-    background-color: rgb(79 70 229);
-    cursor: pointer;
-  }
-`;
+export const Header = styled.header``;
 
 export const P = styled.p`
   margin-top: 25px;
@@ -92,6 +14,51 @@ export const P = styled.p`
   letter-spacing: 5px;
   background-color: rgb(99 102 241);
   height: 40px;
+`;
+
+export const Section = styled.section`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  color: rgb(75 85 99);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+`;
+
+export const Main = styled.main`
+  margin-top: -100px;
+  min-height: 73.2vh;
+  margin-bottom: 20px;
+  padding-top: 90px;
+`;
+
+export const SearchContainer = styled.div`
+  margin-top: 30px;
+  margin-bottom: 20px;
+
+  @media screen and (max-height: 800px) {
+    display: none;
+  }
+
+  @media screen and (max-width: 380px) {
+    display: none;
+  }
+`;
+
+export const SearchInput = styled.input`
+  background: #e6e6e6;
+  width: 350px;
+  height: 40px;
+  border: none;
+  font-size: 16px;
+  border-radius: 50px;
+  text-align: center;
+  padding-right: 10px;
+  padding-top: 4px;
+  color: black;
+
+  z-index: 66;
 `;
 
 export const Empty = styled.p`
@@ -161,23 +128,27 @@ export const Title = styled.p`
 `;
 
 export const Footer = styled.footer`
-  position: absolute;
   width: 100%;
-  top: 94%;
+`;
 
-  @media screen and (max-height: 1000px) {
-    top: 110%;
+export const Button = styled.button`
+  font-size: 15px;
+  width: 100px;
+  color: rgb(255 255 255);
+  background-color: rgb(99 102 241);
+  border-width: 0px;
+  border-radius: 0.25rem;
+  padding: 3px;
+  line-height: 1.75rem;
+  margin-left: 10px;
+
+  &:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
   }
 
-  @media screen and (max-width: 600px) {
-    top: 42rem;
-  }
-
-  @media screen and (max-width: 400px) {
-    top: 42rem;
-  }
-
-  @media screen and (max-width: 1300px) {
-    top: 40rem;
+  &:hover {
+    background-color: rgb(79 70 229);
+    cursor: pointer;
   }
 `;
