@@ -8,9 +8,9 @@ const Ranking = () => {
     <>
       <Head>
         <title>랭킹</title>
-        <meta name='description' content='오늘도 즐겜' />
+        <meta name="description" content="오늘도 즐겜" />
       </Head>
-      <Flex flexDirection='column' alignItems='center'>
+      <Flex flexDirection="column" alignItems="center">
         <RankingMain />
       </Flex>
     </>

@@ -19,7 +19,7 @@ export const Hero = () => {
         </HeroTitle>
         <HeroMiniTitle>포인트를 얻어 랭킹에 들어봅시다!</HeroMiniTitle>
         <GameButton>
-          <Link href='/games'>
+          <Link href="/games">
             <HeroButton>게임하러 가기</HeroButton>
           </Link>
         </GameButton>

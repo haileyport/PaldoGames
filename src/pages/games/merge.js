@@ -7,7 +7,7 @@ const MergeGamePage = () => {
     <>
       <Head>
         <title>2048 게임</title>
-        <meta name='description' content='오늘도 즐겜' />
+        <meta name="description" content="오늘도 즐겜" />
       </Head>
       <MergeGameMain />
     </>

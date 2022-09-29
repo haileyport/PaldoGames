@@ -7,7 +7,7 @@ const EasterEgg = () => {
     <>
       <Head>
         <title>커뮤니티공간</title>
-        <meta name='description' content='커뮤니티' />
+        <meta name="description" content="커뮤니티" />
       </Head>
       <FooterEasterEgg />
     </>

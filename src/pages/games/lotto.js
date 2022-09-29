@@ -8,7 +8,7 @@ const Lotto = () => {
     <>
       <Head>
         <title>로또</title>
-        <meta name='description' content='오늘도 즐겜' />
+        <meta name="description" content="오늘도 즐겜" />
       </Head>
       <LottoMain />
     </>

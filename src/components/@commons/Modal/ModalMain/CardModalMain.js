@@ -9,7 +9,7 @@ export const CardModalMain = ({}) => {
 
   return (
     <Styled.InnerModalMain>
-      <Flex justifyContent='center'>
+      <Flex justifyContent="center">
         {GAME_LIST.map((el, i) => {
           if (game === el.gameTitle)
             return (

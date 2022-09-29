@@ -99,27 +99,27 @@ export const EditModal = () => {
   return (
     <Modal>
       <M.Section
-        width='80%'
-        maxWidth='1000px'
-        minWidth='500px'
-        maxHeight='1000px'
+        width="80%"
+        maxWidth="1000px"
+        minWidth="500px"
+        maxHeight="1000px"
         style={{ overflowY: "auto" }}
       >
-        <ModalHeader content='수정하기' />
+        <ModalHeader content="수정하기" />
         <ModalProfile user={user} />
-        <Post.Main type='submit'>
+        <Post.Main type="submit">
           <Post.Form onSubmit={handleModifyPost} disabled={isDisabled}>
-            <Flex justifyContent='center'>
+            <Flex justifyContent="center">
               <Post.Input
                 ref={titleRef}
-                type='text'
+                type="text"
                 defaultValue={getPostList.title}
               />
             </Flex>
-            <Flex flexDirection='column' alignItems='center'>
+            <Flex flexDirection="column" alignItems="center">
               <Post.TextArea
                 ref={contentRef}
-                type='text'
+                type="text"
                 defaultValue={getPostList.content}
               />
               <Post.Button disabled={isDisabled}>수정하기</Post.Button>
