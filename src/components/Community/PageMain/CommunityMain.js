@@ -146,6 +146,7 @@ export const CommunityMain = ({ postList }) => {
           page={page}
           setPage={setPage}
         />
+
         {modal.community ? (
           <ContentModal postData={post} />
         ) : modal.edit ? (

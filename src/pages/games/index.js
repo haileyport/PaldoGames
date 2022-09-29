@@ -43,7 +43,7 @@ const GamesPage = () => {
     <>
       <Head>
         <title>게임공간</title>
-        <meta name="description" content="오늘도 즐겜" />
+        <meta name='description' content='오늘도 즐겜' />
       </Head>
       <GamesMain />
     </>

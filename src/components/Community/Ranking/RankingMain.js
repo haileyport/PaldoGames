@@ -62,7 +62,7 @@ const RankingMain = () => {
           자신의 랭킹을 확인해보세요!!
         </ranking.RankingSubTitle>
         <ranking.MiddleBox>
-          <ClipLoader color="#ffff" loading={loading} size={200} />
+          <ClipLoader color='#ffff' loading={loading} size={200} />
         </ranking.MiddleBox>
       </ranking.BackColor>
     );

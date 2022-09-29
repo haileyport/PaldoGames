@@ -28,7 +28,8 @@ export const Section = styled.section`
 
 export const Main = styled.main`
   margin-top: -100px;
-  min-height: 73.2vh;
+  height: 100%;
+  min-height: 670px;
   margin-bottom: 20px;
   padding-top: 90px;
 `;
@@ -36,14 +37,6 @@ export const Main = styled.main`
 export const SearchContainer = styled.div`
   margin-top: 30px;
   margin-bottom: 20px;
-
-  @media screen and (max-height: 800px) {
-    display: none;
-  }
-
-  @media screen and (max-width: 380px) {
-    display: none;
-  }
 `;
 
 export const SearchInput = styled.input`
