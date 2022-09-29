@@ -2,7 +2,7 @@ import axios from "axios";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useRecoilValue } from "recoil";
 import { GamesMain } from "../../components";
 import { currentUserState } from "../../states";
@@ -11,7 +11,7 @@ const GamesPage = () => {
   const { user } = useRecoilValue(currentUserState);
   const router = useRouter();
 
-  const fetchTotalPoint = async () => {
+  const fetchTotalPoint = useCallback(async () => {
     const { data } = await axios.get(`/api/game/${user.id}`);
 
     if (!data.response) {
@@ -28,7 +28,7 @@ const GamesPage = () => {
 
       return point;
     }
-  };
+  }, [user.id]);
 
   useEffect(() => {
     fetchTotalPoint().then((totalPoint) => {
@@ -43,7 +43,7 @@ const GamesPage = () => {
     <>
       <Head>
         <title>게임공간</title>
-        <meta name="description" content="오늘도 즐겜" />
+        <meta name='description' content='오늘도 즐겜' />
       </Head>
       <GamesMain />
     </>

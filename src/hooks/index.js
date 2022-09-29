@@ -1,3 +1,5 @@
-import useFetch from "./useFetch";
+// apis
+import useAxios from "./apis/useAxios";
+import useGet from "./apis/useGet";
 
-export { useFetch };
+export { useAxios, useGet };

@@ -1,35 +1,23 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import axios from "axios";
+import { useCallback, useRef, useState } from "react";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { currentUserState, modalStates } from "../../../states";
+import { currentUserState, modalStates, postState } from "../../../states";
 import { Flex } from "../../@commons";
 import { Modal, ModalHeader, ModalProfile } from "../../@commons/Modal";
 import * as Post from "./PostModal.style";
 import * as M from "../../@commons/Modal/Modal.style";
 import { POST } from "../../../constants";
-import { postState } from "../../../states/community";
-import axios from "axios";
+import { useGet } from "../../../hooks";
 
 export const PostModal = () => {
   const { user } = useRecoilValue(currentUserState);
+  const [selectedUserData, error, loading] = useGet(`/game/${user.id}`);
   const [modal, setModal] = useRecoilState(modalStates);
-  const [totalPoint, setTotalPoint] = useState({ id: "", point: 0 });
   const [isDisabled, setIsDisabled] = useState(false);
   const setPost = useSetRecoilState(postState);
 
   const title = useRef(null);
   const content = useRef(null);
-
-  const fetchTotalPoint = useCallback(async () => {
-    const { data } = await axios.get(`/api/game/${user.id}`);
-    let point;
-
-    if (data.response) {
-      point = data.response.totalPoint;
-      setTotalPoint({ id: user.id, point });
-    } else {
-      point = 0;
-    }
-  }, [user.id]);
 
   const postingValidation = (titleValue, contentValue) => {
     let isValid = false;
@@ -43,7 +31,7 @@ export const PostModal = () => {
     return isValid;
   };
 
-  const updatePost = useCallback(
+  const renderPost = useCallback(
     (title, editor, content, writer) => {
       setPost((prev) => [
         {
@@ -58,54 +46,73 @@ export const PostModal = () => {
     [setPost]
   );
 
+  const postContent = (id, title, content, point) => {
+    axios
+      .post(`/api/community`, {
+        id,
+        title,
+        content,
+      })
+      .catch((err) => console.log(err));
+
+    axios.patch(`api/game`, {
+      userId: user.id,
+      point: point + 100,
+    });
+  };
+
   const handlePostDetails = useCallback(
-    async (e) => {
+    (e) => {
       e.preventDefault();
 
       if (isDisabled) return;
 
+      if (!loading && error) console.log("can not fetch user data");
+
       const titleValue = title.current.value;
       const contentValue = content.current.value;
-      const { point } = totalPoint;
+      const point = selectedUserData.response.totalPoint;
 
       if (postingValidation(titleValue, contentValue)) {
         setIsDisabled(true);
-
-        await axios
-          .post(`/api/community`, {
-            id: user.id,
-            title: titleValue,
-            content: contentValue,
-          })
-          .catch((err) => console.log(err));
-
-        await axios.patch(`api/game`, { userId: user.id, point: point + 100 });
-
-        updatePost(titleValue, user.id, contentValue, user);
+        postContent(user.id, titleValue, contentValue, point);
+        renderPost(titleValue, user.id, contentValue, user);
         setModal({ ...modal, post: false });
       } else {
         alert(POST.EMPTY_INPUT);
       }
     },
-    [totalPoint, updatePost, user]
-  );
 
-  useEffect(() => {
-    fetchTotalPoint();
-  }, [fetchTotalPoint]);
+    // eslint-disable-next-line
+    [isDisabled, selectedUserData, user, renderPost]
+  );
 
   return (
     <Modal>
-      <M.Section width='80%' maxWidth='1000px' minWidth='350px' maxHeight='1000px' style={{ overflowY: "auto" }}>
+      <M.Section
+        width='80%'
+        maxWidth='1000px'
+        minWidth='350px'
+        maxHeight='1000px'
+        style={{ overflowY: "auto" }}
+      >
         <ModalHeader content='글쓰기' />
         <ModalProfile user={user} />
-        <Post.Main type='submit'>
+        <Post.Main>
           <Post.Form onSubmit={handlePostDetails} disabled={isDisabled}>
             <Flex justifyContent='center'>
-              <Post.Input ref={title} type='text' placeholder='타이틀을 입력해 주세요.' />
+              <Post.Input
+                ref={title}
+                type='text'
+                placeholder='타이틀을 입력해 주세요.'
+              />
             </Flex>
             <Flex flexDirection='column' alignItems='center'>
-              <Post.TextArea ref={content} type='text' placeholder='내용을 입력해 주세요.' />
+              <Post.TextArea
+                ref={content}
+                type='text'
+                placeholder='내용을 입력해 주세요.'
+              />
               <Post.Button disabled={isDisabled}>글 쓰기</Post.Button>
             </Flex>
           </Post.Form>
