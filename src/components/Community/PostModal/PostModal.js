@@ -108,7 +108,7 @@ export const PostModal = () => {
       >
         <ModalHeader content='글쓰기' />
         <ModalProfile user={user} />
-        <Post.Main type='submit'>
+        <Post.Main>
           <Post.Form onSubmit={handlePostDetails} disabled={isDisabled}>
             <Flex justifyContent='center'>
               <Post.Input

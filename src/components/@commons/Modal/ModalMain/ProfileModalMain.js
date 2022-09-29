@@ -35,7 +35,10 @@ export const ProfileModalMain = ({ user }) => {
 
   return (
     <Styled.InnerModalMain>
-      <Flex justifyContent='space-between' style={{ margin: 40, marginTop: 20 }}>
+      <Flex
+        justifyContent='space-between'
+        style={{ margin: 40, marginTop: 20 }}
+      >
         <Flex flexDirection='column'>
           {(totalPoint || totalPoint === 0) && (
             <>
@@ -51,9 +54,16 @@ export const ProfileModalMain = ({ user }) => {
             </>
           )}
         </Flex>
-        <Flex flexDirection='column' onClick={() => setModal({ ...modal, profile: false })}>
+        <Flex
+          flexDirection='column'
+          onClick={() => setModal({ ...modal, profile: false })}
+        >
           <Link href='/games/lotto'>
-            <FontAwesomeIcon icon={faTicket} size='2x' style={{ marginBottom: 10, cursor: "pointer" }} />
+            <FontAwesomeIcon
+              icon={faTicket}
+              size='2x'
+              style={{ marginBottom: 10, cursor: "pointer" }}
+            />
           </Link>
           <span style={{ marginLeft: 5 }}> 로또</span>
         </Flex>
