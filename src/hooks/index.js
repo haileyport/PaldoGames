@@ -1,3 +1,4 @@
 import useFetch from "./useFetch";
+import useFetchUserPoint from "./useFetchUserPoint";
 
-export { useFetch };
+export { useFetch, useFetchUserPoint };

@@ -12,19 +12,19 @@ export const GameButtons = ({ content, linkUrl, setIsHovering, gameTitle }) => {
     <>
       <Link href={linkUrl}>
         <GameBtn
-          top="40%"
-          left="50%"
-          onMouseOver={() => setIsHovering(true)}
+          top='40%'
+          left='50%'
+          onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >
           <GameBtnText>{content[0]}</GameBtnText>
         </GameBtn>
       </Link>
       <GameBtn
-        top="60%"
-        left="50%"
-        onMouseOver={() => setIsHovering(true)}
-        onMouseOut={() => setIsHovering(false)}
+        top='60%'
+        left='50%'
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
         onClick={() => {
           setModal({ ...modal, desc: true });
           setCurrentGame({ game: gameTitle });

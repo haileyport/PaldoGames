@@ -37,7 +37,7 @@ export const ProfileModalMain = ({ user }) => {
     <Styled.InnerModalMain>
       <Flex justifyContent='space-between' style={{ margin: 40, marginTop: 20 }}>
         <Flex flexDirection='column'>
-          {totalPoint && (
+          {(totalPoint || totalPoint === 0) && (
             <>
               <Link href='/ranking'>
                 <FontAwesomeIcon
