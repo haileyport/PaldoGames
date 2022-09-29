@@ -1,4 +1,9 @@
-import React, { useState, useEffect, useCallback, useLayoutEffect } from "react";
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  useLayoutEffect,
+} from "react";
 import axios from "axios";
 import * as G from "./GameBoard.style";
 
@@ -6,12 +11,24 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import gameInfo from "./../../../states/gameInfo";
 import { currentUserState } from "./../../../states/user";
 
-import { BOARD_SIZE, WIN_NUMBER, MAX_NUMBER } from "../../../utils/merge/constants";
+import {
+  BOARD_SIZE,
+  WIN_NUMBER,
+  MAX_NUMBER,
+} from "../../../utils/merge/constants";
 import GameModal from "./GameModal";
 import GridContainer from "./GridContainer";
 import TileContainer from "./TileContainer";
 import { getDirection, getPosition } from "../../../utils/merge/touchEvent";
-import { getRow, getColumn, getNewTile, isChanged, checkAllValueIsTrue, combineTile, checkIsCombinable } from "../../../utils/merge/tile";
+import {
+  getRow,
+  getColumn,
+  getNewTile,
+  isChanged,
+  checkAllValueIsTrue,
+  combineTile,
+  checkIsCombinable,
+} from "../../../utils/merge/tile";
 
 const defaultArray = new Array(BOARD_SIZE * BOARD_SIZE).fill(0);
 
@@ -49,7 +66,9 @@ const GameBoard = ({ reset, setReset }) => {
 
   const getUser = async () => {
     const userId = user.id;
-    const res = await axios.get(`/api/game/${userId}`).catch((err) => console.log(err));
+    const res = await axios
+      .get(`/api/game/${userId}`)
+      .catch((err) => console.log(err));
     return res.data.response.totalPoint;
   };
 
@@ -87,7 +106,10 @@ const GameBoard = ({ reset, setReset }) => {
   const [beRemovedTiles, setBeRemovedTiles] = useState([]);
 
   const getLine = ({ row, col }, isUpDown) => {
-    return numbers.filter((tile, idx) => tile.number && (isUpDown ? getColumn(idx) === col : getRow(idx) === row));
+    return numbers.filter(
+      (tile, idx) =>
+        tile.number && (isUpDown ? getColumn(idx) === col : getRow(idx) === row)
+    );
   };
 
   const slide = (direction) => {
@@ -96,7 +118,9 @@ const GameBoard = ({ reset, setReset }) => {
     let combinedArray = [];
     let totalAddedScore = 0;
     for (var index = 0; index < BOARD_SIZE; index++) {
-      const basePosition = isUpDown ? { row: 0, col: index } : { row: getRow(index * BOARD_SIZE), col: 0 };
+      const basePosition = isUpDown
+        ? { row: 0, col: index }
+        : { row: getRow(index * BOARD_SIZE), col: 0 };
       let line = getLine(basePosition, isUpDown);
       const missing = BOARD_SIZE - line.length;
       const zeros = Array(missing).fill(0);
@@ -132,7 +156,9 @@ const GameBoard = ({ reset, setReset }) => {
 
   const slideTiles = useCallback(
     (direction) => {
-      let { newArray, combinedArray, totalAddedScore } = slide(direction, [...numbers]);
+      let { newArray, combinedArray, totalAddedScore } = slide(direction, [
+        ...numbers,
+      ]);
       if (isChanged(newArray)) {
         const newTile = getNewTile(newArray);
         if (first) {
@@ -182,7 +208,10 @@ const GameBoard = ({ reset, setReset }) => {
     const { maxNumber, isBoardFull, isCombinable } = getGameState();
     if (!isCombinable && isBoardFull) {
       setGameState(0);
-    } else if (!isBoardFull && (maxNumber === WIN_NUMBER || maxNumber === MAX_NUMBER)) {
+    } else if (
+      !isBoardFull &&
+      (maxNumber === WIN_NUMBER || maxNumber === MAX_NUMBER)
+    ) {
       setGameState(maxNumber);
     }
   }, [numbers]);
@@ -208,8 +237,12 @@ const GameBoard = ({ reset, setReset }) => {
     </G.Container>
   ) : (
     <G.Alert>
-      <div>⚠️ 2048 게임은 가로 길이 650px 이상의 디스플레이에서만 가능합니다.</div>
-      <div>현재 화면에서 방향키 입력 시 게임이 실행되고 포인트가 차감됩니다.</div>
+      <div>
+        ⚠️ 2048 게임은 가로 길이 650px 이상의 디스플레이에서만 가능합니다.
+      </div>
+      <div>
+        현재 화면에서 방향키 입력 시 게임이 실행되고 포인트가 차감됩니다.
+      </div>
     </G.Alert>
   );
 };

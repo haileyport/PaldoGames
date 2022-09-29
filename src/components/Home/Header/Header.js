@@ -1,8 +1,6 @@
-import axios from "axios";
 import Link from "next/link";
 import { useCallback, useEffect } from "react";
 import { useSession } from "next-auth/react";
-
 import { useRecoilState } from "recoil";
 import { currentUserState, modalStates } from "../../../states";
 
@@ -11,47 +9,51 @@ import { Profile } from "./NavProfile";
 import { Login } from "./NavLogin";
 import * as StyledNav from "./Nav.style";
 import * as Styled from "./Header.style";
+import { useGet } from "../../../hooks";
 
 export const Header = () => {
   const { data: session, status } = useSession();
-
   const [currentUser, setCurrentUser] = useRecoilState(currentUserState);
   const [modal, setModal] = useRecoilState(modalStates);
 
-  const fetchLoginData = useCallback(async () => {
-    const response = await axios.get("/api/user");
+  const [selectedUserData, error, loading] = useGet(`/user`);
 
-    const users = response.data.users;
+  const getUserData = useCallback(() => {
+    if (!loading && !error) {
+      const users = selectedUserData.users;
 
-    if (session) {
-      const email = session.user.email;
-      const userIndex = users.findIndex((user, i) => user.email === email);
+      if (session) {
+        const email = session.user.email;
+        const userIndex = users.findIndex((user, i) => user.email === email);
 
-      setModal({ ...modal, login: false });
-      setCurrentUser({
-        ...currentUser,
-        user: users[userIndex],
-        isLoggedIn: true,
-      });
+        setModal({ ...modal, login: false });
+        setCurrentUser({
+          ...currentUser,
+          user: users[userIndex],
+          isLoggedIn: true,
+        });
+      }
     }
-  }, [session]);
+
+    // eslint-disable-next-line
+  }, [selectedUserData]);
 
   useEffect(() => {
-    fetchLoginData();
-  }, [fetchLoginData, session]);
+    getUserData();
+  }, [getUserData]);
 
   return (
     <>
       <Styled.Header>
         <HomeLink />
         <StyledNav.Nav>
-          <Link href="/">
+          <Link href='/'>
             <StyledNav.Content>홈</StyledNav.Content>
           </Link>
-          <Link href="/games">
+          <Link href='/games'>
             <StyledNav.Content>게임</StyledNav.Content>
           </Link>
-          <Link href="/community">
+          <Link href='/community'>
             <StyledNav.Content>커뮤니티</StyledNav.Content>
           </Link>
           {status === "unauthenticated" ? <Login /> : <Profile />}

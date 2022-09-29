@@ -6,7 +6,9 @@ export const ModalFooter = () => {
   return (
     <>
       <Styled.Footer>
-        <Styled.FooterInner onClick={() => signOut()}>로그아웃</Styled.FooterInner>
+        <Styled.FooterInner onClick={() => signOut()}>
+          로그아웃
+        </Styled.FooterInner>
       </Styled.Footer>
     </>
   );

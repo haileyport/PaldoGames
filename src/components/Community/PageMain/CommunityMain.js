@@ -1,13 +1,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
-import {
-  adminState,
-  contentState,
-  currentUserState,
-  modalStates,
-} from "../../../states";
-import axios from "axios";
+import { adminState, currentUserState, modalStates } from "../../../states";
 
 import { Flex } from "../../@commons";
 import { ContentModal } from "../ContentModal/ContentModal";
@@ -94,24 +88,24 @@ export const CommunityMain = ({ postList }) => {
   return (
     <>
       <Styled.Header>
-        <Flex flexDirection="row" justifyContent="space-around">
-          <Link href="/community">
+        <Flex flexDirection='row' justifyContent='space-around'>
+          <Link href='/community'>
             <Styled.P>커뮤니티</Styled.P>
           </Link>
-          <Link href="/ranking">
+          <Link href='/ranking'>
             <Styled.P>랭킹</Styled.P>
           </Link>
         </Flex>
-        <Flex flexDirection="row" justifyContent="center">
+        <Flex flexDirection='row' justifyContent='center'>
           <Styled.SearchContainer>
             <Styled.SearchInput
-              type="text"
-              placeholder="   검색어를 입력하세요"
+              type='text'
+              placeholder='   검색어를 입력하세요'
               onChange={onChangeSearchEvent}
             />
             <FontAwesomeIcon
               icon={faSearch}
-              size="1x"
+              size='1x'
               style={{
                 position: "relative",
                 top: 52,
@@ -142,8 +136,8 @@ export const CommunityMain = ({ postList }) => {
             />
           </Styled.Footer>
           <Flex
-            justifyContent="flex-end"
-            alignItems="center"
+            justifyContent='flex-end'
+            alignItems='center'
             style={{ width: "95%", marginBottom: "10px" }}
           >
             <Styled.Button

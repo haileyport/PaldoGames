@@ -25,7 +25,6 @@ export async function getServerSideProps(context) {
   const postData = postDataObj.response;
 
   const userRes = await fetch("https://paldo-games.vercel.app/api/user");
-
   const userDataObj = await userRes.json();
 
   const postList = [];

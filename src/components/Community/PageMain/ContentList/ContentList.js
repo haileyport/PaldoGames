@@ -13,7 +13,13 @@ export const ContentList = ({ post }) => {
     <Flex
       flexDirection='row'
       justifyContent='space-between'
-      style={{ width: "90%", position: "relative", top: "40px", borderBottom: "1px solid white", margin: "0 auto" }}
+      style={{
+        width: "90%",
+        position: "relative",
+        top: "40px",
+        borderBottom: "1px solid white",
+        margin: "0 auto",
+      }}
     >
       <Flex style={{ width: 550 }}>
         <input type='radio' disabled style={{ width: "auto" }} />
@@ -21,10 +27,16 @@ export const ContentList = ({ post }) => {
           writer={writer.id}
           className='ellipsis'
           onClick={() => {
-            const currentPost = postList.filter((post) => post.title === title && post.editor === writer.id)[0];
+            const currentPost = postList.filter(
+              (post) => post.title === title && post.editor === writer.id
+            )[0];
 
             setModal({ ...modal, community: true });
-            setCurrentPostId({ contentId: currentPost?.id, userId: currentPost?.editor, title: currentPost?.title });
+            setCurrentPostId({
+              contentId: currentPost?.id,
+              userId: currentPost?.editor,
+              title: currentPost?.title,
+            });
           }}
         >
           {title}
@@ -41,7 +53,9 @@ export const ContentList = ({ post }) => {
           }}
           style={{ width: 30, height: 30, borderRadius: 50, marginRight: 10 }}
         />
-        <Styled.NameSpan length={writer.name.length}>{writer.name}</Styled.NameSpan>
+        <Styled.NameSpan length={writer.name.length}>
+          {writer.name}
+        </Styled.NameSpan>
       </Flex>
     </Flex>
   );

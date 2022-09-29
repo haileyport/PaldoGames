@@ -51,3 +51,9 @@ p {
     white-space: nowrap;
   }
 }
+
+.hover {
+  position: relative;
+  filter: brightness(50%) !important;
+  transition: 0.3s;
+}
