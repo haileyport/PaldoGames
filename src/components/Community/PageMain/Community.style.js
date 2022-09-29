@@ -138,6 +138,7 @@ export const NameSpan = styled.span`
   @media screen and (max-width: 700px) {
     display: none;
   }
+
   @media screen and (max-width: 800px) {
     white-space: ${(props) => (props.length > 8 ? "nowrap" : "")};
   }
@@ -162,17 +163,21 @@ export const Title = styled.p`
 export const Footer = styled.footer`
   position: absolute;
   width: 100%;
-  top: 82%;
+  top: 94%;
 
-  @media screen and (max-width: 600px) {
-    top: 90%;
+  @media screen and (max-height: 1000px) {
+    top: 110%;
   }
 
-  @media screen and (max-height: 1500px) {
-    top: 97%;
+  @media screen and (max-width: 600px) {
+    top: 42rem;
   }
 
   @media screen and (max-width: 400px) {
-    top: 97%;
+    top: 42rem;
+  }
+
+  @media screen and (max-width: 1300px) {
+    top: 40rem;
   }
 `;
