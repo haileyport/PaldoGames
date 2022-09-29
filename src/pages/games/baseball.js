@@ -7,7 +7,7 @@ const BaseBallGamePage = () => {
     <>
       <Head>
         <title>숫자야구 게임</title>
-        <meta name="description" content="오늘도 즐겜" />
+        <meta name='description' content='오늘도 즐겜' />
       </Head>
       <BaseBallMain />
     </>

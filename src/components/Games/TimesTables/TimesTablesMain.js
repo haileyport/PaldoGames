@@ -173,10 +173,10 @@ const TimesTablesMain = () => {
         <>
           <TimesTablesSmallTitle>구구단 게임 💬</TimesTablesSmallTitle>
           <AlarmContainer>
-            <Image src={alarm} width="80%" height="80%" />
+            <Image src={alarm} width='80%' height='80%' />
             <TimesTablesAlarm>{seconds}</TimesTablesAlarm>
           </AlarmContainer>
-          <Flex justifyContent="center" alignItems="center">
+          <Flex justifyContent='center' alignItems='center'>
             <TimesTablesLives>{lives}</TimesTablesLives>
             <TimesTablesScore>SCORE: {score}</TimesTablesScore>
           </Flex>
@@ -192,7 +192,7 @@ const TimesTablesMain = () => {
             }}
           >
             <TimesTablesInput
-              type="number"
+              type='number'
               value={value}
               ref={valueInput}
               onChange={(e) => {
