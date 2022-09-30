@@ -19,9 +19,9 @@ export const Profile = () => {
   const { user } = useRecoilValue(currentUserState);
 
   return (
-    <Flex flexDirection='column'>
+    <Flex flexDirection="column">
       <StyledNav.Profile
-        type='image'
+        type="image"
         src={session?.user.image}
         onClick={() => setModal({ ...modal, profile: true })}
       />
@@ -30,12 +30,12 @@ export const Profile = () => {
           <Flex>
             <Modal>
               <Styled.Section
-                width='40%'
-                maxWidth='350px'
-                minWidth='300px'
-                left='40%'
+                width="40%"
+                maxWidth="350px"
+                minWidth="300px"
+                left="40%"
               >
-                <ModalHeader content='프로필' />
+                <ModalHeader content="프로필" />
                 <ModalProfile user={user} />
                 <ProfileModalMain user={user} />
                 <ModalFooter />

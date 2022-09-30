@@ -98,7 +98,6 @@ export const NameSpan = styled.span`
   @media screen and (max-width: 700px) {
     display: none;
   }
-
   @media screen and (max-width: 800px) {
     white-space: ${(props) => (props.length > 8 ? "nowrap" : "")};
   }

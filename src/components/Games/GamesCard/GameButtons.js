@@ -12,8 +12,8 @@ export const GameButtons = ({ content, linkUrl, setIsHovering, gameTitle }) => {
     <>
       <Link href={linkUrl}>
         <GameBtn
-          top='40%'
-          left='50%'
+          top="40%"
+          left="50%"
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >
@@ -21,8 +21,8 @@ export const GameButtons = ({ content, linkUrl, setIsHovering, gameTitle }) => {
         </GameBtn>
       </Link>
       <GameBtn
-        top='60%'
-        left='50%'
+        top="60%"
+        left="50%"
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
         onClick={() => {

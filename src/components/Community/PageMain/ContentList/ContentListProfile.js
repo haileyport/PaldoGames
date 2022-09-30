@@ -34,12 +34,12 @@ export const ContentListProfile = () => {
     <Flex>
       <Modal>
         <Styled.Section
-          width='40%'
-          maxWidth='350px'
-          minWidth='300px'
-          left='40%'
+          width="40%"
+          maxWidth="350px"
+          minWidth="300px"
+          left="40%"
         >
-          <ModalHeader content='프로필' />
+          <ModalHeader content="프로필" />
           {editor !== null && (
             <>
               <ModalProfile user={editor} />
