@@ -1,6 +1,13 @@
 import Link from "next/link";
 import { Animation } from "../Main/Animation";
-import { StyledHeroContainer, HeroTitle, HeroMiniTitle, GameButton, HeroButton, AnimationContainer } from "./Hero.style";
+import {
+  StyledHeroContainer,
+  HeroTitle,
+  HeroMiniTitle,
+  GameButton,
+  HeroButton,
+  AnimationContainer,
+} from "./Hero.style";
 
 export const Hero = () => {
   return (
@@ -12,7 +19,7 @@ export const Hero = () => {
         </HeroTitle>
         <HeroMiniTitle>포인트를 얻어 랭킹에 들어봅시다!</HeroMiniTitle>
         <GameButton>
-          <Link href='/games'>
+          <Link href="/games">
             <HeroButton>게임하러 가기</HeroButton>
           </Link>
         </GameButton>

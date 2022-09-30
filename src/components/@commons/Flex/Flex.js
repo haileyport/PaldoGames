@@ -1,4 +1,4 @@
-import { FlexBox } from './Flex.style';
+import { FlexBox } from "./Flex.style";
 
 export const Flex = (props) => {
   const { children, ...rest } = props;

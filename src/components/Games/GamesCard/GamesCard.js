@@ -1,8 +1,6 @@
 import { GamesCardImgWrapper, StyledGamesCard } from "./GamesCard.style";
 import Image from "next/image";
 import { useState } from "react";
-import { useRecoilState } from "recoil";
-import { modalStates } from "../../../states";
 import { GameButtons } from "./GameButtons";
 
 export const GamesCard = ({ imageUrl, gameTitle, linkUrl }) => {
@@ -14,7 +12,12 @@ export const GamesCard = ({ imageUrl, gameTitle, linkUrl }) => {
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
       >
-        <Image src={imageUrl} layout="responsive" quality={100} />
+        <Image
+          src={imageUrl}
+          layout="responsive"
+          quality={100}
+          alt="card-image"
+        />
       </GamesCardImgWrapper>
       {isHovering ? (
         <GameButtons

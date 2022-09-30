@@ -18,7 +18,8 @@ export const Modal = ({ children }) => {
       easteregg: false,
     });
 
-  const onClickBackground = ({ target }) => target === backgroundRef.current && handleModals();
+  const onClickBackground = ({ target }) =>
+    target === backgroundRef.current && handleModals();
 
   // 모달창 팝업시 배경 스크롤 제한
   useEffect(() => {

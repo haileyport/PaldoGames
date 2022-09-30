@@ -43,7 +43,6 @@ const GameBtn = styled.button`
     outline: 2px solid transparent;
     outline-offset: 2px;
   }
-
   &:hover {
     background-color: rgb(79 70 229);
     cursor: pointer;

@@ -1,5 +1,6 @@
-import axios from "axios";
 import Link from "next/link";
+import { useCallback, useEffect, useState } from "react";
+import { useGet } from "../../../../hooks";
 import { useRecoilState } from "recoil";
 import { modalStates } from "../../../../states";
 
@@ -10,22 +11,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCoins } from "@fortawesome/free-solid-svg-icons";
 import { faTicket } from "@fortawesome/free-solid-svg-icons";
 
-import { useCallback, useEffect, useState } from "react";
-
 export const ProfileModalMain = ({ user }) => {
   const [modal, setModal] = useRecoilState(modalStates);
   const [totalPoint, setTotalPoint] = useState(null);
+  const [userData, error, loading] = useGet(`/game/${user.id}`);
 
-  const fetchTotalPoint = useCallback(async () => {
-    await axios.get(`/api/game/${user.id}`).then((res) => {
-      const data = res.data;
-      const point = data.response.totalPoint;
+  const fetchTotalPoint = useCallback(() => {
+    if (!error && !loading) setTotalPoint(userData.response.totalPoint);
 
-      setTotalPoint(point);
-
-      return point;
-    });
-  }, [user]);
+    // eslint-disable-next-line
+  }, [userData]);
 
   useEffect(() => {
     fetchTotalPoint();

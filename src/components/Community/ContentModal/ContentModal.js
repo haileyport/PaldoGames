@@ -8,13 +8,22 @@ import { Modal, ModalHeader, ModalProfile } from "../../@commons/Modal";
 
 export const ContentModal = ({ postData }) => {
   const ids = useRecoilValue(contentState);
-  const index = postData.findIndex((post) => post.title === ids.title && post.editor === ids.userId);
+  const index = postData.findIndex(
+    (post) => post.title === ids.title && post.editor === ids.userId
+  );
   const user = postData[index];
 
   return (
     <Modal>
-      <Styled.Section width='80%' maxWidth='1000px' minWidth='300px' style={{ maxHeight: "500px", overflowY: "auto" }}>
-        <ModalHeader content={ids.userId === ADMIN_INFO.id ? "공지사항" : "게시물"} />
+      <Styled.Section
+        width="80%"
+        maxWidth="1000px"
+        minWidth="300px"
+        style={{ maxHeight: "500px", overflowY: "auto" }}
+      >
+        <ModalHeader
+          content={ids.userId === ADMIN_INFO.id ? "공지사항" : "게시물"}
+        />
         <ModalProfile user={user?.writer} />
         <CommunityModalMain postData={postData} />
       </Styled.Section>
