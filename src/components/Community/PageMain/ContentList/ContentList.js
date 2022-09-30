@@ -1,7 +1,7 @@
 import { useRecoilState, useRecoilValue } from "recoil";
 import { contentState, modalStates, postState } from "../../../../states";
 import { Flex, Input } from "../../../@commons";
-import * as Styled from "../Community.style";
+import * as Styled from "../ContentMain/Content.style";
 
 export const ContentList = ({ post }) => {
   const { title, writer } = post;

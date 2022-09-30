@@ -22,10 +22,10 @@ import { BaseBallMain } from "./Games/BaseBall/BaseBallMain";
 import { MergeGameMain } from "./Games/Merge/MergeGameMain";
 
 // Community Main related
-import { CommunityMain } from "./Community/PageMain/CommunityMain";
 import { ContentModal } from "./Community/ContentModal/ContentModal";
 import { Pagination } from "./Community/Pagination/Pagination";
 import { CommunityModalMain } from "./@commons/Modal/ModalMain/CommunityModalMain";
+import { CommunityMain } from "./Community/PageMain/ContentMain/ContentMain";
 
 export { Hero, Animation, Footer, Header, Layout, Main, Profile };
 

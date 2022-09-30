@@ -2,7 +2,6 @@ import { useCallback, useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 import { useGet } from "../../../../hooks";
 import { contentState } from "../../../../states";
-import { Flex } from "../../../@commons";
 import {
   Modal,
   ModalHeader,
@@ -31,23 +30,21 @@ export const ContentListProfile = () => {
   }, [getUserProfile]);
 
   return (
-    <Flex>
-      <Modal>
-        <Styled.Section
-          width='40%'
-          maxWidth='350px'
-          minWidth='300px'
-          left='40%'
-        >
-          <ModalHeader content='프로필' />
-          {editor !== null && (
-            <>
-              <ModalProfile user={editor} />
-              <ProfileModalMain user={editor} />
-            </>
-          )}
-        </Styled.Section>
-      </Modal>
-    </Flex>
+    <>
+      {editor && (
+        <Modal>
+          <Styled.Section
+            width="40%"
+            maxWidth="350px"
+            minWidth="300px"
+            left="40%"
+          >
+            <ModalHeader content="프로필" />
+            <ModalProfile user={editor} />
+            <ProfileModalMain user={editor} />
+          </Styled.Section>
+        </Modal>
+      )}
+    </>
   );
 };

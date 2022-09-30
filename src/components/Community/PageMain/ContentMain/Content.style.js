@@ -37,6 +37,12 @@ export const Main = styled.main`
 export const SearchContainer = styled.div`
   margin-top: 30px;
   margin-bottom: 20px;
+
+  z-index: 68;
+
+  @media screen and (max-width: 370px) {
+    visibility: hidden;
+  }
 `;
 
 export const SearchInput = styled.input`
@@ -98,7 +104,6 @@ export const NameSpan = styled.span`
   @media screen and (max-width: 700px) {
     display: none;
   }
-
   @media screen and (max-width: 800px) {
     white-space: ${(props) => (props.length > 8 ? "nowrap" : "")};
   }
