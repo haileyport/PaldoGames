@@ -37,7 +37,7 @@ export const Main = styled.main`
 export const SearchContainer = styled.div`
   margin-top: 30px;
   margin-bottom: 20px;
-  z-index: 99;
+  z-index: 68;
 `;
 
 export const SearchInput = styled.input`
