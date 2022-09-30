@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
-import { MainHeader } from "../PageMain/MainHeader/MainHeader";
+import { MainHeader } from "./MainHeader/MainHeader";
 import * as ranking from "./Ranking.style";
 import ClipLoader from "react-spinners/ClipLoader";
 
@@ -62,7 +62,7 @@ const RankingMain = () => {
           자신의 랭킹을 확인해보세요!!
         </ranking.RankingSubTitle>
         <ranking.MiddleBox>
-          <ClipLoader color='#ffff' loading={loading} size={200} />
+          <ClipLoader color="#ffff" loading={loading} size={200} />
         </ranking.MiddleBox>
       </ranking.BackColor>
     );
