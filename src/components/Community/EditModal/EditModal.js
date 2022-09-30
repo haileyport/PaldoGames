@@ -72,6 +72,8 @@ export const EditModal = () => {
   const renderPost = (res, index, currentPost) => {
     let _editedPost;
 
+    setModal({ ...modal, edit: false });
+
     if (currentPost.editor === ADMIN_INFO.id) {
       COMMUNITY_ADMINS.map((admin) => {
         if (admin.id === user.id) {
@@ -93,7 +95,6 @@ export const EditModal = () => {
     ];
 
     setPost(modified);
-    setModal({ ...modal, edit: false });
   };
 
   return (

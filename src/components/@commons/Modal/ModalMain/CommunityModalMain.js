@@ -30,10 +30,11 @@ export const CommunityModalMain = () => {
   const iAmTheOne = user.id === getPost?.writer.id;
 
   const renderPost = useCallback(() => {
+    setModal({ ...modal, community: false });
+
     const deleted = [...post.slice(0, index), ...post.slice(index + 1)];
 
     setPost(deleted);
-    setModal({ ...modal, community: false });
 
     // eslint-disable-next-line
   }, [index, post, setPost]);
