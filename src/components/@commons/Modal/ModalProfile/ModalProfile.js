@@ -10,13 +10,13 @@ export const ModalProfile = ({ user }) => {
   const ids = useRecoilValue(contentState);
 
   return (
-    <Flex flexDirection='column' alignItems='center'>
+    <Flex flexDirection="column" alignItems="center">
       <Styled.Section>
-        <Flex flexDirection='column' style={{ textAlign: "center" }}>
+        <Flex flexDirection="column" style={{ textAlign: "center" }}>
           {ids.userId === ADMIN_INFO.id ? (
-            <Styled.AdminImage type='image' src={image} alt='admin-image' />
+            <Styled.AdminImage type="image" src={image} alt="admin-image" />
           ) : (
-            <Styled.Image type='image' src={image} alt='profile-image' />
+            <Styled.Image type="image" src={image} alt="profile-image" />
           )}
           <P content={name} style={{ marginBottom: -5 }} />
           <P content={aboutMe ? aboutMe : email} />

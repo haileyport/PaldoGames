@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const FlexBox = styled.div`
   align-items: ${(props) => props.alignItems};

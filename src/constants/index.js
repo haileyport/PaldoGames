@@ -43,7 +43,7 @@ export const GAME_LIST = Object.freeze([
     imageUrl: baseball,
     linkUrl: "/games/baseball",
     desc: `랜덤한 숫자 4개를 맞히는 게임입니다.⚾️
-
+np
     첫 번째 정답 입력 시, 참가비 100 포인트가 차감됩니다.
     숫자를 입력하면 공이 나옵니다.
 

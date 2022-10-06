@@ -13,12 +13,9 @@ const Footer = styled.footer`
   }
 
   @media screen and (min-width: 640px) {
-<<<<<<< HEAD
-    //640이상
-=======
->>>>>>> 9eb9af3c65959518b3f54d553573eba4d506a8e6
     margin-top: -100px; 
   }*/
+
   @media screen and (max-width: 768px) {
     display: none;
     height: 100%;

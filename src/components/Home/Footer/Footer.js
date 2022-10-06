@@ -11,10 +11,14 @@ export const Footer = () => {
       <Styled.Container>
         <Styled.InfoContainer>
           <Link href='/'>
-            <Styled.TeamName>© 2022 CodeStates - ⓒ FE_40기 팔도게임즈</Styled.TeamName>
+            <Styled.TeamName>
+              © 2022 CodeStates - ⓒ FE_40기 팔도게임즈
+            </Styled.TeamName>
           </Link>
           <Link href='/easteregg'>
-            <Styled.HideButton onClick={() => setModal({ ...modal, easterEgg: true })}></Styled.HideButton>
+            <Styled.HideButton
+              onClick={() => setModal({ ...modal, easterEgg: true })}
+            ></Styled.HideButton>
           </Link>
         </Styled.InfoContainer>
       </Styled.Container>

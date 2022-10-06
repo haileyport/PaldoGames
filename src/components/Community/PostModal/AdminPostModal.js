@@ -29,7 +29,7 @@ export const AdminPostModal = () => {
     return isValid;
   };
 
-  const updatePost = useCallback(
+  const renderPost = useCallback(
     (title, editor, content, writer) => {
       setPost((prev) => [
         {
@@ -45,7 +45,7 @@ export const AdminPostModal = () => {
   );
 
   const handleAdminPostDetails = useCallback(
-    async (e) => {
+    (e) => {
       e.preventDefault();
 
       if (isDisabled) return;
@@ -56,7 +56,7 @@ export const AdminPostModal = () => {
       if (postingValidation(titleValue, contentValue)) {
         setIsDisabled(true);
 
-        await axios
+        axios
           .post(`/api/community`, {
             id: ADMIN_INFO.id,
             title: titleValue,
@@ -64,27 +64,46 @@ export const AdminPostModal = () => {
           })
           .catch((err) => console.log(err));
 
-        updatePost(titleValue, ADMIN_INFO.id, contentValue, ADMIN_INFO);
+        renderPost(titleValue, ADMIN_INFO.id, contentValue, ADMIN_INFO);
         setModal({ ...modal, admin: false });
       } else {
         alert(POST.EMPTY_INPUT);
       }
     },
-    [updatePost]
+
+    // eslint-disable-next-line
+    [isDisabled, renderPost]
   );
 
   return (
     <Modal>
-      <M.Section width='80%' maxWidth='1000px' minWidth='350px' maxHeight='1000px' style={{ overflowY: "auto" }}>
-        <ModalHeader content='공지' />
+      <M.Section
+        width="80%"
+        maxWidth="1000px"
+        minWidth="350px"
+        maxHeight="1000px"
+        style={{ overflowY: "auto" }}
+      >
+        <ModalHeader content="공지" />
         <ModalProfile user={ADMIN_INFO} />
-        <Post.Main type='submit'>
-          <Post.Form onSubmit={(e) => handleAdminPostDetails(e)} disabled={isDisabled}>
-            <Flex justifyContent='center'>
-              <Post.Input ref={title} type='text' placeholder='타이틀을 입력해 주세요.' />
+        <Post.Main type="submit">
+          <Post.Form
+            onSubmit={(e) => handleAdminPostDetails(e)}
+            disabled={isDisabled}
+          >
+            <Flex justifyContent="center">
+              <Post.Input
+                ref={title}
+                type="text"
+                placeholder="타이틀을 입력해 주세요."
+              />
             </Flex>
-            <Flex flexDirection='column' alignItems='center'>
-              <Post.TextArea ref={content} type='text' placeholder='내용을 입력해 주세요.' />
+            <Flex flexDirection="column" alignItems="center">
+              <Post.TextArea
+                ref={content}
+                type="text"
+                placeholder="내용을 입력해 주세요."
+              />
               <Post.Button disabled={isDisabled}>공지글 쓰기</Post.Button>
             </Flex>
           </Post.Form>

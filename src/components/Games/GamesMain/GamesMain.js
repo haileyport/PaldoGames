@@ -3,8 +3,12 @@ import { GamesCard } from "../GamesCard/GamesCard";
 import { GamesSection, GamesTitle, StyledGamesMain } from "./GamesMain.style";
 import { GAME_LIST } from "../../../constants/index.js";
 import { Flex } from "../../@commons";
+import { useRecoilValue } from "recoil";
+import { modalStates } from "../../../states";
+import { CardModal } from "../GamesCard/CardModal/CardModal";
 
 export const GamesMain = () => {
+  const modal = useRecoilValue(modalStates);
   return (
     <>
       <Flex justifyContent='center' alignItems='center'>
@@ -14,9 +18,17 @@ export const GamesMain = () => {
         <Flex justifyContent='center' alignItems='center'>
           <GamesSection>
             {GAME_LIST.map(({ gameTitle, imageUrl, linkUrl }) => {
-              return <GamesCard key={gameTitle} gameTitle={gameTitle} imageUrl={imageUrl} linkUrl={linkUrl} />;
+              return (
+                <GamesCard
+                  key={gameTitle}
+                  gameTitle={gameTitle}
+                  imageUrl={imageUrl}
+                  linkUrl={linkUrl}
+                />
+              );
             })}
           </GamesSection>
+          {modal.desc && <CardModal />}
         </Flex>
         <MainSection />
       </StyledGamesMain>
